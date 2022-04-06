@@ -144,6 +144,39 @@ const FormList = () => {
             </p>
           </div>
         </Link>
+        <Link to="/knowyoursociety-form">
+          <div className="border-2 border-slate-600 bg-white rounded-lg mt-2 p-2 flex justify-between">
+            <h6 className="font-bold pt-1">Know Your Society</h6>
+            <p className="border-2 border-black rounded-3xl p-1">
+              <span>
+                {/* {clFormCount.length === null ? 0 : clFormCount.length} */}
+              </span>
+              /1
+            </p>
+          </div>
+        </Link>
+        <Link to="/amenities-form">
+          <div className="border-2 border-slate-600 bg-white rounded-lg mt-2 p-2 flex justify-between">
+            <h6 className="font-bold pt-1">Amenities</h6>
+            <p className="border-2 border-black rounded-3xl p-1">
+              <span>
+                {/* {clFormCount.length === null ? 0 : clFormCount.length} */}
+              </span>
+              /1
+            </p>
+          </div>
+        </Link>
+        <Link to="/securitysystem-form">
+          <div className="border-2 border-slate-600 bg-white rounded-lg mt-2 p-2 flex justify-between">
+            <h6 className="font-bold pt-1">Security System</h6>
+            <p className="border-2 border-black rounded-3xl p-1">
+              <span>
+                {/* {clFormCount.length === null ? 0 : clFormCount.length} */}
+              </span>
+              /1
+            </p>
+          </div>
+        </Link>
         <div className="border-2 border-sky-600 absolute bottom-5 right-5 bg-sky-600 px-4 py-2 rounded-md">
         <button onClick={checkSubmit} className="text-white font-bold">
           Submit

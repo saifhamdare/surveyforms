@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
-import CommunityLeader from "./forms/CommunityLeader";
-import Neighbourhood from "./forms/Neighbourhood";
-import PhotoUpload from "./forms/PhotoUpload";
-import PlaceInfo from "./forms/PlaceInfo";
+import CommunityLeader from "./forms/neibourhoodForms/CommunityLeader";
+import Neighbourhood from "./forms/neibourhoodForms/Neighbourhood";
+import PhotoUpload from "./forms/neibourhoodForms/PhotoUpload";
+import PlaceInfo from "./forms/neibourhoodForms/PlaceInfo";
 import Dashboard from "./pages/Dashboard";
 import FormList from "./pages/FormList";
 import Login from "./pages/Login";
@@ -13,6 +13,9 @@ import axios from "axios";
 import TaskHistory from "./history/TaskHistory";
 import PendingTask from "./pendingtasks/PendingTask";
 import PendingList from "./pendingtasks/PendingList";
+import KnowYourSociety from "./forms/societyForm/KnowYourSociety";
+import Amenities from "./forms/societyForm/Amenities";
+import SecuritySystem from "./forms/societyForm/SecuritySystem";
 
 
 
@@ -90,6 +93,9 @@ const getTasks = (_token) => {
         <Route path="placeinfo-form" element={<PlaceInfo  />} />
         <Route path="photoupload-form" element={<PhotoUpload  />} />
         <Route path="communityleader-form" element={<CommunityLeader   />} />
+        <Route path="knowyoursociety-form" element={<KnowYourSociety   />} />
+        <Route path="amenities-form" element={<Amenities  />} />
+        <Route path="securitysystem-form" element={<SecuritySystem  />} />
         <Route path="pending-list" element={<PendingList   />} />
       </Routes>
       
