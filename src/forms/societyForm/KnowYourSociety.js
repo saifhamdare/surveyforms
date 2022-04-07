@@ -18,7 +18,7 @@ const KnowYourSociety = () => {
 
   const onSubmit = () => {};
   return (
-    <div className="bg-slate-200">
+    <div className="bg-slate-200 capitalize	">
       <ToastContainer autoClose={1500} />
       <div className="form-container className=' m-1 mt-5 ' ">
         <h2 className="text-lg font-bold text-sky-500  border-2 px-1 py-6">
@@ -184,11 +184,11 @@ const KnowYourSociety = () => {
             <label>COMMON COMPOUND WITH COMMERCIALS</label> <br />
           </div>
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question 	 bg-white border-2 rounded-lg mt-2 p-4 "
             onChange={(e) => setkysCommercialEntities(e.target.value)}
             required
           >
-            <h4 className="font-semibold text-lg">
+            <h4 className="font-semibold text-lg 	">
             SELECT COMMERCIAL ENTITIES IN COMPOUND
             </h4>
             <input type="radio" name="commercialentities" value="RETAIL SHOPS" />

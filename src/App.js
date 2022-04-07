@@ -16,6 +16,9 @@ import PendingList from "./pendingtasks/PendingList";
 import KnowYourSociety from "./forms/societyForm/KnowYourSociety";
 import Amenities from "./forms/societyForm/Amenities";
 import SecuritySystem from "./forms/societyForm/SecuritySystem";
+import Demographic from "./forms/societyForm/Demographic";
+import SocietySurrounding from "./forms/societyForm/SocietySurrounding";
+import Parking from "./forms/societyForm/Parking";
 
 
 
@@ -96,6 +99,9 @@ const getTasks = (_token) => {
         <Route path="knowyoursociety-form" element={<KnowYourSociety   />} />
         <Route path="amenities-form" element={<Amenities  />} />
         <Route path="securitysystem-form" element={<SecuritySystem  />} />
+        <Route path="demographic-form" element={<Demographic  />} />
+        <Route path="societysurrounding-form" element={<SocietySurrounding  />} />
+        <Route path="parking-form" element={<Parking  />} />
         <Route path="pending-list" element={<PendingList   />} />
       </Routes>
       
