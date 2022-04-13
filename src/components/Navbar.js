@@ -10,6 +10,10 @@ import { Modal } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { ArrowBack } from "@mui/icons-material";
+
+
 
 let TOKEN = "";
 const style = {
@@ -26,8 +30,8 @@ const style = {
 export default function ButtonAppBar({ isloggedIn }) {
   const [open, setOpen] = React.useState(false);
   const [userdata, setUserdata] = React.useState();
+  const [backButton,setBackButton]=React.useState(false);
   const navigate = useNavigate();
-
   const successNotify = () => toast.warn("Logging out",{
     position:'bottom-center'
 
@@ -36,6 +40,7 @@ export default function ButtonAppBar({ isloggedIn }) {
   const handleClose = () => setOpen(false);
 
   const handleOpen = () => setOpen(true);
+
 
   
   const  showProfile = (_token)=>{
@@ -57,31 +62,37 @@ const execute =()=>{
 }
   const logout = () => {
     successNotify()
-  setTimeout(execute,3000)
+    setTimeout(execute,3000)
   };
+
+const handleBack=() =>{
+  if(window.location.pathname==='neighbourhood-form' || window.location.pathname=== 'placeinfo-form'|| window.location.pathname=== 'photoupload-form'){
+    navigate('/form-list')
+  }else{
+    navigate('/dashboard')
+  }
+}
+
   React.useEffect(() => {
-    if(isloggedIn === true){
+    if(isloggedIn === true ){
     TOKEN = localStorage.getItem("token");
     showProfile(TOKEN);
     }
+   
+
   }, [isloggedIn]);
 
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          ></IconButton>
+  
           {isloggedIn ? (
             <>
+             <button onClick={() => handleBack() }><ArrowBack/></button>
               <Typography component="div" sx={{ flexGrow: 1 }}>
                 <Button color="inherit" onClick={handleOpen}>
-                  {" "}
+                  
                   Operator Details
                 </Button>
 
@@ -97,31 +108,31 @@ const execute =()=>{
                     <h2 className="font-bold text-xl mb-4">User Profile</h2>
 
                     <p className="font-bold">
-                      {" "}
-                      Full Name {" "}
+                      
+                      Full Name 
                       <span className="font-medium pl-4">
                          : {userdata?.first_name} {userdata?.last_name}
-                      </span>{" "}
+                      </span>
                     </p>
                     <p className="font-bold ">
-                      {" "}
-                      Email ID {" "}
-                      <span className="font-medium pl-8">: {userdata?.email}</span>{" "}
+                      
+                      Email ID 
+                      <span className="font-medium pl-8">: {userdata?.email}</span>
                     </p>
                     <p className="font-bold">
-                      {" "}
-                      Operator ID {" "}
-                      <span className="font-medium pl-1">: {userdata?.user_id}</span>{" "}
+                      
+                      Operator ID 
+                      <span className="font-medium pl-1">: {userdata?.user_id}</span>
                     </p>
                     <p className="font-bold">
-                      {" "}
-                      Mobile No {" "}
-                      <span className="font-medium pl-3">: {userdata?.mobile}</span>{" "}
+                      
+                      Mobile No 
+                      <span className="font-medium pl-3">: {userdata?.mobile}</span>
                     </p>
                     <p className="font-bold">
-                      {" "}
-                      Gender {" "}
-                      <span className="font-medium pl-9">: {userdata?.gender}</span>{" "}
+                      
+                      Gender 
+                      <span className="font-medium pl-9">: {userdata?.gender}</span>
                     </p>
                  
                   </Box>
@@ -129,7 +140,7 @@ const execute =()=>{
               </Typography>
               <Button  color="inherit" onClick={logout}>
                 LogOut
-              </Button>{" "}
+              </Button>
             </>
           ) : (
             <h2 className="font-bold text-xl ml-2">Society Survey Form </h2>

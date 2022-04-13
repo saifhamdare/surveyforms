@@ -17,7 +17,6 @@ const SecuritySystem = () => {
     const [ssAntiTheftAlarm, setssAntiTheftAlarm] = useState("");
     const [ssMetalDetector, setssMetalDetector] = useState("");
     const [ssTempretureScreening, setssTempretureScreening] = useState("");
-    const [ssDailyWasteCollecion, setssDailyWasteCollecion] = useState("");
     const [ssDayShiftGrFloorMen, setssDayShiftGrFloorMen] = useState("");
     const [ssDayShiftGrFloorWomen, setssDayShiftGrFloorWomen] = useState("");
     const [ssDayShiftPodiumMen, setssDayShiftPodiumMen] = useState("");
@@ -241,20 +240,7 @@ const SecuritySystem = () => {
             <label>No</label>
           </div>
 
-          <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
-            onChange={(e) => setssDailyWasteCollecion(e.target.value)}
-            required
-          >
-            <h4 className="font-semibold text-lg">Daily Waste Collecion </h4>
-            <input type="radio" name="DailyWasteCollecion" value="Self" />
-            <label>Self</label> <br />
-            <input type="radio" name="DailyWasteCollecion" value="Building House Cleaning" />
-            <label>Building House Cleaning</label>
-             <br />
-            <input type="radio" name="DailyWasteCollecion" value="Third Party" />
-            <label>Third Party</label>
-          </div>
+       
 
           <div className="question bg-white border-2 rounded-lg mt-2 p-4 ">
             <h4 className="font-semibold text-lg">Day Shift at Gr Floor no. of Men </h4>
