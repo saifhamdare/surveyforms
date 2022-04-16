@@ -55,12 +55,12 @@ const Login = ({ setIsloggedIn }) => {
   };
 
   return (
-    <div>
+    <div className="lg:px-48 bg-white">
       <form
         onSubmit={(e) => {
           onSubmit(e);
         }}
-        className='"md:container  md:mx-auto px-8 m-4 mt-20 border-solid border-1 border-sky-500'
+        className='" px-8 p-4 pt-20 border-solid border-1 border-sky-500'
       >
         <h1 className="text-2xl font-semibold mb-5">Operator Login</h1>
 

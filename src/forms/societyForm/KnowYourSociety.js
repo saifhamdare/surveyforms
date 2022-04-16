@@ -125,10 +125,10 @@ const KnowYourSociety = () => {
 
   const onSubmit = () => {};
   return (
-    <div className="bg-slate-200	">
+    <div className="	">
       <ToastContainer autoClose={1500} />
       <div className="form-container className=' m-1 mt-5 ' ">
-        <h2 className="text-lg font-bold text-sky-500  border-2 px-1 py-6">
+        <h2 className="text-lg font-bold text-sky-500   px-1 py-6">
           Know Your Society
         </h2>
         <form
@@ -137,7 +137,7 @@ const KnowYourSociety = () => {
           }}
           action=""
         >
-          <div className="question bg-white border-2 rounded-lg mt-2 p-4 ">
+          <div className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 ">
             <h4 className="font-semibold text-lg">Society Name </h4>
             <Input
               placeholder="eg. Gokuldham Society"
@@ -146,7 +146,7 @@ const KnowYourSociety = () => {
               fullWidth
             />
           </div>
-          <div className="question bg-white border-2 rounded-lg mt-2 p-4 ">
+          <div className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 ">
             <h4 className="font-semibold text-lg">
               Number of Flats Available{" "}
             </h4>
@@ -157,7 +157,7 @@ const KnowYourSociety = () => {
               fullWidth
             />
           </div>
-          <div className="question bg-white border-2 rounded-lg mt-2 p-4 ">
+          <div className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 ">
             <h4 className="font-semibold text-lg">Floor </h4>
             <Input
               placeholder="8"
@@ -168,7 +168,7 @@ const KnowYourSociety = () => {
             />
           </div>
 
-          <div className="question bg-white border-2 rounded-lg mt-2 p-4 ">
+          <div className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 ">
             <h4 className="font-semibold text-lg">Major nearby Landmarks </h4>
             <Input
               placeholder="8"
@@ -180,7 +180,7 @@ const KnowYourSociety = () => {
           </div>
 
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             onChange={(e) => setproperty(e.target.value)}
             required
           >
@@ -203,7 +203,7 @@ const KnowYourSociety = () => {
             <label>TOWNSHIP</label> <br />
           </div>
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             onChange={(e) => setStuctureIncludes(e.target.value)}
             required
           >
@@ -220,7 +220,7 @@ const KnowYourSociety = () => {
           </div>
 
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             onChange={(e) => setPropertySubtype(e.target.value)}
             required
           >
@@ -253,7 +253,7 @@ const KnowYourSociety = () => {
             <label>COMMON COMPOUND WITH COMMERCIALS</label> <br />
           </div>
           <div
-            className="question 	 bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question 	 bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             onChange={(e) => setCommercialEntities(e.target.value)}
             required
           >
@@ -276,12 +276,12 @@ const KnowYourSociety = () => {
             <label>N/A</label> <br />
           </div>
 
-          <h2 className="text-lg font-bold text-sky-500  border-2 px-1 py-6">
+          <h2 className="text-lg font-bold text-sky-500  px-1 py-6">
             Amenities
           </h2>
 
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             onChange={(e) => setlift(e.target.value)}
             required
           >
@@ -307,7 +307,7 @@ const KnowYourSociety = () => {
             <label>No Life</label>
           </div>
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             onChange={(e) => setliftType(e.target.value)}
             required
           >
@@ -321,7 +321,7 @@ const KnowYourSociety = () => {
             <label>N/A</label>
           </div>
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             onChange={(e) => setliftCondition(e.target.value)}
             required
           >
@@ -335,7 +335,7 @@ const KnowYourSociety = () => {
             <label>Bad</label>
           </div>
 
-          <div className="question bg-white border-2 rounded-lg mt-2 p-4 ">
+          <div className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 ">
             <h4 className="font-semibold text-lg">Lift Remark</h4>
             <Input
               placeholder=""
@@ -345,7 +345,7 @@ const KnowYourSociety = () => {
             />
           </div>
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             onChange={(e) => setliftLobby(e.target.value)}
             required
           >
@@ -361,7 +361,7 @@ const KnowYourSociety = () => {
           </div>
 
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             onChange={(e) => setliftLobbyCondition(e.target.value)}
             required
           >
@@ -375,7 +375,7 @@ const KnowYourSociety = () => {
             <label>Bad</label>
           </div>
 
-          <div className="question bg-white border-2 rounded-lg mt-2 p-4 ">
+          <div className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 ">
             <h4 className="font-semibold text-lg">Lobby Remark</h4>
             <Input
               placeholder=""
@@ -386,7 +386,7 @@ const KnowYourSociety = () => {
           </div>
 
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             onChange={(e) => setstaircaseCondition(e.target.value)}
             required
           >
@@ -400,7 +400,7 @@ const KnowYourSociety = () => {
             <label>Bad</label>
           </div>
 
-          <div className="question bg-white border-2 rounded-lg mt-2 p-4 ">
+          <div className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 ">
             <h4 className="font-semibold text-lg">Staircase Remark</h4>
             <Input
               placeholder=""
@@ -410,7 +410,7 @@ const KnowYourSociety = () => {
             />
           </div>
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             onChange={(e) => setEntranceLobbyCondition(e.target.value)}
             required
           >
@@ -426,7 +426,7 @@ const KnowYourSociety = () => {
             <label>Bad</label>
           </div>
 
-          <div className="question bg-white border-2 rounded-lg mt-2 p-4 ">
+          <div className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 ">
             <h4 className="font-semibold text-lg">Entrance Lobby Remark</h4>
             <Input
               placeholder=""
@@ -436,7 +436,7 @@ const KnowYourSociety = () => {
             />
           </div>
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             onChange={(e) => setConditonofMeetingRoom(e.target.value)}
             required
           >
@@ -455,7 +455,7 @@ const KnowYourSociety = () => {
             <label>N/A</label>
           </div>
 
-          <div className="question bg-white border-2 rounded-lg mt-2 p-4 ">
+          <div className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 ">
             <h4 className="font-semibold text-lg">Meeting Room Remark</h4>
             <Input
               placeholder=""
@@ -466,7 +466,7 @@ const KnowYourSociety = () => {
           </div>
 
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             onChange={(e) => setClubHouseCondition(e.target.value)}
             required
           >
@@ -485,7 +485,7 @@ const KnowYourSociety = () => {
             <label>N/A</label>
           </div>
 
-          <div className="question bg-white border-2 rounded-lg mt-2 p-4 ">
+          <div className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 ">
             <h4 className="font-semibold text-lg">Club House Remark</h4>
             <Input
               placeholder=""
@@ -495,7 +495,7 @@ const KnowYourSociety = () => {
             />
           </div>
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             onChange={(e) => setPlayGroundSubtype(e.target.value)}
             required
           >
@@ -519,7 +519,7 @@ const KnowYourSociety = () => {
           </div>
 
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             onChange={(e) => setPlayGroundCondition(e.target.value)}
             required
           >
@@ -533,7 +533,7 @@ const KnowYourSociety = () => {
             <label>Bad</label>
           </div>
 
-          <div className="question bg-white border-2 rounded-lg mt-2 p-4 ">
+          <div className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 ">
             <h4 className="font-semibold text-lg">Play Ground Remark</h4>
             <Input
               placeholder=""
@@ -544,7 +544,7 @@ const KnowYourSociety = () => {
           </div>
 
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             onChange={(e) => setSwimmingPoolType(e.target.value)}
             required
           >
@@ -559,7 +559,7 @@ const KnowYourSociety = () => {
             <label>N/A</label>
           </div>
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             onChange={(e) => setSwimmingPoolCondition(e.target.value)}
             required
           >
@@ -574,7 +574,7 @@ const KnowYourSociety = () => {
             <input type="radio" name="SwimmingPoolcondition" value="Bad" />
             <label>Bad</label>
           </div>
-          <div className="question bg-white border-2 rounded-lg mt-2 p-4 ">
+          <div className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 ">
             <h4 className="font-semibold text-lg">Swimming Pool Remark</h4>
             <Input
               placeholder=""
@@ -585,7 +585,7 @@ const KnowYourSociety = () => {
           </div>
 
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             onChange={(e) => setJoggingTrackCondition(e.target.value)}
             required
           >
@@ -604,7 +604,7 @@ const KnowYourSociety = () => {
             <label>N/A</label>
           </div>
 
-          <div className="question bg-white border-2 rounded-lg mt-2 p-4 ">
+          <div className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 ">
             <h4 className="font-semibold text-lg">Jogging Track Remark</h4>
             <Input
               placeholder=""
@@ -614,7 +614,7 @@ const KnowYourSociety = () => {
             />
           </div>
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             onChange={(e) => setElectricitySupplier(e.target.value)}
             required
           >
@@ -626,7 +626,7 @@ const KnowYourSociety = () => {
           </div>
 
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             onChange={(e) => setReflexologyCondition(e.target.value)}
             required
           >
@@ -642,7 +642,7 @@ const KnowYourSociety = () => {
             <input type="radio" name="Reflexologycondition" value="N/A" />
             <label>N/A</label>
           </div>
-          <div className="question bg-white border-2 rounded-lg mt-2 p-4 ">
+          <div className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 ">
             <h4 className="font-semibold text-lg">Reflexology Remark</h4>
             <Input
               placeholder=""
@@ -653,7 +653,7 @@ const KnowYourSociety = () => {
           </div>
 
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             onChange={(e) => setCycleTrackCondition(e.target.value)}
             required
           >
@@ -670,7 +670,7 @@ const KnowYourSociety = () => {
             <label>N/A</label>
           </div>
 
-          <div className="question bg-white border-2 rounded-lg mt-2 p-4 ">
+          <div className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 ">
             <h4 className="font-semibold text-lg">Cycle Track Remark</h4>
             <Input
               placeholder=""
@@ -681,7 +681,7 @@ const KnowYourSociety = () => {
           </div>
 
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             onChange={(e) => setGreenary(e.target.value)}
             required
           >
@@ -699,7 +699,7 @@ const KnowYourSociety = () => {
           </div>
 
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             onChange={(e) => setPublicAreaLighting(e.target.value)}
             required
           >
@@ -733,7 +733,7 @@ const KnowYourSociety = () => {
           </div>
 
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             onChange={(e) => setPublicAreaLightingCondition(e.target.value)}
             required
           >
@@ -760,7 +760,7 @@ const KnowYourSociety = () => {
             />
             <label>Bad</label>
           </div>
-          <div className="question bg-white border-2 rounded-lg mt-2 p-4 ">
+          <div className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 ">
             <h4 className="font-semibold text-lg">
               Public Area Lighting Remark
             </h4>
@@ -772,7 +772,7 @@ const KnowYourSociety = () => {
             />
           </div>
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             onChange={(e) => setotherAmenities(e.target.value)}
             required
           >
@@ -802,7 +802,7 @@ const KnowYourSociety = () => {
           </div>
 
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             onChange={(e) => setotherAmenitiesCondition(e.target.value)}
             required
           >
@@ -817,7 +817,7 @@ const KnowYourSociety = () => {
             <input type="radio" name="OtherAmenitiescondition" value="Bad" />
             <label>Bad</label>
           </div>
-          <div className="question bg-white border-2 rounded-lg mt-2 p-4 ">
+          <div className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 ">
             <h4 className="font-semibold text-lg">Other Amenities Remark</h4>
             <Input
               placeholder=""
@@ -826,7 +826,7 @@ const KnowYourSociety = () => {
               fullWidth
             />
           </div>
-          <div className="question bg-white border-2 rounded-lg mt-2 p-4 ">
+          <div className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 ">
             <h4 className="font-semibold text-lg">Photo upload of lift</h4>
             <Input
               type="file"
@@ -839,7 +839,7 @@ const KnowYourSociety = () => {
               fullWidth
             />
           </div>
-          <div className="question bg-white border-2 rounded-lg mt-2 p-4 ">
+          <div className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 ">
             <h4 className="font-semibold text-lg">
               Photo upload of lift Lobby
             </h4>
@@ -854,7 +854,7 @@ const KnowYourSociety = () => {
               fullWidth
             />
           </div>
-          <div className="question bg-white border-2 rounded-lg mt-2 p-4 ">
+          <div className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 ">
             <h4 className="font-semibold text-lg">Photo upload of staircase</h4>
             <Input
               type="file"
@@ -867,7 +867,7 @@ const KnowYourSociety = () => {
               fullWidth
             />
           </div>
-          <div className="question bg-white border-2 rounded-lg mt-2 p-4 ">
+          <div className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 ">
             <h4 className="font-semibold text-lg">
               Photo upload of entrance Lobby
             </h4>
@@ -882,7 +882,7 @@ const KnowYourSociety = () => {
               fullWidth
             />
           </div>
-          <div className="question bg-white border-2 rounded-lg mt-2 p-4 ">
+          <div className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 ">
             <h4 className="font-semibold text-lg">
               Photo upload of Society Meeting room
             </h4>
@@ -897,7 +897,7 @@ const KnowYourSociety = () => {
               fullWidth
             />
           </div>
-          <div className="question bg-white border-2 rounded-lg mt-2 p-4 ">
+          <div className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 ">
             <h4 className="font-semibold text-lg">
               Photo upload of ClubHouse(Gym)
             </h4>
@@ -912,7 +912,7 @@ const KnowYourSociety = () => {
               fullWidth
             />
           </div>
-          <div className="question bg-white border-2 rounded-lg mt-2 p-4 ">
+          <div className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 ">
             <h4 className="font-semibold text-lg">
               Photo upload of PlayGround
             </h4>
@@ -927,7 +927,7 @@ const KnowYourSociety = () => {
               fullWidth
             />
           </div>
-          <div className="question bg-white border-2 rounded-lg mt-2 p-4 ">
+          <div className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 ">
             <h4 className="font-semibold text-lg">
               Photo upload of Swimming Pool
             </h4>
@@ -942,7 +942,7 @@ const KnowYourSociety = () => {
               fullWidth
             />
           </div>
-          <div className="question bg-white border-2 rounded-lg mt-2 p-4 ">
+          <div className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 ">
             <h4 className="font-semibold text-lg">
               Photo upload of Jogging Track
             </h4>
@@ -957,7 +957,7 @@ const KnowYourSociety = () => {
               fullWidth
             />
           </div>
-          <div className="question bg-white border-2 rounded-lg mt-2 p-4 ">
+          <div className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 ">
             <h4 className="font-semibold text-lg">
               Photo upload of Reflexology
             </h4>
@@ -972,7 +972,7 @@ const KnowYourSociety = () => {
               fullWidth
             />
           </div>
-          <div className="question bg-white border-2 rounded-lg mt-2 p-4 ">
+          <div className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 ">
             <h4 className="font-semibold text-lg">Photo upload of Greenary</h4>
             <Input
               type="file"
@@ -985,7 +985,7 @@ const KnowYourSociety = () => {
               fullWidth
             />
           </div>
-          <div className="question bg-white border-2 rounded-lg mt-2 p-4 ">
+          <div className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 ">
             <h4 className="font-semibold text-lg">
               Photo upload of Public Area Lighting
             </h4>
@@ -1000,7 +1000,7 @@ const KnowYourSociety = () => {
               fullWidth
             />
           </div>
-          <div className="question bg-white border-2 rounded-lg mt-2 p-4 ">
+          <div className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 ">
             <h4 className="font-semibold text-lg">
               Photo upload of Other Amenities
             </h4>
@@ -1017,7 +1017,7 @@ const KnowYourSociety = () => {
           </div>
 
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             onChange={(e) => setDailyWasteCollecion(e.target.value)}
             required
           >
@@ -1040,7 +1040,7 @@ const KnowYourSociety = () => {
           </div>
 
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             onChange={(e) => setWaterStorage(e.target.value)}
             required
           >
@@ -1058,7 +1058,7 @@ const KnowYourSociety = () => {
           </div>
 
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             onChange={(e) => setWaterStoargeFacility(e.target.value)}
             required
           >
@@ -1081,7 +1081,7 @@ const KnowYourSociety = () => {
           </div>
 
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             onChange={(e) => setSatelliteTV(Boolean(e.target.value))}
             required
           >
@@ -1093,7 +1093,7 @@ const KnowYourSociety = () => {
             <input type="radio" name="SatelliteTV" value="" />
             <label>No</label>
           </div>
-          <div className="question bg-white border-2 rounded-lg mt-2 p-4 ">
+          <div className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 ">
             <h4 className="font-semibold text-lg">
               Agency for Facilities Management{" "}
             </h4>
@@ -1108,11 +1108,11 @@ const KnowYourSociety = () => {
             />
           </div>
 
-          <h2 className="text-lg font-bold text-sky-500  border-2 px-1 py-6">
+          <h2 className="text-lg font-bold text-sky-500  px-1 py-6">
             Security Systems
           </h2>
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             onChange={(e) => setFireFightingSystem(e.target.value)}
             required
           >
@@ -1185,7 +1185,7 @@ const KnowYourSociety = () => {
             <br />
           </div>
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             onChange={(e) => setSecurityService(e.target.value)}
             required
           >
@@ -1220,12 +1220,12 @@ const KnowYourSociety = () => {
             <label>Temperature Screening</label> <br />
           </div>
 
-          <h2 className="text-lg font-bold text-sky-500  border-2 px-1 py-6">
+          <h2 className="text-lg font-bold text-sky-500  px-1 py-6">
             Community and Culture
           </h2>
 
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             onChange={(e) => setEatingHabitsAllowed(e.target.value)}
             required
           >
@@ -1246,7 +1246,7 @@ const KnowYourSociety = () => {
             <label>Vegan</label>
           </div>
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             onChange={(e) => setMajorityAgeGroup(e.target.value)}
             required
           >
@@ -1284,7 +1284,7 @@ const KnowYourSociety = () => {
           </div>
 
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             onChange={(e) => setMembersAllowed(e.target.value)}
             required
           >
@@ -1296,7 +1296,7 @@ const KnowYourSociety = () => {
           </div>
 
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             onChange={(e) => setMajorityMemberType(e.target.value)}
             required
           >
@@ -1308,7 +1308,7 @@ const KnowYourSociety = () => {
           </div>
 
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             onChange={(e) => setNationalityAllowed(e.target.value)}
             required
           >
@@ -1325,7 +1325,7 @@ const KnowYourSociety = () => {
           </div>
 
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             onChange={(e) => setBatchlorsAllowed(Boolean(e.target.value))}
             required
           >
@@ -1339,7 +1339,7 @@ const KnowYourSociety = () => {
           </div>
 
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             onChange={(e) => setnonMarriedAllowed(Boolean(e.target.value))}
             required
           >
@@ -1353,7 +1353,7 @@ const KnowYourSociety = () => {
           </div>
 
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             onChange={(e) => setChildrenPlayingAround(Boolean(e.target.value))}
             required
           >
@@ -1367,7 +1367,7 @@ const KnowYourSociety = () => {
           </div>
 
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             onChange={(e) => setElderPeopleActivity(Boolean(e.target.value))}
             required
           >
@@ -1382,7 +1382,7 @@ const KnowYourSociety = () => {
           </div>
 
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             onChange={(e) => setCelebration(e.target.value)}
             required
           >
@@ -1455,7 +1455,7 @@ const KnowYourSociety = () => {
             <label>Other Celebration</label>
           </div>
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             onChange={(e) => setSocietyMeetings(e.target.value)}
             required
           >
@@ -1494,7 +1494,7 @@ const KnowYourSociety = () => {
           </div>
 
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             onChange={(e) => setFunctionsAllowed(Boolean(e.target.value))}
             required
           >
@@ -1507,12 +1507,12 @@ const KnowYourSociety = () => {
             <label>No</label>
           </div>
 
-          <h2 className="text-lg font-bold text-sky-500  border-2 px-1 py-6">
+          <h2 className="text-lg font-bold text-sky-500  px-1 py-6">
             Cleanliness
           </h2>
 
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             onChange={(e) => setCleanliness(e.target.value)}
             required
           >
@@ -1529,7 +1529,7 @@ const KnowYourSociety = () => {
           </div>
 
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             onChange={(e) => setCleanlinessMaintained(e.target.value)}
             required
           >
@@ -1546,11 +1546,11 @@ const KnowYourSociety = () => {
             <label>Bad</label>
           </div>
 
-          <h2 className="text-lg font-bold text-sky-500  border-2 px-1 py-6">
+          <h2 className="text-lg font-bold text-sky-500  px-1 py-6">
             Usefull for You
           </h2>
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             onChange={(e) => setHandymen(Boolean(e.target.value))}
             required
           >
@@ -1566,7 +1566,7 @@ const KnowYourSociety = () => {
           </div>
 
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             onChange={(e) => setRamp(Boolean(e.target.value))}
             required
           >
@@ -1579,7 +1579,7 @@ const KnowYourSociety = () => {
             <label>No</label>
           </div>
 
-          <div className="question bg-white border-2 rounded-lg mt-2 p-4 ">
+          <div className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 ">
             <h4 className="font-semibold text-lg">
               Latest 1 BHK resale price in the society (write at least 3 deals){" "}
             </h4>
@@ -1591,7 +1591,7 @@ const KnowYourSociety = () => {
               fullWidth
             />
           </div>
-          <div className="question bg-white border-2 rounded-lg mt-2 p-4 ">
+          <div className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 ">
             <h4 className="font-semibold text-lg">
               Latest 2 BHK resale price in the society (write at least 3 deals){" "}
             </h4>
@@ -1603,7 +1603,7 @@ const KnowYourSociety = () => {
               fullWidth
             />
           </div>
-          <div className="question bg-white border-2 rounded-lg mt-2 p-4 ">
+          <div className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 ">
             <h4 className="font-semibold text-lg">
               Latest 3 BHK resale price in the society (write at least 3 deals){" "}
             </h4>
@@ -1616,7 +1616,7 @@ const KnowYourSociety = () => {
             />
           </div>
 
-          <div className="question bg-white border-2 rounded-lg mt-2 p-4 ">
+          <div className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 ">
             <h4 className="font-semibold text-lg">
               Number of Visitor Parking Available?{" "}
             </h4>
@@ -1628,7 +1628,7 @@ const KnowYourSociety = () => {
             />
           </div>
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             onChange={(e) => setNoise(Boolean(e.target.value))}
             required
           >
@@ -1641,7 +1641,7 @@ const KnowYourSociety = () => {
             <label>No</label>
           </div>
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             onChange={(e) => setStrayDogs(Boolean(e.target.value))}
             required
           >
@@ -1654,7 +1654,7 @@ const KnowYourSociety = () => {
             <label>No</label>
           </div>
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             onChange={(e) => setCrack(Boolean(e.target.value))}
             required
           >
@@ -1668,7 +1668,7 @@ const KnowYourSociety = () => {
           </div>
 
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             onChange={(e) => setDeed(Boolean(e.target.value))}
             required
           >

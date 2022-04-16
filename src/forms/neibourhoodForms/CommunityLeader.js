@@ -53,16 +53,20 @@ const CommunityLeader = () => {
       )
       .then((res) => {
         successNotify();
-        navigate("/form-list");
+        navigate("/form-list", { replace: true });
+        const status = { status: "P" };
+        axios.patch(`tasks/${localStorage.getItem("property_id")}/`, status, {
+          headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        });
       })
       .catch((err) => failedNotify());
   };
 
   return (
-    <div className="bg-slate-200">
+    <div className="">
       <ToastContainer autoClose={1500} />
-      <div className="form-container className=' m-1 mt-5  ">
-        <h2 className="text-lg font-bold text-sky-500  border-2 px-1 py-6">
+      <div className="form-container  m-1 mt-5  ">
+        <h2 className="text-lg font-bold text-sky-500  px-1 py-6">
           Community Leader
         </h2>
         <form
@@ -71,7 +75,7 @@ const CommunityLeader = () => {
           }}
           action=""
         >
-          <div className="question bg-white border-2 rounded-lg mt-2 p-4 ">
+          <div className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 ">
             <h4 className="font-semibold text-lg">Full Name </h4>
             <Input
               placeholder="eg. ramesh Kumar"
@@ -80,7 +84,7 @@ const CommunityLeader = () => {
               fullWidth
             />
           </div>
-          <div className="question bg-white border-2 rounded-lg mt-2 p-4 ">
+          <div className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 ">
             <h4 className="font-semibold text-lg">Mobile No. </h4>
             <Input
               placeholder="eg. 9876543211"
@@ -89,7 +93,7 @@ const CommunityLeader = () => {
               fullWidth
             />
           </div>
-          <div className="question bg-white border-2 rounded-lg mt-2 p-4 ">
+          <div className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 ">
             <h4 className="font-semibold text-lg">Email id </h4>
             <Input
               placeholder="eg. rameshk@gmail.com"
@@ -99,7 +103,7 @@ const CommunityLeader = () => {
             />
           </div>
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4"
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4"
             required
             onChange={(e) => setclGender(e.target.value)}
           >
@@ -112,7 +116,7 @@ const CommunityLeader = () => {
             <br />
           </div>
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             required
             onChange={(e) => setclProfession(e.target.value)}
           >
@@ -146,7 +150,7 @@ const CommunityLeader = () => {
             <br />
           </div>
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             required
             onChange={(e) => setclLiveInSociety(Boolean(e.target.value))}
           >
@@ -161,7 +165,7 @@ const CommunityLeader = () => {
             <br />
           </div>
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             required
             onChange={(e) => setclKeyPositionInSociety(Boolean(e.target.value))}
           >
@@ -177,7 +181,7 @@ const CommunityLeader = () => {
           </div>
 
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             required
             onChange={(e) => setclGroup(e.target.value)}
           >
@@ -191,7 +195,7 @@ const CommunityLeader = () => {
             <Input type="texr" placeholder="group name" fullWidth required />
           </div>
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             required
             onChange={(e) => setclDuration(e.target.value)}
           >
@@ -201,30 +205,28 @@ const CommunityLeader = () => {
             <p className="italic font-light text-sm">Please mention year.</p>
             <Input type="date" placeholder="dd-mm-yyyy" fullWidth required />
           </div>
-          {/* {showConfirmation ? <div className="m-5 p-2 text-center bg-green-500 rounded-xl">
-              <p className=" text-white" >uploaded Communtiy leaders data Successfully</p>
+       
+             <div className="flex justify-around">
+            <div className="border-2 border-sky-600  bg-white px-6 py-2 my-4  rounded-md">
+              <button
+                onClick={() => {
+                  let result = window.confirm(
+                    "you will you will loose all your data"
+                  );
+                  if (result === true) {
+                    navigate("/form-list", { replace: true });
+                  }
+                }}
+                className="text-sky-600 font-bold"
+              >
+                Back
+              </button>
             </div>
-          : ''
-        } */}
-          <div className="border-2  border-sky-400 bg-sky-300 absolute right-5 px-6 py-2 my-4 rounded-md">
-            <button className=" text-white font-bold" type="submit">
-              Save
-            </button>
-          </div>
-          <div className="border-2 border-sky-600 absolute left-5 bg-white px-6 py-2 my-4  rounded-md">
-            <button
-              onClick={() => {
-                let result = window.confirm(
-                  "you will you will loose all your data"
-                );
-                if (result === true) {
-                  navigate("/form-list");
-                }
-              }}
-              className="text-sky-600 font-bold"
-            >
-              Back
-            </button>
+            <div className="border-2  border-sky-400 bg-sky-300 px-6 py-2 my-4 rounded-md">
+              <button className=" text-white font-bold" type="submit">
+                Save
+              </button>
+            </div>
           </div>
         </form>
       </div>

@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 const PlaceInfo = () => {
-
   const [pigeoCode, setpiGeocode] = useState("");
   const [picookslivingNearby, setpiCookslivingNearby] = useState("");
   const [pisurroundingArea, setpiSurroundingArea] = useState("");
@@ -14,7 +13,8 @@ const PlaceInfo = () => {
   const [pilocalMarketDistance, setpiLocalMarketDistance] = useState("");
   const [pigroceryStoresName, setpiGroceryStoresName] = useState("");
   const [pivegetablesStoresName, setpiVegetablesStoresName] = useState("");
-  const [picommercialEstablishments, setpiCommercialEstablishments] = useState("");
+  const [picommercialEstablishments, setpiCommercialEstablishments] =
+    useState("");
   const [pivicinity, setpiVicinity] = useState("");
   const [piaccessForVehicles, setpiAccessForVehicles] = useState("");
   const [pimaintained, setpiMaintained] = useState("");
@@ -24,13 +24,14 @@ const PlaceInfo = () => {
 
   const navigate = useNavigate();
 
-  const successNotify = () => toast.success("form filled Successfully",{
-    position:'bottom-center'
-  });
-  const failedNotify = () => toast.error("something went wrong",{
-    position:'bottom-center'
-  });
- 
+  const successNotify = () =>
+    toast.success("form filled Successfully", {
+      position: "bottom-center",
+    });
+  const failedNotify = () =>
+    toast.error("something went wrong", {
+      position: "bottom-center",
+    });
 
   const getLoaction = (e) => {
     e.preventDefault();
@@ -68,25 +69,32 @@ const PlaceInfo = () => {
       "Content-type": "application/json",
       Authorization: `Bearer ${localStorage.getItem("token")}`,
     };
-    axios.put(
-      `https://operations.roushik.com/api/tasks/${localStorage.getItem('property_id')}/place-info/`,
-      body,
-      { headers: data })
-      .then((res)=>{
-        successNotify()
-        navigate('/form-list')
-      } )
-      .catch((err)=>{
-        failedNotify()
+    axios
+      .put(
+        `https://operations.roushik.com/api/tasks/${localStorage.getItem(
+          "property_id"
+        )}/place-info/`,
+        body,
+        { headers: data }
+      )
+      .then((res) => {
+        successNotify();
+        navigate("/form-list", { replace: true });
+        const status = { status: "P" };
+        axios.patch(`tasks/${localStorage.getItem("property_id")}/`, status, {
+          headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        });
       })
+      .catch((err) => {
+        failedNotify();
+      });
   };
 
-
   return (
-    <div className="bg-slate-200">
-       <ToastContainer autoClose={1500} />
+    <div className="">
+      <ToastContainer autoClose={1500} />
       <div className="form-container className=' m-1 mt-5 ' ">
-        <h2 className="text-lg font-bold text-sky-500  border-2 px-1 py-6">
+        <h2 className="text-lg font-bold text-sky-500   px-1 py-6">
           Place information
         </h2>
         <form
@@ -95,8 +103,7 @@ const PlaceInfo = () => {
           }}
           action=""
         >
-
-          <div className="question bg-white border-2 rounded-lg mt-2 p-4 ">
+          <div className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 ">
             <h4 className="font-semibold text-lg">
               Enter geolocation of society{" "}
             </h4>
@@ -118,7 +125,7 @@ const PlaceInfo = () => {
             </button>
           </div>
 
-          <div className="question bg-white border-2 rounded-lg mt-2 p-4 ">
+          <div className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 ">
             <h4 className="font-semibold text-lg">
               Number of full time / part time maids/ cooks living near by
             </h4>
@@ -133,7 +140,7 @@ const PlaceInfo = () => {
             />
           </div>
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             onChange={(e) => setpiSurroundingArea(e.target.value)}
             required
           >
@@ -156,7 +163,7 @@ const PlaceInfo = () => {
             <br />
           </div>
 
-          <div className="question bg-white border-2 rounded-lg mt-2 p-4 ">
+          <div className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 ">
             <h4 className="font-semibold text-lg">
               How long does it take to reach the highway from society ?{" "}
             </h4>
@@ -172,7 +179,7 @@ const PlaceInfo = () => {
             />
           </div>
 
-          <div className="question bg-white border-2 rounded-lg mt-2 p-4 ">
+          <div className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 ">
             <h4 className="font-semibold text-lg">
               Please provide the local market name{" "}
             </h4>
@@ -187,7 +194,7 @@ const PlaceInfo = () => {
             />
           </div>
 
-          <div className="question bg-white border-2 rounded-lg mt-2 p-4 ">
+          <div className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 ">
             <h4 className="font-semibold text-lg">
               Please provide local market distance (in Km){" "}
             </h4>
@@ -201,7 +208,7 @@ const PlaceInfo = () => {
               fullWidth
             />
           </div>
-          <div className="question bg-white border-2 rounded-lg mt-2 p-4 ">
+          <div className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 ">
             <h4 className="font-semibold text-lg">
               Please provide top 2 grocery stores' name.{" "}
             </h4>
@@ -217,7 +224,7 @@ const PlaceInfo = () => {
               fullWidth
             />
           </div>
-          <div className="question bg-white border-2 rounded-lg mt-2 p-4 ">
+          <div className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 ">
             <h4 className="font-semibold text-lg">
               Please provide top 2 vegetables stores' name.{" "}
             </h4>
@@ -235,7 +242,7 @@ const PlaceInfo = () => {
           </div>
 
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             onChange={(e) =>
               setpiCommercialEstablishments(Boolean(e.target.value))
             }
@@ -257,7 +264,7 @@ const PlaceInfo = () => {
           </div>
 
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             onChange={(e) => setpiVicinity(e.target.value)}
             required
           >
@@ -294,7 +301,7 @@ const PlaceInfo = () => {
           </div>
 
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             onChange={(e) => setpiAccessForVehicles(Boolean(e.target.value))}
             required
           >
@@ -310,7 +317,7 @@ const PlaceInfo = () => {
           </div>
 
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             onChange={(e) => setpiMaintained(e.target.value)}
             required
           >
@@ -351,7 +358,7 @@ const PlaceInfo = () => {
             <br />
           </div>
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             onChange={(e) => setpiAnyRepair(Boolean(e.target.value))}
             required
           >
@@ -363,14 +370,12 @@ const PlaceInfo = () => {
             <br />
             <input type="radio" name="anyrepair" id="No" value="" />
             <label>No</label>
-            <br />
-            {/* <input type="radio" name="anyrepair" id="Not" value="null" />
-            <label>Not</label> */}
+
             <br />
           </div>
 
           <div
-            className="question bg-white border-2 rounded-lg mt-2 p-4 "
+            className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             onChange={(e) => setpiStructureQuality(e.target.value)}
             required
           >
@@ -391,7 +396,7 @@ const PlaceInfo = () => {
             <label>bad</label>
             <br />
           </div>
-          <div className="question bg-white border-2 rounded-lg mt-2 p-4 ">
+          <div className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 ">
             <h4 className="font-semibold text-lg">Your Remarks</h4>
             <Input
               placeholder="Your Answer"
@@ -400,24 +405,27 @@ const PlaceInfo = () => {
               fullWidth
             />
           </div>
-         
-          <div className="border-2  border-sky-400 bg-sky-300 absolute right-5 px-6 py-2 my-4 rounded-md">
-            <button className=" text-white font-bold" type="submit">
-              Save
-            </button>
-          </div>
-          <div className="border-2 border-sky-600 absolute left-5 bg-white px-6 py-2 my-4  rounded-md">
-            <button
-              onClick={() => {
-                let result= window.confirm("you will you will loose all your data");
-                if(result===true){
-                  navigate("/form-list");
-                }
-              }}
-              className="text-sky-600 font-bold"
-            >
-              Back
-            </button>
+          <div className="flex justify-around">
+            <div className="border-2 border-sky-600  bg-white px-6 py-2 my-4  rounded-md">
+              <button
+                onClick={() => {
+                  let result = window.confirm(
+                    "you will you will loose all your data"
+                  );
+                  if (result === true) {
+                    navigate("/form-list", { replace: true });
+                  }
+                }}
+                className="text-sky-600 font-bold"
+              >
+                Back
+              </button>
+            </div>
+            <div className="border-2  border-sky-400 bg-sky-300 px-6 py-2 my-4 rounded-md">
+              <button className=" text-white font-bold" type="submit">
+                Save
+              </button>
+            </div>
           </div>
         </form>
       </div>

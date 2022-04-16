@@ -9,11 +9,9 @@ import axios from "axios";
 import { Modal } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import "react-toastify/dist/ReactToastify.css";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { ArrowBack } from "@mui/icons-material";
-
-
 
 let TOKEN = "";
 const style = {
@@ -30,20 +28,18 @@ const style = {
 export default function ButtonAppBar({ isloggedIn }) {
   const [open, setOpen] = React.useState(false);
   const [userdata, setUserdata] = React.useState();
-  const [backButton,setBackButton]=React.useState(false);
+  const [backButton, setBackButton] = React.useState(false);
   const navigate = useNavigate();
-  const successNotify = () => toast.warn("Logging out",{
-    position:'bottom-center'
+  const successNotify = () =>
+    toast.warn("Logging out", {
+      position: "bottom-center",
+    });
 
-  });
- 
   const handleClose = () => setOpen(false);
 
   const handleOpen = () => setOpen(true);
 
-
-  
-  const  showProfile = (_token)=>{
+  const showProfile = (_token) => {
     axios
       .get(`users/me/`, {
         headers: { Authorization: `Bearer ${_token}` },
@@ -51,52 +47,58 @@ export default function ButtonAppBar({ isloggedIn }) {
       .then((res) => {
         setUserdata(res.data);
       });
-  }
-const execute =()=>{
-  localStorage.setItem("isLoggedIn", false);
-    localStorage.removeItem('token')
-    localStorage.removeItem('RefreshToken')
-    localStorage.removeItem('property_id')
+  };
+  const execute = () => {
+    localStorage.setItem("isLoggedIn", false);
+    localStorage.removeItem("token");
+    localStorage.removeItem("RefreshToken");
+    localStorage.removeItem("property_id");
     window.location.reload();
-    navigate("/");
-}
+    navigate("/", { replace: true });
+  };
   const logout = () => {
-    successNotify()
-    setTimeout(execute,3000)
+    successNotify();
+    setTimeout(execute, 3000);
   };
 
-const handleBack=() =>{
-  if(window.location.pathname==='neighbourhood-form' || window.location.pathname=== 'placeinfo-form'|| window.location.pathname=== 'photoupload-form'){
-    navigate('/form-list')
-  }else{
-    navigate('/dashboard')
-  }
-}
+  const handleBack = () => {
+    if (
+      window.location.pathname === "neighbourhood-form" ||
+      window.location.pathname === "placeinfo-form" ||
+      window.location.pathname === "photoupload-form"
+    ) {
+      navigate("/form-list", { replace: true });
+    }
+    // else if(window.location.pathname==='pending-list'){
+    //   navigate('/pending-task', { replace: true })
+    // }
+    else if (window.location.pathname === "dashboard") {
+      return true;
+    } else {
+      navigate("/dashboard", { replace: true });
+    }
+  };
 
   React.useEffect(() => {
-    if(isloggedIn === true ){
-    TOKEN = localStorage.getItem("token");
-    showProfile(TOKEN);
+    if (isloggedIn === true) {
+      TOKEN = localStorage.getItem("token");
+      showProfile(TOKEN);
     }
-   
-
   }, [isloggedIn]);
 
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
-  
           {isloggedIn ? (
             <>
-             <button onClick={() => handleBack() }><ArrowBack/></button>
+              <button onClick={() => handleBack()}>
+                <ArrowBack />
+              </button>
               <Typography component="div" sx={{ flexGrow: 1 }}>
                 <Button color="inherit" onClick={handleOpen}>
-                  
                   Operator Details
                 </Button>
-
-
 
                 <Modal
                   open={open}
@@ -108,37 +110,39 @@ const handleBack=() =>{
                     <h2 className="font-bold text-xl mb-4">User Profile</h2>
 
                     <p className="font-bold">
-                      
-                      Full Name 
+                      Full Name
                       <span className="font-medium pl-4">
-                         : {userdata?.first_name} {userdata?.last_name}
+                        : {userdata?.first_name} {userdata?.last_name}
                       </span>
                     </p>
                     <p className="font-bold ">
-                      
-                      Email ID 
-                      <span className="font-medium pl-8">: {userdata?.email}</span>
+                      Email ID
+                      <span className="font-medium pl-8">
+                        : {userdata?.email}
+                      </span>
                     </p>
                     <p className="font-bold">
-                      
-                      Operator ID 
-                      <span className="font-medium pl-1">: {userdata?.user_id}</span>
+                      Operator ID
+                      <span className="font-medium pl-1">
+                        : {userdata?.user_id}
+                      </span>
                     </p>
                     <p className="font-bold">
-                      
-                      Mobile No 
-                      <span className="font-medium pl-3">: {userdata?.mobile}</span>
+                      Mobile No
+                      <span className="font-medium pl-3">
+                        : {userdata?.mobile}
+                      </span>
                     </p>
                     <p className="font-bold">
-                      
-                      Gender 
-                      <span className="font-medium pl-9">: {userdata?.gender}</span>
+                      Gender
+                      <span className="font-medium pl-9">
+                        : {userdata?.gender}
+                      </span>
                     </p>
-                 
                   </Box>
                 </Modal>
               </Typography>
-              <Button  color="inherit" onClick={logout}>
+              <Button color="inherit" onClick={logout}>
                 LogOut
               </Button>
             </>
@@ -147,7 +151,7 @@ const handleBack=() =>{
           )}
         </Toolbar>
       </AppBar>
-        <ToastContainer autoClose={1500}/>
+      <ToastContainer autoClose={1500} />
     </Box>
   );
 }
