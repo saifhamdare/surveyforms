@@ -39,7 +39,7 @@ const Login = ({ setIsloggedIn }) => {
     e.preventDefault();
     const data = { mobile: +mobileNo, password: +pin };
     axios
-      .post("token/", data)
+      .post("api/token/", data)
       .then((res) => {
         localStorage.setItem("token", res.data.access);
         localStorage.setItem("RefreshToken", res.data.refresh);

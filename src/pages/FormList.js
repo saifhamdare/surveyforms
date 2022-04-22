@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
@@ -45,7 +45,7 @@ const FormList = () => {
   const getData = () => {
     axios
       .get(
-        `https://operations.roushik.com/api/tasks/${localStorage.getItem(
+        `api/tasks/${localStorage.getItem(
           "property_id"
         )}/neighbourhood/`,
         {
@@ -58,7 +58,7 @@ const FormList = () => {
     //place info length
     axios
       .get(
-        `https://operations.roushik.com/api/tasks/${localStorage.getItem(
+        `api/tasks/${localStorage.getItem(
           "property_id"
         )}/place-info/`,
         {
@@ -71,7 +71,7 @@ const FormList = () => {
     //photo upload info
     axios
       .get(
-        `https://operations.roushik.com/api/tasks/${localStorage.getItem(
+        `api/tasks/${localStorage.getItem(
           "property_id"
         )}/photos/`,
         {
@@ -84,7 +84,7 @@ const FormList = () => {
     //community leader info
     axios
       .get(
-        `https://operations.roushik.com/api/tasks/${localStorage.getItem(
+        `api/tasks/${localStorage.getItem(
           "property_id"
         )}/community-leader/`,
         {
@@ -106,13 +106,13 @@ const FormList = () => {
     <div className=" ">
       <div className=" p-1 pt-5   ">
         <div
-          onClick={() => {
-            navigate("/neighbourhood-form", { replace: true });
-          }}
+         
           className="border-2 border-slate-600 bg-white rounded-lg mt-2 p-2 flex justify-between"
         >
-          <h6 className="font-bold pt-1">Neighbourhood Information</h6>
-          <p className="border-2 border-black rounded-3xl p-1">
+          <h6  onClick={() => {
+            navigate("/neighbourhood-form", { replace: true });
+          }} className="font-bold pt-1">Neighbourhood Information</h6>
+          <p onClick={()=> navigate("/edit-formlist", { replace: true })} className="border-2 border-black rounded-3xl p-1">
             <span>{nhFormCount.length === null ? 0 : nhFormCount.length}</span>
             /7
           </p>

@@ -15,6 +15,8 @@ import PendingTask from "./pendingtasks/PendingTask";
 import PendingList from "./pendingtasks/PendingList";
 import KnowYourSociety from "./forms/societyForm/KnowYourSociety";
 import SellerInfo from "./forms/sellerForm/SellerInfo";
+import EditNeighbourhood from "./forms/editforms/EditNeighbourhood";
+import EditFormList from "./forms/editforms/EditFormList";
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
@@ -32,7 +34,7 @@ const App = () => {
   // list of properties  for todays tasks
   const getTasks = (_token) => {
     axios
-      .get("tasks/", {
+      .get("api/tasks/", {
         headers: { Authorization: `Bearer ${_token}` },
       })
       .then((response) => {
@@ -59,7 +61,7 @@ const App = () => {
   return (
     <div className="App  ">
       <Navbar isloggedIn={isloggedIn} />
-      <div className="lg:px-96 ">
+      <div className=" xl:px-80 lg:px-52">
         <Routes>
           <Route
             path="/"
@@ -93,6 +95,9 @@ const App = () => {
           <Route path="placeinfo-form" element={<PlaceInfo />} />
           <Route path="photoupload-form" element={<PhotoUpload />} />
           <Route path="communityleader-form" element={<CommunityLeader />} />
+
+          <Route path="edit-formlist" element={<EditFormList />} />
+          <Route path="editneighbourhood-form" element={<EditNeighbourhood />} />
           <Route path="sellerinfo-form" element={<SellerInfo />} />
           <Route path="knowyoursociety-form" element={<KnowYourSociety />} />
           <Route path="pending-list" element={<PendingList />} />

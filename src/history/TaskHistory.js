@@ -11,7 +11,7 @@ const TaskHistory = ({ tasks }) => {
         <div className="lg:grid-cols-8  sm:grid-cols-12">
           {tasks
             ?.filter(
-              (task) => task.survey_type === "survey" && task.status === "C"
+              (task) => task.type === "survey" && task.status === "C"
             )
             .map((task) => (
               <div>
@@ -20,7 +20,7 @@ const TaskHistory = ({ tasks }) => {
                     <div className="">
                       <h6 className="font-bold text-lg">{task.society_name}</h6>
                       <h6 className="font-bold text-base text-violet-700 uppercase ">
-                        {task.survey_type}
+                        {task.type}
                       </h6>
                     </div>
                     <div className="">
@@ -44,7 +44,7 @@ const TaskHistory = ({ tasks }) => {
           {tasks
             ?.filter(
               (task) =>
-                task.survey_type === "know_your_society" && task.status === "C"
+                task.type === "know_your_society" && task.status === "C"
             )
             .map((task) => (
               <div>
@@ -53,7 +53,7 @@ const TaskHistory = ({ tasks }) => {
                     <div className="">
                       <h6 className="font-bold text-lg">{task.society_name}</h6>
                       <h6 className="font-bold text-base text-violet-700 uppercase ">
-                        {task.survey_type}
+                        {task.type}
                       </h6>
                     </div>
                     <div className="">
@@ -77,7 +77,7 @@ const TaskHistory = ({ tasks }) => {
           {tasks
             ?.filter(
               (task) =>
-                task.survey_type === "know_your_seller" && task.status === "C"
+                task.type === "know_your_seller" && task.status === "C"
             )
             .map((task) => (
               <div>
@@ -86,7 +86,7 @@ const TaskHistory = ({ tasks }) => {
                     <div className="">
                       <h6 className="font-bold text-lg">{task.society_name}</h6>
                       <h6 className="font-bold text-base text-violet-700 uppercase ">
-                        {task.survey_type}
+                        {task.type}
                       </h6>
                     </div>
                     <div className="">
@@ -110,7 +110,7 @@ const TaskHistory = ({ tasks }) => {
           {tasks
             ?.filter(
               (task) =>
-                task.survey_type === "know_your_home" && task.status === "C"
+                task.type === "know_your_home" && task.status === "C"
             )
             .map((task) => (
               <div>
@@ -119,7 +119,7 @@ const TaskHistory = ({ tasks }) => {
                     <div className="">
                       <h6 className="font-bold text-lg">{task.society_name}</h6>
                       <h6 className="font-bold text-base text-violet-700 uppercase ">
-                        {task.survey_type}
+                        {task.type}
                       </h6>
                     </div>
                     <div className="">
@@ -143,7 +143,7 @@ const TaskHistory = ({ tasks }) => {
           {tasks
             ?.filter(
               (task) =>
-                task.survey_type === "home_inspection" && task.status === "C"
+                task.type === "home_inspection" && task.status === "C"
             )
             .map((task) => (
               <div>
@@ -152,7 +152,7 @@ const TaskHistory = ({ tasks }) => {
                     <div className="">
                       <h6 className="font-bold text-lg">{task.society_name}</h6>
                       <h6 className="font-bold text-base text-violet-700 uppercase ">
-                        {task.survey_type}
+                        {task.type}
                       </h6>
                     </div>
                     <div className="">

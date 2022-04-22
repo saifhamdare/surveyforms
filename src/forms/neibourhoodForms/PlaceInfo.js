@@ -71,7 +71,7 @@ const PlaceInfo = () => {
     };
     axios
       .put(
-        `https://operations.roushik.com/api/tasks/${localStorage.getItem(
+        `api/tasks/${localStorage.getItem(
           "property_id"
         )}/place-info/`,
         body,
@@ -81,7 +81,7 @@ const PlaceInfo = () => {
         successNotify();
         navigate("/form-list", { replace: true });
         const status = { status: "P" };
-        axios.patch(`tasks/${localStorage.getItem("property_id")}/`, status, {
+        axios.patch(`api/tasks/${localStorage.getItem("property_id")}/`, status, {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         });
       })
@@ -152,14 +152,14 @@ const PlaceInfo = () => {
               Good means approach road, entrance are clean also no garbage dump
               is visible.
             </p>
-            <input type="radio" name="surrounding" id="Good" value="Good" />
-            <label>Good</label>
+            <input type="radio" className="ml-2" name="surrounding" id="Good" value="Good" />
+            <label className="ml-2" >Good</label>
             <br />
-            <input type="radio" name="surrounding" id="Okay" value="Okay" />
-            <label>Okay</label>
+            <input type="radio" className="ml-2" name="surrounding" id="Okay" value="Okay" />
+            <label className="ml-2" >Okay</label>
             <br />
-            <input type="radio" name="surrounding" id="Bad" value="Bad" />
-            <label>Bad</label>
+            <input type="radio" className="ml-2" name="surrounding" id="Bad" value="Bad" />
+            <label className="ml-2" >Bad</label>
             <br />
           </div>
 
@@ -255,11 +255,11 @@ const PlaceInfo = () => {
               Check if the groundfloor has shops with general access to public
               or offices being run from the society.
             </p>
-            <input type="radio" name="commercial" id="Yes" value="true" />
-            <label>Yes</label>
+            <input type="radio" className="ml-2" name="commercial" id="Yes" value="true" />
+            <label className="ml-2" >Yes</label>
             <br />
-            <input type="radio" name="commercial" id="No" value="" />
-            <label>No</label>
+            <input type="radio" className="ml-2" name="commercial" id="No" value="" />
+            <label className="ml-2" >No</label>
             <br />
           </div>
 
@@ -271,32 +271,35 @@ const PlaceInfo = () => {
             <h4 className="font-semibold text-lg">
               Describe the vicinity/surroundings of the society ?
             </h4>
-            <input type="radio" name="cleanliness" id="Clean" value="Clean" />
-            <label>Clean</label>
+            <input type="radio" className="ml-2" name="cleanliness" id="Clean" value="Clean" />
+            <label className="ml-2" >Clean</label>
             <br />
             <input
+            className="ml-2"
               type="radio"
               name="cleanliness"
               id="Slums & Stalls"
               value="Slums & Stalls"
             />
-            <label>Slums & Stalls</label>
+            <label className="ml-2" >Slums & Stalls</label>
             <br />
             <input
+            className="ml-2"
               type="radio"
               name="cleanliness"
               id="Trees & Greenery"
               value="Trees & Greenery"
             />
-            <label>Trees & Greenery</label>
+            <label className="ml-2" >Trees & Greenery</label>
             <br />
             <input
+            className="ml-2"
               type="radio"
               name="cleanliness"
               id="Garbage & Dirt"
               value="Garbage & Dirt"
             />
-            <label>Garbage & Dirt</label>
+            <label className="ml-2" >Garbage & Dirt</label>
             <br />
           </div>
 
@@ -308,11 +311,11 @@ const PlaceInfo = () => {
             <h4 className="font-semibold text-lg">
               Is the approach road easy to access for vehicles?{" "}
             </h4>
-            <input type="radio" name="vehicle" id="Yes" value="true" />
-            <label>Yes</label>
+            <input type="radio" className="ml-2" name="vehicle" id="Yes" value="true" />
+            <label className="ml-2" >Yes</label>
             <br />
-            <input type="radio" name="vehicle" id="No" value="" />
-            <label>No</label>
+            <input type="radio" className="ml-2" name="vehicle" id="No" value="" />
+            <label className="ml-2" >No</label>
             <br />
           </div>
 
@@ -330,31 +333,31 @@ const PlaceInfo = () => {
               unclean, unmaintained and with paint & leakage damages externally.
             </p>
             <input
+            className="ml-2"
               type="radio"
               name="maintained"
-              className="maintained"
               id="Good"
               value="Good"
             />
-            <label>Good</label>
+            <label className="ml-2" >Good</label>
             <br />
             <input
+            className="ml-2"
               type="radio"
               name="maintained"
-              className="maintained"
               id="Ok"
               value="Ok"
             />
-            <label>Ok</label>
+            <label className="ml-2" >Ok</label>
             <br />
             <input
+            className="ml-2"
               type="radio"
               name="maintained"
-              className="maintained"
               id="Bad"
               value="Bad"
             />
-            <label>Bad</label>
+            <label className="ml-2" >Bad</label>
             <br />
           </div>
           <div
@@ -365,11 +368,11 @@ const PlaceInfo = () => {
             <h4 className="font-semibold text-lg">
               Do you see any repair and maintenance work going on in society?{" "}
             </h4>
-            <input type="radio" name="anyrepair" id="Yes" value="true" />
-            <label>Yes</label>
+            <input type="radio" className="ml-2" name="anyrepair" id="Yes" value="true" />
+            <label className="ml-2" >Yes</label>
             <br />
-            <input type="radio" name="anyrepair" id="No" value="" />
-            <label>No</label>
+            <input type="radio" className="ml-2" name="anyrepair" id="No" value="" />
+            <label className="ml-2" >No</label>
 
             <br />
           </div>
@@ -386,14 +389,14 @@ const PlaceInfo = () => {
               Ok means minor visible cracks and/or plant growth on walls. Bad
               means large cracks and plaster holes and/or large leakages.
             </p>
-            <input type="radio" name="quality" id="Good" value="Good" />
-            <label>Good</label>
+            <input type="radio" className="ml-2" name="quality" id="Good" value="Good" />
+            <label className="ml-2" >Good</label>
             <br />
-            <input type="radio" name="quality" id="Okay" value="Okay" />
-            <label>Okay</label>
+            <input type="radio" className="ml-2" name="quality" id="Okay" value="Okay" />
+            <label className="ml-2" >Okay</label>
             <br />
-            <input type="radio" name="quality" id="bad" value="bad" />
-            <label>bad</label>
+            <input type="radio" className="ml-2" name="quality" id="bad" value="bad" />
+            <label className="ml-2" >bad</label>
             <br />
           </div>
           <div className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 ">

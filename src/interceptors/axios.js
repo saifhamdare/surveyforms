@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-axios.defaults.baseURL='https://operations.roushik.com/api/'
+axios.defaults.baseURL=' https://api.finfort.xyz/'
 
 
 

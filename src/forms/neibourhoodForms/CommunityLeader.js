@@ -45,7 +45,7 @@ const CommunityLeader = () => {
 
     axios
       .post(
-        `https://operations.roushik.com/api/tasks/${localStorage.getItem(
+        `api/tasks/${localStorage.getItem(
           "property_id"
         )}/community-leader/`,
         body,
@@ -55,7 +55,7 @@ const CommunityLeader = () => {
         successNotify();
         navigate("/form-list", { replace: true });
         const status = { status: "P" };
-        axios.patch(`tasks/${localStorage.getItem("property_id")}/`, status, {
+        axios.patch(`api/tasks/${localStorage.getItem("property_id")}/`, status, {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         });
       })
@@ -108,11 +108,11 @@ const CommunityLeader = () => {
             onChange={(e) => setclGender(e.target.value)}
           >
             <h4 className="font-semibold text-lg">Gender </h4>
-            <input type="radio" id="Male" name="gender" value="M" />
-            <label>Male</label>
+            <input className="ml-2" type="radio" id="Male" name="gender" value="M" />
+            <label className="ml-2" >Male</label>
             <br />
-            <input type="radio" id="Female" name="gender" value="F" />
-            <label>Female</label>
+            <input className="ml-2" type="radio" id="Female" name="gender" value="F" />
+            <label className="ml-2" >Female</label>
             <br />
           </div>
           <div
@@ -122,31 +122,34 @@ const CommunityLeader = () => {
           >
             <h4 className="font-semibold text-lg">Profession : </h4>
             <input
+            className="ml-2"
               type="radio"
               id="IT Professional"
               name="profession"
               value="IT Professional"
             />
-            <label>IT Professional</label>
+            <label className="ml-2" >IT Professional</label>
             <br />
-            <input type="radio" id="Banker" name="profession" value="Banker" />
-            <label>Banker</label>
+            <input className="ml-2" type="radio" id="Banker" name="profession" value="Banker" />
+            <label className="ml-2" >Banker</label>
             <br />
             <input
+            className="ml-2"
               type="radio"
               id="Entertainment Professional"
               value="Entertainment Professional"
               name="profession"
             />
-            <label>Entertainment Professional</label>
+            <label className="ml-2" >Entertainment Professional</label>
             <br />
             <input
+            className="ml-2"
               type="radio"
               id="Other Professional"
               value="Other Professional"
               name="profession"
             />
-            <label>Other Professional</label>
+            <label className="ml-2" >Other Professional</label>
             <br />
           </div>
           <div
@@ -157,11 +160,11 @@ const CommunityLeader = () => {
             <h4 className="font-semibold text-lg">
               Do you live in this society ?{" "}
             </h4>
-            <input type="radio" id="Yes" name="liveinsociety" value="Yes" />
-            <label>Yes</label>
+            <input className="ml-2" type="radio" id="Yes" name="liveinsociety" value="Yes" />
+            <label className="ml-2" >Yes</label>
             <br />
-            <input type="radio" id="No" name="liveinsociety" value="" />
-            <label>No</label>
+            <input className="ml-2" type="radio" id="No" name="liveinsociety" value="" />
+            <label className="ml-2" >No</label>
             <br />
           </div>
           <div
@@ -172,11 +175,11 @@ const CommunityLeader = () => {
             <h4 className="font-semibold text-lg">
               Do you hold any key position in the society ?{" "}
             </h4>
-            <input type="radio" name="key" id="Yes" value="Yes" />
-            <label>Yes</label>
+            <input className="ml-2" type="radio" name="key" id="Yes" value="Yes" />
+            <label className="ml-2" >Yes</label>
             <br />
-            <input type="radio" name="key" id="No" value="" />
-            <label>No</label>
+            <input className="ml-2" type="radio" name="key" id="No" value="" />
+            <label className="ml-2" >No</label>
             <br />
           </div>
 

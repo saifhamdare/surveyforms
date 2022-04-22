@@ -4,9 +4,9 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-const Neighbourhood = () => {
+const EditNeighbourhood = () => {
   const navigate = useNavigate();
-
+  let id= 'hello'
   const [nhfullName, setnhFullName] = useState("");
   const [nhmobileNo, setnhMobileNo] = useState("");
   const [nhgender, setnhGender] = useState("");
@@ -34,7 +34,7 @@ const Neighbourhood = () => {
   const [nheasyToGet, setnhEasyToGet] = useState("");
 
   const successNotify = () =>
-    toast.success("form filled Successfully", {
+    toast.success("form Updated Successfully", {
       position: "bottom-center",
     });
   const failedNotify = () =>
@@ -112,6 +112,7 @@ const Neighbourhood = () => {
             <Input
               placeholder="John Doe"
               onChange={(e) => setnhFullName(e.target.value)}
+              value={id.full_name}
               required
               fullWidth
             />
@@ -121,6 +122,7 @@ const Neighbourhood = () => {
             <Input
               placeholder="9876543211"
               onChange={(e) => setnhMobileNo(e.target.value)}
+              value={id.mobile_number}
               required
               fullWidth
               type="number"
@@ -129,6 +131,7 @@ const Neighbourhood = () => {
           <div
             className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             onChange={(e) => setnhGender(e.target.value)}
+            value={id.gender}
             required
           >
             <h4 className="font-semibold text-lg">Gender </h4>
@@ -143,7 +146,8 @@ const Neighbourhood = () => {
           </div>
           <div
             className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
-            onChange={(e) => setnhprofession(e.target.value)}
+            onChange={(e) => setnhprofession(Number(e.target.value))}
+            value={id.profession}
             required
           >
             <h4 className="font-semibold text-lg">Profession</h4>
@@ -152,7 +156,7 @@ const Neighbourhood = () => {
               type="radio"
               name="profession"
               id="General Stores/Kirana"
-              value="General Stores/Kirana"
+              value="1"
             />
             <label className="ml-2" >General Stores/Kirana</label>
             <br />
@@ -161,11 +165,11 @@ const Neighbourhood = () => {
               type="radio"
               name="profession"
               id="Convenience Store/Mini Mart"
-              value="Convenience Store/Mini Mart"
+              value="2"
             />
             <label className="ml-2" >Convenience Store/Mini Mart</label>
             <br />
-            <input type="radio" className="ml-2" name="profession" id="Grocer" value="Grocer" />
+            <input type="radio" className="ml-2" name="profession" id="Grocer" value="3" />
             <label className="ml-2" >Grocer</label>
             <br />
             <input
@@ -173,7 +177,7 @@ const Neighbourhood = () => {
               type="radio"
               name="profession"
               id="Beauty Salon"
-              value="Beauty Salon"
+              value="4"
             />
             <label className="ml-2" >Beauty Salon</label>
             <br />
@@ -182,7 +186,7 @@ const Neighbourhood = () => {
               type="radio"
               name="profession"
               id="General Hair Salon"
-              value="General Hair Salon"
+              value="5"
             />
             <label className="ml-2" >General Hair Salon</label>
             <br />
@@ -191,7 +195,7 @@ const Neighbourhood = () => {
               type="radio"
               name="profession"
               id="Restaurant"
-              value="Restaurant"
+              value="6"
             />
             <label className="ml-2" >Restaurant</label>
             <br />
@@ -200,11 +204,11 @@ const Neighbourhood = () => {
               type="radio"
               name="profession"
               id="Laundry"
-              value="Laundry"
+              value="7"
             />
             <label className="ml-2" >Laundry</label>
             <br />
-            <input type="radio" className="ml-2" name="profession" id="Bakery" value="Bakery" />
+            <input type="radio" className="ml-2" name="profession" id="Bakery" value="8" />
             <label className="ml-2" >Bakery</label>
             <br />
             <input
@@ -212,7 +216,7 @@ const Neighbourhood = () => {
               type="radio"
               name="profession"
               id="Newspaper/Magazine"
-              value="Newspaper/Magazine"
+              value="9"
             />
             <label className="ml-2" >Newspaper/Magazine</label>
             <br />
@@ -221,7 +225,7 @@ const Neighbourhood = () => {
               type="radio"
               name="profession"
               id="Hardware/Electrical"
-              value="Hardware/Electrical"
+              value="10"
             />
             <label className="ml-2" >Hardware/Electrical</label>
             <br />
@@ -230,7 +234,7 @@ const Neighbourhood = () => {
               type="radio"
               name="profession"
               id="Medical Stores"
-              value="Medical Stores"
+              value="11"
             />
             <label className="ml-2" >Medical Stores</label>
             <br />
@@ -239,7 +243,7 @@ const Neighbourhood = () => {
               type="radio"
               name="profession"
               id="Snacks & Beverages"
-              value="Snacks & Beverages"
+              value="12"
             />
             <label className="ml-2" >Snacks & Beverages</label>
             <br />
@@ -248,7 +252,7 @@ const Neighbourhood = () => {
               type="radio"
               name="profession"
               id="Stationery"
-              value="Stationery"
+              value="13"
             />
             <label className="ml-2" >Stationery</label>
             <br />
@@ -257,7 +261,7 @@ const Neighbourhood = () => {
               type="radio"
               name="profession"
               id="Meat & Poultry"
-              value="Meat & Poultry"
+              value="14"
             />
             <label className="ml-2" >Meat & Poultry</label>
             <br />
@@ -270,23 +274,25 @@ const Neighbourhood = () => {
 
           <div
             className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
-            onChange={(e) => setnhRedevelopment(Boolean(e.target.value))}
+            onChange={(e) => setnhRedevelopment(Number(e.target.value))}
+            value={id.redevelopment_planned}
             required
           >
             <h4 className="font-semibold text-lg">
-              Have you heard, this society is going for redevelopment?{" "}
+              Have you heard, this society is going for redevelopment?
             </h4>
-            <input type="radio" className="ml-2" name="redevelopment" id="Yes" value="Yes" />
+            <input type="radio" className="ml-2" name="redevelopment" id="Yes" value="1" />
             <label className="ml-2" >Yes</label>
-            <br /> <input type="radio" className="ml-2" name="redevelopment" id="No" value="" />
+            <br /> <input type="radio" className="ml-2" name="redevelopment" id="No" value="2" />
             <label className="ml-2" >No</label>
-            {/* <br /> <input type="radio" className="ml-2" name="redevelopment" id="not sure" value="not sure" />
+            <br /> <input type="radio" className="ml-2" name="redevelopment" id="not sure" value="3" />
             <label >not sure</label>
-            <br /> */}
+            <br />
           </div>
           <div
             className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
-            onChange={(e) => setnhReputation(e.target.value)}
+            onChange={(e) => setnhReputation(Number(e.target.value))}
+            value={id.reputation}
             required
           >
             <h4 className="font-semibold text-lg">
@@ -295,18 +301,19 @@ const Neighbourhood = () => {
             <p className="italic font-light text-sm">
               Provide overall opinion - the first top of the mind response.
             </p>
-            <input type="radio" className="ml-2" name="reputation" id="Good" value="Good" />
+            <input type="radio" className="ml-2" name="reputation" id="Good" value="1" />
             <label className="ml-2" >Good</label>
             <br />{" "}
-            <input type="radio" className="ml-2" name="reputation" id="Okay" value="Okay" />
+            <input type="radio" className="ml-2" name="reputation" id="Okay" value="2" />
             <label className="ml-2" >Okay</label>
-            <br /> <input type="radio" className="ml-2" name="reputation" id="Bad" value="Bad" />
+            <br /> <input type="radio" className="ml-2" name="reputation" id="Bad" value="3" />
             <label className="ml-2" >Bad</label>
             <br />
           </div>
           <div
             className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             onChange={(e) => setnhComplaint(e.target.value)}
+            value={id.complaint}
             required
           >
             <h4 className="font-semibold text-lg">
@@ -316,9 +323,9 @@ const Neighbourhood = () => {
             <p className="italic font-light text-sm">
               Capture in single words or adjectives
             </p>
-            <input type="radio" className="ml-2" name="complaints" id="Yes" value="Yes" />
+            <input type="radio" className="ml-2" name="complaints" id="Yes" value="1" />
             <label className="ml-2" >Yes</label>
-            <br /> <input type="radio" className="ml-2" name="complaints" id="No" value="no" />
+            <br /> <input type="radio" className="ml-2" name="complaints" id="No" value="2" />
             <label className="ml-2" >No</label>
             <br />
             <Input
@@ -329,7 +336,8 @@ const Neighbourhood = () => {
           </div>
           <div
             className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
-            onChange={(e) => setnhPeopleInSociety(e.target.value)}
+            onChange={(e) => setnhPeopleInSociety(Number(e.target.value))}
+            value={id.people_type}
             required
           >
             <h4 className="font-semibold text-lg">
@@ -340,7 +348,7 @@ const Neighbourhood = () => {
               type="radio"
               name="peopleinsociety"
               id="Friendly, Social, Helpfull"
-              value="Friendly, Social, Helpfull"
+              value="1"
             />
             <label className="ml-2" >Friendly, Social, Helpfull</label>
             <br />{" "}
@@ -349,7 +357,7 @@ const Neighbourhood = () => {
               type="radio"
               name="peopleinsociety"
               id="Quite and Aloof"
-              value="Quite and Aloof"
+              value="2"
             />
             <label className="ml-2" >Quite and Aloof</label>
             <br />{" "}
@@ -358,49 +366,52 @@ const Neighbourhood = () => {
               type="radio"
               name="peopleinsociety"
               id="Quarrelsome and Complaining"
-              value="Quarrelsome and Complaining"
+              value="3"
             />
             <label className="ml-2" >Quarrelsome and Complaining</label>
             <br />
           </div>
           <div
             className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
-            onChange={(e) => setnhSocietyManagement(Boolean(e.target.value))}
+            onChange={(e) => setnhSocietyManagement(Number(e.target.value))}
+            value={id.society_management_friendly}
             required
           >
             <h4 className="font-semibold text-lg">
               Is the society management (secertary, chairman, etc.) friendly?{" "}
             </h4>
-            <input type="radio" className="ml-2" name="management" id="Yes" value="Yes" />
+            <input type="radio" className="ml-2" name="management" id="Yes" value="1" />
             <label className="ml-2" >Yes</label>
-            <br /> <input type="radio" className="ml-2" name="management" id="No" value="" />
+            <br /> <input type="radio" className="ml-2" name="management" id="No" value="2" />
             <label className="ml-2" >No</label>
-            {/* <br /> <input type="radio" className="ml-2" name="management" id="Not Sure" value="Not Sure" />
+            <br /> <input type="radio" className="ml-2" name="management" id="Not Sure" value="3" />
             <label >Not Sure</label>
-            <br /> */}
+            <br />
           </div>
           <div
             className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
-            onChange={(e) => setnhDeliveryServices(Boolean(e.target.value))}
+            onChange={(e) => setnhDeliveryServices(Number(e.target.value))}
+            value={id.setnhDeliveryServices}
             required
           >
             <h4 className="font-semibold text-lg">
               Are you providing delivery services to building if it is a grocer
               or kirana ?{" "}
             </h4>
-            <input type="radio" className="ml-2" name="deliveryservices" id="Yes" value="Yes" />
+            <input type="radio" className="ml-2" name="deliveryservices" id="Yes" value="1" />
             <label className="ml-2" >Yes</label>
             <br />{" "}
-            <input type="radio" className="ml-2" name="deliveryservices" id="No" value="" />
+            <input type="radio" className="ml-2" name="deliveryservices" id="No" value="2" />
             <label className="ml-2" >No</label>
             <br />{" "}
-            {/* <input type="radio" className="ml-2" name="deliveryservices" id="Not Applicable" value="Not Applicable" />
+            <input type="radio" className="ml-2" name="deliveryservices" id="Not Applicable" value="3" />
             <label >Not Applicable</label>
-            <br /> */}
+            <br />
           </div>
           <div
             className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
-            onChange={(e) => setnhDeliveringEssential(Boolean(e.target.value))}
+            onChange={(e) => setnhDeliveringEssential(Number(e.target.value))}
+            value={id.essential_shops}
             required
           >
             <h4 className="font-semibold text-lg">
@@ -411,66 +422,72 @@ const Neighbourhood = () => {
               Essential items mean mean milk, bread, butter, grocery, fruits,
               vegetables.
             </p>
-            <input type="radio" className="ml-2" name="essential" id="Yes" value="Yes" />
+            <input type="radio" className="ml-2" name="essential" id="Yes" value="1" />
             <label className="ml-2" >Yes</label>
-            <br /> <input type="radio" className="ml-2" name="essential" id="No" value="" />
+            <br /> <input type="radio" className="ml-2" name="essential" id="No" value="2" />
             <label className="ml-2" >No</label>
             <br />
           </div>
           <div
             className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
-            onChange={(e) => setnhSocialEvents(Boolean(e.target.value))}
+            onChange={(e) => setnhSocialEvents(Number(e.target.value))}
+            value={id.social_events}
             required
           >
             <h4 className="font-semibold text-lg">
               Have you noticed any social events like ganpati, navratri, new
               year, sports day etc often in the society?{" "}
             </h4>
-            <input type="radio" className="ml-2" name="socialevents" id="Yes" value="Yes" />
+            <input type="radio" className="ml-2" name="socialevents" id="Yes" value="1" />
             <label className="ml-2" >Yes</label>
-            <br /> <input type="radio" className="ml-2" name="socialevents" id="No" value="" />
+            <br /> 
+            <input type="radio" className="ml-2" name="socialevents" id="No" value="2" />
             <label className="ml-2" >No</label>
-            {/* <br /> <input type="radio" className="ml-2" name="socialevents" id="Not Sure" value="Not Sure" />
+            <br /> 
+            <input type="radio" className="ml-2" name="socialevents" id="Not Sure" value="3" />
             <label >Not Sure</label>
-            <br /> */}
+            <br />
           </div>
           <div
             className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
-            onChange={(e) => setnhChildren(e.target.value)}
+            onChange={(e) => setnhChildren(Number(e.target.value))}
+            value={id.playful_children}
             required
-          >
+          > 
             <h4 className="font-semibold text-lg">
               Do you see lot of children playing in the society ?{" "}
             </h4>
-            <input type="radio" className="ml-2" name="children" id="Teens" value="Teens" />
+            <input type="radio" className="ml-2" name="children" id="Teens" value="1" />
             <label className="ml-2" >Teens</label>
             <br />{" "}
-            <input type="radio" className="ml-2" name="children" id="Younger" value="Younger" />
+            <input type="radio" className="ml-2" name="children" id="Younger" value="2" />
             <label className="ml-2" >Younger</label>
-            <br /> <input type="radio" className="ml-2" name="children" id="No" value="No" />
+            <br /> <input type="radio" className="ml-2" name="children" id="No" value="3" />
             <label className="ml-2" >No</label>
             <br />
           </div>
           <div
             className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
-            onChange={(e) => setnhOlder(e.target.value)}
+            onChange={(e) => setnhOlder(Number(e.target.value))}
+            value={id.old_people}
             required
           >
             <h4 className="font-semibold text-lg">
-              Are there a lot of older people in society?{" "}
+              Are there a lot of older people in society?
             </h4>
-            <input type="radio" className="ml-2" name="older" id="Active" value="Active" />
+            <input type="radio" className="ml-2" name="older" id="Active" value="1" />
             <label className="ml-2" >Active</label>
             <br />{" "}
-            <input type="radio" className="ml-2" name="older" id="Stay Home" value="Stay Home" />
+            <input type="radio" className="ml-2" name="older" id="Stay Home" value="2" />
             <label className="ml-2" >Stay Home</label>
-            <br /> <input type="radio" className="ml-2" name="older" id="No" value="No" />
+            <br /> <input type="radio" className="ml-2" name="older" id="No" value="3" />
             <label className="ml-2" >No</label>
             <br />
           </div>
           <div
             className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
-            onChange={(e) => setnhElectricityBreakDown(Boolean(e.target.value))}
+            onChange={(e) => setnhElectricityBreakDown(Number(e.target.value))}
+            value={id.uninterrupted_electricity}
             required
           >
             <h4 className="font-semibold text-lg">
@@ -481,35 +498,37 @@ const Neighbourhood = () => {
               type="radio"
               name="electricitybreakdown"
               id="Yes"
-              value="Yes"
+              value="1"
             />
             <label className="ml-2" >Yes</label>
             <br />{" "}
-            <input type="radio" className="ml-2" name="electricitybreakdown" id="No" value="" />
+            <input type="radio" className="ml-2" name="electricitybreakdown" id="No" value="2" />
             <label className="ml-2" >No</label>
-            {/* <br /> <input type="radio" className="ml-2" name="electricitybreakdown" id="Not Sure" value="Not Sure" />
+            <br /> <input type="radio" className="ml-2" name="electricitybreakdown" id="Not Sure" value="3" />
             <label >Not Sure</label>
-            <br /> */}
+            <br />
           </div>
           <div
             className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
-            onChange={(e) => setnhWaterSupply(Boolean(e.target.value))}
+            onChange={(e) => setnhWaterSupply(Number(e.target.value))}
+            value={id.uninterrupted_water}
             required
           >
             <h4 className="font-semibold text-lg">
-              Are there any water supply problems ?{" "}
+              Are there any water supply problems ?
             </h4>
-            <input type="radio" className="ml-2" name="watersupply" id="Yes" value="Yes" />
+            <input type="radio" className="ml-2" name="watersupply" id="Yes" value="1" />
             <label className="ml-2" >Yes</label>
-            <br /> <input type="radio" className="ml-2" name="watersupply" id="No" value="" />
+            <br /> <input type="radio" className="ml-2" name="watersupply" id="No" value="2" />
             <label className="ml-2" >No</label>
-            {/* <br /> <input type="radio" className="ml-2" name="watersupply" id="Not Sure" value="Not Sure" />
+            <br /> <input type="radio" className="ml-2" name="watersupply" id="Not Sure" value="3" />
             <label >Not Sure</label>
-            <br /> */}
+            <br />
           </div>
           <div
             className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
-            onChange={(e) => setnhTraffic(e.target.value)}
+            onChange={(e) => setnhTraffic(Number(e.target.value))}
+            value={id.traffic}
             required
           >
             <h4 className="font-semibold text-lg">
@@ -520,7 +539,7 @@ const Neighbourhood = () => {
               type="radio"
               name="traffic"
               id="Peak Hour Jam"
-              value="Peak Hour Jam"
+              value="1"
             />
             <label className="ml-2" >Peak Hour Jam</label>
             <br />{" "}
@@ -529,7 +548,7 @@ const Neighbourhood = () => {
               type="radio"
               name="traffic"
               id="Always Jam"
-              value="Always Jam"
+              value="2"
             />
             <label className="ml-2" >Always Jam</label>
             <br />{" "}
@@ -538,113 +557,119 @@ const Neighbourhood = () => {
               type="radio"
               name="traffic"
               id="Random Jam"
-              value="Random Jam"
+              value="3"
             />
             <label className="ml-2" >Random Jam</label>
             <br />
           </div>
           <div
             className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
-            onChange={(e) => setnhSellingProperty(Boolean(e.target.value))}
+            onChange={(e) => setnhSellingProperty(Number(e.target.value))}
+            value={id.people_selling_property}
             required
           >
             <h4 className="font-semibold text-lg">
               Are the lot of people selling property in this society?{" "}
             </h4>
-            <input type="radio" className="ml-2" name="SellingProperty" id="Yes" value="Yes" />
+            <input type="radio" className="ml-2" name="SellingProperty" id="Yes" value="1" />
             <label className="ml-2" >Yes</label>
             <br />{" "}
-            <input type="radio" className="ml-2" name="SellingProperty" id="No" value="" />
+            <input type="radio" className="ml-2" name="SellingProperty" id="No" value="2" />
             <label className="ml-2" >No</label>
-            {/* <br /> <input type="radio" className="ml-2" name="SellingProperty" id="Not Sure" value="Not Sure" />
+            <br /> <input type="radio" className="ml-2" name="SellingProperty" id="Not Sure" value="3" />
             <label className="ml-2" >Not Sure</label>
-            <br /> */}
+            <br />
           </div>
           <div
             className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
-            onChange={(e) => setnhPoliceComplaints(Boolean(e.target.value))}
+            onChange={(e) => setnhPoliceComplaints(Number(e.target.value))}
+            value={id.police_complaints}
             required
           >
             <h4 className="font-semibold text-lg">
               Are there any police complaints in society ?{" "}
             </h4>
-            <input type="radio" className="ml-2" name="policecomplaint" id="Yes" value="Yes" />
+            <input type="radio" className="ml-2" name="policecomplaint" id="Yes" value="1" />
             <label className="ml-2" >Yes</label>
             <br />{" "}
-            <input type="radio" className="ml-2" name="policecomplaint" id="No" value="" />
+            <input type="radio" className="ml-2" name="policecomplaint" id="No" value="2" />
             <label className="ml-2" >No</label>
-            {/* <br /> <input type="radio" className="ml-2" name="policecomplaint" id="Not Sure" value="Not Sure" />
+            <br /> <input type="radio" className="ml-2" name="policecomplaint" id="Not Sure" value="3" />
             <label >Not Sure</label>
-            <br /> */}
+            <br />
           </div>
           <div
             className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
-            onChange={(e) => setnhEasyToGet(Boolean(e.target.value))}
+            onChange={(e) => setnhEasyToGet(Number(e.target.value))}
+            value={id.access_to_helpers}
             required
           >
             <h4 className="font-semibold text-lg">
               Is it easy to get maids, helpers, handymen(carpentry, electrical,
-              plumbers etc), milk and newpapers ?{" "}
+              plumbers etc), milk and newpapers ?
             </h4>
-            <input type="radio" className="ml-2" name="easytoget" id="Yes" value="Yes" />
+            <input type="radio" className="ml-2" name="easytoget" id="Yes" value="1" />
             <label className="ml-2" >Yes</label>
-            <br /> <input type="radio" className="ml-2" name="easytoget" id="No" value="" />
+            <br /> <input type="radio" className="ml-2" name="easytoget" id="No" value="2" />
             <label className="ml-2" >No</label>
-            {/* <br /> <input type="radio" className="ml-2" name="easytoget" id="Not Sure" value="Not Sure" />
-            <label >Not Sure</label> */}
+            <br /> <input type="radio" className="ml-2" name="easytoget" id="Not Sure" value="3" />
+            <label >Not Sure</label>
             <br />
           </div>
           <div
             className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
             onChange={(e) => setnhKindOfProfessions(e.target.value)}
+            value={id.people_profession}
             required
           >
             <h4 className="font-semibold text-lg">
               What kind of professions do people come from in the society ?{" "}
             </h4>
-            <input type="radio" className="ml-2" name="typeofprofession" value="Business" />
+            <input type="radio" className="ml-2" name="typeofprofession" value="1" />
             <label className="ml-2" >Business</label>
             <br />
-            <input type="radio" className="ml-2" name="typeofprofession" value="Banker" />
+            <input type="radio" className="ml-2" name="typeofprofession" value="2" />
             <label className="ml-2" >Banker</label>
             <br />
-            <input type="radio" className="ml-2" name="typeofprofession" value="IT Engineer" />
+            <input type="radio" className="ml-2" name="typeofprofession" value="3" />
             <label className="ml-2" >IT Engineer</label>
             <br />
             <input
             className="ml-2"
               type="radio"
               name="typeofprofession"
-              value="Other Engineer"
+              value="4"
             />
             <label className="ml-2" >Other Engineer</label>
             <br />
-            <input type="radio" className="ml-2" name="typeofprofession" value="Doctor" />
+            <input type="radio" className="ml-2" name="typeofprofession" value="5" />
             <label className="ml-2" >Doctor</label>
             <br />
-            <input type="radio" className="ml-2" name="typeofprofession" value="CA/CS" />
+            <input type="radio" className="ml-2" name="typeofprofession" value="6" />
             <label className="ml-2" >CA/CS</label>
             <br />
-            <input type="radio" className="ml-2" name="typeofprofession" value="Teacher" />
+            <input type="radio" className="ml-2" name="typeofprofession" value="7" />
             <label className="ml-2" >Teacher</label>
             <br />
-            <input type="radio" className="ml-2" name="typeofprofession" value="Entertainment" />
+            <input type="radio" className="ml-2" name="typeofprofession" value="8" />
             <label className="ml-2" >Entertainment</label>
             <br />
-            <input type="radio" className="ml-2" name="typeofprofession" value="Scientist" />
+            <input type="radio" className="ml-2" name="typeofprofession" value="9" />
             <label className="ml-2" >Scientist</label>
             <br />
-            <input type="radio" className="ml-2" name="typeofprofession" value="Lawyer" />
+            <input type="radio" className="ml-2" name="typeofprofession" value="10" />
             <label className="ml-2" >Lawyer</label>
             <br />
-            <input type="radio" className="ml-2" name="typeofprofession" value="Athelete" />
+            <input type="radio" className="ml-2" name="typeofprofession" value="11" />
             <label className="ml-2" >Athelete</label>
             <br />
-            <input type="radio" className="ml-2" name="typeofprofession" value="Chef" />
+            <input type="radio" className="ml-2" name="typeofprofession" value="12" />
             <label className="ml-2" >Chef</label>
             <br />
-            <input type="radio" className="ml-2" name="typeofprofession" value="Aviation" />
+            <input type="radio" className="ml-2" name="typeofprofession" value="13" />
             <label className="ml-2" >Aviation</label>
+            <input type="radio" className="ml-2" name="typeofprofession" value="14" />
+            <label className="ml-2" >Not Working</label>
             <Input
               name="typeofprofession"
               placeholder="if other Please Specify"
@@ -654,15 +679,16 @@ const Neighbourhood = () => {
 
           <div
             className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
-            onChange={(e) => setnhStrayDogs(Boolean(e.target.value))}
+            onChange={(e) => setnhStrayDogs(e.target.value)}
+            value={id.stray_animals}
             required
           >
             <h4 className="font-semibold text-lg">
               Are stray dogs/ other animals a problem in and around the society?{" "}
             </h4>
-            <input type="radio" className="ml-2" name="straydogs" id="Yes" value="Yes" />
+            <input type="radio" className="ml-2" name="straydogs" id="Yes" value="1" />
             <label className="ml-2" >Yes</label>
-            <br /> <input type="radio" className="ml-2" name="straydogs" id="No" value="" />
+            <br /> <input type="radio" className="ml-2" name="straydogs" id="No" value="2" />
             <label className="ml-2" >No</label>
             <br />
           </div>
@@ -716,7 +742,7 @@ const Neighbourhood = () => {
             </div>
             <div className="border-2  border-sky-400 bg-sky-300 px-6 py-2 my-4 rounded-md">
               <button className=" text-white font-bold" type="submit">
-                Save
+                Update
               </button>
             </div>
           </div>
@@ -726,4 +752,4 @@ const Neighbourhood = () => {
   );
 };
 
-export default Neighbourhood;
+export default EditNeighbourhood;

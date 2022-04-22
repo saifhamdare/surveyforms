@@ -36,7 +36,7 @@ const PhotoUpload = () => {
       Authorization: `Bearer ${localStorage.getItem("token")}`,
     };
     axios.put(
-      `https://operations.roushik.com/api/tasks/${localStorage.getItem('property_id')}/photos/`,
+      `api/tasks/${localStorage.getItem('property_id')}/photos/`,
       formdata, 
       { headers: data }
     )
@@ -44,7 +44,7 @@ const PhotoUpload = () => {
       successNotify()
       navigate('/form-list', { replace: true })
       const status = { status: "P" };
-      axios.patch(`tasks/${localStorage.getItem("property_id")}/`, status, {
+      axios.patch(`api/tasks/${localStorage.getItem("property_id")}/`, status, {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
     }) 

@@ -41,7 +41,7 @@ export default function ButtonAppBar({ isloggedIn }) {
 
   const showProfile = (_token) => {
     axios
-      .get(`users/me/`, {
+      .get(`api/users/me/`, {
         headers: { Authorization: `Bearer ${_token}` },
       })
       .then((res) => {
@@ -62,18 +62,23 @@ export default function ButtonAppBar({ isloggedIn }) {
   };
 
   const handleBack = () => {
-    if (
-      window.location.pathname === "neighbourhood-form" ||
-      window.location.pathname === "placeinfo-form" ||
-      window.location.pathname === "photoupload-form"
-    ) {
+    if(
+      window.location.pathname === "/neighbourhood-form" ||
+      window.location.pathname === "/placeinfo-form" ||
+      window.location.pathname === "/photoupload-form" ||
+      window.location.pathname === "/communityleader-form")
+      {
       navigate("/form-list", { replace: true });
-    }
-    // else if(window.location.pathname==='pending-list'){
-    //   navigate('/pending-task', { replace: true })
-    // }
-    else if (window.location.pathname === "dashboard") {
-      return true;
+    } 
+   
+    else if (window.location.pathname === "/dashboard") {
+      let result = window.confirm(
+        "Are sure you want to log out ?"
+      );
+      if (result === true) {
+        logout();
+      }
+    
     } else {
       navigate("/dashboard", { replace: true });
     }

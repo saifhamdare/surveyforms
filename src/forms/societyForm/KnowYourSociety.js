@@ -185,22 +185,24 @@ const KnowYourSociety = () => {
             required
           >
             <h4 className="font-semibold text-lg">YOUR PROPERTY IS IN?</h4>
-            <input type="radio" name="elderly" value="STAND ALONE BUILDING" />
-            <label>STAND ALONE BUILDING</label> <br />
+            <input type="radio" className="ml-2" name="elderly" value="STAND ALONE BUILDING" />
+            <label className="ml-2" >STAND ALONE BUILDING</label> <br />
             <input
+            className="ml-2"
               type="radio"
               name="elderly"
               value="CLUSETR OF BUILDINGS (2 OR MORE)"
             />
-            <label>CLUSETR OF BUILDINGS (2 OR MORE)</label> <br />
+            <label className="ml-2" >CLUSETR OF BUILDINGS (2 OR MORE)</label> <br />
             <input
+            className="ml-2"
               type="radio"
               name="elderly"
               value="ATTACHED BUILDINGS (2 OR MORE)"
             />
-            <label>ATTACHED BUILDINGS (2 OR MORE)</label> <br />
-            <input type="radio" name="elderly" value="TOWNSHIP" />
-            <label>TOWNSHIP</label> <br />
+            <label className="ml-2" >ATTACHED BUILDINGS (2 OR MORE)</label> <br />
+            <input type="radio" className="ml-2" name="elderly" value="TOWNSHIP" />
+            <label className="ml-2" >TOWNSHIP</label> <br />
           </div>
           <div
             className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
@@ -210,13 +212,13 @@ const KnowYourSociety = () => {
             <h4 className="font-semibold text-lg">
               Society structure includes
             </h4>
-            <input type="radio" name="subtype" value="Podium" />
-            <label>
+            <input type="radio" className="ml-2" name="subtype" value="Podium" />
+            <label className="ml-2" >
               Podium(Parking or amenities available on other then ground floor)
             </label>
             <br />
-            <input type="radio" name="subtype" value="Basement" />
-            <label>Basement</label>
+            <input type="radio" className="ml-2" name="subtype" value="Basement" />
+            <label className="ml-2" >Basement</label>
           </div>
 
           <div
@@ -228,29 +230,33 @@ const KnowYourSociety = () => {
               Include in society structure
             </h4>
             <input
+            className="ml-2"
               type="radio"
               name="propertysubtype"
               value="WITH INDIVIDUAL COMPOUND"
             />
-            <label>WITH INDIVIDUAL COMPOUND</label> <br />
+            <label className="ml-2" >WITH INDIVIDUAL COMPOUND</label> <br />
             <input
+            className="ml-2"
               type="radio"
               name="propertysubtype"
               value="NON GATED (NO COMPOUND)"
             />
-            <label>NON GATED (NO COMPOUND)</label> <br />
+            <label className="ml-2" >NON GATED (NO COMPOUND)</label> <br />
             <input
+            className="ml-2"
               type="radio"
               name="propertysubtype"
               value="NON GATED WITH COMMERCIALS"
             />
-            <label>NON GATED WITH COMMERCIALS</label> <br />
+            <label className="ml-2" >NON GATED WITH COMMERCIALS</label> <br />
             <input
+            className="ml-2"
               type="radio"
               name="propertysubtype"
               value="COMMON COMPOUND WITH COMMERCIALS"
             />
-            <label>COMMON COMPOUND WITH COMMERCIALS</label> <br />
+            <label className="ml-2" >COMMON COMPOUND WITH COMMERCIALS</label> <br />
           </div>
           <div
             className="question 	 bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
@@ -260,20 +266,20 @@ const KnowYourSociety = () => {
             <h4 className="font-semibold text-lg 	">
               SELECT COMMERCIAL ENTITIES IN COMPOUND
             </h4>
-            <input type="radio" name="commercialentities" value="Retail shop" />
-            <label>Retail shop</label> <br />
-            <input type="radio" name="commercialentities" value="Healthcase" />
-            <label>Healthcase</label> <br />
-            <input type="radio" name="commercialentities" value="Hospitality" />
-            <label>Hospitality</label> <br />
-            <input type="radio" name="commercialentities" value="Bank" />
-            <label>Bank</label> <br />
-            <input type="radio" name="commercialentities" value="Gym" />
-            <label>Gym</label> <br />
-            <input type="radio" name="commercialentities" value="Other" />
-            <label>Other</label> <br />
-            <input type="radio" name="commercialentities" value="N/A" />
-            <label>N/A</label> <br />
+            <input type="radio" className="ml-2" name="commercialentities" value="Retail shop" />
+            <label className="ml-2" >Retail shop</label> <br />
+            <input type="radio" className="ml-2" name="commercialentities" value="Healthcase" />
+            <label className="ml-2" >Healthcase</label> <br />
+            <input type="radio" className="ml-2" name="commercialentities" value="Hospitality" />
+            <label className="ml-2" >Hospitality</label> <br />
+            <input type="radio" className="ml-2" name="commercialentities" value="Bank" />
+            <label className="ml-2" >Bank</label> <br />
+            <input type="radio" className="ml-2" name="commercialentities" value="Gym" />
+            <label className="ml-2" >Gym</label> <br />
+            <input type="radio" className="ml-2" name="commercialentities" value="Other" />
+            <label className="ml-2" >Other</label> <br />
+            <input type="radio" className="ml-2" name="commercialentities" value="N/A" />
+            <label className="ml-2" >N/A</label> <br />
           </div>
 
           <h2 className="text-lg font-bold text-sky-500  px-1 py-6">
@@ -286,25 +292,26 @@ const KnowYourSociety = () => {
             required
           >
             <h4 className="font-semibold text-lg">Lift</h4>
-            <input type="radio" name="lift" value="Personal Lift" />
-            <label>Personal Lift</label> <br />
-            <input type="radio" name="lift" value="Common public Lift" />
-            <label>Common public Lift</label>
+            <input type="radio" className="ml-2" name="lift" value="Personal Lift" />
+            <label className="ml-2" >Personal Lift</label> <br />
+            <input type="radio" className="ml-2" name="lift" value="Common public Lift" />
+            <label className="ml-2" >Common public Lift</label>
             <br />
             <input
+            className="ml-2"
               type="radio"
               name="lift"
               value="Service lift (Used for large goods Lift eg: bed, fridge etc)"
             />
-            <label>
+            <label className="ml-2" >
               Service lift (Used for large goods Lift eg: bed, fridge etc)
             </label>
             <br />
-            <input type="radio" name="lift" value="Fire life" />
-            <label>Fire life</label>
+            <input type="radio" className="ml-2" name="lift" value="Fire life" />
+            <label className="ml-2" >Fire life</label>
             <br />
-            <input type="radio" name="lift" value="No Life" />
-            <label>No Life</label>
+            <input type="radio" className="ml-2" name="lift" value="No Life" />
+            <label className="ml-2" >No Life</label>
           </div>
           <div
             className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
@@ -312,13 +319,13 @@ const KnowYourSociety = () => {
             required
           >
             <h4 className="font-semibold text-lg">Lift Type</h4>
-            <input type="radio" name="lifttype" value="Automatic Door" />
-            <label>Automatic Door</label> <br />
-            <input type="radio" name="lifttype" value="Door + Sliding" />
-            <label>Door + Sliding</label>
+            <input type="radio" className="ml-2" name="lifttype" value="Automatic Door" />
+            <label className="ml-2" >Automatic Door</label> <br />
+            <input type="radio" className="ml-2" name="lifttype" value="Door + Sliding" />
+            <label className="ml-2" >Door + Sliding</label>
             <br />
-            <input type="radio" name="lifttype" value="N/A" />
-            <label>N/A</label>
+            <input type="radio" className="ml-2" name="lifttype" value="N/A" />
+            <label className="ml-2" >N/A</label>
           </div>
           <div
             className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
@@ -326,13 +333,13 @@ const KnowYourSociety = () => {
             required
           >
             <h4 className="font-semibold text-lg">Condition of lift</h4>
-            <input type="radio" name="condition" value="Good" />
-            <label>Good</label> <br />
-            <input type="radio" name="condition" value="Okay" />
-            <label>Okay</label>
+            <input type="radio" className="ml-2" name="condition" value="Good" />
+            <label className="ml-2" >Good</label> <br />
+            <input type="radio" className="ml-2" name="condition" value="Okay" />
+            <label className="ml-2" >Okay</label>
             <br />
-            <input type="radio" name="condition" value="Bad" />
-            <label>Bad</label>
+            <input type="radio" className="ml-2" name="condition" value="Bad" />
+            <label className="ml-2" >Bad</label>
           </div>
 
           <div className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 ">
@@ -351,13 +358,13 @@ const KnowYourSociety = () => {
           >
             <h4 className="font-semibold text-lg">lift Lobby</h4>
             <p className="italic font-light text-sm">Lobby in from of flats</p>
-            <input type="radio" name="lobby" value="Personal Lobby" />
-            <label>Personal Lobby</label> <br />
-            <input type="radio" name="lobby" value="Common Lobby" />
-            <label>Common Lobby</label>
+            <input type="radio" className="ml-2" name="lobby" value="Personal Lobby" />
+            <label className="ml-2" >Personal Lobby</label> <br />
+            <input type="radio" className="ml-2" name="lobby" value="Common Lobby" />
+            <label className="ml-2" >Common Lobby</label>
             <br />
-            <input type="radio" name="lobby" value="N/A" />
-            <label>N/A</label>
+            <input type="radio" className="ml-2" name="lobby" value="N/A" />
+            <label className="ml-2" >N/A</label>
           </div>
 
           <div
@@ -366,13 +373,13 @@ const KnowYourSociety = () => {
             required
           >
             <h4 className="font-semibold text-lg">Condition of lift Lobby</h4>
-            <input type="radio" name="lobbycondition" value="Good" />
-            <label>Good</label> <br />
-            <input type="radio" name="lobbycondition" value="Okay" />
-            <label>Okay</label>
+            <input type="radio" className="ml-2" name="lobbycondition" value="Good" />
+            <label className="ml-2" >Good</label> <br />
+            <input type="radio" className="ml-2" name="lobbycondition" value="Okay" />
+            <label className="ml-2" >Okay</label>
             <br />
-            <input type="radio" name="lobbycondition" value="Bad" />
-            <label>Bad</label>
+            <input type="radio" className="ml-2" name="lobbycondition" value="Bad" />
+            <label className="ml-2" >Bad</label>
           </div>
 
           <div className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 ">
@@ -391,13 +398,13 @@ const KnowYourSociety = () => {
             required
           >
             <h4 className="font-semibold text-lg">Condition of Staircase</h4>
-            <input type="radio" name="staircasecondition" value="Good" />
-            <label>Good</label> <br />
-            <input type="radio" name="staircasecondition" value="Okay" />
-            <label>Okay</label>
+            <input type="radio" className="ml-2" name="staircasecondition" value="Good" />
+            <label className="ml-2" >Good</label> <br />
+            <input type="radio" className="ml-2" name="staircasecondition" value="Okay" />
+            <label className="ml-2" >Okay</label>
             <br />
-            <input type="radio" name="staircasecondition" value="Bad" />
-            <label>Bad</label>
+            <input type="radio" className="ml-2" name="staircasecondition" value="Bad" />
+            <label className="ml-2" >Bad</label>
           </div>
 
           <div className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 ">
@@ -417,13 +424,13 @@ const KnowYourSociety = () => {
             <h4 className="font-semibold text-lg">
               Condition of Entrance Lobby
             </h4>
-            <input type="radio" name="entrancelobbycondition" value="Good" />
-            <label>Good</label> <br />
-            <input type="radio" name="entrancelobbycondition" value="Okay" />
-            <label>Okay</label>
+            <input type="radio" className="ml-2" name="entrancelobbycondition" value="Good" />
+            <label className="ml-2" >Good</label> <br />
+            <input type="radio" className="ml-2" name="entrancelobbycondition" value="Okay" />
+            <label className="ml-2" >Okay</label>
             <br />
-            <input type="radio" name="entrancelobbycondition" value="Bad" />
-            <label>Bad</label>
+            <input type="radio" className="ml-2" name="entrancelobbycondition" value="Bad" />
+            <label className="ml-2" >Bad</label>
           </div>
 
           <div className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 ">
@@ -443,16 +450,16 @@ const KnowYourSociety = () => {
             <h4 className="font-semibold text-lg">
               Condition of Society Meeting room
             </h4>
-            <input type="radio" name="entrancelobbycondition" value="Good" />
-            <label>Good</label> <br />
-            <input type="radio" name="entrancelobbycondition" value="Okay" />
-            <label>Okay</label>
+            <input type="radio" className="ml-2" name="entrancelobbycondition" value="Good" />
+            <label className="ml-2" >Good</label> <br />
+            <input type="radio" className="ml-2" name="entrancelobbycondition" value="Okay" />
+            <label className="ml-2" >Okay</label>
             <br />
-            <input type="radio" name="entrancelobbycondition" value="Bad" />
-            <label>Bad</label>
+            <input type="radio" className="ml-2" name="entrancelobbycondition" value="Bad" />
+            <label className="ml-2" >Bad</label>
             <br />
-            <input type="radio" name="entrancelobbycondition" value="N/A" />
-            <label>N/A</label>
+            <input type="radio" className="ml-2" name="entrancelobbycondition" value="N/A" />
+            <label className="ml-2" >N/A</label>
           </div>
 
           <div className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 ">
@@ -473,16 +480,16 @@ const KnowYourSociety = () => {
             <h4 className="font-semibold text-lg">
               Condition of Club House(Gym)
             </h4>
-            <input type="radio" name="gymcondition" value="Good" />
-            <label>Good</label> <br />
-            <input type="radio" name="gymcondition" value="Okay" />
-            <label>Okay</label>
+            <input type="radio" className="ml-2" name="gymcondition" value="Good" />
+            <label className="ml-2" >Good</label> <br />
+            <input type="radio" className="ml-2" name="gymcondition" value="Okay" />
+            <label className="ml-2" >Okay</label>
             <br />
-            <input type="radio" name="gymcondition" value="Bad" />
-            <label>Bad</label>
+            <input type="radio" className="ml-2" name="gymcondition" value="Bad" />
+            <label className="ml-2" >Bad</label>
             <br />
-            <input type="radio" name="gymcondition" value="N/A" />
-            <label>N/A</label>
+            <input type="radio" className="ml-2" name="gymcondition" value="N/A" />
+            <label className="ml-2" >N/A</label>
           </div>
 
           <div className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 ">
@@ -500,22 +507,22 @@ const KnowYourSociety = () => {
             required
           >
             <h4 className="font-semibold text-lg">Play Ground Subtype</h4>
-            <input type="radio" name="playGround" value="Kids Play Area" />
-            <label>Kids Play Area</label> <br />
-            <input type="radio" name="playGround" value="Toddlers Play area" />
-            <label>Toddlers Play area</label>
+            <input type="radio" className="ml-2" name="playGround" value="Kids Play Area" />
+            <label className="ml-2" >Kids Play Area</label> <br />
+            <input type="radio" className="ml-2" name="playGround" value="Toddlers Play area" />
+            <label className="ml-2" >Toddlers Play area</label>
             <br />
-            <input type="radio" name="playGround" value="Party Lawn" />
-            <label>Party Lawn</label>
+            <input type="radio" className="ml-2" name="playGround" value="Party Lawn" />
+            <label className="ml-2" >Party Lawn</label>
             <br />
-            <input type="radio" name="playGround" value="Box Cricket" />
-            <label>Box Cricket</label>
+            <input type="radio" className="ml-2" name="playGround" value="Box Cricket" />
+            <label className="ml-2" >Box Cricket</label>
             <br />
-            <input type="radio" name="playGround" value="Yoga Lawn" />
-            <label>Yoga Lawn</label>
+            <input type="radio" className="ml-2" name="playGround" value="Yoga Lawn" />
+            <label className="ml-2" >Yoga Lawn</label>
             <br />
-            <input type="radio" name="playGround" value="Other" />
-            <label>Other</label>
+            <input type="radio" className="ml-2" name="playGround" value="Other" />
+            <label className="ml-2" >Other</label>
           </div>
 
           <div
@@ -524,13 +531,13 @@ const KnowYourSociety = () => {
             required
           >
             <h4 className="font-semibold text-lg">Condition of Play Ground</h4>
-            <input type="radio" name="playGroundcondition" value="Good" />
-            <label>Good</label> <br />
-            <input type="radio" name="playGroundcondition" value="Okay" />
-            <label>Okay</label>
+            <input type="radio" className="ml-2" name="playGroundcondition" value="Good" />
+            <label className="ml-2" >Good</label> <br />
+            <input type="radio" className="ml-2" name="playGroundcondition" value="Okay" />
+            <label className="ml-2" >Okay</label>
             <br />
-            <input type="radio" name="playGroundcondition" value="Bad" />
-            <label>Bad</label>
+            <input type="radio" className="ml-2" name="playGroundcondition" value="Bad" />
+            <label className="ml-2" >Bad</label>
           </div>
 
           <div className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 ">
@@ -549,14 +556,14 @@ const KnowYourSociety = () => {
             required
           >
             <h4 className="font-semibold text-lg">Swimming Pool n</h4>
-            <input type="radio" name="SwimmingPool" value="Lap Pool" />
-            <label>Lap Pool</label>
+            <input type="radio" className="ml-2" name="SwimmingPool" value="Lap Pool" />
+            <label className="ml-2" >Lap Pool</label>
             <br />
-            <input type="radio" name="SwimmingPool" value="Kids Pool" />
-            <label>Kids Pool</label>
+            <input type="radio" className="ml-2" name="SwimmingPool" value="Kids Pool" />
+            <label className="ml-2" >Kids Pool</label>
             <br />
-            <input type="radio" name="SwimmingPool" value="N/A" />
-            <label>N/A</label>
+            <input type="radio" className="ml-2" name="SwimmingPool" value="N/A" />
+            <label className="ml-2" >N/A</label>
           </div>
           <div
             className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
@@ -566,13 +573,13 @@ const KnowYourSociety = () => {
             <h4 className="font-semibold text-lg">
               Condition of Swimming Pool
             </h4>
-            <input type="radio" name="SwimmingPoolcondition" value="Good" />
-            <label>Good</label> <br />
-            <input type="radio" name="SwimmingPoolcondition" value="Okay" />
-            <label>Okay</label>
+            <input type="radio" className="ml-2" name="SwimmingPoolcondition" value="Good" />
+            <label className="ml-2" >Good</label> <br />
+            <input type="radio" className="ml-2" name="SwimmingPoolcondition" value="Okay" />
+            <label className="ml-2" >Okay</label>
             <br />
-            <input type="radio" name="SwimmingPoolcondition" value="Bad" />
-            <label>Bad</label>
+            <input type="radio" className="ml-2" name="SwimmingPoolcondition" value="Bad" />
+            <label className="ml-2" >Bad</label>
           </div>
           <div className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 ">
             <h4 className="font-semibold text-lg">Swimming Pool Remark</h4>
@@ -592,16 +599,16 @@ const KnowYourSociety = () => {
             <h4 className="font-semibold text-lg">
               Condition of Jogging Track
             </h4>
-            <input type="radio" name="JoggingTrackcondition" value="Good" />
-            <label>Good</label> <br />
-            <input type="radio" name="JoggingTrackcondition" value="Okay" />
-            <label>Okay</label>
+            <input type="radio" className="ml-2" name="JoggingTrackcondition" value="Good" />
+            <label className="ml-2" >Good</label> <br />
+            <input type="radio" className="ml-2" name="JoggingTrackcondition" value="Okay" />
+            <label className="ml-2" >Okay</label>
             <br />
-            <input type="radio" name="JoggingTrackcondition" value="Bad" />
-            <label>Bad</label>
+            <input type="radio" className="ml-2" name="JoggingTrackcondition" value="Bad" />
+            <label className="ml-2" >Bad</label>
             <br />
-            <input type="radio" name="JoggingTrackcondition" value="N/A" />
-            <label>N/A</label>
+            <input type="radio" className="ml-2" name="JoggingTrackcondition" value="N/A" />
+            <label className="ml-2" >N/A</label>
           </div>
 
           <div className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 ">
@@ -619,10 +626,10 @@ const KnowYourSociety = () => {
             required
           >
             <h4 className="font-semibold text-lg">Electricity Supplier</h4>
-            <input type="radio" name="electricitysupplier" value="Government" />
-            <label>Government</label> <br />
-            <input type="radio" name="electricitysupplier" value="Private" />
-            <label>Private</label>
+            <input type="radio" className="ml-2" name="electricitysupplier" value="Government" />
+            <label className="ml-2" >Government</label> <br />
+            <input type="radio" className="ml-2" name="electricitysupplier" value="Private" />
+            <label className="ml-2" >Private</label>
           </div>
 
           <div
@@ -631,16 +638,16 @@ const KnowYourSociety = () => {
             required
           >
             <h4 className="font-semibold text-lg">Condition of Reflexology</h4>
-            <input type="radio" name="Reflexologycondition" value="Good" />
-            <label>Good</label> <br />
-            <input type="radio" name="Reflexologycondition" value="Okay" />
-            <label>Okay</label>
+            <input type="radio" className="ml-2" name="Reflexologycondition" value="Good" />
+            <label className="ml-2" >Good</label> <br />
+            <input type="radio" className="ml-2" name="Reflexologycondition" value="Okay" />
+            <label className="ml-2" >Okay</label>
             <br />
-            <input type="radio" name="Reflexologycondition" value="Bad" />
-            <label>Bad</label>
+            <input type="radio" className="ml-2" name="Reflexologycondition" value="Bad" />
+            <label className="ml-2" >Bad</label>
             <br />
-            <input type="radio" name="Reflexologycondition" value="N/A" />
-            <label>N/A</label>
+            <input type="radio" className="ml-2" name="Reflexologycondition" value="N/A" />
+            <label className="ml-2" >N/A</label>
           </div>
           <div className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 ">
             <h4 className="font-semibold text-lg">Reflexology Remark</h4>
@@ -658,16 +665,16 @@ const KnowYourSociety = () => {
             required
           >
             <h4 className="font-semibold text-lg">Condition of Cycle Track</h4>
-            <input type="radio" name="CycleTrackcondition" value="Good" />
-            <label>Good</label> <br />
-            <input type="radio" name="CycleTrackcondition" value="Okay" />
-            <label>Okay</label>
+            <input type="radio" className="ml-2" name="CycleTrackcondition" value="Good" />
+            <label className="ml-2" >Good</label> <br />
+            <input type="radio" className="ml-2" name="CycleTrackcondition" value="Okay" />
+            <label className="ml-2" >Okay</label>
             <br />
-            <input type="radio" name="CycleTrackcondition" value="Bad" />
-            <label>Bad</label>
+            <input type="radio" className="ml-2" name="CycleTrackcondition" value="Bad" />
+            <label className="ml-2" >Bad</label>
             <br />
-            <input type="radio" name="CycleTrackcondition" value="N/A" />
-            <label>N/A</label>
+            <input type="radio" className="ml-2" name="CycleTrackcondition" value="N/A" />
+            <label className="ml-2" >N/A</label>
           </div>
 
           <div className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 ">
@@ -686,15 +693,15 @@ const KnowYourSociety = () => {
             required
           >
             <h4 className="font-semibold text-lg">Greenary In Society</h4>
-            <input type="radio" name="Greenary" value="Good" />
-            <label>Good</label> <br />
-            <input type="radio" name="Greenary" value="Average" />
-            <label>Average</label>
+            <input type="radio" className="ml-2" name="Greenary" value="Good" />
+            <label className="ml-2" >Good</label> <br />
+            <input type="radio" className="ml-2" name="Greenary" value="Average" />
+            <label className="ml-2" >Average</label>
             <br />
-            <input type="radio" name="Greenary" value="Minimal" />
-            <label>Minimal</label> <br />
-            <input type="radio" name="Greenary" value="N/A" />
-            <label>N/A</label>
+            <input type="radio" className="ml-2" name="Greenary" value="Minimal" />
+            <label className="ml-2" >Minimal</label> <br />
+            <input type="radio" className="ml-2" name="Greenary" value="N/A" />
+            <label className="ml-2" >N/A</label>
             <br />
           </div>
 
@@ -705,30 +712,34 @@ const KnowYourSociety = () => {
           >
             <h4 className="font-semibold text-lg">Public Area Lighting</h4>
             <input
+            className="ml-2"
               type="radio"
               name="PublicAreaLighting"
               value="For Public Area Lighting"
             />
-            <label>For Public Area Lighting</label> <br />
+            <label className="ml-2" >For Public Area Lighting</label> <br />
             <input
+            className="ml-2"
               type="radio"
               name="PublicAreaLighting"
               value="For Semi Public Area Lighting"
             />
-            <label>For Semi Public Area Lighting</label>
+            <label className="ml-2" >For Semi Public Area Lighting</label>
             <br />
             <input
+            className="ml-2"
               type="radio"
               name="PublicAreaLighting"
               value="For Personal Home Use"
             />
-            <label>For Personal Home Use</label> <br />
+            <label className="ml-2" >For Personal Home Use</label> <br />
             <input
+            className="ml-2"
               type="radio"
               name="PublicAreaLighting"
               value="For Water Heating"
             />
-            <label>For Water Heating</label>
+            <label className="ml-2" >For Water Heating</label>
             <br />
           </div>
 
@@ -741,24 +752,27 @@ const KnowYourSociety = () => {
               Condition of Public Area Lighting
             </h4>
             <input
+            className="ml-2"
               type="radio"
               name="PublicAreaLightingcondition"
               value="Good"
             />
-            <label>Good</label> <br />
+            <label className="ml-2" >Good</label> <br />
             <input
+            className="ml-2"
               type="radio"
               name="PublicAreaLightingcondition"
               value="Okay"
             />
-            <label>Okay</label>
+            <label className="ml-2" >Okay</label>
             <br />
             <input
+            className="ml-2"
               type="radio"
               name="PublicAreaLightingcondition"
               value="Bad"
             />
-            <label>Bad</label>
+            <label className="ml-2" >Bad</label>
           </div>
           <div className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 ">
             <h4 className="font-semibold text-lg">
@@ -778,26 +792,29 @@ const KnowYourSociety = () => {
           >
             <h4 className="font-semibold text-lg">Other Amenities</h4>
             <input
+            className="ml-2"
               type="radio"
               name="OtherAmenities"
               value="Rain Water Harvesting"
             />
-            <label>Rain Water Harvesting</label> <br />
+            <label className="ml-2" >Rain Water Harvesting</label> <br />
             <input
+            className="ml-2"
               type="radio"
               name="OtherAmenities"
               value="Ground Water Recharge"
             />
-            <label>Ground Water Recharge</label>
+            <label className="ml-2" >Ground Water Recharge</label>
             <br />
             <input
+            className="ml-2"
               type="radio"
               name="OtherAmenities"
               value="Water Treatment Plant"
             />
-            <label>Water Treatment Plant</label> <br />
-            <input type="radio" name="OtherAmenities" value="Wifi Lounge" />
-            <label>Wifi Lounge</label>
+            <label className="ml-2" >Water Treatment Plant</label> <br />
+            <input type="radio" className="ml-2" name="OtherAmenities" value="Wifi Lounge" />
+            <label className="ml-2" >Wifi Lounge</label>
             <br />
           </div>
 
@@ -809,13 +826,13 @@ const KnowYourSociety = () => {
             <h4 className="font-semibold text-lg">
               Condition of Other Amenities
             </h4>
-            <input type="radio" name="OtherAmenitiescondition" value="Good" />
-            <label>Good</label> <br />
-            <input type="radio" name="OtherAmenitiescondition" value="Okay" />
-            <label>Okay</label>
+            <input type="radio" className="ml-2" name="OtherAmenitiescondition" value="Good" />
+            <label className="ml-2" >Good</label> <br />
+            <input type="radio" className="ml-2" name="OtherAmenitiescondition" value="Okay" />
+            <label className="ml-2" >Okay</label>
             <br />
-            <input type="radio" name="OtherAmenitiescondition" value="Bad" />
-            <label>Bad</label>
+            <input type="radio" className="ml-2" name="OtherAmenitiescondition" value="Bad" />
+            <label className="ml-2" >Bad</label>
           </div>
           <div className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 ">
             <h4 className="font-semibold text-lg">Other Amenities Remark</h4>
@@ -1022,21 +1039,23 @@ const KnowYourSociety = () => {
             required
           >
             <h4 className="font-semibold text-lg">Daily Waste Collecion </h4>
-            <input type="radio" name="DailyWasteCollecion" value="Self" />
-            <label>Self</label> <br />
+            <input type="radio" className="ml-2" name="DailyWasteCollecion" value="Self" />
+            <label className="ml-2" >Self</label> <br />
             <input
+            className="ml-2"
               type="radio"
               name="DailyWasteCollecion"
               value="Building House Cleaning"
             />
-            <label>Building House Cleaning</label>
+            <label className="ml-2" >Building House Cleaning</label>
             <br />
             <input
+            className="ml-2"
               type="radio"
               name="DailyWasteCollecion"
               value="Third Party"
             />
-            <label>Third Party</label>
+            <label className="ml-2" >Third Party</label>
           </div>
 
           <div
@@ -1045,16 +1064,16 @@ const KnowYourSociety = () => {
             required
           >
             <h4 className="font-semibold text-lg">Type of Water Storage </h4>
-            <input type="radio" name="WaterStorage" value="Drinking" />
-            <label>Drinking</label> <br />
-            <input type="radio" name="WaterStorage" value="Flushing" />
-            <label>Flushing</label>
+            <input type="radio" className="ml-2" name="WaterStorage" value="Drinking" />
+            <label className="ml-2" >Drinking</label> <br />
+            <input type="radio" className="ml-2" name="WaterStorage" value="Flushing" />
+            <label className="ml-2" >Flushing</label>
             <br />
-            <input type="radio" name="WaterStorage" value="Treated" />
-            <label>Treated</label>
+            <input type="radio" className="ml-2" name="WaterStorage" value="Treated" />
+            <label className="ml-2" >Treated</label>
             <br />
-            <input type="radio" name="WaterStorage" value="Fire Fighter" />
-            <label>Fire Fighter</label>
+            <input type="radio" className="ml-2" name="WaterStorage" value="Fire Fighter" />
+            <label className="ml-2" >Fire Fighter</label>
           </div>
 
           <div
@@ -1064,20 +1083,22 @@ const KnowYourSociety = () => {
           >
             <h4 className="font-semibold text-lg"> Water Storage facitiy in</h4>
             <input
+            className="ml-2"
               type="radio"
               name="WaterStoargeFacility"
               value="UnderGround Tank"
             />
-            <label>UnderGround Tank</label> <br />
+            <label className="ml-2" >UnderGround Tank</label> <br />
             <input
+            className="ml-2"
               type="radio"
               name="WaterStoargeFacility"
               value="OverHead Tank"
             />
-            <label>OverHead Tank</label>
+            <label className="ml-2" >OverHead Tank</label>
             <br />
-            <input type="radio" name="WaterStoargeFacility" value="N/A" />
-            <label>N/A</label>
+            <input type="radio" className="ml-2" name="WaterStoargeFacility" value="N/A" />
+            <label className="ml-2" >N/A</label>
           </div>
 
           <div
@@ -1088,10 +1109,10 @@ const KnowYourSociety = () => {
             <h4 className="font-semibold text-lg">
               Common satellite TV facilities{" "}
             </h4>
-            <input type="radio" name="SatelliteTV" value="Yes" />
-            <label>Yes</label> <br />
-            <input type="radio" name="SatelliteTV" value="" />
-            <label>No</label>
+            <input type="radio" className="ml-2" name="SatelliteTV" value="Yes" />
+            <label className="ml-2" >Yes</label> <br />
+            <input type="radio" className="ml-2" name="SatelliteTV" value="" />
+            <label className="ml-2" >No</label>
           </div>
           <div className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 ">
             <h4 className="font-semibold text-lg">
@@ -1120,68 +1141,76 @@ const KnowYourSociety = () => {
               Fire Fighting System in Society
             </h4>
             <input
+            className="ml-2"
               type="checkbox"
               name="firefightingsystems"
               value="Sprinklers System "
             />
-            <label>Sprinklers System </label>
+            <label className="ml-2" >Sprinklers System </label>
             <br />
 
             <input
+            className="ml-2"
               type="checkbox"
               name="firefightingsystems"
               value="Smoke Detection "
             />
-            <label>Smoke Detection</label>
+            <label className="ml-2" >Smoke Detection</label>
             <br />
 
             <input
+            className="ml-2"
               type="checkbox"
               name="firefightingsystems"
               value="Fire Detection"
             />
-            <label>Fire Detection</label>
+            <label className="ml-2" >Fire Detection</label>
             <br />
 
             <input
+            className="ml-2"
               type="checkbox"
               name="firefightingsystems"
               value="Fire Extinguishers"
             />
-            <label>Fire Extinguishers</label>
+            <label className="ml-2" >Fire Extinguishers</label>
             <br />
 
             <input
+            className="ml-2"
               type="checkbox"
               name="firefightingsystems"
               value="Fire Hydrants "
             />
-            <label>Fire Hydrants </label>
+            <label className="ml-2" >Fire Hydrants </label>
             <br />
 
             <input
+            className="ml-2"
               type="checkbox"
               name="firefightingsystems"
               value="Fire Breaching Point (To Connect fire Fighting truck Supply)"
             />
-            <label>
+            <label className="ml-2" >
               Fire Breaching Point (To Connect fire Fighting truck Supply)
             </label>
             <br />
 
             <input
+            className="ml-2"
               type="checkbox"
               name="firefightingsystems"
               value="Fire Alarm"
             />
-            <label>Fire Alarm</label>
+            <label className="ml-2" >Fire Alarm</label>
             <br />
             <input
+            className="ml-2"
               type="checkbox"
               name="firefightingsystems"
               value="Lighting  Arrestors"
             />
-            <label>Lighting Arrestors</label>
+            <label className="ml-2" >Lighting Arrestors</label>
             <br />
           </div>
           <div
@@ -1191,33 +1220,37 @@ const KnowYourSociety = () => {
           >
             <h4 className="font-semibold text-lg">Security Service</h4>
             <input
+            className="ml-2"
               type="checkbox"
               name="SecurityService"
               value="Physical Security"
             />
-            <label>Physical Security</label> <br />
-            <input type="checkbox" name="SecurityService" value="CCTV" />
-            <label>CCTV</label> <br />
-            <input type="checkbox" name="SecurityService" value="Intercom" />
-            <label>Intercom</label> <br />
+            <label className="ml-2" >Physical Security</label> <br />
+            <input type="checkbox" className="ml-2" name="SecurityService" value="CCTV" />
+            <label className="ml-2" >CCTV</label> <br />
+            <input type="checkbox" className="ml-2" name="SecurityService" value="Intercom" />
+            <label className="ml-2" >Intercom</label> <br />
             <input
+            className="ml-2"
               type="checkbox"
               name="SecurityService"
               value="Anti Theft Alarm"
             />
-            <label>Anti Theft Alarm</label> <br />
+            <label className="ml-2" >Anti Theft Alarm</label> <br />
             <input
+            className="ml-2"
               type="checkbox"
               name="SecurityService"
               value="Metal Detection Screening"
             />
-            <label>Metal Detection Screening</label> <br />
+            <label className="ml-2" >Metal Detection Screening</label> <br />
             <input
+            className="ml-2"
               type="checkbox"
               name="SecurityService"
               value="Temperature Screening"
             />
-            <label>Temperature Screening</label> <br />
+            <label className="ml-2" >Temperature Screening</label> <br />
           </div>
 
           <h2 className="text-lg font-bold text-sky-500  px-1 py-6">
@@ -1230,20 +1263,21 @@ const KnowYourSociety = () => {
             required
           >
             <h4 className="font-semibold text-lg">Eating Habits Allowed</h4>
-            <input type="checkbox" name="EatingHabitsAllowed" value="Veg" />
-            <label>Veg</label> <br />
-            <input type="checkbox" name="EatingHabitsAllowed" value="Non Veg" />
-            <label>Non Veg</label>
+            <input type="checkbox" className="ml-2" name="EatingHabitsAllowed" value="Veg" />
+            <label className="ml-2" >Veg</label> <br />
+            <input type="checkbox" className="ml-2" name="EatingHabitsAllowed" value="Non Veg" />
+            <label className="ml-2" >Non Veg</label>
             <br />
             <input
+            className="ml-2"
               type="checkbox"
               name="EatingHabitsAllowed"
               value="Eggeterian"
             />
-            <label>Eggeterian</label>
+            <label className="ml-2" >Eggeterian</label>
             <br />
-            <input type="checkbox" name="EatingHabitsAllowed" value="Vegan" />
-            <label>Vegan</label>
+            <input type="checkbox" className="ml-2" name="EatingHabitsAllowed" value="Vegan" />
+            <label className="ml-2" >Vegan</label>
           </div>
           <div
             className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
@@ -1254,33 +1288,37 @@ const KnowYourSociety = () => {
               Majority Age Group(Select Top 2)
             </h4>
             <input
+            className="ml-2"
               type="checkbox"
               name="MajorityAgeGroup"
               value="Small Children (Less then 13)"
             />
-            <label>Small Children (Less then 13)</label> <br />
+            <label className="ml-2" >Small Children (Less then 13)</label> <br />
             <input
+            className="ml-2"
               type="checkbox"
               name="MajorityAgeGroup"
               value="Teenagers(13- 19)"
             />
-            <label>Teenagers(13- 19)</label>
+            <label className="ml-2" >Teenagers(13- 19)</label>
             <br />
             <input
+            className="ml-2"
               type="checkbox"
               name="MajorityAgeGroup"
               value="Young Adults(20-30)"
             />
-            <label>Young Adults(20-30)</label> <br />
+            <label className="ml-2" >Young Adults(20-30)</label> <br />
             <input
+            className="ml-2"
               type="checkbox"
               name="MajorityAgeGroup"
               value="Adults(30-55)"
             />
-            <label>Adults(30-55)</label>
+            <label className="ml-2" >Adults(30-55)</label>
             <br />
-            <input type="checkbox" name="MajorityAgeGroup" value="Old(55+)" />
-            <label>Old(55+)</label>
+            <input type="checkbox" className="ml-2" name="MajorityAgeGroup" value="Old(55+)" />
+            <label className="ml-2" >Old(55+)</label>
           </div>
 
           <div
@@ -1289,10 +1327,10 @@ const KnowYourSociety = () => {
             required
           >
             <h4 className="font-semibold text-lg">Members Allowed</h4>
-            <input type="checkbox" name="MembersAllowed" value="Batchelors" />
-            <label>Batchelors</label> <br />
-            <input type="checkbox" name="MembersAllowed" value="Family" />
-            <label>Family</label>
+            <input type="checkbox" className="ml-2" name="MembersAllowed" value="Batchelors" />
+            <label className="ml-2" >Batchelors</label> <br />
+            <input type="checkbox" className="ml-2" name="MembersAllowed" value="Family" />
+            <label className="ml-2" >Family</label>
           </div>
 
           <div
@@ -1301,10 +1339,10 @@ const KnowYourSociety = () => {
             required
           >
             <h4 className="font-semibold text-lg">Majority Member Type</h4>
-            <input type="radio" name="MajorityMemberType" value="Rented" />
-            <label>Rented</label> <br />
-            <input type="radio" name="MajorityMemberType" value="Self Owned" />
-            <label>Self Owned</label>
+            <input type="radio" className="ml-2" name="MajorityMemberType" value="Rented" />
+            <label className="ml-2" >Rented</label> <br />
+            <input type="radio" className="ml-2" name="MajorityMemberType" value="Self Owned" />
+            <label className="ml-2" >Self Owned</label>
           </div>
 
           <div
@@ -1315,13 +1353,13 @@ const KnowYourSociety = () => {
             <h4 className="font-semibold text-lg">
               Nationality Allowed in Society
             </h4>
-            <input type="radio" name="NationalityAllowed" value="Indian" />
-            <label>Indian</label> <br />
-            <input type="radio" name="NationalityAllowed" value="Foriegner" />
-            <label>Foriegner</label>
+            <input type="radio" className="ml-2" name="NationalityAllowed" value="Indian" />
+            <label className="ml-2" >Indian</label> <br />
+            <input type="radio" className="ml-2" name="NationalityAllowed" value="Foriegner" />
+            <label className="ml-2" >Foriegner</label>
             <br />
-            <input type="radio" name="NationalityAllowed" value="Both" />
-            <label>Both</label>
+            <input type="radio" className="ml-2" name="NationalityAllowed" value="Both" />
+            <label className="ml-2" >Both</label>
           </div>
 
           <div
@@ -1332,10 +1370,10 @@ const KnowYourSociety = () => {
             <h4 className="font-semibold text-lg">
               Batchlors are allowed to stay on rent in Society
             </h4>
-            <input type="radio" name="BatchlorsAllowed" value="Yes" />
-            <label>Yes</label> <br />
-            <input type="radio" name="BatchlorsAllowed" value="" />
-            <label>No</label>
+            <input type="radio" className="ml-2" name="BatchlorsAllowed" value="Yes" />
+            <label className="ml-2" >Yes</label> <br />
+            <input type="radio" className="ml-2" name="BatchlorsAllowed" value="" />
+            <label className="ml-2" >No</label>
           </div>
 
           <div
@@ -1346,10 +1384,10 @@ const KnowYourSociety = () => {
             <h4 className="font-semibold text-lg">
               Non married couples are allowed to stay on rent in Society
             </h4>
-            <input type="radio" name="nonMarried" value="Yes" />
-            <label>Yes</label> <br />
-            <input type="radio" name="nonMarried" value="" />
-            <label>No</label>
+            <input type="radio" className="ml-2" name="nonMarried" value="Yes" />
+            <label className="ml-2" >Yes</label> <br />
+            <input type="radio" className="ml-2" name="nonMarried" value="" />
+            <label className="ml-2" >No</label>
           </div>
 
           <div
@@ -1360,10 +1398,10 @@ const KnowYourSociety = () => {
             <h4 className="font-semibold text-lg">
               Are there many Children Playing Around ?
             </h4>
-            <input type="radio" name="ChildrenPlayingAround" value="Yes" />
-            <label>Yes</label> <br />
-            <input type="radio" name="ChildrenPlayingAround" value="" />
-            <label>No</label>
+            <input type="radio" className="ml-2" name="ChildrenPlayingAround" value="Yes" />
+            <label className="ml-2" >Yes</label> <br />
+            <input type="radio" className="ml-2" name="ChildrenPlayingAround" value="" />
+            <label className="ml-2" >No</label>
           </div>
 
           <div
@@ -1375,10 +1413,10 @@ const KnowYourSociety = () => {
               Are there many elderly people in society and activities available
               for them ?{" "}
             </h4>
-            <input type="radio" name="ElderPeopleActivity" value="Yes" />
-            <label>Yes</label> <br />
-            <input type="radio" name="ElderPeopleActivity" value="" />
-            <label>No</label>
+            <input type="radio" className="ml-2" name="ElderPeopleActivity" value="Yes" />
+            <label className="ml-2" >Yes</label> <br />
+            <input type="radio" className="ml-2" name="ElderPeopleActivity" value="" />
+            <label className="ml-2" >No</label>
           </div>
 
           <div
@@ -1388,71 +1426,81 @@ const KnowYourSociety = () => {
           >
             <h4 className="font-semibold text-lg">Eating habits Allowed</h4>
             <input
+            className="ml-2"
               type="checkbox"
               name="celebration"
               value="Ganpati Celebration in Society"
             />
-            <label>Ganpati Celebration in Society</label> <br />
+            <label className="ml-2" >Ganpati Celebration in Society</label> <br />
             <input
+            className="ml-2"
               type="checkbox"
               name="celebration"
               value="Diwali Celebration in Society"
             />
-            <label>Diwali Celebration in Society</label>
+            <label className="ml-2" >Diwali Celebration in Society</label>
             <br />
             <input
+            className="ml-2"
               type="checkbox"
               name="celebration"
               value="Kite Flying at Terrace"
             />
-            <label>Kite Flying at Terrace</label> <br />
+            <label className="ml-2" >Kite Flying at Terrace</label> <br />
             <input
+            className="ml-2"
               type="checkbox"
               name="celebration"
               value="Holi Celebration"
             />
-            <label>Holi Celebration</label> <br />
+            <label className="ml-2" >Holi Celebration</label> <br />
             <input
+            className="ml-2"
               type="checkbox"
               name="celebration"
               value="Rangpanchnami Event in Society"
             />
-            <label>Rangpanchnami Event in Society</label>
+            <label className="ml-2" >Rangpanchnami Event in Society</label>
             <br />
             <input
+            className="ml-2"
               type="checkbox"
               name="celebration"
               value="Eid Celebration in Society"
             />
-            <label>Eid Celebration in Society</label>
+            <label className="ml-2" >Eid Celebration in Society</label>
             <br />
             <input
+            className="ml-2"
               type="checkbox"
               name="celebration"
               value="Republic and Independace day Celebration"
             />
-            <label>Republic and Independace day Celebration</label>
+            <label className="ml-2" >Republic and Independace day Celebration</label>
             <br />
             <input
+            className="ml-2"
               type="checkbox"
               name="celebration"
               value="Chrismas Celebration"
             />
-            <label>Chrismas Celebration</label>
+            <label className="ml-2" >Chrismas Celebration</label>
             <br />
             <input
+            className="ml-2"
               type="checkbox"
               name="celebration"
               value="New Year Celebration"
             />
-            <label>New Year Celebration</label>
+            <label className="ml-2" >New Year Celebration</label>
             <br />
             <input
+            className="ml-2"
               type="checkbox"
               name="celebration"
               value="Other Celebration"
             />
-            <label>Other Celebration</label>
+            <label className="ml-2" >Other Celebration</label>
           </div>
           <div
             className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
@@ -1461,36 +1509,41 @@ const KnowYourSociety = () => {
           >
             <h4 className="font-semibold text-lg">Eating habits Allowed</h4>
             <input
+            className="ml-2"
               type="checkbox"
               name="SocietyMeetings"
               value="Annual Meeting"
             />
-            <label>Annual Meeting</label> <br />
+            <label className="ml-2" >Annual Meeting</label> <br />
             <input
+            className="ml-2"
               type="checkbox"
               name="SocietyMeetings"
               value="Quaterly Meeting"
             />
-            <label>Quaterly Meeting</label>
+            <label className="ml-2" >Quaterly Meeting</label>
             <br />
             <input
+            className="ml-2"
               type="checkbox"
               name="SocietyMeetings"
               value="Monthly Meeting"
             />
-            <label>Monthly Meeting</label> <br />
+            <label className="ml-2" >Monthly Meeting</label> <br />
             <input
+            className="ml-2"
               type="checkbox"
               name="SocietyMeetings"
               value="Women's Meeting"
             />
-            <label>Women's Meeting</label> <br />
+            <label className="ml-2" >Women's Meeting</label> <br />
             <input
+            className="ml-2"
               type="checkbox"
               name="SocietyMeetings"
               value="Kids Meeting"
             />
-            <label>Kids Meeting</label>
+            <label className="ml-2" >Kids Meeting</label>
           </div>
 
           <div
@@ -1501,10 +1554,10 @@ const KnowYourSociety = () => {
             <h4 className="font-semibold text-lg">
               FAMILY FUNTIONS ARE ALLOWED IN COMMON AREAS? (E.G. MARRIAGES)
             </h4>
-            <input type="radio" name="FunctionsAllowed" value="Yes" />
-            <label>Yes</label> <br />
-            <input type="radio" name="FunctionsAllowed" value="" />
-            <label>No</label>
+            <input type="radio" className="ml-2" name="FunctionsAllowed" value="Yes" />
+            <label className="ml-2" >Yes</label> <br />
+            <input type="radio" className="ml-2" name="FunctionsAllowed" value="" />
+            <label className="ml-2" >No</label>
           </div>
 
           <h2 className="text-lg font-bold text-sky-500  px-1 py-6">
@@ -1519,13 +1572,13 @@ const KnowYourSociety = () => {
             <h4 className="font-semibold text-lg">
               how do you rate society in Cleanliness
             </h4>
-            <input type="radio" name="Cleanliness" value="Good" />
-            <label>Yes</label> <br />
-            <input type="radio" name="Cleanliness" value="Okay" />
-            <label>Okay</label>
+            <input type="radio" className="ml-2" name="Cleanliness" value="Good" />
+            <label className="ml-2" >Yes</label> <br />
+            <input type="radio" className="ml-2" name="Cleanliness" value="Okay" />
+            <label className="ml-2" >Okay</label>
             <br />
-            <input type="radio" name="Cleanliness" value="Bad" />
-            <label>Bad</label>
+            <input type="radio" className="ml-2" name="Cleanliness" value="Bad" />
+            <label className="ml-2" >Bad</label>
           </div>
 
           <div
@@ -1537,13 +1590,13 @@ const KnowYourSociety = () => {
               Is Society maintained well like clean staircase / Lift/ Compound /
               other internal areas ?
             </h4>
-            <input type="radio" name="CleanlinessMaintained" value="Good" />
-            <label>Yes</label> <br />
-            <input type="radio" name="CleanlinessMaintained" value="Okay" />
-            <label>Okay</label>
+            <input type="radio" className="ml-2" name="CleanlinessMaintained" value="Good" />
+            <label className="ml-2" >Yes</label> <br />
+            <input type="radio" className="ml-2" name="CleanlinessMaintained" value="Okay" />
+            <label className="ml-2" >Okay</label>
             <br />
-            <input type="radio" name="CleanlinessMaintained" value="Bad" />
-            <label>Bad</label>
+            <input type="radio" className="ml-2" name="CleanlinessMaintained" value="Bad" />
+            <label className="ml-2" >Bad</label>
           </div>
 
           <h2 className="text-lg font-bold text-sky-500  px-1 py-6">
@@ -1559,10 +1612,10 @@ const KnowYourSociety = () => {
               plumbers etc ), milk and newspapers ?(Asking from security guard
               etc)
             </h4>
-            <input type="radio" name="Handymen" value="Yes" />
-            <label>Yes</label> <br />
-            <input type="radio" name="Handymen" value="" />
-            <label>No</label>
+            <input type="radio" className="ml-2" name="Handymen" value="Yes" />
+            <label className="ml-2" >Yes</label> <br />
+            <input type="radio" className="ml-2" name="Handymen" value="" />
+            <label className="ml-2" >No</label>
           </div>
 
           <div
@@ -1573,10 +1626,10 @@ const KnowYourSociety = () => {
             <h4 className="font-semibold text-lg">
               Handicap/Elderly friendly facilities like Ramp etc
             </h4>
-            <input type="radio" name="ramp" value="Yes" />
-            <label>Yes</label> <br />
-            <input type="radio" name="ramp" value="" />
-            <label>No</label>
+            <input type="radio" className="ml-2" name="ramp" value="Yes" />
+            <label className="ml-2" >Yes</label> <br />
+            <input type="radio" className="ml-2" name="ramp" value="" />
+            <label className="ml-2" >No</label>
           </div>
 
           <div className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 ">
@@ -1635,10 +1688,10 @@ const KnowYourSociety = () => {
             <h4 className="font-semibold text-lg">
               Is noise level high inside society ?{" "}
             </h4>
-            <input type="radio" name="noise" value="Yes" />
-            <label>Yes</label> <br />
-            <input type="radio" name="noise" value="" />
-            <label>No</label>
+            <input type="radio" className="ml-2" name="noise" value="Yes" />
+            <label className="ml-2" >Yes</label> <br />
+            <input type="radio" className="ml-2" name="noise" value="" />
+            <label className="ml-2" >No</label>
           </div>
           <div
             className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
@@ -1648,10 +1701,10 @@ const KnowYourSociety = () => {
             <h4 className="font-semibold text-lg">
               Stray dogs / animals in or around society{" "}
             </h4>
-            <input type="radio" name="straydogs" value="Yes" />
-            <label>Yes</label> <br />
-            <input type="radio" name="straydogs" value="" />
-            <label>No</label>
+            <input type="radio" className="ml-2" name="straydogs" value="Yes" />
+            <label className="ml-2" >Yes</label> <br />
+            <input type="radio" className="ml-2" name="straydogs" value="" />
+            <label className="ml-2" >No</label>
           </div>
           <div
             className="question bg-white border-2 border-slate-400 rounded-lg mt-2 p-4 "
@@ -1661,10 +1714,10 @@ const KnowYourSociety = () => {
             <h4 className="font-semibold text-lg">
               Are there any leakages / cracks inside the society ?
             </h4>
-            <input type="radio" name="crack" value="Yes" />
-            <label>Yes</label> <br />
-            <input type="radio" name="crack" value="" />
-            <label>No</label>
+            <input type="radio" className="ml-2" name="crack" value="Yes" />
+            <label className="ml-2" >Yes</label> <br />
+            <input type="radio" className="ml-2" name="crack" value="" />
+            <label className="ml-2" >No</label>
           </div>
 
           <div
@@ -1675,10 +1728,10 @@ const KnowYourSociety = () => {
             <h4 className="font-semibold text-lg">
               OC/Conveyence Deed by society ?
             </h4>
-            <input type="radio" name="Deed" value="Yes" />
-            <label>Yes</label> <br />
-            <input type="radio" name="Deed" value="" />
-            <label>No</label>
+            <input type="radio" className="ml-2" name="Deed" value="Yes" />
+            <label className="ml-2" >Yes</label> <br />
+            <input type="radio" className="ml-2" name="Deed" value="" />
+            <label className="ml-2" >No</label>
           </div>
         </form>
       </div>
