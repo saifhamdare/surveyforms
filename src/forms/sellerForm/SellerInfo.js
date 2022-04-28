@@ -597,51 +597,54 @@ const SellerInfo = () => {
             required
           >
             <h4 className="font-semibold text-lg">Husband's Profession Type</h4>
-            <input className="ml-2" type="radio" name="hprofessionType" value="Business" />
+            <input className="ml-2" type="radio" name="hprofessionType" value="1" />
             <label className="ml-2" >Business</label>
             <br />
-            <input className="ml-2" type="radio" name="hprofessionType" value="Banker" />
+            <input className="ml-2" type="radio" name="hprofessionType" value="2" />
             <label className="ml-2" >Banker</label>
             <br />
-            <input className="ml-2" type="radio" name="hprofessionType" value="IT Engineer" />
+            <input className="ml-2" type="radio" name="hprofessionType" value="3" />
             <label className="ml-2" >IT Engineer</label>
             <br />
-            <input className="ml-2" type="radio" name="hprofessionType" value="Other Engineer" />
+            <input className="ml-2" type="radio" name="hprofessionType" value="4" />
             <label className="ml-2" >Other Engineer</label>
             <br />
-            <input className="ml-2" type="radio" name="hprofessionType" value="Doctor" />
+            <input className="ml-2" type="radio" name="hprofessionType" value="5" />
             <label className="ml-2" >Doctor</label>
             <br />
-            <input className="ml-2" type="radio" name="hprofessionType" value="CA/CS" />
+            <input className="ml-2" type="radio" name="hprofessionType" value="6" />
             <label className="ml-2" >CA/CS</label>
 
             <br />
-            <input className="ml-2" type="radio" name="hprofessionType" value="Teacher" />
+            <input className="ml-2" type="radio" name="hprofessionType" value="7" />
             <label className="ml-2" >Teacher</label>
 
             <br />
-            <input className="ml-2" type="radio" name="hprofessionType" value="Entertainment" />
+            <input className="ml-2" type="radio" name="hprofessionType" value="8" />
             <label className="ml-2" >Entertainment</label>
 
             <br />
-            <input className="ml-2" type="radio" name="hprofessionType" value="Scientist" />
+            <input className="ml-2" type="radio" name="hprofessionType" value="9" />
             <label className="ml-2" >Scientist</label>
 
             <br />
-            <input className="ml-2" type="radio" name="hprofessionType" value="Lawyer" />
+            <input className="ml-2" type="radio" name="hprofessionType" value="10" />
             <label className="ml-2" >Lawyer</label>
 
             <br />
-            <input className="ml-2" type="radio" name="hprofessionType" value="Athelete" />
+            <input className="ml-2" type="radio" name="hprofessionType" value="11" />
             <label className="ml-2" >Athelete</label>
 
             <br />
-            <input className="ml-2" type="radio" name="hprofessionType" value="Chef" />
+            <input className="ml-2" type="radio" name="hprofessionType" value="12" />
             <label className="ml-2" >Chef</label>
 
             <br />
-            <input className="ml-2" type="radio" name="hprofessionType" value="Aviation" />
+            <input className="ml-2" type="radio" name="hprofessionType" value="13" />
             <label className="ml-2" >Aviation</label>
+            <br />
+            <input className="ml-2" type="radio" name="hprofessionType" value="14" />
+            <label className="ml-2" >Not Working</label>
 
             <Input fullWidth type="text" placeholder="other" />
           </div>

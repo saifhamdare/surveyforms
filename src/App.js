@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import axios from "axios";
-import CommunityLeader from "./forms/neibourhoodForms/CommunityLeader";
-import Neighbourhood from "./forms/neibourhoodForms/Neighbourhood";
-import PhotoUpload from "./forms/neibourhoodForms/PhotoUpload";
-import PlaceInfo from "./forms/neibourhoodForms/PlaceInfo";
+import CommunityLeader from "./forms/neibourhoodForms/comunityleader/CommunityLeader";
+import Neighbourhood from "./forms/neibourhoodForms/neighbourhood/Neighbourhood";
+import PhotoUpload from "./forms/neibourhoodForms/photoupload/PhotoUpload";
+import PlaceInfo from "./forms/neibourhoodForms/placeinfo/PlaceInfo";
 import Dashboard from "./pages/Dashboard";
 import FormList from "./pages/FormList";
 import Login from "./pages/Login";
 import TodaysTask from "./pages/TodaysTask";
 import Navbar from "./components/Navbar";
+import AddSellerStructure from "./forms/addseller/AddSellerStructure";
 import TaskHistory from "./history/TaskHistory";
 import PendingTask from "./pendingtasks/PendingTask";
 import PendingList from "./pendingtasks/PendingList";
@@ -17,6 +18,13 @@ import KnowYourSociety from "./forms/societyForm/KnowYourSociety";
 import SellerInfo from "./forms/sellerForm/SellerInfo";
 import EditNeighbourhood from "./forms/editforms/EditNeighbourhood";
 import EditFormList from "./forms/editforms/EditFormList";
+import SearchProperty from "./pages/SearchProperty";
+import SearchSeller from "./pages/SearchSeller";
+
+import NeighbourhoodStructure from "./forms/neibourhoodForms/neighbourhood/NeighbourhoodStructure";
+import CommunityLeaderStructure from "./forms/neibourhoodForms/comunityleader/CommunityLeaderStructure";
+import PhotoUploadStructure from "./forms/neibourhoodForms/photoupload/PhotoUploadStructure";
+import PlaceInfoStructure from "./forms/neibourhoodForms/placeinfo/PlaceInfoStructure";
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
@@ -25,10 +33,10 @@ const App = () => {
   let TOKEN = "";
 
   const handleTodaysTask = (id) => {
-    localStorage.setItem("property_id", id);
+    localStorage.setItem("task_id", id);
   };
   const handlePendingTask = (id) => {
-    localStorage.setItem("property_id", id);
+    localStorage.setItem("task_id", id);
   };
 
   // list of properties  for todays tasks
@@ -61,7 +69,7 @@ const App = () => {
   return (
     <div className="App  ">
       <Navbar isloggedIn={isloggedIn} />
-      <div className=" xl:px-80 lg:px-52">
+      <div className="xl:px-80 2xl:px-96 lg:px-52">
         <Routes>
           <Route
             path="/"
@@ -91,10 +99,20 @@ const App = () => {
           />
           <Route path="history-task" element={<TaskHistory tasks={tasks} />} />
           <Route path="form-list" element={<FormList />} />
-          <Route path="neighbourhood-form" element={<Neighbourhood />} />
-          <Route path="placeinfo-form" element={<PlaceInfo />} />
-          <Route path="photoupload-form" element={<PhotoUpload />} />
-          <Route path="communityleader-form" element={<CommunityLeader />} />
+          
+          <Route path="addseller" element={<AddSellerStructure />} />
+          {/* <Route path="addseller" element={<AddSeller />} /> */}
+          <Route path="searchproperty" element={<SearchProperty />} />
+          <Route path="searchseller" element={<SearchSeller />} />
+
+          {/* <Route path="neighbourhood-form" element={<Neighbourhood />} /> */}
+          <Route path="neighbourhood-form" element={<NeighbourhoodStructure />} />
+          <Route path="communityleader-form" element={<CommunityLeaderStructure />} />
+          
+          {/* <Route path="placeinfo-form" element={<PlaceInfo />} /> */}
+          <Route path="placeinfo-form" element={<PlaceInfoStructure />} />
+          {/* <Route path="photoupload-form" element={<PhotoUpload />} /> */}
+          <Route path="photoupload-form" element={<PhotoUploadStructure />} />
 
           <Route path="edit-formlist" element={<EditFormList />} />
           <Route path="editneighbourhood-form" element={<EditNeighbourhood />} />

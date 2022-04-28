@@ -20,7 +20,7 @@ const FormList = () => {
     if (nhform === 8 && piform === true && puform === true && clform > 0) {
       const body = { status: "C" };
       axios
-        .patch(`tasks/${localStorage.getItem("property_id")}/`, body, {
+        .patch(`tasks/${localStorage.getItem("task_id")}/`, body, {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         })
         .then((res) => {
@@ -46,7 +46,7 @@ const FormList = () => {
     axios
       .get(
         `api/tasks/${localStorage.getItem(
-          "property_id"
+          "task_id"
         )}/neighbourhood/`,
         {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
@@ -59,7 +59,7 @@ const FormList = () => {
     axios
       .get(
         `api/tasks/${localStorage.getItem(
-          "property_id"
+          "task_id"
         )}/place-info/`,
         {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
@@ -72,7 +72,7 @@ const FormList = () => {
     axios
       .get(
         `api/tasks/${localStorage.getItem(
-          "property_id"
+          "task_id"
         )}/photos/`,
         {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
@@ -85,7 +85,7 @@ const FormList = () => {
     axios
       .get(
         `api/tasks/${localStorage.getItem(
-          "property_id"
+          "task_id"
         )}/community-leader/`,
         {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
@@ -100,7 +100,7 @@ const FormList = () => {
     // neighbourhood length info
     const update = getData();
     return update;
-  }, [localStorage.getItem("property_id")]);
+  }, [localStorage.getItem("task_id")]);
 
   return (
     <div className=" ">

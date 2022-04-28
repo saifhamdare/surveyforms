@@ -28,7 +28,6 @@ const style = {
 export default function ButtonAppBar({ isloggedIn }) {
   const [open, setOpen] = React.useState(false);
   const [userdata, setUserdata] = React.useState();
-  const [backButton, setBackButton] = React.useState(false);
   const navigate = useNavigate();
   const successNotify = () =>
     toast.warn("Logging out", {
@@ -52,7 +51,7 @@ export default function ButtonAppBar({ isloggedIn }) {
     localStorage.setItem("isLoggedIn", false);
     localStorage.removeItem("token");
     localStorage.removeItem("RefreshToken");
-    localStorage.removeItem("property_id");
+    localStorage.removeItem("task_id");
     window.location.reload();
     navigate("/", { replace: true });
   };
