@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import axios from "axios";
-import CommunityLeader from "./forms/neibourhoodForms/comunityleader/CommunityLeader";
-import Neighbourhood from "./forms/neibourhoodForms/neighbourhood/Neighbourhood";
-import PhotoUpload from "./forms/neibourhoodForms/photoupload/PhotoUpload";
-import PlaceInfo from "./forms/neibourhoodForms/placeinfo/PlaceInfo";
+
 import Dashboard from "./pages/Dashboard";
 import FormList from "./pages/FormList";
 import Login from "./pages/Login";
@@ -25,6 +22,7 @@ import NeighbourhoodStructure from "./forms/neibourhoodForms/neighbourhood/Neigh
 import CommunityLeaderStructure from "./forms/neibourhoodForms/comunityleader/CommunityLeaderStructure";
 import PhotoUploadStructure from "./forms/neibourhoodForms/photoupload/PhotoUploadStructure";
 import PlaceInfoStructure from "./forms/neibourhoodForms/placeinfo/PlaceInfoStructure";
+import KnowYourSocietyStructure from "./forms/societyForm/KnowYourSocietyStructure";
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
@@ -117,7 +115,7 @@ const App = () => {
           <Route path="edit-formlist" element={<EditFormList />} />
           <Route path="editneighbourhood-form" element={<EditNeighbourhood />} />
           <Route path="sellerinfo-form" element={<SellerInfo />} />
-          <Route path="knowyoursociety-form" element={<KnowYourSociety />} />
+          <Route path="knowyoursociety-form" element={<KnowYourSocietyStructure />} />
           <Route path="pending-list" element={<PendingList />} />
         </Routes>
       </div>

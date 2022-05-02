@@ -78,7 +78,7 @@ const CommunityLeaderStructure = () => {
   return (
     <div className="">
       <ToastContainer autoClose={1500} />
-      <div className="p-3 text-center mt-10 bg-slate-100">
+      <div className="p-3 text-center mt-10 ">
         <h2 className="text-sky-600 text-2xl font-bold">Channel Partner</h2>
         <div className="text-left">
           <div className="progress"></div>

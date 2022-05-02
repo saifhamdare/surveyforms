@@ -8,7 +8,7 @@ const Dashboard = () => {
       <div className="container justify-center p-2 mt-5 grid grid-cols-2 gap-4 md:px-10 lg:px-36">
         <Link to={"/todays-task"}>
           <div className="border-2  bg-white border-slate-800 rounded-lg text-center px-5 py-16 font-bold   ">
-            Todays's Survey
+            Today's Task
           </div>
         </Link>
         <Link to={"/history-task"}>
@@ -18,7 +18,7 @@ const Dashboard = () => {
         </Link>
         <Link to={"/pending-task"}>
           <div className="border-2 bg-white border-slate-800 rounded-lg text-center px-5 py-16 font-bold  ">
-            Pending Survey
+            Pending Task
           </div>
         </Link>
         <div    onClick={() => {

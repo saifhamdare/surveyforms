@@ -1,67 +1,80 @@
 import { Input } from "@mui/material";
-
-import React, { useState } from "react";
-
+import React, { useEffect, useState } from "react";
 import "react-toastify/dist/ReactToastify.css";
-
-const PlaceInfo = ({ questionCount, placeInfo, setPlaceInfo }) => {
+const PlaceInfo = ({
+  questionCount,
+  placeInfo,
+  setPlaceInfo,
+  isVendorQuestion,
+}) => {
   const [pigeoCode, setpiGeocode] = useState("");
 
   // vendor state
   const [vendorCount, setVendorCount] = useState(1);
 
-  const [vname, setVname] = useState("");
-  const [sname, setSname] = useState("");
-  const [pno, setPno] = useState("");
+  const [v1, setV1] = useState();
+  const [v2, setV2] = useState();
 
-  const [v1, setv1] = useState();
-  const [v2, setv2] = useState();
+  const [mainVendor, setMainVendor] = useState([]);
 
   const getLoaction = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     navigator.geolocation.getCurrentPosition(function (position) {
+      console.log(`${ position.coords.latitude} , ${position.coords.longitude}`)
+      setPlaceInfo({
+        ...placeInfo,
+        geoCode: `${ position.coords.latitude} , ${position.coords.longitude}`,
+      })
       setPlaceInfo({
         lat: position.coords.latitude,
         long: position.coords.longitude,
       });
     });
   };
-  const updateLoaction = `${placeInfo.geoCode?.lat} , ${placeInfo.geoCode?.long}`;
-  setPlaceInfo(updateLoaction);
+  // const updateLoaction = `${placeInfo?.geoCode?.lat} , ${placeInfo?.geoCode?.long}`;
+  // setPlaceInfo(updateLoaction);
   const createV1 = (value, of) => {
     switch (of) {
       case "vname":
-        setVname(value);
+        setV1({ ...v1, vendorName: value });
         break;
       case "sname":
-        setSname(value);
+        setV1({ ...v1, shopName: value });
         break;
       case "pno":
-        setPno(value);
+        setV1({ ...v1, phoneNo: value });
         break;
 
       default:
         break;
     }
+  };
 
-    const vendor = {
-      vname,
-      sname,
-      pno,
-    };
+  const createV2 = (value, of) => {
+    switch (of) {
+      case "vname":
+        setV2({ ...v2, vendorName: value });
+        break;
+      case "sname":
+        setV2({ ...v2, shopName: value });
+        break;
+      case "pno":
+        setV2({ ...v2, phoneNo: value });
+        break;
 
-    if (vendorCount === 1) {
-      setv1(vendor);
-    } else {
-      setv2(vendor);
+      default:
+        break;
     }
   };
 
-  const addVendorInputs = () => {
-    if (v1) {
-      setVendorCount(2);
-    } else {
+  const createVendor = (from) => {
+    if (v1 && questionCount === 9) {
+      setMainVendor([...mainVendor, v1, v2]);
     }
+
+    // if (vData.vname && vData.sname && vData.pno) {
+    //   setMainVendor([...mainVendor, vData]);
+    // }
   };
 
   return (
@@ -95,7 +108,7 @@ const PlaceInfo = ({ questionCount, placeInfo, setPlaceInfo }) => {
             />
             <button
               className="border-2 bg-sky-500 text-white  p-1 px-3 rounded-xl  "
-              onClick={getLoaction}
+              onClick={(event) => getLoaction(event)}
             >
               geoLocation
             </button>
@@ -274,10 +287,7 @@ const PlaceInfo = ({ questionCount, placeInfo, setPlaceInfo }) => {
             placeholder="no."
             value={placeInfo.groceryStoresName}
             onChange={(e) =>
-              setPlaceInfo({
-                ...placeInfo,
-                groceryStoresName: e.target.value,
-              })
+              setPlaceInfo({ ...placeInfo, groceryStoresName: e.target.value })
             }
             required
             fullWidth
@@ -293,14 +303,27 @@ const PlaceInfo = ({ questionCount, placeInfo, setPlaceInfo }) => {
             </h4>
           </div>
 
-          <button type="button" onClick={addVendorInputs}>
+          <button
+            type="button"
+            onClick={() => {
+              setVendorCount(2);
+            }}
+          >
             add
           </button>
+          {/* <button
+            type="button"
+            onClick={() => {
+              createVendor(vendorCount === 1 ? "v1" : "v2");
+            }}
+          >
+            Confirm
+          </button> */}
           {vendorCount === 2 && (
             <button
               type="button"
               onClick={() => {
-                setVendorCount(2);
+                setVendorCount(1);
               }}
             >
               remove
@@ -327,17 +350,17 @@ const PlaceInfo = ({ questionCount, placeInfo, setPlaceInfo }) => {
             <div className="flex space-x-1">
               <Input
                 placeholder="Vendor Name"
-                onChange={(e) => createV1(e.target.value, "vname")}
+                onChange={(e) => createV2(e.target.value, "vname")}
                 required
               />
               <Input
                 placeholder="Shop Name"
-                onChange={(e) => createV1(e.target.value, "sname")}
+                onChange={(e) => createV2(e.target.value, "sname")}
                 required
               />
               <Input
                 placeholder="Phone No"
-                onChange={(e) => createV1(e.target.value, "pno")}
+                onChange={(e) => createV2(e.target.value, "pno")}
                 required
               />
             </div>
