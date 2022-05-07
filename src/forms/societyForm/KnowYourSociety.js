@@ -15,123 +15,112 @@ const KnowYourSociety = ({
 }) => {
   const [commercialEntities, setCommercialEntities] = useState([]);
   const [parkingType, setParkingtype] = useState([]);
-  const [ lift, setlift] = useState([]);
-  const [ playground,setPlayrground] = useState([]);
-  const [ swimmingpool, setlswimmingpool] = useState([]);
-  const [ amenities,setAmenities] = useState([]);
-  const [ securityService,setSecurityService] = useState([]);
-  const [ fire,setFire] = useState([]);
-  const [ eating,setEating] = useState([]);
-  const [ ageGroup,setAgeGroup] = useState([]);
-  const [ funcs,setFuncs] = useState([]);
-  const [ meeting,setMeeting] = useState([]);
-  const [ members,setMembers] = useState([]);
+  const [lift, setlift] = useState([]);
+  const [playground, setPlayrground] = useState([]);
+  const [swimmingpool, setlswimmingpool] = useState([]);
+  const [amenities, setAmenities] = useState([]);
+  const [securityService, setSecurityService] = useState([]);
+  const [fire, setFire] = useState([]);
+  const [eating, setEating] = useState([]);
+  const [ageGroup, setAgeGroup] = useState([]);
+  const [funcs, setFuncs] = useState([]);
+  const [meeting, setMeeting] = useState([]);
+  const [members, setMembers] = useState([]);
 
-  const [ management,setManagement ] = useState([]);
- 
+  const [management, setManagement] = useState([]);
+
   const handleCheckboxChange = (event, state, setState) => {
-    const newNames = state?.includes(event.target.value)
+    console.log(+event.target.value);
+    const newNames = state?.includes(+event.target.value)
       ? state?.filter((name) => name !== event.target.value)
       : [...(state ?? []), +event.target.value];
-      setState(newNames);
+    setState(newNames);
+    console.log(state);
   };
 
   useEffect(() => {
     setKnowYourSoceity({
       ...KnowYourSoceity,
       ParkingType: parkingType,
-    })
-
+    });
   }, [parkingType]);
 
   useEffect(() => {
-  
     setKnowYourSoceity({
       ...KnowYourSoceity,
-      CommercialEntity:commercialEntities,
-    })
-
+      CommercialEntity: commercialEntities,
+    });
   }, [commercialEntities]);
 
   useEffect(() => {
-
     setKnowYourSoceity({
       ...KnowYourSoceity,
       Lift: lift,
-    })
+    });
   }, [lift]);
-  useEffect(() => {
 
+  useEffect(() => {
     setKnowYourSoceity({
       ...KnowYourSoceity,
       PlayGroundtype: playground,
-    })
+    });
   }, [playground]);
+  
   useEffect(() => {
-
     setKnowYourSoceity({
       ...KnowYourSoceity,
       SwimmingPoolType: swimmingpool,
-    })
+    });
   }, [swimmingpool]);
   useEffect(() => {
-
     setKnowYourSoceity({
       ...KnowYourSoceity,
       otherAmenities: amenities,
-    })
+    });
   }, [amenities]);
 
   useEffect(() => {
-
     setKnowYourSoceity({
       ...KnowYourSoceity,
       FireFightingSystem: fire,
-    })
+    });
   }, [fire]);
   useEffect(() => {
-
     setKnowYourSoceity({
       ...KnowYourSoceity,
       SecurityService: securityService,
-    })
+    });
   }, [securityService]);
   useEffect(() => {
-
     setKnowYourSoceity({
       ...KnowYourSoceity,
       EatingHabitsAllowed: eating,
-    })
+    });
   }, [eating]);
   useEffect(() => {
-
     setKnowYourSoceity({
       ...KnowYourSoceity,
       MajorityAgeGroup: ageGroup,
-    })
+    });
   }, [ageGroup]);
   useEffect(() => {
-
     setKnowYourSoceity({
       ...KnowYourSoceity,
       MembersAllowed: members,
-    })
+    });
   }, [members]);
   useEffect(() => {
-
     setKnowYourSoceity({
       ...KnowYourSoceity,
       Celebration: funcs,
-    })
+    });
   }, [funcs]);
   useEffect(() => {
-
     setKnowYourSoceity({
       ...KnowYourSoceity,
       SocietyMeetings: meeting,
-    })
+    });
   }, [meeting]);
-
 
   return (
     <div className="	">
@@ -217,7 +206,7 @@ const KnowYourSociety = ({
             <h1 className="mr-2 ">{questionCount}.</h1>
             <h4 className="font-semibold text-lg">Society Type Kaisi hein?</h4>
           </div>
-          <p>Type of Society</p>
+          {/* <p>Type of Society</p> */}
           <input type="radio" className="ml-2" name="township" value="1" />
           <label className="ml-2">Single Tower (20 flats se kaam)</label> <br />
           <input className="ml-2" type="radio" name="township" value="2" />
@@ -294,7 +283,7 @@ const KnowYourSociety = ({
             <h1 className="mr-2 ">{questionCount}.</h1>
             <h4 className="font-semibold text-lg">Amenities kahan par hein</h4>
           </div>
-   
+
           <input type="radio" className="ml-2" name="subtype" value="1" />
           <label className="ml-2">Podium / Terrace Par</label>
           <br />
@@ -310,12 +299,11 @@ const KnowYourSociety = ({
           onChange={(e) =>
             setKnowYourSoceity({
               ...KnowYourSoceity,
-              society_structure: e.target.value,
+              society_structure: Number(e.target.value),
             })
           }
           required
         >
-          
           <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
             <h4 className="font-semibold text-lg">Society structure</h4>
@@ -323,7 +311,7 @@ const KnowYourSociety = ({
           <input
             className="ml-2"
             type="radio"
-            name="propertysubtype"
+            name="societystructure"
             value="1"
           />
           <label className="ml-2">
@@ -333,7 +321,7 @@ const KnowYourSociety = ({
           <input
             className="ml-2"
             type="radio"
-            name="propertysubtype"
+            name="societystructure"
             value="2"
           />
           <label className="ml-2">
@@ -343,7 +331,7 @@ const KnowYourSociety = ({
           <input
             className="ml-2"
             type="radio"
-            name="propertysubtype"
+            name="societystructure"
             value="3"
           />
           <label className="ml-2">
@@ -353,18 +341,14 @@ const KnowYourSociety = ({
           <input
             className="ml-2"
             type="radio"
-            name="propertysubtype"
+            name="societystructure"
             value="4"
           />
           <label className="ml-2">Big Township (Only residential)</label> <br />
         </div>
       )}
       {questionCount == 8 && (
-        <div
-          className="question "
-      
-          required
-        >
+        <div className="question " required>
           <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
             <h4 className="font-semibold text-lg">
@@ -379,7 +363,11 @@ const KnowYourSociety = ({
                   <Checkbox
                     value="1"
                     onChange={(e) => {
-                      handleCheckboxChange(e,commercialEntities, setCommercialEntities);
+                      handleCheckboxChange(
+                        e,
+                        commercialEntities,
+                        setCommercialEntities
+                      );
                     }}
                   />
                 }
@@ -390,7 +378,11 @@ const KnowYourSociety = ({
                   <Checkbox
                     value="2"
                     onChange={(e) => {
-                      handleCheckboxChange(e,commercialEntities, setCommercialEntities);
+                      handleCheckboxChange(
+                        e,
+                        commercialEntities,
+                        setCommercialEntities
+                      );
                     }}
                   />
                 }
@@ -401,7 +393,11 @@ const KnowYourSociety = ({
                   <Checkbox
                     value="3"
                     onChange={(e) => {
-                      handleCheckboxChange(e,commercialEntities, setCommercialEntities);
+                      handleCheckboxChange(
+                        e,
+                        commercialEntities,
+                        setCommercialEntities
+                      );
                     }}
                   />
                 }
@@ -412,7 +408,11 @@ const KnowYourSociety = ({
                   <Checkbox
                     value="4"
                     onChange={(e) => {
-                      handleCheckboxChange(e,commercialEntities, setCommercialEntities);
+                      handleCheckboxChange(
+                        e,
+                        commercialEntities,
+                        setCommercialEntities
+                      );
                     }}
                   />
                 }
@@ -423,7 +423,11 @@ const KnowYourSociety = ({
                   <Checkbox
                     value="5"
                     onChange={(e) => {
-                      handleCheckboxChange(e,commercialEntities, setCommercialEntities);
+                      handleCheckboxChange(
+                        e,
+                        commercialEntities,
+                        setCommercialEntities
+                      );
                     }}
                   />
                 }
@@ -434,7 +438,11 @@ const KnowYourSociety = ({
                   <Checkbox
                     value="6"
                     onChange={(e) => {
-                      handleCheckboxChange(e,commercialEntities, setCommercialEntities);
+                      handleCheckboxChange(
+                        e,
+                        commercialEntities,
+                        setCommercialEntities
+                      );
                     }}
                   />
                 }
@@ -445,7 +453,11 @@ const KnowYourSociety = ({
                   <Checkbox
                     value="7"
                     onChange={(e) => {
-                      handleCheckboxChange(e,commercialEntities, setCommercialEntities);
+                      handleCheckboxChange(
+                        e,
+                        commercialEntities,
+                        setCommercialEntities
+                      );
                     }}
                   />
                 }
@@ -456,14 +468,17 @@ const KnowYourSociety = ({
                   <Checkbox
                     value="8"
                     onChange={(e) => {
-                      handleCheckboxChange(e,commercialEntities, setCommercialEntities);
+                      handleCheckboxChange(
+                        e,
+                        commercialEntities,
+                        setCommercialEntities
+                      );
                     }}
                   />
                 }
               />
             </FormGroup>
           </FormControl>
-
         </div>
       )}
 
@@ -514,7 +529,7 @@ const KnowYourSociety = ({
                   <Checkbox
                     value="3"
                     onChange={(e) => {
-                      handleCheckboxChange(e,lift, setlift );
+                      handleCheckboxChange(e, lift, setlift);
                     }}
                   />
                 }
@@ -532,7 +547,6 @@ const KnowYourSociety = ({
               />
             </FormGroup>
           </FormControl>
-      
         </div>
       )}
       {questionCount == 10 && (
@@ -761,7 +775,6 @@ const KnowYourSociety = ({
           />
         </div>
       )}
-    
 
       {questionCount == 18 && (
         <div className="question">
@@ -786,11 +799,11 @@ const KnowYourSociety = ({
       {questionCount == 19 && (
         <div
           className="question "
-          value={KnowYourSoceity.conditonofMeetingRoom}
+        
           onChange={(e) =>
             setKnowYourSoceity({
               ...KnowYourSoceity,
-              conditonofMeetingRoom: e.target.value,
+              conditionofMeetingRoom: e.target.value,
             })
           }
           required
@@ -934,7 +947,7 @@ const KnowYourSociety = ({
                   <Checkbox
                     value="1"
                     onChange={(e) => {
-                      handleCheckboxChange(e,playground,setPlayrground);
+                      handleCheckboxChange(e, playground, setPlayrground);
                     }}
                   />
                 }
@@ -945,7 +958,7 @@ const KnowYourSociety = ({
                   <Checkbox
                     value="2"
                     onChange={(e) => {
-                      handleCheckboxChange(e,playground,setPlayrground);
+                      handleCheckboxChange(e, playground, setPlayrground);
                     }}
                   />
                 }
@@ -956,7 +969,7 @@ const KnowYourSociety = ({
                   <Checkbox
                     value="3"
                     onChange={(e) => {
-                      handleCheckboxChange(e,playground,setPlayrground );
+                      handleCheckboxChange(e, playground, setPlayrground);
                     }}
                   />
                 }
@@ -967,7 +980,7 @@ const KnowYourSociety = ({
                   <Checkbox
                     value="4"
                     onChange={(e) => {
-                      handleCheckboxChange(e,playground,setPlayrground );
+                      handleCheckboxChange(e, playground, setPlayrground);
                     }}
                   />
                 }
@@ -978,7 +991,7 @@ const KnowYourSociety = ({
                   <Checkbox
                     value="5"
                     onChange={(e) => {
-                      handleCheckboxChange(e,playground,setPlayrground );
+                      handleCheckboxChange(e, playground, setPlayrground);
                     }}
                   />
                 }
@@ -989,7 +1002,7 @@ const KnowYourSociety = ({
                   <Checkbox
                     value="6"
                     onChange={(e) => {
-                      handleCheckboxChange(e,playground,setPlayrground );
+                      handleCheckboxChange(e, playground, setPlayrground);
                     }}
                   />
                 }
@@ -1000,16 +1013,13 @@ const KnowYourSociety = ({
                   <Checkbox
                     value="7"
                     onChange={(e) => {
-                      handleCheckboxChange(e,playground,setPlayrground );
+                      handleCheckboxChange(e, playground, setPlayrground);
                     }}
                   />
                 }
               />
-           
             </FormGroup>
           </FormControl>
-       
-          
         </div>
       )}
 
@@ -1088,7 +1098,6 @@ const KnowYourSociety = ({
           }
           required
         >
-          
           <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
             <h4 className="font-semibold text-lg">Swimming Pool</h4>
@@ -1101,7 +1110,7 @@ const KnowYourSociety = ({
                   <Checkbox
                     value="1"
                     onChange={(e) => {
-                      handleCheckboxChange(e,swimmingpool, setlswimmingpool);
+                      handleCheckboxChange(e, swimmingpool, setlswimmingpool);
                     }}
                   />
                 }
@@ -1112,7 +1121,7 @@ const KnowYourSociety = ({
                   <Checkbox
                     value="2"
                     onChange={(e) => {
-                      handleCheckboxChange(e,swimmingpool, setlswimmingpool);
+                      handleCheckboxChange(e, swimmingpool, setlswimmingpool);
                     }}
                   />
                 }
@@ -1123,15 +1132,13 @@ const KnowYourSociety = ({
                   <Checkbox
                     value="3"
                     onChange={(e) => {
-                      handleCheckboxChange(e,swimmingpool, setlswimmingpool );
+                      handleCheckboxChange(e, swimmingpool, setlswimmingpool);
                     }}
                   />
                 }
               />
-           
             </FormGroup>
           </FormControl>
-       
         </div>
       )}
       {questionCount == 27 && (
@@ -1603,11 +1610,7 @@ const KnowYourSociety = ({
         </div>
       )}
       {questionCount == 39 && (
-        <div
-          className="question "
-     
-          required
-        >
+        <div className="question " required>
           {" "}
           <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
@@ -1621,7 +1624,7 @@ const KnowYourSociety = ({
                   <Checkbox
                     value="1"
                     onChange={(e) => {
-                      handleCheckboxChange(e,amenities,setAmenities);
+                      handleCheckboxChange(e, amenities, setAmenities);
                     }}
                   />
                 }
@@ -1632,7 +1635,7 @@ const KnowYourSociety = ({
                   <Checkbox
                     value="2"
                     onChange={(e) => {
-                      handleCheckboxChange(e,amenities,setAmenities);
+                      handleCheckboxChange(e, amenities, setAmenities);
                     }}
                   />
                 }
@@ -1643,7 +1646,7 @@ const KnowYourSociety = ({
                   <Checkbox
                     value="3"
                     onChange={(e) => {
-                      handleCheckboxChange(e,amenities,setAmenities );
+                      handleCheckboxChange(e, amenities, setAmenities);
                     }}
                   />
                 }
@@ -1654,7 +1657,7 @@ const KnowYourSociety = ({
                   <Checkbox
                     value="4"
                     onChange={(e) => {
-                      handleCheckboxChange(e,amenities,setAmenities );
+                      handleCheckboxChange(e, amenities, setAmenities);
                     }}
                   />
                 }
@@ -1665,7 +1668,7 @@ const KnowYourSociety = ({
                   <Checkbox
                     value="5"
                     onChange={(e) => {
-                      handleCheckboxChange(e,amenities,setAmenities );
+                      handleCheckboxChange(e, amenities, setAmenities);
                     }}
                   />
                 }
@@ -1676,28 +1679,25 @@ const KnowYourSociety = ({
                   <Checkbox
                     value="6"
                     onChange={(e) => {
-                      handleCheckboxChange(e,amenities,setAmenities );
+                      handleCheckboxChange(e, amenities, setAmenities);
                     }}
                   />
                 }
               />
-           
+
               <FormControlLabel
                 label="Power Backup"
                 control={
                   <Checkbox
                     value="7"
                     onChange={(e) => {
-                      handleCheckboxChange(e,amenities,setAmenities );
+                      handleCheckboxChange(e, amenities, setAmenities);
                     }}
                   />
                 }
               />
-           
             </FormGroup>
           </FormControl>
-       
-          
         </div>
       )}
 
@@ -1766,7 +1766,7 @@ const KnowYourSociety = ({
           />
         </div>
       )}
-      {questionCount == 42 && (
+      {/* {questionCount == 42 && (
         <div className="question">
           <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
@@ -2079,9 +2079,9 @@ const KnowYourSociety = ({
             fullWidth
           />
         </div>
-      )}
+      )} */}
 
-      {questionCount == 56 && (
+      {questionCount == 42 && (
         <div
           className="question "
           value={KnowYourSoceity.DailyWasteCollecion}
@@ -2145,7 +2145,7 @@ const KnowYourSociety = ({
             <label className="ml-2" >NA</label>
           
           </div>} */}
-      {questionCount == 57 && (
+      {questionCount == 43 && (
         <div
           className="question "
           value={KnowYourSoceity.WaterStoargeFacility}
@@ -2187,7 +2187,7 @@ const KnowYourSociety = ({
         </div>
       )}
 
-      {questionCount == 58 && (
+      {questionCount == 44 && (
         <div
           className="question "
           value={KnowYourSoceity.SatelliteTV}
@@ -2211,7 +2211,7 @@ const KnowYourSociety = ({
           <label className="ml-2">No</label>
         </div>
       )}
-      {questionCount == 59 && (
+      {questionCount == 45 && (
         <div className="question">
           <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
@@ -2238,7 +2238,7 @@ const KnowYourSociety = ({
         </div>
       )}
 
-      {questionCount == 60 && (
+      {questionCount == 46 && (
         <div
           className="question "
           value={KnowYourSoceity.InsideFlat}
@@ -2263,10 +2263,8 @@ const KnowYourSociety = ({
         </div>
       )}
 
-      {questionCount == 61 && (
-        <div
-          className="question "
-        >
+      {questionCount == 47 && (
+        <div className="question ">
           <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
             <h4 className="font-semibold text-lg">
@@ -2281,7 +2279,7 @@ const KnowYourSociety = ({
                   <Checkbox
                     value="1"
                     onChange={(e) => {
-                      handleCheckboxChange(e,fire,setFire);
+                      handleCheckboxChange(e, fire, setFire);
                     }}
                   />
                 }
@@ -2292,7 +2290,7 @@ const KnowYourSociety = ({
                   <Checkbox
                     value="2"
                     onChange={(e) => {
-                      handleCheckboxChange(e,fire,setFire);
+                      handleCheckboxChange(e, fire, setFire);
                     }}
                   />
                 }
@@ -2303,7 +2301,7 @@ const KnowYourSociety = ({
                   <Checkbox
                     value="3"
                     onChange={(e) => {
-                      handleCheckboxChange(e,fire,setFire );
+                      handleCheckboxChange(e, fire, setFire);
                     }}
                   />
                 }
@@ -2314,7 +2312,7 @@ const KnowYourSociety = ({
                   <Checkbox
                     value="4"
                     onChange={(e) => {
-                      handleCheckboxChange(e,fire,setFire );
+                      handleCheckboxChange(e, fire, setFire);
                     }}
                   />
                 }
@@ -2325,7 +2323,7 @@ const KnowYourSociety = ({
                   <Checkbox
                     value="5"
                     onChange={(e) => {
-                      handleCheckboxChange(e,fire,setFire );
+                      handleCheckboxChange(e, fire, setFire);
                     }}
                   />
                 }
@@ -2336,19 +2334,19 @@ const KnowYourSociety = ({
                   <Checkbox
                     value="6"
                     onChange={(e) => {
-                      handleCheckboxChange(e,fire,setFire );
+                      handleCheckboxChange(e, fire, setFire);
                     }}
                   />
                 }
               />
-           
+
               <FormControlLabel
                 label="Lightening Arrestors"
                 control={
                   <Checkbox
                     value="7"
                     onChange={(e) => {
-                      handleCheckboxChange(e,fire,setFire );
+                      handleCheckboxChange(e, fire, setFire);
                     }}
                   />
                 }
@@ -2359,28 +2357,17 @@ const KnowYourSociety = ({
                   <Checkbox
                     value="8"
                     onChange={(e) => {
-                      handleCheckboxChange(e,fire,setFire );
+                      handleCheckboxChange(e, fire, setFire);
                     }}
                   />
                 }
               />
-           
             </FormGroup>
           </FormControl>
-   
-  
-      
-      
-       
-       
         </div>
       )}
-      {questionCount == 62 && (
-        <div
-          className="question "
-          value={KnowYourSoceity.SecurityService}
-        
-        >
+      {questionCount == 48 && (
+        <div className="question " value={KnowYourSoceity.SecurityService}>
           <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
             <h4 className="font-semibold text-lg">Security Service</h4>
@@ -2393,7 +2380,11 @@ const KnowYourSociety = ({
                   <Checkbox
                     value="1"
                     onChange={(e) => {
-                      handleCheckboxChange(e,securityService,setSecurityService);
+                      handleCheckboxChange(
+                        e,
+                        securityService,
+                        setSecurityService
+                      );
                     }}
                   />
                 }
@@ -2404,7 +2395,11 @@ const KnowYourSociety = ({
                   <Checkbox
                     value="2"
                     onChange={(e) => {
-                      handleCheckboxChange(e,securityService,setSecurityService);
+                      handleCheckboxChange(
+                        e,
+                        securityService,
+                        setSecurityService
+                      );
                     }}
                   />
                 }
@@ -2415,7 +2410,11 @@ const KnowYourSociety = ({
                   <Checkbox
                     value="3"
                     onChange={(e) => {
-                      handleCheckboxChange(e,securityService,setSecurityService );
+                      handleCheckboxChange(
+                        e,
+                        securityService,
+                        setSecurityService
+                      );
                     }}
                   />
                 }
@@ -2426,7 +2425,11 @@ const KnowYourSociety = ({
                   <Checkbox
                     value="4"
                     onChange={(e) => {
-                      handleCheckboxChange(e,securityService,setSecurityService );
+                      handleCheckboxChange(
+                        e,
+                        securityService,
+                        setSecurityService
+                      );
                     }}
                   />
                 }
@@ -2437,7 +2440,11 @@ const KnowYourSociety = ({
                   <Checkbox
                     value="5"
                     onChange={(e) => {
-                      handleCheckboxChange(e,securityService,setSecurityService );
+                      handleCheckboxChange(
+                        e,
+                        securityService,
+                        setSecurityService
+                      );
                     }}
                   />
                 }
@@ -2448,18 +2455,20 @@ const KnowYourSociety = ({
                   <Checkbox
                     value="6"
                     onChange={(e) => {
-                      handleCheckboxChange(e,securityService,setSecurityService );
+                      handleCheckboxChange(
+                        e,
+                        securityService,
+                        setSecurityService
+                      );
                     }}
                   />
                 }
               />
-         
             </FormGroup>
           </FormControl>
-
         </div>
       )}
-      {questionCount == 63 && (
+      {questionCount == 49 && (
         <div
           className="question "
           value={KnowYourSoceity.GuardAtLobby}
@@ -2489,7 +2498,7 @@ const KnowYourSociety = ({
           <label className="ml-2">No</label>
         </div>
       )}
-      {questionCount == 64 && (
+      {questionCount == 50 && (
         <div
           className="question "
           value={KnowYourSoceity.NonMemberDeliveryboy}
@@ -2525,7 +2534,7 @@ const KnowYourSociety = ({
         </div>
       )}
 
-      {questionCount == 65 && (
+      {questionCount == 51 && (
         <div
           className="question "
           value={KnowYourSoceity.EatingHabitsAllowed}
@@ -2551,7 +2560,7 @@ const KnowYourSociety = ({
                   <Checkbox
                     value="1"
                     onChange={(e) => {
-                      handleCheckboxChange(e,eating,setEating);
+                      handleCheckboxChange(e, eating, setEating);
                     }}
                   />
                 }
@@ -2562,7 +2571,7 @@ const KnowYourSociety = ({
                   <Checkbox
                     value="2"
                     onChange={(e) => {
-                      handleCheckboxChange(e,eating,setEating);
+                      handleCheckboxChange(e, eating, setEating);
                     }}
                   />
                 }
@@ -2573,7 +2582,7 @@ const KnowYourSociety = ({
                   <Checkbox
                     value="3"
                     onChange={(e) => {
-                      handleCheckboxChange(e,eating,setEating );
+                      handleCheckboxChange(e, eating, setEating);
                     }}
                   />
                 }
@@ -2584,18 +2593,16 @@ const KnowYourSociety = ({
                   <Checkbox
                     value="4"
                     onChange={(e) => {
-                      handleCheckboxChange(e,eating,setEating );
+                      handleCheckboxChange(e, eating, setEating);
                     }}
                   />
                 }
               />
-       
-         
             </FormGroup>
           </FormControl>
         </div>
       )}
-      {questionCount == 66 && (
+      {questionCount == 52 && (
         <div
           className="question "
           value={KnowYourSoceity.MajorityAgeGroup}
@@ -2621,7 +2628,7 @@ const KnowYourSociety = ({
                   <Checkbox
                     value="1"
                     onChange={(e) => {
-                      handleCheckboxChange(e,ageGroup,setAgeGroup);
+                      handleCheckboxChange(e, ageGroup, setAgeGroup);
                     }}
                   />
                 }
@@ -2632,7 +2639,7 @@ const KnowYourSociety = ({
                   <Checkbox
                     value="2"
                     onChange={(e) => {
-                      handleCheckboxChange(e,ageGroup,setAgeGroup);
+                      handleCheckboxChange(e, ageGroup, setAgeGroup);
                     }}
                   />
                 }
@@ -2643,7 +2650,7 @@ const KnowYourSociety = ({
                   <Checkbox
                     value="3"
                     onChange={(e) => {
-                      handleCheckboxChange(e,ageGroup,setAgeGroup );
+                      handleCheckboxChange(e, ageGroup, setAgeGroup);
                     }}
                   />
                 }
@@ -2654,7 +2661,7 @@ const KnowYourSociety = ({
                   <Checkbox
                     value="4"
                     onChange={(e) => {
-                      handleCheckboxChange(e,ageGroup,setAgeGroup );
+                      handleCheckboxChange(e, ageGroup, setAgeGroup);
                     }}
                   />
                 }
@@ -2665,20 +2672,17 @@ const KnowYourSociety = ({
                   <Checkbox
                     value="5"
                     onChange={(e) => {
-                      handleCheckboxChange(e,ageGroup,setAgeGroup );
+                      handleCheckboxChange(e, ageGroup, setAgeGroup);
                     }}
                   />
                 }
               />
-       
-         
             </FormGroup>
           </FormControl>
-     
         </div>
       )}
 
-      {questionCount == 67 && (
+      {questionCount == 53 && (
         <div
           className="question "
           value={KnowYourSoceity.MembersAllowed}
@@ -2702,7 +2706,7 @@ const KnowYourSociety = ({
                   <Checkbox
                     value="1"
                     onChange={(e) => {
-                      handleCheckboxChange(e,members,setMembers);
+                      handleCheckboxChange(e, members, setMembers);
                     }}
                   />
                 }
@@ -2713,20 +2717,17 @@ const KnowYourSociety = ({
                   <Checkbox
                     value="2"
                     onChange={(e) => {
-                      handleCheckboxChange(e, members,setMembers);
+                      handleCheckboxChange(e, members, setMembers);
                     }}
                   />
                 }
               />
-          
-         
             </FormGroup>
           </FormControl>
-       
         </div>
       )}
 
-      {questionCount == 68 && (
+      {questionCount == 54 && (
         <div
           className="question "
           value={KnowYourSoceity.MajorityMemberType}
@@ -2781,7 +2782,7 @@ const KnowYourSociety = ({
             <label className="ml-2" >Both</label>
           </div>} */}
 
-      {questionCount == 69 && (
+      {questionCount == 55 && (
         <div
           className="question "
           value={KnowYourSoceity.BatchlorsAllowed}
@@ -2835,14 +2836,14 @@ const KnowYourSociety = ({
             <input type="radio" className="ml-2" name="nonMarried" value="" />
             <label className="ml-2" >No</label>
           </div>} */}
-      {questionCount == 70 && (
+      {questionCount == 56 && (
         <div
           className="question "
           value={KnowYourSoceity.nonMarriedAllowed}
           onChange={(e) =>
             setKnowYourSoceity({
               ...KnowYourSoceity,
-              nonMarriedAllowed: e.target.value,
+              nonMarriedAllowed: Boolean(e.target.value),
             })
           }
           required
@@ -2862,7 +2863,7 @@ const KnowYourSociety = ({
         </div>
       )}
 
-      {questionCount == 71 && (
+      {questionCount == 57 && (
         <div
           className="question "
           value={KnowYourSoceity.ChildrenPlayingAround}
@@ -2898,7 +2899,7 @@ const KnowYourSociety = ({
         </div>
       )}
 
-      {questionCount == 72 && (
+      {questionCount == 58 && (
         <div
           className="question "
           value={KnowYourSoceity.CalmMember}
@@ -2923,7 +2924,7 @@ const KnowYourSociety = ({
         </div>
       )}
 
-      {questionCount == 73 && (
+      {questionCount == 59 && (
         <div
           className="question "
           value={KnowYourSoceity.ElderPeopleActivity}
@@ -2959,7 +2960,7 @@ const KnowYourSociety = ({
         </div>
       )}
 
-      {questionCount == 74 && (
+      {questionCount == 60 && (
         <div
           className="question "
           value={KnowYourSoceity.Celebration}
@@ -2984,7 +2985,7 @@ const KnowYourSociety = ({
                   <Checkbox
                     value="1"
                     onChange={(e) => {
-                      handleCheckboxChange(e,funcs,setFuncs);
+                      handleCheckboxChange(e, funcs, setFuncs);
                     }}
                   />
                 }
@@ -2995,7 +2996,7 @@ const KnowYourSociety = ({
                   <Checkbox
                     value="2"
                     onChange={(e) => {
-                      handleCheckboxChange(e,funcs,setFuncs);
+                      handleCheckboxChange(e, funcs, setFuncs);
                     }}
                   />
                 }
@@ -3006,7 +3007,7 @@ const KnowYourSociety = ({
                   <Checkbox
                     value="3"
                     onChange={(e) => {
-                      handleCheckboxChange(e,funcs,setFuncs );
+                      handleCheckboxChange(e, funcs, setFuncs);
                     }}
                   />
                 }
@@ -3017,7 +3018,7 @@ const KnowYourSociety = ({
                   <Checkbox
                     value="4"
                     onChange={(e) => {
-                      handleCheckboxChange(e,funcs,setFuncs );
+                      handleCheckboxChange(e, funcs, setFuncs);
                     }}
                   />
                 }
@@ -3028,7 +3029,7 @@ const KnowYourSociety = ({
                   <Checkbox
                     value="5"
                     onChange={(e) => {
-                      handleCheckboxChange(e,funcs,setFuncs );
+                      handleCheckboxChange(e, funcs, setFuncs);
                     }}
                   />
                 }
@@ -3039,7 +3040,7 @@ const KnowYourSociety = ({
                   <Checkbox
                     value="6"
                     onChange={(e) => {
-                      handleCheckboxChange(e,funcs,setFuncs );
+                      handleCheckboxChange(e, funcs, setFuncs);
                     }}
                   />
                 }
@@ -3050,7 +3051,7 @@ const KnowYourSociety = ({
                   <Checkbox
                     value="7"
                     onChange={(e) => {
-                      handleCheckboxChange(e,funcs,setFuncs );
+                      handleCheckboxChange(e, funcs, setFuncs);
                     }}
                   />
                 }
@@ -3061,7 +3062,7 @@ const KnowYourSociety = ({
                   <Checkbox
                     value="8"
                     onChange={(e) => {
-                      handleCheckboxChange(e,funcs,setFuncs );
+                      handleCheckboxChange(e, funcs, setFuncs);
                     }}
                   />
                 }
@@ -3072,7 +3073,7 @@ const KnowYourSociety = ({
                   <Checkbox
                     value="9"
                     onChange={(e) => {
-                      handleCheckboxChange(e,funcs,setFuncs );
+                      handleCheckboxChange(e, funcs, setFuncs);
                     }}
                   />
                 }
@@ -3083,19 +3084,16 @@ const KnowYourSociety = ({
                   <Checkbox
                     value="10"
                     onChange={(e) => {
-                      handleCheckboxChange(e,funcs,setFuncs );
+                      handleCheckboxChange(e, funcs, setFuncs);
                     }}
                   />
                 }
               />
-       
-         
             </FormGroup>
           </FormControl>
-         
         </div>
       )}
-      {questionCount == 75 && (
+      {questionCount == 61 && (
         <div
           className="question "
           value={KnowYourSoceity.SocietyMeetings}
@@ -3121,7 +3119,7 @@ const KnowYourSociety = ({
                   <Checkbox
                     value="1"
                     onChange={(e) => {
-                      handleCheckboxChange(e,meeting,setMeeting);
+                      handleCheckboxChange(e, meeting, setMeeting);
                     }}
                   />
                 }
@@ -3132,7 +3130,7 @@ const KnowYourSociety = ({
                   <Checkbox
                     value="2"
                     onChange={(e) => {
-                      handleCheckboxChange(e,meeting,setMeeting);
+                      handleCheckboxChange(e, meeting, setMeeting);
                     }}
                   />
                 }
@@ -3143,7 +3141,7 @@ const KnowYourSociety = ({
                   <Checkbox
                     value="3"
                     onChange={(e) => {
-                      handleCheckboxChange(e,meeting,setMeeting );
+                      handleCheckboxChange(e, meeting, setMeeting);
                     }}
                   />
                 }
@@ -3154,20 +3152,17 @@ const KnowYourSociety = ({
                   <Checkbox
                     value="4"
                     onChange={(e) => {
-                      handleCheckboxChange(e,meeting,setMeeting );
+                      handleCheckboxChange(e, meeting, setMeeting);
                     }}
                   />
                 }
               />
-      
- 
             </FormGroup>
           </FormControl>
-      
         </div>
       )}
 
-      {questionCount == 76 && (
+      {questionCount == 62 && (
         <div
           className="question "
           value={KnowYourSoceity.FunctionsAllowed}
@@ -3203,7 +3198,7 @@ const KnowYourSociety = ({
         </div>
       )}
 
-      {questionCount == 77 && (
+      {questionCount == 63 && (
         <div
           className="question "
           value={KnowYourSoceity.Cleanliness}
@@ -3230,7 +3225,7 @@ const KnowYourSociety = ({
         </div>
       )}
 
-      {questionCount == 78 && (
+      {questionCount == 64 && (
         <div
           className="question "
           value={KnowYourSoceity.CleanlinessMaintained}
@@ -3274,7 +3269,7 @@ const KnowYourSociety = ({
         </div>
       )}
 
-      {questionCount == 79 && (
+      {questionCount == 65 && (
         <div
           className="question "
           value={KnowYourSoceity.Handymen}
@@ -3301,7 +3296,7 @@ const KnowYourSociety = ({
         </div>
       )}
 
-      {questionCount == 80 && (
+      {questionCount == 66 && (
         <div
           className="question "
           value={KnowYourSoceity.Ramp}
@@ -3327,7 +3322,7 @@ const KnowYourSociety = ({
         </div>
       )}
 
-      {questionCount == 81 && (
+      {questionCount == 67 && (
         <div className="question">
           <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
@@ -3350,7 +3345,7 @@ const KnowYourSociety = ({
           />
         </div>
       )}
-      {questionCount == 82 && (
+      {questionCount == 68 && (
         <div className="question">
           <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
@@ -3373,7 +3368,7 @@ const KnowYourSociety = ({
           />
         </div>
       )}
-      {questionCount == 83 && (
+      {questionCount == 69 && (
         <div className="question">
           <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
@@ -3397,7 +3392,7 @@ const KnowYourSociety = ({
         </div>
       )}
 
-      {questionCount == 84 && (
+      {questionCount == 70 && (
         <div className="question">
           <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
@@ -3420,7 +3415,7 @@ const KnowYourSociety = ({
           />
         </div>
       )}
-      {questionCount == 85 && (
+      {questionCount == 71 && (
         <div
           className="question "
           value={KnowYourSoceity.Noise}
@@ -3444,7 +3439,7 @@ const KnowYourSociety = ({
           <label className="ml-2">No</label>
         </div>
       )}
-      {questionCount == 86 && (
+      {questionCount == 72 && (
         <div
           className="question "
           value={KnowYourSoceity.StrayDogs}
@@ -3468,7 +3463,7 @@ const KnowYourSociety = ({
           <label className="ml-2">No</label>
         </div>
       )}
-      {questionCount == 87 && (
+      {questionCount == 73 && (
         <div
           className="question "
           value={KnowYourSoceity.Crack}
@@ -3495,7 +3490,7 @@ const KnowYourSociety = ({
         </div>
       )}
 
-      {questionCount == 88 && (
+      {questionCount == 74 && (
         <div
           className="question "
           value={KnowYourSoceity.Deed}

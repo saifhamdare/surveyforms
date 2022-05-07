@@ -18,7 +18,7 @@ const TodaysTask = ({tasks,handleTodaysTask}) => {
               <div className="border-2 bg-white py-2 rounded-xl border-sky-600  px-6 my-5">
                 <div className="flex justify-between">
                 <h6 className="font-bold text-lg">{task.society_name}</h6>
-                <h6 className="font-bold text-base text-violet-700 uppercase " >{task.type}</h6>
+                <h6 className="font-bold text-base text-violet-700  " >Survey</h6>
                 </div>
                 <p className="font-medium"> {task.address} </p>
                 <p className="font-medium"> {task.pin_code} </p>
@@ -36,7 +36,7 @@ const TodaysTask = ({tasks,handleTodaysTask}) => {
               <div className="border-2 bg-white py-2 rounded-xl border-sky-600  px-8 my-5">
                 <div className="flex justify-between">
                 <h6 className="font-bold text-lg">{task.society_name}</h6>
-                <h6 className="font-bold text-base text-violet-700 uppercase " >{task.type}</h6>
+                <h6 className="font-bold text-base text-violet-700  " >Know Your Society</h6>
                 </div>
                 <p className="font-medium"> {task.address} </p>
                 <p className="font-medium"> {task.pin_code} </p>
@@ -54,7 +54,7 @@ const TodaysTask = ({tasks,handleTodaysTask}) => {
               <div className="border-2 bg-white py-2 rounded-xl border-sky-600  px-8 my-5">
                 <div className="flex justify-between">
                 <h6 className="font-bold text-lg">{task.society_name}</h6>
-                <h6 className="font-bold text-base text-violet-700 uppercase " >{task.type}</h6>
+                <h6 className="font-bold text-base text-violet-700  " >Know Your Seller</h6>
                 </div>
                 <p className="font-medium"> {task.address} </p>
                 <p className="font-medium"> {task.pin_code} </p>
@@ -68,11 +68,11 @@ const TodaysTask = ({tasks,handleTodaysTask}) => {
         <div>
           {tasks?.filter(task=>task.type==='know_your_home' && task.status==='N').map(task => (
            
-            <Link key={task.task_id} onClick={()=>{handleTodaysTask(task.task_id)}} to="/todays-task">
+            <Link key={task.task_id} onClick={()=>{handleTodaysTask(task.task_id)}} to="/homeinfo-form">
               <div className="border-2 bg-white py-2 rounded-xl border-sky-600  px-8 my-5">
                 <div className="flex justify-between">
                 <h6 className="font-bold text-lg">{task.society_name}</h6>
-                <h6 className="font-bold text-base text-violet-700 uppercase " >{task.type}</h6>
+                <h6 className="font-bold text-base text-violet-700  " >Know Your Home</h6>
                 </div>
                 <p className="font-medium"> {task.address} </p>
                 <p className="font-medium"> {task.pin_code} </p>
@@ -90,7 +90,7 @@ const TodaysTask = ({tasks,handleTodaysTask}) => {
               <div className="border-2 bg-white py-2 rounded-xl border-sky-600  px-8 my-5">
                 <div className="flex justify-between">
                 <h6 className="font-bold text-lg">{task.society_name}</h6>
-                <h6 className="font-bold text-base text-violet-700 uppercase " >{task.type}</h6>
+                <h6 className="font-bold text-base text-violet-700  " >Home Inspection</h6>
                 </div>
                 <p className="font-medium"> {task.address} </p>
                 <p className="font-medium"> {task.pin_code} </p>

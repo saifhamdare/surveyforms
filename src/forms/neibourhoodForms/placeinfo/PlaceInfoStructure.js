@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 const PlaceInfoStructure = () => {
   const [questionCount, setQuestionCount] = useState(1);
-  const [isVendorQuestion, setIsVendorQuestion] = useState(false);
+  // const [isVendorQuestion, setIsVendorQuestion] = useState(false);
   const [placeInfo, setPlaceInfo] = useState({
     geoCode: "",
     cookslivingNearby: "",
@@ -36,22 +36,22 @@ const PlaceInfoStructure = () => {
   const Questions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
   const onSubmit = (e) => {
     e.preventDefault();
-
+    console.log(placeInfo)
     const body = {
       geo_location: placeInfo.geoCode,
-      number_of_maids: placeInfo.cookslivingNearby,
-      cleanliness: placeInfo.surroundingArea,
+      number_of_maids: +placeInfo.cookslivingNearby,
+      cleanliness: +placeInfo.surroundingArea,
       time_to_highway: placeInfo.highwayFromSociety,
       market_name: placeInfo.localMarketName,
-      market_distance: placeInfo.localMarketDistance,
+      market_distance: +placeInfo.localMarketDistance,
       top_grocery_stores: placeInfo.groceryStoresName,
       top_vegetable_stores: placeInfo.vegetablesStoresName,
       shops_within_society: placeInfo.commercialEstablishments,
-      surrounding: placeInfo.vicinity,
+      surrounding: +placeInfo.vicinity,
       easy_access_to_road: placeInfo.accessForVehicles,
-      society_maintenance: placeInfo.maintained,
-      ongoing_maintenance: placeInfo.anyRepair,
-      structure_quality: placeInfo.structureQuality,
+      society_maintenance: +placeInfo.maintained,
+      ongoing_maintenance: +placeInfo.anyRepair,
+      structure_quality: +placeInfo.structureQuality,
       remarks: placeInfo.remark,
     };
     const data = {
@@ -95,12 +95,12 @@ const PlaceInfoStructure = () => {
                 questionCount={questionCount}
                 placeInfo={placeInfo}
                 setPlaceInfo={setPlaceInfo}
-                isVendorQuestion={isVendorQuestion}
+                // isVendorQuestion={isVendorQuestion}
               />
             </div>
           </div>
           <div className="footer text-center m-5 mt-10 flex justify-around">
-            <button
+          <button
               className="border-2 border-sky-700 px-3 py-1 rounded-lg text-sky-700 font-medium"
               disabled={questionCount == 1}
               onClick={() => {
@@ -109,7 +109,7 @@ const PlaceInfoStructure = () => {
             >
               previous
             </button>
-            {questionCount == 25 ? (
+            {questionCount == 15 ? (
               <button
                 className="border-2 border-sky-600 bg-sky-700 px-5 py-2 rounded-lg text-white font-medium"
                 onClick={onSubmit}
@@ -122,9 +122,6 @@ const PlaceInfoStructure = () => {
                 disabled={questionCount == Questions.length}
                 onClick={() => {
                   setQuestionCount((currentPage) => currentPage + 1);
-                  if (questionCount === 8) {
-                    setIsVendorQuestion(true);
-                  }
                 }}
               >
                 Next

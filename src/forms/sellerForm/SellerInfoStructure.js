@@ -1,192 +1,235 @@
-
 import React, { useState } from "react";
 
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import SellerInfo from "./SellerInfo";
 
 const SellerInfoStructure = () => {
-    const [questionCount, setQuestionCount] = useState(1);
-    const navigate = useNavigate();
-    const [neighbourhoodInfo, setNeighbourhoodInfo] = useState({
-      fullName: "",
-      mobileNo: "",
-      gender: "",
-      profession: "",
-      redevelopment: "",
-      reputation: "",
-      societyManagement: "",
-      peopleInSociety: "",
-      complaint: "",
-      socialEvents: "",
-      deliveringEssential: "",
-      deliveryServices: "",
-      policeComplaints: "",
-      sellingProperty: "",
-      traffic: "",
-      waterSupply: "",
-      electricityBreakDown: "",
-      older: "",
-      children: "",
-      oneBHK: "",
-      twoBHK: "",
-      threeBHK: "",
-      strayDogs: "",
-      kindOfProfessions: "",
-      easyToGet: "",
+  const navigate = useNavigate();
+  const [questionCount, setQuestionCount] = useState(1);
+  const [knowYourSellerInfo, setKnowYourSellerInfo] = useState({
+    HusbandName: "",
+    WifeName: "",
+    ContactNoPrimary: "",
+    ContactNoSecondary: "",
+    Email: "",
+    SocietyName: "",
+    GeoLocation: "",
+    SellerNativePlace: "",
+    TotalFamilyMembers: "",
+    SelectFamilyMember: [],
+    HusbandAge: "",
+    WifeAge: "",
+    FamilyMemberSpecialNeeds: [],
+    PetFriendlyHome: "",
+    PetFriendlySociety: "",
+    Handymen: "",
+    HusbandQualification: "",
+    HusbandStream: "",
+    HusbandCollegeName: "",
+    WifeQualification: "",
+    WifeStream: "",
+    WifeCollegeName: "",
+    InfoChildrenInstituteName: "",
+    TopUniversity: "",
+    TopInstitute: "",
+    HusbandProfessionType: "",
+    HusbandOrganization: "",
+    WifeProfessionType: "",
+    WifeOrganization: "",
+    HusbandLinkedInProfile: "",
+    WifeLinkedInProfile: "",
+    TravelBy: "",
+    HusbandSocialStatus: "",
+    HusbandSocialCircle: "",
+    HusbandInterest: [],
+    WifeSocialStatus: "",
+    WifeSocialCircle: "",
+    WifeInterest: [],
+    Languages: [],
+    Cuisine: "",
+    NeighbourHouse: "",
+    NeighbourFamilyConfig: [],
+    NeighbourprofessionType: "",
+    NeighbourNature: "",
+    Intent: "",
+    // Sellerphoto: "",
+    // SellerFamilyphoto: "",
+    SellerStory: "",
+    SellerRentedDuration: "",
+    SellerPurschaseDuration: "",
+  });
+
+  const Questions = [
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
+    22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
+    41, 42, 43, 44, 45, 46, 47, 48, 
+  ];
+  const Title = [
+    "About seller",
+    "Family Details",
+    "Education",
+    "Profession",
+    "Likes & Interest",
+    "Neighbour",
+    "Intent of Selling",
+    "Seller Story",
+  ];
+
+  const successNotify = () =>
+    toast.success("form filled Successfully", {
+      position: "bottom-center",
     });
-  
-    const Questions = [
-      1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
-      22, 23, 24, 25,
-    ];
-    
-    const successNotify = () =>
-      toast.success("form filled Successfully", {
-        position: "bottom-center",
-      });
-    const failedNotify = (msg) =>
-      toast.error(`${msg}`, {
-        position: "bottom-center",
-      });
-      const onSubmit = (e) => {
-        e.preventDefault();
-    if(
-      neighbourhoodInfo.fullName =="" ||
-      neighbourhoodInfo.mobileNo =="" ||
-      neighbourhoodInfo.gender =="" ||
-      neighbourhoodInfo.profession =="" ||
-      neighbourhoodInfo.redevelopment =="" ||
-      neighbourhoodInfo.reputation =="" ||
-      neighbourhoodInfo.complaint =="" ||
-      neighbourhoodInfo.peopleInSociety =="" ||
-      neighbourhoodInfo.societyManagement =="" ||
-      neighbourhoodInfo.deliveryServices =="" ||
-      neighbourhoodInfo.deliveringEssential =="" ||
-      neighbourhoodInfo.socialEvents =="" ||
-      neighbourhoodInfo.children =="" ||
-      neighbourhoodInfo.older =="" ||
-      neighbourhoodInfo.electricityBreakDown =="" ||
-      neighbourhoodInfo.waterSupply =="" ||
-      neighbourhoodInfo.traffic =="" ||
-      neighbourhoodInfo.sellingProperty =="" ||
-      neighbourhoodInfo.policeComplaints =="" ||
-      neighbourhoodInfo.easyToGet =="" ||
-      neighbourhoodInfo.kindOfProfessions =="" ||
-      neighbourhoodInfo.strayDogs =="" ||
-      neighbourhoodInfo.oneBHK =="" ||
-      neighbourhoodInfo.twoBHK =="" ||
-      neighbourhoodInfo.threeBHK =="" ){
-        var msg="fill complete form"
-        failedNotify(msg)
+  const failedNotify = (msg) =>
+    toast.error(`${msg}`, {
+      position: "bottom-center",
+    });
+  const onSubmit = (e) => {
+    e.preventDefault();
+    if (0 === 1) {
+      var msg = "fill complete form";
+      failedNotify(msg);
     }
-        const body = {
-            full_name: neighbourhoodInfo.fullName,
-            mobile_number: neighbourhoodInfo.mobileNo,
-            gender: neighbourhoodInfo.gender,
-            profession: +neighbourhoodInfo.profession,
-            redevelopment_planned: +neighbourhoodInfo.redevelopment,
-            reputation: +neighbourhoodInfo.reputation,
-            complaint: +neighbourhoodInfo.complaint,
-            people_type: +neighbourhoodInfo.peopleInSociety,
-            society_management_friendly: +neighbourhoodInfo.societyManagement,
-            provide_delivery: +neighbourhoodInfo.deliveryServices,
-            essential_shops: +neighbourhoodInfo.deliveringEssential,
-            social_events: +neighbourhoodInfo.socialEvents,
-            playful_children: +neighbourhoodInfo.children,
-            old_people: +neighbourhoodInfo.older,
-            uninterrupted_electricity: +neighbourhoodInfo.electricityBreakDown,
-            uninterrupted_water: +neighbourhoodInfo.waterSupply,
-            traffic: +neighbourhoodInfo.traffic,
-            people_selling_property: +neighbourhoodInfo.sellingProperty,
-            police_complaints: neighbourhoodInfo.policeComplaints,
-            access_to_helpers: +neighbourhoodInfo.easyToGet,
-            people_profession: +neighbourhoodInfo.kindOfProfessions,
-            stray_animals: +neighbourhoodInfo.strayDogs,
-            approx_1_bhk_price: +neighbourhoodInfo.oneBHK,
-            approx_2_bhk_price: +neighbourhoodInfo.twoBHK,
-            approx_3_bhk_price: +neighbourhoodInfo.threeBHK,
-          };
-        const data = {
-          Accept: "application/json",
-          "Content-type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        };
-        axios
-          .post(
-            `api/tasks/${localStorage.getItem("task_id")}/neighbourhood/`,
-            body,
-            { headers: data })
-          .then((res) => {
-            successNotify();
-            navigate("/form-list", { replace: true });
-            const status = { status: "P" };
-            axios.patch(`api/tasks/${localStorage.getItem("task_id")}/`, status, {
-              headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-            });
-          })
-          // .catch((err) => failedNotify());
-      };
+    const body = {
+      husband_name: knowYourSellerInfo.HusbandName,
+      wife_name: knowYourSellerInfo.WifeName,
+      contact_number: knowYourSellerInfo.ContactNoPrimary,
+      alternate_contact_number: knowYourSellerInfo.ContactNoSecondary,
+      email: knowYourSellerInfo.Email,
+      geo_location: knowYourSellerInfo.GeoLocation,
+      native_place: knowYourSellerInfo.SellerNativePlace,
+      total_family_members: knowYourSellerInfo.TotalFamilyMembers,
+      family_members: knowYourSellerInfo.SelectFamilyMember,
+      husband_age: knowYourSellerInfo.HusbandAge,
+      wife_age: knowYourSellerInfo.WifeAge,
+      pet_friendly: knowYourSellerInfo.PetFriendlyHome,
+      neighbours_pet_friendly: knowYourSellerInfo.PetFriendlySociety,
+      access_to_helpers: knowYourSellerInfo.Handymen,
+      husband_qualification: knowYourSellerInfo.HusbandQualification,
+      husband_stream: knowYourSellerInfo.HusbandStream,
+      husband_college: knowYourSellerInfo.HusbandCollegeName,
+      wife_qualification: knowYourSellerInfo.WifeQualification,
+      wife_stream: knowYourSellerInfo.WifeStream,
+      wife_college: knowYourSellerInfo.WifeCollegeName,
+      children_school: knowYourSellerInfo.InfoChildrenInstituteName,
+      family_belongs_to_college: knowYourSellerInfo.TopUniversity,
+      family_belongs_to_institute: knowYourSellerInfo.TopInstitute,
+      husband_profession: knowYourSellerInfo.HusbandProfessionType,
+      husband_organization: knowYourSellerInfo.HusbandOrganization,
+      wife_profession: knowYourSellerInfo.WifeProfessionType,
+      wife_organization: knowYourSellerInfo.WifeOrganization,
+      husband_linkedin_url: knowYourSellerInfo.HusbandLinkedInProfile,
+      wife_linkedin_url: knowYourSellerInfo.WifeLinkedInProfile,
+      mode_of_transport: knowYourSellerInfo.TravelBy,
+      husband_social_status: knowYourSellerInfo.HusbandSocialStatus,
+      husband_social_circle: knowYourSellerInfo.HusbandSocialCircle,
+      wife_social_status: knowYourSellerInfo.WifeSocialStatus,
+      wife_social_circle: knowYourSellerInfo.WifeSocialCircle,
+      husband_likes: knowYourSellerInfo.HusbandInterest,
+      wife_likes: knowYourSellerInfo.WifeInterest,
+      language_known: knowYourSellerInfo.Languages,
+      cuisine_preference: knowYourSellerInfo.Cuisine,
+      neighbour_house_number: knowYourSellerInfo.NeighbourHouse,
+      neighbour_family_members: knowYourSellerInfo.NeighbourFamilyConfig,
+      neighbour_profession: knowYourSellerInfo.NeighbourprofessionType,
+      neighbour_social_status: knowYourSellerInfo.NeighbourNature,
+      intent_of_selling: knowYourSellerInfo.Intent,
+      // seller_photo: knowYourSellerInfo.Sellerphoto,
+      // family_photo: knowYourSellerInfo.SellerFamilyphoto,
+      seller_story: knowYourSellerInfo.SellerStory,
+      rent_living_duration: knowYourSellerInfo.SellerRentedDuration,
+      purchase_living_duration: knowYourSellerInfo.SellerPurschaseDuration,
+    };
+
+    const data = {
+      Accept: "application/json",
+      "Content-type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+    };
+    axios
+      .put(`api/tasks/${localStorage.getItem("task_id")}/seller-info/`, body, {
+        headers: data,
+      })
+      .then((res) => {
+        successNotify();
+        navigate("/form-list", { replace: true });
+        // const status = { status: "P" };
+        // axios.patch(`api/tasks/${localStorage.getItem("task_id")}/`, status, {
+        //   headers: data,
+        // });
+      });
+    // .catch((err) => failedNotify());
+  };
   return (
-        <div className="">
-          <ToastContainer autoClose={1500} />
-          <div className="p-3 text-center mt-10 bg-slate-100">
-            <h2 className="text-sky-600 text-2xl font-bold">
-              Neighbourhood Information
-            </h2>
-            <div className="text-left">
-              <div className="progress"></div>
-              <div className="font-normal text-right pr-3 mt-10">
-                Total Questions: {Questions.length}
-              </div>
-              <div className="form-container border-4 border-solid shadow-2xl shadow-indigo-500/40 rounded-2xl border-zinc-400   py-10 px-5 ">
-             
-                <div className="main-body  ">
-                
-                  <Neighbourhood
-                    questionCount={questionCount}
-                    setQuestionCount={setQuestionCount}
-                    neighbourhoodInfo={neighbourhoodInfo}
-                    setNeighbourhoodInfo={setNeighbourhoodInfo}
-                  />
-                </div>
-              </div>
-              <div className="footer text-center m-5 mt-10 flex justify-around">
-                <button
-                  className="border-2 border-sky-700 px-3 py-1 rounded-lg text-sky-700 font-medium"
-                  disabled={questionCount == 1}
-                  onClick={() => {
-                    setQuestionCount((currentPage) => currentPage - 1);
-                  
-                  }}
-                >
-                  previous
-                </button>
-                {questionCount == 25 ? (
-                  <button
-                    className="border-2 border-sky-600 bg-sky-700 px-5 py-2 rounded-lg text-white font-medium"
-                    onClick={onSubmit}
-                  >
-                    finish
-                  </button>
-                ) : (
-                  <button
-                    className="border-2 border-sky-600 bg-sky-700 px-5 py-2 rounded-lg text-white font-medium"
-                    disabled={questionCount == Questions.length }
-                    onClick={() => {
-                      setQuestionCount((currentPage) => currentPage + 1);
-                    }}
-                  >
-                    Next
-                  </button>
-                )}
-              </div>
+    <div className="">
+      <ToastContainer autoClose={1500} />
+      <div className="p-3 text-center mt-10 bg-slate-100">
+        <h2 className="text-sky-600 text-2xl font-bold">Know Your Seller</h2>
+        <div className="text-left ">
+          <div className="flex px-5 mt-10 justify-between">
+            <div className="text-lg font-bold text-sky-500  ">
+              {" "}
+              {questionCount <= 8
+                ? Title[0]
+                : questionCount <= 16
+                ? Title[1]
+                : questionCount <= 25
+                ? Title[2]
+                : questionCount <= 32
+                ? Title[3]
+                : questionCount <= 40
+                ? Title[4]
+                : questionCount <= 44
+                ? Title[5]
+                : Title[6]}
+            </div>
+            <div className="font-normal  ">
+              Total Questions: {Questions.length}
             </div>
           </div>
+          <div className="form-container border-4 border-solid shadow-2xl shadow-indigo-500/40 rounded-2xl border-zinc-400   py-10 px-5 ">
+            <div className="main-body  ">
+              <SellerInfo
+                questionCount={questionCount}
+                knowYourSellerInfo={knowYourSellerInfo}
+                setKnowYourSellerInfo={setKnowYourSellerInfo}
+              />
+            </div>
+          </div>
+          <div className="footer text-center m-5 mt-10 flex justify-around">
+            <button
+              className="border-2 border-sky-700 px-3 py-1 rounded-lg text-sky-700 font-medium"
+              disabled={questionCount == 1}
+              onClick={() => {
+                setQuestionCount((currentPage) => currentPage - 1);
+              }}
+            >
+              previous
+            </button>
+            {questionCount == 48 ? (
+              <button
+                className="border-2 border-sky-600 bg-sky-700 px-5 py-2 rounded-lg text-white font-medium"
+                onClick={onSubmit}
+              >
+                finish
+              </button>
+            ) : (
+              <button
+                className="border-2 border-sky-600 bg-sky-700 px-5 py-2 rounded-lg text-white font-medium"
+                disabled={questionCount == Questions.length}
+                onClick={() => {
+                  setQuestionCount((currentPage) => currentPage + 1);
+                }}
+              >
+                Next
+              </button>
+            )}
+          </div>
         </div>
- 
-    
-  )
-}
+      </div>
+    </div>
+  );
+};
 
-export default SellerInfoStructure
+export default SellerInfoStructure;

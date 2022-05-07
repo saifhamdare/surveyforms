@@ -23,6 +23,8 @@ import CommunityLeaderStructure from "./forms/neibourhoodForms/comunityleader/Co
 import PhotoUploadStructure from "./forms/neibourhoodForms/photoupload/PhotoUploadStructure";
 import PlaceInfoStructure from "./forms/neibourhoodForms/placeinfo/PlaceInfoStructure";
 import KnowYourSocietyStructure from "./forms/societyForm/KnowYourSocietyStructure";
+import SellerInfoStructure from "./forms/sellerForm/SellerInfoStructure";
+import HomeInfoStructure from "./forms/homeform/HomeInfoStructure";
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
@@ -97,25 +99,28 @@ const App = () => {
           />
           <Route path="history-task" element={<TaskHistory tasks={tasks} />} />
           <Route path="form-list" element={<FormList />} />
-          
-          <Route path="addseller" element={<AddSellerStructure />} />
-          {/* <Route path="addseller" element={<AddSeller />} /> */}
-          <Route path="searchproperty" element={<SearchProperty />} />
-          <Route path="searchseller" element={<SearchSeller />} />
-
-          {/* <Route path="neighbourhood-form" element={<Neighbourhood />} /> */}
-          <Route path="neighbourhood-form" element={<NeighbourhoodStructure />} />
           <Route path="communityleader-form" element={<CommunityLeaderStructure />} />
           
-          {/* <Route path="placeinfo-form" element={<PlaceInfo />} /> */}
+          <Route path="neighbourhood-form" element={<NeighbourhoodStructure />} />
           <Route path="placeinfo-form" element={<PlaceInfoStructure />} />
-          {/* <Route path="photoupload-form" element={<PhotoUpload />} /> */}
           <Route path="photoupload-form" element={<PhotoUploadStructure />} />
+
+          <Route path="knowyoursociety-form" element={<KnowYourSocietyStructure />} />
+
+          {/* <Route path="addseller" element={<AddSellerStructure />} /> */}
+          {/* <Route path="addseller" element={<AddSeller />} /> */}
+          {/* <Route path="searchproperty" element={<SearchProperty />} /> */}
+          {/* <Route path="searchseller" element={<SearchSeller />} /> */}
+          {/* <Route path="neighbourhood-form" element={<Neighbourhood />} /> */}
+          {/* <Route path="placeinfo-form" element={<PlaceInfo />} /> */}
+          {/* <Route path="photoupload-form" element={<PhotoUpload />} /> */}
+ 
 
           <Route path="edit-formlist" element={<EditFormList />} />
           <Route path="editneighbourhood-form" element={<EditNeighbourhood />} />
-          <Route path="sellerinfo-form" element={<SellerInfo />} />
-          <Route path="knowyoursociety-form" element={<KnowYourSocietyStructure />} />
+          <Route path="sellerinfo-form" element={<SellerInfoStructure />} />
+          <Route path="homeinfo-form" element={<HomeInfoStructure />} />
+         
           <Route path="pending-list" element={<PendingList />} />
         </Routes>
       </div>

@@ -21,14 +21,12 @@ const Dashboard = () => {
             Pending Task
           </div>
         </Link>
-        <div    onClick={() => {
-            navigate("/communityleader-form", { replace: true });
-          }}>
-          <div className="border-2 bg-white border-slate-800 rounded-lg text-center px-1 py-16 font-bold  ">
-           Add Channel Partner
-          </div>
+
+        <div onClick={() => { navigate("/communityleader-form", { replace: true });}}
+           className="border-2 bg-white border-slate-800 rounded-lg text-center px-1 py-16 font-bold">
+          Add Channel Partner
         </div>
-        <Link to={"/searchseller"}>
+        {/* <Link to={"/searchseller"}>
           <div className="border-2 bg-white border-slate-800 rounded-lg text-center px-3 py-16 font-bold  ">
             Know Your Seller
           </div>
@@ -57,8 +55,7 @@ const Dashboard = () => {
           <div className="border-2 bg-white border-slate-800 rounded-lg text-center px-4 py-16 font-bold  ">
             Add Seller
           </div>
-        </Link>
-
+        </Link> */}
       </div>
       <Outlet />
     </div>
