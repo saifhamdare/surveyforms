@@ -25,7 +25,7 @@ import PlaceInfoStructure from "./forms/neibourhoodForms/placeinfo/PlaceInfoStru
 import KnowYourSocietyStructure from "./forms/societyForm/KnowYourSocietyStructure";
 import SellerInfoStructure from "./forms/sellerForm/SellerInfoStructure";
 import HomeInfoStructure from "./forms/homeform/HomeInfoStructure";
-
+import HomeInspectionStructure from "./forms/homeinspection/HomeInspectionStructure";
 const App = () => {
   const [tasks, setTasks] = useState([]);
   const [isloggedIn, setIsloggedIn] = useState(false);
@@ -120,6 +120,7 @@ const App = () => {
           <Route path="editneighbourhood-form" element={<EditNeighbourhood />} />
           <Route path="sellerinfo-form" element={<SellerInfoStructure />} />
           <Route path="homeinfo-form" element={<HomeInfoStructure />} />
+          <Route path="homeinspection-form" element={<HomeInspectionStructure />} />
          
           <Route path="pending-list" element={<PendingList />} />
         </Routes>

@@ -64,8 +64,9 @@ export default function ButtonAppBar({ isloggedIn }) {
     if(
       window.location.pathname === "/neighbourhood-form" ||
       window.location.pathname === "/placeinfo-form" ||
-      window.location.pathname === "/photoupload-form" ||
-      window.location.pathname === "/communityleader-form")
+      window.location.pathname === "/photoupload-form" 
+      // ||window.location.pathname === "/communityleader-form"
+      )
       {
       navigate("/form-list", { replace: true });
     } 

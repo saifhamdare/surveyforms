@@ -128,11 +128,11 @@ const KnowYourSociety = ({
         <div className="question">
           <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
-            <h4 className="font-semibold text-lg">Flats inside the Society</h4>
+            <h4 className="font-semibold text-lg">Kitne rooms(Flats) Available hai Society Mein ?</h4>
           </div>
 
           <Input
-            placeholder=""
+            placeholder="Flats Available in number"
             value={KnowYourSoceity.FlatsAvailable}
             onChange={(e) =>
               setKnowYourSoceity({
@@ -150,7 +150,7 @@ const KnowYourSociety = ({
           <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
             <h4 className="font-semibold text-lg">
-              Kitne Floor ki building hein
+              Kitne Floor ki building hai
             </h4>
           </div>
 
@@ -173,7 +173,7 @@ const KnowYourSociety = ({
         <div className="question">
           <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
-            <h4 className="font-semibold text-lg">Famouse Landmarks</h4>
+            <h4 className="font-semibold text-lg">Famous Landmarks</h4>
           </div>
 
           <Input
@@ -204,7 +204,7 @@ const KnowYourSociety = ({
         >
           <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
-            <h4 className="font-semibold text-lg">Society Type Kaisi hein?</h4>
+            <h4 className="font-semibold text-lg">Society Type Kaisi hai?</h4>
           </div>
           {/* <p>Type of Society</p> */}
           <input type="radio" className="ml-2" name="township" value="1" />
@@ -231,7 +231,7 @@ const KnowYourSociety = ({
         >
           <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
-            <h4 className="font-semibold text-lg">Parking Kis Type ki hein</h4>
+            <h4 className="font-semibold text-lg">Parking Kis Type ki hai</h4>
           </div>
           <FormControl>
             <FormGroup>
@@ -281,7 +281,7 @@ const KnowYourSociety = ({
         >
           <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
-            <h4 className="font-semibold text-lg">Amenities kahan par hein</h4>
+            <h4 className="font-semibold text-lg">Amenities kahan par hai</h4>
           </div>
 
           <input type="radio" className="ml-2" name="subtype" value="1" />
@@ -352,7 +352,7 @@ const KnowYourSociety = ({
           <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
             <h4 className="font-semibold text-lg">
-              Kis Type kaa commercials hein society mein
+              Kis Type kaa commercials hai society mein
             </h4>
           </div>
           <FormControl>
@@ -634,17 +634,17 @@ const KnowYourSociety = ({
         >
           <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
-            <h4 className="font-semibold text-lg">lift Lobby</h4>
+            <h4 className="font-semibold text-lg">Lift Lobby Kaisi Dikhti hai (Entrance Par)</h4>
           </div>
           <p className="italic font-light text-sm">Lobby in from of flats</p>
           <input type="radio" className="ml-2" name="lobby" value="1" />
           <label className="ml-2">
             Private Lobby (Members aur servants ke liye)
-          </label>{" "}
+          </label>
           <br />
           <input type="radio" className="ml-2" name="lobby" value="2" />
           <label className="ml-2">
-            common lobby (members aur servants ke liye)
+            Common Lobby (Members aur servants ke liye)
           </label>
         </div>
       )}
@@ -726,7 +726,7 @@ const KnowYourSociety = ({
           <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
             <h4 className="font-semibold text-lg">
-              StairCase (Siddiyaan) saaf aur achi condition hein ?
+              Staircase (Siddiyaan) saaf aur achi hai ?
             </h4>
           </div>
           <input
@@ -811,7 +811,7 @@ const KnowYourSociety = ({
           <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
             <h4 className="font-semibold text-lg">
-              Society Meeting room ki condition kaisi hein?
+              Society Meeting room ki condition kaisi hai?
             </h4>
           </div>
           <input
@@ -1332,7 +1332,7 @@ const KnowYourSociety = ({
           <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
             <h4 className="font-semibold text-lg">
-              Condition - Jogging, Walking Ke floor ki kaisi hein ..
+              Condition - Jogging, Walking Ke floor ki kaisi hai ?
             </h4>
           </div>
           <input
@@ -1476,16 +1476,16 @@ const KnowYourSociety = ({
           <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
             <h4 className="font-semibold text-lg">
-              Society - Green (Trees and Plants) hein
+              Society - Green (Trees and Plants) hai
             </h4>
           </div>
           <input type="radio" className="ml-2" name="Greenary" value="1" />
-          <label className="ml-2">Bahut and acchee</label> <br />
+          <label className="ml-2">Bahut and Acche</label> <br />
           <input type="radio" className="ml-2" name="Greenary" value="2" />
-          <label className="ml-2">thik thak</label>
+          <label className="ml-2">Thik Thak</label>
           <br />
           <input type="radio" className="ml-2" name="Greenary" value="3" />
-          <label className="ml-2">bahut kam</label> <br />
+          <label className="ml-2">Bahut Kam</label> <br />
           <input type="radio" className="ml-2" name="Greenary" value="4" />
           <label className="ml-2">N/A</label>
           <br />
@@ -1551,7 +1551,7 @@ const KnowYourSociety = ({
           <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
             <h4 className="font-semibold text-lg">
-              Condition of Public Area Lighting
+              Society ke andar aur aas pass lighting kaisi hai ?
             </h4>
           </div>
           <input
@@ -2095,7 +2095,9 @@ const KnowYourSociety = ({
           <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
             <h4 className="font-semibold text-lg">
-              Flat Inside waste collection kaise hauta hein?
+              {/* Flat Inside waste collection kaise hauta hein? */}
+              
+              Ghar ke kachre ki safai kaise hoti hai ? 
             </h4>
           </div>
           <input
@@ -2104,7 +2106,7 @@ const KnowYourSociety = ({
             name="DailyWasteCollecion"
             value="1"
           />
-          <label className="ml-2">Ghar ke bhar se pick up </label> <br />
+          <label className="ml-2">Ghar ke bahar se pick up </label> <br />
           <input
             className="ml-2"
             type="radio"
@@ -2112,7 +2114,7 @@ const KnowYourSociety = ({
             value="2"
           />
           <label className="ml-2">
-            Society ke common dustbin mein (flat member) kau aana padta hein
+            Society ke common dustbin mein (flat member) ko aana padta hai
           </label>
           <br />
           <input
@@ -2159,7 +2161,7 @@ const KnowYourSociety = ({
           <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
             <h4 className="font-semibold text-lg">
-              Water Storage Facility Kis type ki hein
+              Water Storage Facility Kis type ki hai
             </h4>
           </div>
           <input
@@ -2216,8 +2218,8 @@ const KnowYourSociety = ({
           <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
             <h4 className="font-semibold text-lg">
-              Facility Management - Koi achi agency sambhatli hein yeah aise
-              hein security guard hein?
+              Facility Management - Koi acchi agency sambhatli hai ya aise
+              hi security guard hai?
             </h4>
           </div>
 
@@ -2253,7 +2255,7 @@ const KnowYourSociety = ({
           <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
             <h4 className="font-semibold text-lg">
-              Inside Flat Without Security Allowed hein
+              Inside Flat Without Security Allowed hai
             </h4>
           </div>
           <input type="radio" className="ml-2" name="InsideFlat" value="Yes" />
@@ -2483,8 +2485,8 @@ const KnowYourSociety = ({
           <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
             <h4 className="font-semibold text-lg">
-              Security Guard Khali Lift Lobby per hein .. Ke entrance gate par
-              alag hein
+              Security Guard Khali Lift Lobby per hai .. Ke entrance gate par
+              alag hai
             </h4>
           </div>
           <input
@@ -2513,8 +2515,7 @@ const KnowYourSociety = ({
           <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
             <h4 className="font-semibold text-lg">
-              Non-members delivery boy aaraam se aate hein ... kei members ki
-              permission chahihye
+              Non-members delivery boy ko entry without permission hai ya nahi ?
             </h4>
           </div>
           <input
@@ -2549,7 +2550,7 @@ const KnowYourSociety = ({
           <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
             <h4 className="font-semibold text-lg">
-              Kis Eating type ke members allowed hein?
+              Kis Eating type ke members allowed hai?
             </h4>
           </div>
           <FormControl>
@@ -2617,7 +2618,7 @@ const KnowYourSociety = ({
           <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
             <h4 className="font-semibold text-lg">
-              Konsi age group ke members sab se jyada hein(Select Top 2)
+              Konsi age group ke members sab se jyada hai(Select Top 2)
             </h4>
           </div>
           <FormControl>
@@ -2696,12 +2697,12 @@ const KnowYourSociety = ({
           {" "}
           <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
-            <h4 className="font-semibold text-lg">Kaun Kaun reh sakta hein</h4>
+            <h4 className="font-semibold text-lg">Kaun Kaun reh sakta hai</h4>
           </div>
           <FormControl>
             <FormGroup>
               <FormControlLabel
-                label="Batchelors"
+                label="Bachelors "
                 control={
                   <Checkbox
                     value="1"
@@ -2797,7 +2798,7 @@ const KnowYourSociety = ({
           <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
             <h4 className="font-semibold text-lg">
-              Bacholers allowed hein ke nahin
+            Bachelor allowed hai ke nahin
             </h4>
           </div>
           <input
@@ -2852,7 +2853,7 @@ const KnowYourSociety = ({
           <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
             <h4 className="font-semibold text-lg">
-              Shyamm kau ladies ikhata ho kar baate karti hein...kitty party
+              Sham ko ladies group banakar kar baate karti hein...kitty party
               hoti hein kya
             </h4>
           </div>
@@ -3024,7 +3025,7 @@ const KnowYourSociety = ({
                 }
               />
               <FormControlLabel
-                label="Rangpanchnami Event in Society"
+                label="Rang panchami Event in Society"
                 control={
                   <Checkbox
                     value="5"
@@ -3046,7 +3047,7 @@ const KnowYourSociety = ({
                 }
               />
               <FormControlLabel
-                label="Republic and Independace day Celeb."
+                label="Republic and Independence day Celeb."
                 control={
                   <Checkbox
                     value="7"
@@ -3057,7 +3058,7 @@ const KnowYourSociety = ({
                 }
               />
               <FormControlLabel
-                label="Chrismas Celeb."
+                label="Christmas Celeb."
                 control={
                   <Checkbox
                     value="8"
@@ -3108,7 +3109,7 @@ const KnowYourSociety = ({
           <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
             <h4 className="font-semibold text-lg">
-              Society ka management kitna achee se kaam karta hein?
+              Society ka management kitna acchey se kaam karta hein?
             </h4>
           </div>
           <FormControl>
@@ -3125,7 +3126,7 @@ const KnowYourSociety = ({
                 }
               />
               <FormControlLabel
-                label="Quaterly Meeting"
+                label="Quarterly Meeting"
                 control={
                   <Checkbox
                     value="2"
@@ -3178,7 +3179,7 @@ const KnowYourSociety = ({
           <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
             <h4 className="font-semibold text-lg">
-              Members kau functions inside society allowed hein (E.G. MARRIAGES)
+              Members ko functions karna andar society ke allowed hai ya nahi ? (E.G. MARRIAGES)
             </h4>
           </div>
           <input
@@ -3212,16 +3213,16 @@ const KnowYourSociety = ({
           <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
             <h4 className="font-semibold text-lg">
-              Society/Building clean / clean hein ...
+              Society / Building clean / clean hein kya ?
             </h4>
           </div>
           <input type="radio" className="ml-2" name="Cleanliness" value="1" />
-          <label className="ml-2">bahut clean</label> <br />
+          <label className="ml-2">Bahut clean</label> <br />
           <input type="radio" className="ml-2" name="Cleanliness" value="2" />
-          <label className="ml-2">thik thak</label>
+          <label className="ml-2">Thik thak</label>
           <br />
           <input type="radio" className="ml-2" name="Cleanliness" value="3" />
-          <label className="ml-2">kharab</label>
+          <label className="ml-2">Kharab</label>
         </div>
       )}
 
@@ -3240,8 +3241,8 @@ const KnowYourSociety = ({
           <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
             <h4 className="font-semibold text-lg">
-              Society staircase/ lift / compound / other internal areas - clean
-              hein kya
+              Society staircase / lift / compound / other internal areas - clean
+              hein kya ?
             </h4>
           </div>
           <input
@@ -3250,14 +3251,14 @@ const KnowYourSociety = ({
             name="CleanlinessMaintained"
             value="1"
           />
-          <label className="ml-2">bahut clean</label> <br />
+          <label className="ml-2">Bahut clean</label> <br />
           <input
             type="radio"
             className="ml-2"
             name="CleanlinessMaintained"
             value="2"
           />
-          <label className="ml-2">thik thak</label>
+          <label className="ml-2">Thik thak</label>
           <br />
           <input
             type="radio"
@@ -3265,7 +3266,7 @@ const KnowYourSociety = ({
             name="CleanlinessMaintained"
             value="3"
           />
-          <label className="ml-2">kharab</label>
+          <label className="ml-2">Tharab</label>
         </div>
       )}
 
@@ -3303,7 +3304,7 @@ const KnowYourSociety = ({
           onChange={(e) =>
             setKnowYourSoceity({
               ...KnowYourSoceity,
-              Ramp: e.target.value,
+              Ramp: Boolean(e.target.value),
             })
           }
           required
@@ -3327,7 +3328,7 @@ const KnowYourSociety = ({
           <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
             <h4 className="font-semibold text-lg">
-              1 bhk last flat sale - price
+              1 BHK last flat sale - price
             </h4>
           </div>
 
@@ -3350,7 +3351,7 @@ const KnowYourSociety = ({
           <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
             <h4 className="font-semibold text-lg">
-              2 bhk last flat sale price
+              2 BHK last flat sale price
             </h4>
           </div>
 
@@ -3373,7 +3374,7 @@ const KnowYourSociety = ({
           <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
             <h4 className="font-semibold text-lg">
-              3 bhk last last flat - sale price
+              3 BHK last last flat - sale price
             </h4>
           </div>
 
@@ -3397,7 +3398,7 @@ const KnowYourSociety = ({
           <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
             <h4 className="font-semibold text-lg">
-              Visitor parking allowed hein
+              Visitor parking kitni hai ?
             </h4>
           </div>
 
@@ -3430,7 +3431,7 @@ const KnowYourSociety = ({
           <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
             <h4 className="font-semibold text-lg">
-              Noise (traffic, construction) bahut hein society ke inside see?
+              Noise (traffic, construction) bahut hai society ke andar see?
             </h4>
           </div>
           <input type="radio" className="ml-2" name="noise" value="Yes" />
@@ -3454,7 +3455,7 @@ const KnowYourSociety = ({
           <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
             <h4 className="font-semibold text-lg">
-              Stray dogs / animals andaar hein kya, society kee?
+              Stray dogs / animals andar hai kya, society ke?
             </h4>
           </div>
           <input type="radio" className="ml-2" name="straydogs" value="Yes" />
@@ -3479,7 +3480,7 @@ const KnowYourSociety = ({
           <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
             <h4 className="font-semibold text-lg">
-              Leakages / cracks society ke building ke uppar?
+              Leakages / Cracks society ke building ke uppar?
             </h4>
           </div>
           <input type="radio" className="ml-2" name="crack" value="1" />

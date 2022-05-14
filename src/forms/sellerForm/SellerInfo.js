@@ -903,7 +903,7 @@ const SellerInfo = ({
                    <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
             <h4 className="font-semibold text-lg">
-            Children or any other member belongsto following College/University
+            Children or any other member belongs to following College / University
              </h4>
           </div>
           <div>
@@ -1139,6 +1139,13 @@ const SellerInfo = ({
               value="16"
             />
             <label>Jamia milia Islamia</label>
+            <br />
+            <input
+              type="radio"
+              name="topUniversity"
+              value="17"
+            />
+            <label>None</label>
         </div>
       )}
 
@@ -1154,7 +1161,7 @@ const SellerInfo = ({
                    <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
             <h4 className="font-semibold text-lg">
-            Children or any other member belongsto following Institute/services
+            Children or any other member belongs to following Institute/services
             </h4>
           </div>
   
@@ -1267,6 +1274,13 @@ const SellerInfo = ({
               value="7"
             />
             <label>Bhabha Atomic center</label>
+            <br />
+            <input
+              type="radio"
+              name="TopInsititute"
+              value="8"
+            />
+            <label>None</label>
         </div>
       )}
 
@@ -1602,7 +1616,7 @@ const SellerInfo = ({
           </div>
       
           <Input
-            placeholder="Optional"
+            placeholder="Only Add url (Optional) "
             onChange={(e) =>
               setKnowYourSellerInfo({
                 ...knowYourSellerInfo,
@@ -1621,7 +1635,7 @@ const SellerInfo = ({
           Wife LinkedIn Profile</h4>
           </div>
           <Input
-            placeholder="Optional"
+            placeholder="Only Add url (Optional)"
             onChange={(e) =>
               setKnowYourSellerInfo({
                 ...knowYourSellerInfo,
@@ -2457,7 +2471,7 @@ const SellerInfo = ({
                    <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
             <h4 className="font-semibold text-lg">
-            Neighbour's House</h4>
+            Neighbour's House number</h4>
           </div>
           <p className="italic font-light text-sm">(No. to be mention)</p>
           <Input
@@ -2468,6 +2482,7 @@ const SellerInfo = ({
                 NeighbourHouse: e.target.value,
               })
             }
+            type="number"
             required
             fullWidth
           />
@@ -2825,7 +2840,7 @@ const SellerInfo = ({
           </div>
 
           <Input
-            placeholder="tell us about the your home"
+            placeholder="Tell us about your home"
             onChange={(e) =>
               setKnowYourSellerInfo({
                 ...knowYourSellerInfo,
@@ -2842,12 +2857,12 @@ const SellerInfo = ({
                    <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
             <h4 className="font-semibold text-lg">
-            Your Family Living in this House On Rent(for Story)
+            Your Family Living in this House On Rent?
             </h4>
           </div>
 
           <Input
-            placeholder="tell us about the your home"
+            placeholder="number of years"
             onChange={(e) =>
               setKnowYourSellerInfo({
                 ...knowYourSellerInfo,
@@ -2865,11 +2880,11 @@ const SellerInfo = ({
                    <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
             <h4 className="font-semibold text-lg">
-            Your Family staying here after Purchase (for Story)
+            Your Family staying here after Purchase ?
              </h4>
           </div>
           <Input
-            placeholder="tell us about the your home"
+            placeholder="number of years"
             onChange={(e) =>
               setKnowYourSellerInfo({
                 ...knowYourSellerInfo,

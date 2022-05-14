@@ -114,7 +114,7 @@ if(
     };
     axios
       .post(
-        `api/tasks/${localStorage.getItem("task_id")}/society-info/`,
+        `api/tasks/${localStorage.getItem("task_id")}/neighbourhood/`,
         body,
         { headers: data })
       .then((res) => {

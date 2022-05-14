@@ -11,13 +11,12 @@ const CommunityLeaderStructure = () => {
     fullName: "",
     mobileNo: "",
     gender: "",
-    profession: "",
     emailId: "",
-    keyPositionInSociety: "",
-    group: "",
-    duration: "",
+    reraNumber: "",
+    address: "",
+
   });
-  const Questions = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  const Questions = [1, 2, 3, 4, 5, 6, ];
   const successNotify = () =>
     toast.success("form filled Successfully", {
       position: "bottom-center",
@@ -32,26 +31,20 @@ const CommunityLeaderStructure = () => {
       communityLeaderInfo.fullName == "" ||
       communityLeaderInfo.mobileNo == "" ||
       communityLeaderInfo.gender == "" ||
-      communityLeaderInfo.profession == "" ||
       communityLeaderInfo.emailId == "" ||
-      communityLeaderInfo.liveInSociety == "" ||
-      communityLeaderInfo.keyPositionInSociety == "" ||
-      communityLeaderInfo.group == "" ||
-      communityLeaderInfo.duration == ""
+      communityLeaderInfo.address == "" ||
+      communityLeaderInfo.reraNumber == "" 
     ) {
       var msg = "fill complete form";
       failedNotify(msg);
     }
     const body = {
-      full_name: communityLeaderInfo.fullName,
-      mobile_number: communityLeaderInfo.mobileNo,
+      name: communityLeaderInfo.fullName,
+      contact: communityLeaderInfo.mobileNo,
       gender: communityLeaderInfo.gender,
-      profession: +communityLeaderInfo.profession,
       email: communityLeaderInfo.emailId,
-      society_resident: communityLeaderInfo.liveInSociety,
-      society_key_member: communityLeaderInfo.keyPositionInSociety,
-      member_of_group: communityLeaderInfo.group,
-      visiting_society_since: communityLeaderInfo.duration,
+      rera_number: communityLeaderInfo.reraNumber,
+      address: communityLeaderInfo.address,
     };
     const data = {
       Accept: "application/json",
@@ -61,17 +54,19 @@ const CommunityLeaderStructure = () => {
 
     axios
       .post(
-        `api/tasks/${localStorage.getItem("task_id")}/community-leader/`,
+        `api/channel-partners/`,
         body,
         { headers: data }
       )
       .then((res) => {
         successNotify();
-        navigate("/form-list", { replace: true });
+        navigate("/dashboard", { replace: true });
         const status = { status: "P" };
-        axios.patch(`api/tasks/${localStorage.getItem("task_id")}/`, status, {
-          headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-        });
+        // axios.patch(`api/tasks/${localStorage.getItem("task_id")}/`, status, {
+        //   headers: { Authorization: `Bearer ${localStorage.getItem("token")}` 
+        // }
+        // ,
+        // });
       });
     //   .catch((err) => failedNotify(err));
   };
@@ -105,7 +100,7 @@ const CommunityLeaderStructure = () => {
             >
               previous
             </button>
-            {questionCount == 9 ? (
+            {questionCount == 6 ? (
               <button
                 className="border-2 border-sky-600 bg-sky-700 px-5 py-2 rounded-lg text-white font-medium"
                 onClick={onSubmit}

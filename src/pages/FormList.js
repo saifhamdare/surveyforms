@@ -9,15 +9,15 @@ const FormList = () => {
   const [nhFormCount, setnhFormCount] = useState("");
   const [piFormCount, setpiFormCount] = useState("");
   const [puFormCount, setpuFormCount] = useState("");
-  const [clFormCount, setclFormCount] = useState("");
+  // const [clFormCount, setclFormCount] = useState("");
 
   const checkSubmit = () => {
     let nhform = nhFormCount.length;
     let piform = Boolean(piFormCount.cleanliness);
     let puform = Boolean(puFormCount.entrance);
-    let clform = clFormCount.length;
+    // let clform = clFormCount.length;
 
-    if (nhform === 8 && piform === true && puform === true && clform > 0) {
+    if (nhform === 8 && piform === true && puform === true ) {
       const body = { status: "C" };
       axios
         .patch(`tasks/${localStorage.getItem("task_id")}/`, body, {
@@ -82,18 +82,18 @@ const FormList = () => {
         setpuFormCount(res.data);
       });
     //community leader info
-    axios
-      .get(
-        `api/tasks/${localStorage.getItem(
-          "task_id"
-        )}/community-leader/`,
-        {
-          headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-        }
-      )
-      .then((res) => {
-        setclFormCount(res.data);
-      });
+    // axios
+    //   .get(
+    //     `api/tasks/${localStorage.getItem(
+    //       "task_id"
+    //     )}/community-leader/`,
+    //     {
+    //       headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+    //     }
+    //   )
+    //   .then((res) => {
+    //     setclFormCount(res.data);
+    //   });
   };
 
   useEffect(() => {

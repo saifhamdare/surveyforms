@@ -86,7 +86,7 @@ const TodaysTask = ({tasks,handleTodaysTask}) => {
         <div>
           {tasks?.filter(task=>task.type==='home_inspection' && task.status==='N').map(task => (
            
-            <Link key={task.task_id} onClick={()=>{handleTodaysTask(task.task_id)}} to="/todays-task">
+            <Link key={task.task_id} onClick={()=>{handleTodaysTask(task.task_id)}} to="/homeinspection-form">
               <div className="border-2 bg-white py-2 rounded-xl border-sky-600  px-8 my-5">
                 <div className="flex justify-between">
                 <h6 className="font-bold text-lg">{task.society_name}</h6>

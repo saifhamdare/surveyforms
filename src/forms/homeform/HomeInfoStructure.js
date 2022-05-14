@@ -157,7 +157,7 @@ const HomeInfoStructure = () => {
     <div>
       <ToastContainer autoClose={1500} />
       <div className="p-3 text-center mt-10 bg-slate-100">
-        <h2 className="text-sky-600 text-2xl font-bold">Place Information</h2>
+        <h2 className="text-sky-600 text-2xl font-bold">Know Your Home</h2>
         <div className="text-left">
           <div className="progress"></div>
           <div className="font-normal text-right pr-3 mt-10">

@@ -288,13 +288,13 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
         <div className='question   '>
           <div className='flex mb-10 font-semibold text-xl text-sky-700'>
             <h1 className='mr-2 '>{questionCount}.</h1>
-            <h4 className='font-semibold text-lg'>washrooms</h4>
+            <h4 className='font-semibold text-lg'>Washrooms</h4>
           </div>
 
           <FormControl>
             <FormGroup>
               <FormControlLabel
-                label='attached'
+                label='Attached'
                 control={
                   <Checkbox
                     value='1'
@@ -305,7 +305,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 }
               />
               <FormControlLabel
-                label='common'
+                label='Common'
                 control={
                   <Checkbox
                     value='2'
@@ -324,7 +324,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
           <div className='flex mb-10 font-semibold text-xl text-sky-700'>
             <h1 className='mr-2 '>{questionCount}.</h1>
             <h4 className='font-semibold text-lg'>
-              washing area / storage area attached to
+              Washing area / Storage area attached to
             </h4>
           </div>
 
@@ -346,7 +346,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 }
               />
               <FormControlLabel
-                label='washroom'
+                label='Washroom'
                 control={
                   <Checkbox
                     value='2'
@@ -361,7 +361,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 }
               />
               <FormControlLabel
-                label='bedroom'
+                label='Bedroom'
                 control={
                   <Checkbox
                     value='3'
@@ -436,7 +436,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 }
               />
               <FormControlLabel
-                label='fridge'
+                label='Fridge'
                 control={
                   <Checkbox
                     value='2'
@@ -451,7 +451,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 }
               />
               <FormControlLabel
-                label='chimney'
+                label='Chimney'
                 control={
                   <Checkbox
                     value='3'
@@ -466,7 +466,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 }
               />
               <FormControlLabel
-                label='oven/microwave'
+                label='Oven/ Microwave'
                 control={
                   <Checkbox
                     value='4'
@@ -496,7 +496,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 }
               />
               <FormControlLabel
-                label='dryer'
+                label='Dryer'
                 control={
                   <Checkbox
                     value='6'
@@ -511,7 +511,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 }
               />
               <FormControlLabel
-                label='dishwasher'
+                label='Dishwasher'
                 control={
                   <Checkbox
                     value='7'
@@ -526,7 +526,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 }
               />
               <FormControlLabel
-                label='geyser'
+                label='Geyser'
                 control={
                   <Checkbox
                     value='8'
@@ -1116,7 +1116,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
         >
           <div className='flex mb-10  font-semibold text-xl text-sky-700 '>
             <h1 className='mr-2 '>{questionCount}.</h1>
-            <h4 className='font-semibold text-lg'>Flooring Type(bedroom 1)</h4>
+            <h4 className='font-semibold text-lg'>Flooring Type(Bedroom 1)</h4>
           </div>
 
           <input type='radio' className='ml-2' name='bedroom1Floor' value='1' />
@@ -1154,7 +1154,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
         >
           <div className='flex mb-10  font-semibold text-xl text-sky-700 '>
             <h1 className='mr-2 '>{questionCount}.</h1>
-            <h4 className='font-semibold text-lg'>Flooring Type(bedroom 2)</h4>
+            <h4 className='font-semibold text-lg'>Flooring Type(Bedroom 2)</h4>
           </div>
 
           <input type='radio' className='ml-2' name='bedroom2Floor' value='1' />
@@ -1192,7 +1192,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
         >
           <div className='flex mb-10  font-semibold text-xl text-sky-700 '>
             <h1 className='mr-2 '>{questionCount}.</h1>
-            <h4 className='font-semibold text-lg'>Flooring Type(washroom)</h4>
+            <h4 className='font-semibold text-lg'>Flooring Type(Washroom)</h4>
           </div>
 
           <input type='radio' className='ml-2' name='washroomFloor' value='1' />
@@ -1556,7 +1556,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
               />
 
               <FormControlLabel
-                label='crematorium/ graveyard/ Kabrastan'
+                label='Crematorium/ Graveyard/ Kabrastan'
                 control={
                   <Checkbox
                     value='13'
@@ -1602,7 +1602,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 }
               />
               <FormControlLabel
-                label='skyline'
+                label='Skyline'
                 control={
                   <Checkbox
                     value='17'
@@ -1617,7 +1617,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 }
               />
               <FormControlLabel
-                label='horizon'
+                label='Horizon'
                 control={
                   <Checkbox
                     value='18'
@@ -2120,7 +2120,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
           <div className='flex mb-10  font-semibold text-xl text-sky-700 '>
             <h1 className='mr-2 '>{questionCount}.</h1>
             <h4 className='font-semibold text-lg'>
-              washroom 1 Position (Vaastu)
+              Washroom 1 Position (Vaastu)
             </h4>
           </div>
 
@@ -2203,7 +2203,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
           <div className='flex mb-10  font-semibold text-xl text-sky-700 '>
             <h1 className='mr-2 '>{questionCount}.</h1>
             <h4 className='font-semibold text-lg'>
-              washroom 2 Position (Vaastu)
+              Washroom 2 Position (Vaastu)
             </h4>
           </div>
 
@@ -2286,7 +2286,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
           <div className='flex mb-10  font-semibold text-xl text-sky-700 '>
             <h1 className='mr-2 '>{questionCount}.</h1>
             <h4 className='font-semibold text-lg'>
-              washroom 3 Position (Vaastu)
+              Washroom 3 Position (Vaastu)
             </h4>
           </div>
 
@@ -2652,7 +2652,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
           <div className='flex mb-10  font-semibold text-xl text-sky-700 '>
             <h1 className='mr-2 '>{questionCount}.</h1>
             <h4 className='font-semibold text-lg'>
-              WHAT IS THE PROFESSION OF PEOPLE LIVING IN THE SOCIETY?
+              What is the profession of people living in the society ?
             </h4>
           </div>
 

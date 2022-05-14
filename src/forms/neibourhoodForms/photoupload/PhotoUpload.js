@@ -11,7 +11,7 @@ const PhotoUpload = ({setPhotoUploadImages,photoUploadImages,questionCount}) => 
        <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
             <h4 className="">
-              Upload image of entrance containing nxame.{" "}
+              Upload image of entrance containing name.{" "}
             </h4>
           </div>
         

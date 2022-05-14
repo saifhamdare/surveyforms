@@ -1,106 +1,106 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 
-import axios from "axios";
-import { ToastContainer, toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
-import KnowYourSociety from "./KnowYourSociety";
+import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
+import KnowYourSociety from './KnowYourSociety';
 const KnowYourSocietyStructure = () => {
   const [questionCount, setQuestionCount] = useState(1);
   const navigate = useNavigate();
 
   const [KnowYourSoceity, setKnowYourSoceity] = useState({
-    FlatsAvailable: "",
-    Floor: "",
-    Landmarks: "",
-    buildingtype: "",
+    FlatsAvailable: '',
+    Floor: '',
+    Landmarks: '',
+    buildingtype: '',
     ParkingType: [],
-    amenitieArea: "",
-    society_structure: "",
+    amenitieArea: '',
+    society_structure: '',
     CommercialEntity: [],
     Lift: [],
-    liftType: "",
-    liftCondition: "",
-    liftremark: "",
-    liftLobby: "",
-    liftLobbyCondition: "",
-    liftlobbyremark: "",
-    staircaseCondition: "",
-    staircaseremark: "",
-   
-    entranceLobbyremark: "",
-    conditionofMeetingRoom: "",
-    MeetingRoomremark: "",
-    ClubHouseCondition: "",
-    ClubHouseremark: "",
-    PlayGroundCondition: "",
+    liftType: '',
+    liftCondition: '',
+    liftremark: '',
+    liftLobby: '',
+    liftLobbyCondition: '',
+    liftlobbyremark: '',
+    staircaseCondition: '',
+    staircaseremark: '',
+
+    entranceLobbyremark: '',
+    conditionofMeetingRoom: '',
+    MeetingRoomremark: '',
+    ClubHouseCondition: '',
+    ClubHouseremark: '',
+    PlayGroundCondition: '',
     PlayGroundtype: [],
-    PlayGroundremark: "",
+    PlayGroundremark: '',
     SwimmingPoolType: [],
-    SwimmingPoolConditiion: "",
-    SwimmingPoolRemark: "",
-    JoggingTrackCondition: "",
-    JoggingTrackRemark: "",
-    ElectricitySupplier: "",
-    ReflexologyCondition: "",
-    ReflexologyRemark: "",
-    CycleTrackCondition: "",
-    CycleTrackRemark: "",
-    Greenary: "",
-    PublicAreaLighting: "",
-    PublicAreaLightingCondition: "",
-    PublicAreaLightingRemark: "",
+    SwimmingPoolConditiion: '',
+    SwimmingPoolRemark: '',
+    JoggingTrackCondition: '',
+    JoggingTrackRemark: '',
+    ElectricitySupplier: '',
+    ReflexologyCondition: '',
+    ReflexologyRemark: '',
+    CycleTrackCondition: '',
+    CycleTrackRemark: '',
+    Greenary: '',
+    PublicAreaLighting: '',
+    PublicAreaLightingCondition: '',
+    PublicAreaLightingRemark: '',
     otherAmenities: [],
-    otherAmenitiesCondition: "",
-    otherAmenitiesRemark: "",
-    DailyWasteCollecion: "",
-   
-    WaterStoargeFacility: "",
+    otherAmenitiesCondition: '',
+    otherAmenitiesRemark: '',
+    DailyWasteCollecion: '',
+
+    WaterStoargeFacility: '',
     FireFightingSystem: [],
     SecurityService: [],
-    GuardAtLobby: "",
-    NonMemberDeliveryboy: "",
-    SatelliteTV: "",
-    Agency: "",
-    InsideFlat: "",
-    liftphoto: "",
-    liftlobbyphoto: "",
-    staircasephoto: "",
-    entrancelobbyephoto: "",
-    MeetingRoomphoto: "",
-    ClubHousephoto: "",
-    PlayGroundphoto: "",
-    SwimmingPoolphoto: "",
-    JoggingTrackphoto: "",
-    Reflexologyphoto: "",
-    cyclingTrackPhoto: "",
-    Greenaryphoto: "",
-    PublicAreaLightingphoto: "",
-    otherAmenitiesphoto: "",
+    GuardAtLobby: '',
+    NonMemberDeliveryboy: '',
+    SatelliteTV: '',
+    Agency: '',
+    InsideFlat: '',
+    liftphoto: '',
+    liftlobbyphoto: '',
+    staircasephoto: '',
+    entrancelobbyephoto: '',
+    MeetingRoomphoto: '',
+    ClubHousephoto: '',
+    PlayGroundphoto: '',
+    SwimmingPoolphoto: '',
+    JoggingTrackphoto: '',
+    Reflexologyphoto: '',
+    cyclingTrackPhoto: '',
+    Greenaryphoto: '',
+    PublicAreaLightingphoto: '',
+    otherAmenitiesphoto: '',
     EatingHabitsAllowed: [],
     MajorityAgeGroup: [],
     MembersAllowed: [],
-    MajorityMemberType: "",
+    MajorityMemberType: '',
 
-    BatchlorsAllowed: "",
-    nonMarriedAllowed: "",
-    ChildrenPlayingAround: "",
-    CalmMember: "",
-    ElderPeopleActivity: "",
+    BatchlorsAllowed: '',
+    nonMarriedAllowed: '',
+    ChildrenPlayingAround: '',
+    CalmMember: '',
+    ElderPeopleActivity: '',
     Celebration: [],
     SocietyMeetings: [],
-    FunctionsAllowed: "",
-    Cleanliness: "",
-    CleanlinessMaintained: "",
-    Handymen: "",
-    Ramp: "",
-    OneBHK: "",
-    TwoBHK: "",
-    ThreeBHK: "",
-    Visitor: "",
-    Noise: "",
-    StrayDogs: "",
-    Crack: "",
-    Deed: "",
+    FunctionsAllowed: '',
+    Cleanliness: '',
+    CleanlinessMaintained: '',
+    Handymen: '',
+    Ramp: '',
+    OneBHK: '',
+    TwoBHK: '',
+    ThreeBHK: '',
+    Visitor: '',
+    Noise: '',
+    StrayDogs: '',
+    Crack: '',
+    Deed: '',
   });
 
   useEffect(() => {
@@ -111,32 +111,122 @@ const KnowYourSocietyStructure = () => {
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
     22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
     41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59,
-    60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74
+    60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74,
   ];
   const Title = [
-    "??changes??",
-    "Amenities and Service",
-    "Security Systems",
-    "Community and Culture",
-    "Cleanliness",
-    "Usefull for You",
+    'Basic Details',
+    'Amenities and Service',
+    'Security Systems',
+    'Community and Culture',
+    'Cleanliness',
+    'Usefull for You',
   ];
   const successNotify = () =>
-    toast.success("form filled Successfully", {
-      position: "bottom-center",
+    toast.success('form filled Successfully', {
+      position: 'bottom-center',
     });
-  const failedNotify = (msg) =>
+  const failedNotify = msg =>
     toast.error(`${msg}`, {
-      position: "bottom-center",
+      position: 'bottom-center',
     });
 
-  const onSubmit = (e) => {
+  const onSubmit = e => {
     e.preventDefault();
-    if (0 == 0) {
-      var msg = "fill complete form";
-      failedNotify(msg);
-    }
-   
+    // if (
+    //   KnowYourSoceity.FlatsAvailable === '' ||
+    //   KnowYourSoceity.Floor === '' ||
+    //   KnowYourSoceity.Landmarks === '' ||
+    //   KnowYourSoceity.buildingtype === '' ||
+    //   KnowYourSoceity.ParkingType === '' ||
+    //   KnowYourSoceity.amenitieArea === '' ||
+    //   KnowYourSoceity.society_structure === '' ||
+    //   KnowYourSoceity.CommercialEntity === '' ||
+    //   KnowYourSoceity.Lift === '' ||
+    //   KnowYourSoceity.liftType === '' ||
+    //   KnowYourSoceity.liftCondition === '' ||
+    //   KnowYourSoceity.liftremark === '' ||
+    //   KnowYourSoceity.liftLobby === '' ||
+    //   KnowYourSoceity.liftLobbyCondition === '' ||
+    //   KnowYourSoceity.liftlobbyremark === '' ||
+    //   KnowYourSoceity.staircaseCondition === '' ||
+    //   KnowYourSoceity.staircaseremark === '' ||
+    //   KnowYourSoceity.entranceLobbyremark === '' ||
+    //   KnowYourSoceity.conditionofMeetingRoom === '' ||
+    //   KnowYourSoceity.MeetingRoomremark === '' ||
+    //   KnowYourSoceity.ClubHouseCondition === '' ||
+    //   KnowYourSoceity.ClubHouseremark === '' ||
+    //   KnowYourSoceity.PlayGroundCondition === '' ||
+    //   KnowYourSoceity.PlayGroundtype === '' ||
+    //   KnowYourSoceity.PlayGroundremark === '' ||
+    //   KnowYourSoceity.SwimmingPoolType === '' ||
+    //   KnowYourSoceity.SwimmingPoolConditiion === '' ||
+    //   KnowYourSoceity.SwimmingPoolRemark === '' ||
+    //   KnowYourSoceity.JoggingTrackCondition === '' ||
+    //   KnowYourSoceity.JoggingTrackRemark === '' ||
+    //   KnowYourSoceity.ElectricitySupplier === '' ||
+    //   KnowYourSoceity.ReflexologyCondition === '' ||
+    //   KnowYourSoceity.ReflexologyRemark === '' ||
+    //   KnowYourSoceity.CycleTrackCondition === '' ||
+    //   KnowYourSoceity.CycleTrackRemark === '' ||
+    //   KnowYourSoceity.Greenary === '' ||
+    //   KnowYourSoceity.PublicAreaLighting === '' ||
+    //   KnowYourSoceity.PublicAreaLightingCondition === '' ||
+    //   KnowYourSoceity.PublicAreaLightingRemark === '' ||
+    //   KnowYourSoceity.otherAmenities === '' ||
+    //   KnowYourSoceity.otherAmenitiesCondition === '' ||
+    //   KnowYourSoceity.otherAmenitiesRemark === '' ||
+    //   KnowYourSoceity.DailyWasteCollecion === '' ||
+    //   KnowYourSoceity.WaterStoargeFacility === '' ||
+    //   KnowYourSoceity.FireFightingSystem === '' ||
+    //   KnowYourSoceity.SecurityService === '' ||
+    //   KnowYourSoceity.GuardAtLobby === '' ||
+    //   KnowYourSoceity.NonMemberDeliveryboy === '' ||
+    //   KnowYourSoceity.SatelliteTV === '' ||
+    //   KnowYourSoceity.Agency === '' ||
+    //   KnowYourSoceity.InsideFlat === '' ||
+    //   KnowYourSoceity.liftphoto === '' ||
+    //   KnowYourSoceity.liftlobbyphoto === '' ||
+    //   KnowYourSoceity.staircasephoto === '' ||
+    //   KnowYourSoceity.entrancelobbyephoto === '' ||
+    //   KnowYourSoceity.MeetingRoomphoto === '' ||
+    //   KnowYourSoceity.ClubHousephoto === '' ||
+    //   KnowYourSoceity.PlayGroundphoto === '' ||
+    //   KnowYourSoceity.SwimmingPoolphoto === '' ||
+    //   KnowYourSoceity.JoggingTrackphoto === '' ||
+    //   KnowYourSoceity.Reflexologyphoto === '' ||
+    //   KnowYourSoceity.cyclingTrackPhoto === '' ||
+    //   KnowYourSoceity.Greenaryphoto === '' ||
+    //   KnowYourSoceity.PublicAreaLightingphoto === '' ||
+    //   KnowYourSoceity.otherAmenitiesphoto === '' ||
+    //   KnowYourSoceity.EatingHabitsAllowed === '' ||
+    //   KnowYourSoceity.MajorityAgeGroup === '' ||
+    //   KnowYourSoceity.MembersAllowed === '' ||
+    //   KnowYourSoceity.MajorityMemberType === '' ||
+    //   KnowYourSoceity.BatchlorsAllowed === '' ||
+    //   KnowYourSoceity.nonMarriedAllowed === '' ||
+    //   KnowYourSoceity.ChildrenPlayingAround === '' ||
+    //   KnowYourSoceity.CalmMember === '' ||
+    //   KnowYourSoceity.ElderPeopleActivity === '' ||
+    //   KnowYourSoceity.Celebration === '' ||
+    //   KnowYourSoceity.SocietyMeetings === '' ||
+    //   KnowYourSoceity.FunctionsAllowed === '' ||
+    //   KnowYourSoceity.Cleanliness === '' ||
+    //   KnowYourSoceity.CleanlinessMaintained === '' ||
+    //   KnowYourSoceity.Handymen === '' ||
+    //   KnowYourSoceity.Ramp === '' ||
+    //   KnowYourSoceity.OneBHK === '' ||
+    //   KnowYourSoceity.TwoBHK === '' ||
+    //   KnowYourSoceity.ThreeBHK === '' ||
+    //   KnowYourSoceity.Visitor === '' ||
+    //   KnowYourSoceity.Noise === '' ||
+    //   KnowYourSoceity.StrayDogs === '' ||
+    //   KnowYourSoceity.Crack === '' ||
+    //   KnowYourSoceity.Deed === ''
+    // ) {
+    //   var msg = 'fill complete form';
+    //   failedNotify(msg);
+    // }else{
+
     // formdata.append("lift_photo", KnowYourSoceity.liftphoto);
     // formdata.append("lift_lobby_photo", KnowYourSoceity.liftlobbyphoto);
     // formdata.append("staircase_photo", KnowYourSoceity.staircasephoto);
@@ -154,7 +244,7 @@ const KnowYourSocietyStructure = () => {
     // formdata.append("entrance_lobby_condition",KnowYourSoceity.EntranceLobbyCondition);
     // formdata.append("water_storage_type",KnowYourSoceity.WaterStorage);
     // formdata.append("nationality_allowed",KnowYourSoceity.NationalityAllowed);
-        // formdata.append("number_of_flats", +KnowYourSoceity.FlatsAvailable);
+    // formdata.append("number_of_flats", +KnowYourSoceity.FlatsAvailable);
     // formdata.append("floor", +KnowYourSoceity.Floor);
     // formdata.append("nearby_landmarks", KnowYourSoceity.Landmarks);
     // formdata.append("building_type", +KnowYourSoceity.buildingtype);
@@ -256,123 +346,114 @@ const KnowYourSocietyStructure = () => {
     // formdata.append("stray_animals", KnowYourSoceity.StrayDogs);
     // formdata.append("leakage_or_cracks", KnowYourSoceity.Crack);
     // formdata.append("conveyance_deed", +KnowYourSoceity.Deed);
-    const body ={  
-    number_of_flats: +KnowYourSoceity.FlatsAvailable,
-    floor: +KnowYourSoceity.Floor,
-    nearby_landmarks: KnowYourSoceity.Landmarks,
-    building_type: +KnowYourSoceity.buildingtype,
-    parking_type: KnowYourSoceity.ParkingType,
-    amenities_location: +KnowYourSoceity.amenitieArea,
-    society_structure: +KnowYourSoceity.society_structure,
-    commercial_entities: KnowYourSoceity.CommercialEntity,
-    lift:  KnowYourSoceity.Lift,
-    lift_type:  +KnowYourSoceity.liftType,
-    lift_condition:  +KnowYourSoceity.liftCondition,
-    lift_remark:  KnowYourSoceity.liftremark,
-    lift_lobby:  +KnowYourSoceity.liftLobby,
-    lift_lobby_condition:  +KnowYourSoceity.liftLobbyCondition,
-    lift_lobby_remark:  KnowYourSoceity.liftlobbyremark,
-    staircase_condition:  +KnowYourSoceity.staircaseCondition,
-    staircase_remark:  KnowYourSoceity.staircaseremark,
-    entrance_lobby_remark: KnowYourSoceity.entranceLobbyremark,
-    society_meeting_room_condition: +KnowYourSoceity.conditionofMeetingRoom,
-    society_meeting_room_remark: KnowYourSoceity.MeetingRoomremark,
-    club_house_condition:  +KnowYourSoceity.ClubHouseCondition,
-    club_house_remark:  KnowYourSoceity.ClubHouseremark,
-    play_ground_type:  KnowYourSoceity.PlayGroundtype,
-    play_ground_condition: KnowYourSoceity.PlayGroundCondition,
-    play_ground_remark:  KnowYourSoceity.PlayGroundremark,
-    swimming_pool_type:  KnowYourSoceity.SwimmingPoolType,
-    swimming_pool_condition: KnowYourSoceity.SwimmingPoolConditiion,
-    swimming_pool_remark:  KnowYourSoceity.SwimmingPoolRemark,
-    jogging_track_condition: KnowYourSoceity.JoggingTrackCondition,
-    jogging_track_remark:  KnowYourSoceity.JoggingTrackRemark,
-    electricity_supplier: KnowYourSoceity.ElectricitySupplier,
-    reflexology_path_condition: KnowYourSoceity.ReflexologyCondition,
-    reflexology_path_remark: KnowYourSoceity.ReflexologyRemark,
-    cycling_track_condition: KnowYourSoceity.CycleTrackCondition,
-    cycling_track_remark:  KnowYourSoceity.CycleTrackRemark,
-    greenery:  KnowYourSoceity.Greenary,
-    public_area_lighting_condition: KnowYourSoceity.PublicAreaLightingCondition,
-    public_area_lighting_remark: KnowYourSoceity.PublicAreaLightingRemark,
-    amenities:  KnowYourSoceity.otherAmenities,
-    amenities_condition: KnowYourSoceity.otherAmenitiesCondition,
-    amenities_remark:  KnowYourSoceity.otherAmenitiesRemark,
+    const body = {
+      number_of_flats: +KnowYourSoceity.FlatsAvailable,
+      floor: +KnowYourSoceity.Floor,
+      nearby_landmarks: KnowYourSoceity.Landmarks,
+      building_type: +KnowYourSoceity.buildingtype,
+      parking_type: KnowYourSoceity.ParkingType,
+      amenities_location: +KnowYourSoceity.amenitieArea,
+      society_structure: +KnowYourSoceity.society_structure,
+      commercial_entities: KnowYourSoceity.CommercialEntity,
+      lift: KnowYourSoceity.Lift,
+      lift_type: +KnowYourSoceity.liftType,
+      lift_condition: +KnowYourSoceity.liftCondition,
+      lift_remark: KnowYourSoceity.liftremark,
+      lift_lobby: +KnowYourSoceity.liftLobby,
+      lift_lobby_condition: +KnowYourSoceity.liftLobbyCondition,
+      lift_lobby_remark: KnowYourSoceity.liftlobbyremark,
+      staircase_condition: +KnowYourSoceity.staircaseCondition,
+      staircase_remark: KnowYourSoceity.staircaseremark,
+      entrance_lobby_remark: KnowYourSoceity.entranceLobbyremark,
+      society_meeting_room_condition: +KnowYourSoceity.conditionofMeetingRoom,
+      society_meeting_room_remark: KnowYourSoceity.MeetingRoomremark,
+      club_house_condition: +KnowYourSoceity.ClubHouseCondition,
+      club_house_remark: KnowYourSoceity.ClubHouseremark,
+      play_ground_type: KnowYourSoceity.PlayGroundtype,
+      play_ground_condition: KnowYourSoceity.PlayGroundCondition,
+      play_ground_remark: KnowYourSoceity.PlayGroundremark,
+      swimming_pool_type: KnowYourSoceity.SwimmingPoolType,
+      swimming_pool_condition: KnowYourSoceity.SwimmingPoolConditiion,
+      swimming_pool_remark: KnowYourSoceity.SwimmingPoolRemark,
+      jogging_track_condition: KnowYourSoceity.JoggingTrackCondition,
+      jogging_track_remark: KnowYourSoceity.JoggingTrackRemark,
+      electricity_supplier: KnowYourSoceity.ElectricitySupplier,
+      reflexology_path_condition: KnowYourSoceity.ReflexologyCondition,
+      reflexology_path_remark: KnowYourSoceity.ReflexologyRemark,
+      cycling_track_condition: KnowYourSoceity.CycleTrackCondition,
+      cycling_track_remark: KnowYourSoceity.CycleTrackRemark,
+      greenery: KnowYourSoceity.Greenary,
+      public_area_lighting_condition: KnowYourSoceity.PublicAreaLightingCondition,
+      public_area_lighting_remark: KnowYourSoceity.PublicAreaLightingRemark,
+      amenities: KnowYourSoceity.otherAmenities,
+      amenities_condition: KnowYourSoceity.otherAmenitiesCondition,
+      amenities_remark: KnowYourSoceity.otherAmenitiesRemark,
 
-    waste_collection:  +KnowYourSoceity.DailyWasteCollecion,
-    water_storage_facility: KnowYourSoceity.WaterStoargeFacility,
-    common_satellite_tv:  KnowYourSoceity.SatelliteTV,
-    facility_management_agency:  KnowYourSoceity.Agency,
-    entry_without_security:  KnowYourSoceity.InsideFlat,
-    fire_fighting_system:  KnowYourSoceity.FireFightingSystem,
-    security_services:  KnowYourSoceity.SecurityService,
-    security_guard_only_in_lift_lobby: KnowYourSoceity.GuardAtLobby,
-    non_members_allowed_without_permission: KnowYourSoceity.NonMemberDeliveryboy,
-    eating_habits:  KnowYourSoceity.EatingHabitsAllowed,
-    majority_age_group:  KnowYourSoceity.MajorityAgeGroup,
-    members_allowed:  KnowYourSoceity.MembersAllowed,
-    members_type:  +KnowYourSoceity.MajorityMemberType,
-    bachelors_allowed_on_rent: KnowYourSoceity.BatchlorsAllowed,
-    non_married_couples_allowed_on_rent: KnowYourSoceity.nonMarriedAllowed,
-    many_children_playing: KnowYourSoceity.ChildrenPlayingAround,
-    calm_natured_people:  KnowYourSoceity.CalmMember,
-    place_for_elderly:  KnowYourSoceity.ElderPeopleActivity,
-    society_celebrations:  KnowYourSoceity.Celebration,
-    society_meeting:  KnowYourSoceity.SocietyMeetings,
-    family_functions_allowed: KnowYourSoceity.FunctionsAllowed,
-    cleanliness:  +KnowYourSoceity.Cleanliness,
-    society_maintenance: KnowYourSoceity.CleanlinessMaintained,
-    access_to_helpers:  KnowYourSoceity.Handymen,
-    elderly_friendly:  KnowYourSoceity.Ramp,
-    one_bhk_resale_price:  KnowYourSoceity.OneBHK,
-    two_bhk_resale_price:  KnowYourSoceity.TwoBHK,
-    three_bhk_resale_price:  KnowYourSoceity.ThreeBHK,
-    number_of_visitor_parking:  KnowYourSoceity.Visitor,
-    high_noise_level:  KnowYourSoceity.Noise,
-    stray_animals:  KnowYourSoceity.StrayDogs,
-    leakage_or_cracks:  KnowYourSoceity.Crack,
-    conveyance_deed:  +KnowYourSoceity.Deed,
-}
+      waste_collection: +KnowYourSoceity.DailyWasteCollecion,
+      water_storage_facility: KnowYourSoceity.WaterStoargeFacility,
+      common_satellite_tv: KnowYourSoceity.SatelliteTV,
+      facility_management_agency: KnowYourSoceity.Agency,
+      entry_without_security: KnowYourSoceity.InsideFlat,
+      fire_fighting_system: KnowYourSoceity.FireFightingSystem,
+      security_services: KnowYourSoceity.SecurityService,
+      security_guard_only_in_lift_lobby: KnowYourSoceity.GuardAtLobby,
+      non_members_allowed_without_permission:KnowYourSoceity.NonMemberDeliveryboy,
+      eating_habits: KnowYourSoceity.EatingHabitsAllowed,
+      majority_age_group: KnowYourSoceity.MajorityAgeGroup,
+      members_allowed: KnowYourSoceity.MembersAllowed,
+      members_type: +KnowYourSoceity.MajorityMemberType,
+      bachelors_allowed_on_rent: KnowYourSoceity.BatchlorsAllowed,
+      non_married_couples_allowed_on_rent: KnowYourSoceity.nonMarriedAllowed,
+      many_children_playing: KnowYourSoceity.ChildrenPlayingAround,
+      calm_natured_people: KnowYourSoceity.CalmMember,
+      place_for_elderly: KnowYourSoceity.ElderPeopleActivity,
+      society_celebrations: KnowYourSoceity.Celebration,
+      society_meeting: KnowYourSoceity.SocietyMeetings,
+      family_functions_allowed: KnowYourSoceity.FunctionsAllowed,
+      cleanliness: +KnowYourSoceity.Cleanliness,
+      society_maintenance: KnowYourSoceity.CleanlinessMaintained,
+      access_to_helpers: KnowYourSoceity.Handymen,
+      elderly_friendly: KnowYourSoceity.Ramp,
+      one_bhk_resale_price: KnowYourSoceity.OneBHK,
+      two_bhk_resale_price: KnowYourSoceity.TwoBHK,
+      three_bhk_resale_price: KnowYourSoceity.ThreeBHK,
+      number_of_visitor_parking: KnowYourSoceity.Visitor,
+      high_noise_level: KnowYourSoceity.Noise,
+      stray_animals: KnowYourSoceity.StrayDogs,
+      leakage_or_cracks: KnowYourSoceity.Crack,
+      conveyance_deed: +KnowYourSoceity.Deed,
+    };
 
-// console.log(formdata);
+    // console.log(formdata);
     const data = {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${localStorage.getItem("token")}`,
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
     };
     axios
-      .put(
-        `api/tasks/${localStorage.getItem("task_id")}/society-info/`,
-        // req.body.data.questions.deed
-        // req.body.data.images
-        // {
-        //   data: {
-        //     images: formdata,
-        //     Questions: texts
-        //   }
-        // }
-        body,
-        { headers: data }
-      )
-      .then((res) => {
+      .put(`api/tasks/${localStorage.getItem('task_id')}/society-info/`, body, {
+        headers: data,
+      })
+      .then(res => {
         successNotify();
-        navigate("/dashboard", { replace: true });
-        const status = { status: "N" };
-        axios.patch(`api/tasks/${localStorage.getItem("task_id")}/`, status, {
-          headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        navigate('/dashboard', { replace: true });
+        const status = { status: 'N' };
+        axios.patch(`api/tasks/${localStorage.getItem('task_id')}/`, status, {
+          headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
         });
-      });
-    // .catch((err) => failedNotify());
+      }).catch((err) => failedNotify());
+    
+  
   };
   return (
-    <div className="">
+    <div className=''>
       <ToastContainer autoClose={1500} />
-      <div className="p-3 text-center mt-10 bg-slate-100">
-        <h2 className="text-sky-600 text-2xl font-bold">Know Your Society</h2>
-        <div className="text-left ">
-          <div className="flex px-5 mt-10 justify-between">
-            <div className="text-lg font-bold text-sky-500  ">
-              {" "}
+      <div className='p-3 text-center mt-10 bg-slate-100'>
+        <h2 className='text-sky-600 text-2xl font-bold'>Know Your Society</h2>
+        <div className='text-left '>
+          <div className='flex px-5 mt-10 justify-between'>
+            <div className='text-lg font-bold text-sky-500  '>
+              {' '}
               {questionCount <= 8
                 ? Title[0]
                 : questionCount <= 56
@@ -385,12 +466,12 @@ const KnowYourSocietyStructure = () => {
                 ? Title[4]
                 : Title[5]}
             </div>
-            <div className="font-normal  ">
+            <div className='font-normal  '>
               Total Questions: {Questions.length}
             </div>
           </div>
-          <div className="form-container border-4 border-solid shadow-2xl shadow-indigo-500/40 rounded-2xl border-zinc-400   py-10 px-5 ">
-            <div className="main-body  ">
+          <div className='form-container border-4 border-solid shadow-2xl shadow-indigo-500/40 rounded-2xl border-zinc-400   py-10 px-5 '>
+            <div className='main-body  '>
               <KnowYourSociety
                 questionCount={questionCount}
                 KnowYourSoceity={KnowYourSoceity}
@@ -398,29 +479,29 @@ const KnowYourSocietyStructure = () => {
               />
             </div>
           </div>
-          <div className="footer text-center m-5 mt-10 flex justify-around">
+          <div className='footer text-center m-5 mt-10 flex justify-around'>
             <button
-              className="border-2 border-sky-700 px-3 py-1 rounded-lg text-sky-700 font-medium"
+              className='border-2 border-sky-700 px-3 py-1 rounded-lg text-sky-700 font-medium'
               disabled={questionCount == 1}
               onClick={() => {
-                setQuestionCount((currentPage) => currentPage - 1);
+                setQuestionCount(currentPage => currentPage - 1);
               }}
             >
               previous
             </button>
             {questionCount == 74 ? (
               <button
-                className="border-2 border-sky-600 bg-sky-700 px-5 py-2 rounded-lg text-white font-medium"
+                className='border-2 border-sky-600 bg-sky-700 px-5 py-2 rounded-lg text-white font-medium'
                 onClick={onSubmit}
               >
                 finish
               </button>
             ) : (
               <button
-                className="border-2 border-sky-600 bg-sky-700 px-5 py-2 rounded-lg text-white font-medium"
+                className='border-2 border-sky-600 bg-sky-700 px-5 py-2 rounded-lg text-white font-medium'
                 disabled={questionCount == Questions.length}
                 onClick={() => {
-                  setQuestionCount((currentPage) => currentPage + 1);
+                  setQuestionCount(currentPage => currentPage + 1);
                 }}
               >
                 Next

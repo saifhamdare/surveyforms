@@ -13,7 +13,7 @@ const PlaceInfoStructure = () => {
     highwayFromSociety: "",
     localMarketName: "",
     localMarketDistance: "",
-    groceryStoresName: "",
+    groceryStoresName: [],
     vegetablesStoresName: [],
     commercialEstablishments: "",
     vicinity: "",
@@ -36,6 +36,8 @@ const PlaceInfoStructure = () => {
   const Questions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
   const onSubmit = (e) => {
     e.preventDefault();
+
+
     console.log(placeInfo)
     const body = {
       geo_location: placeInfo.geoCode,
@@ -44,8 +46,8 @@ const PlaceInfoStructure = () => {
       time_to_highway: placeInfo.highwayFromSociety,
       market_name: placeInfo.localMarketName,
       market_distance: +placeInfo.localMarketDistance,
-      top_grocery_stores: placeInfo.groceryStoresName,
-      top_vegetable_stores: placeInfo.vegetablesStoresName,
+      top_grocery_stores:  placeInfo.groceryStoresName,
+      top_vegetable_stores:  placeInfo.vegetablesStoresName,
       shops_within_society: placeInfo.commercialEstablishments,
       surrounding: +placeInfo.vicinity,
       easy_access_to_road: placeInfo.accessForVehicles,
