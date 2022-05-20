@@ -183,6 +183,9 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
           <input className='ml-2' type='radio' name='configuration' value='2' />
           <label className='ml-2'>1 BHK</label>
           <br />
+          <input className='ml-2' type='radio' name='configuration' value='8' />
+          <label className='ml-2'>1.5 BHK</label>
+          <br />
           <input className='ml-2' type='radio' name='configuration' value='3' />
           <label className='ml-2'>2 BHK</label>
           <br />
