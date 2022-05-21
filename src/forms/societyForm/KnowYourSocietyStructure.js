@@ -439,7 +439,7 @@ const KnowYourSocietyStructure = () => {
       .then(res => {
         successNotify();
         navigate('/dashboard', { replace: true });
-        const status = { status: 'N' };
+        const status = { status: 'C' };
         axios.patch(`api/tasks/${localStorage.getItem('task_id')}/`, status, {
           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
         });
@@ -450,7 +450,7 @@ const KnowYourSocietyStructure = () => {
   return (
     <div className=''>
       <ToastContainer autoClose={1500} />
-      <div className='p-3 text-center mt-10 bg-slate-100'>
+      <div className='p-3 text-center mt-10 '>
         <h2 className='text-sky-600 text-2xl font-bold'>Know Your Society</h2>
         <div className='text-left '>
           <div className='flex px-5 mt-10 justify-between'>

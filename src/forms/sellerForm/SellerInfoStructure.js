@@ -91,10 +91,7 @@ const SellerInfoStructure = () => {
     });
   const onSubmit = (e) => {
     e.preventDefault();
-    // if (0 === 1) {
-    //   var msg = "fill complete form";
-    //   failedNotify(msg);
-    // }
+
     const body = {
       husband_name: knowYourSellerInfo.HusbandName,
       wife_name: knowYourSellerInfo.WifeName,

@@ -20,8 +20,8 @@ const Questions = [ 1, 2, 3, 4, 5, 6, ];
     toast.success("form filled Successfully", {
       position: "bottom-center",
     });
-  const failedNotify = (msg) =>
-    toast.error(`${msg}`, {
+  const failedNotify = () =>
+    toast.error(`form not submited. fill complete form`, {
       position: "bottom-center",
     });
     const onSubmit = (e) => {
@@ -45,20 +45,20 @@ const Questions = [ 1, 2, 3, 4, 5, 6, ];
         .then((res)=> {
           successNotify()
           navigate('/form-list', { replace: true })
-          const status = { status: "N" };
+          const status = { status: "P" };
           axios.patch(`api/tasks/${localStorage.getItem("task_id")}/`, status, {
             headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
           });
         }) 
         .catch((err) => {
           failedNotify()
-          console.log(err);
+      
         });   
       };
   return(
     <div className="">
     <ToastContainer autoClose={1500} />
-    <div className="p-3 text-center mt-10 bg-slate-100">
+    <div className="p-3 text-center mt-10 ">
       <h2 className="text-sky-600 text-2xl font-bold">
       photo Upload
       </h2>

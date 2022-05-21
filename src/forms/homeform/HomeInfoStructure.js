@@ -143,12 +143,12 @@ const HomeInfoStructure = () => {
       .then((res) => {
         successNotify();
         navigate("/form-list", { replace: true });
-        // const status = { status: "P" };
-        // axios.patch(`api/tasks/${localStorage.getItem("task_id")}/`, status, {
-        //   headers: {
-        //     Authorization: `Bearer ${localStorage.getItem("token")}`,
-        //   },
-        // });
+        const status = { status: "C" };
+        axios.patch(`api/tasks/${localStorage.getItem("task_id")}/`, status, {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        });
       })
       .catch((err) => {
         failedNotify();
@@ -158,7 +158,7 @@ const HomeInfoStructure = () => {
   return (
     <div>
       <ToastContainer autoClose={1500} />
-      <div className="p-3 text-center mt-10 bg-slate-100">
+      <div className="p-3 text-center mt-10 ">
         <h2 className="text-sky-600 text-2xl font-bold">Know Your Home</h2>
         <div className="text-left">
           <div className="progress"></div>

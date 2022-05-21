@@ -58,7 +58,7 @@ const PendingTask = ({ tasks, handlePendingTask }) => {
         <div>
           {tasks?.filter(task=>task.type==='know_your_home' && task.status==='P').map(task => (
            
-            <Link key={task.property_id} onClick={()=>{handlePendingTask(task.task_id)}} to="/todays-task">
+            <Link key={task.property_id} onClick={()=>{handlePendingTask(task.task_id)}} to="/homeinfo-form">
               <div className="border-2 bg-white py-2 rounded-xl border-sky-600  px-6 my-5">
                 <div className="flex justify-between">
                 <h6 className="font-bold text-lg">{task.society_name}</h6>
@@ -73,7 +73,7 @@ const PendingTask = ({ tasks, handlePendingTask }) => {
         <div>
           {tasks?.filter(task=>task.type==='home_inspection' && task.status==='P').map(task => (
            
-            <Link key={task.property_id} onClick={()=>{handlePendingTask(task.task_id)}} to="/todays-task">
+            <Link key={task.property_id} onClick={()=>{handlePendingTask(task.task_id)}} to="/homeinspection-form">
               <div className="border-2 bg-white py-2 rounded-xl border-sky-600  px-6 my-5">
                 <div className="flex justify-between">
                 <h6 className="font-bold text-lg">{task.society_name}</h6>

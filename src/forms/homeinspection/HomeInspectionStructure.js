@@ -538,7 +538,7 @@ const HomeInfoStructure = () => {
       .then(res => {
         successNotify();
         navigate('/todays-task', { replace: true });
-        const status = { status: "P" };
+        const status = { status: "C" };
         axios.patch(`api/tasks/${localStorage.getItem("task_id")}/`, status, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -553,7 +553,7 @@ const HomeInfoStructure = () => {
   return (
     <div>
       <ToastContainer autoClose={1500} />
-      <div className='p-3 text-center mt-10 bg-slate-100'>
+      <div className='p-3 text-center mt-10 '>
         <h2 className='text-sky-600 text-2xl font-bold'>Home Inspection</h2>
         <div className='text-left'>
           <div className='progress'></div>

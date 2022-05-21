@@ -44,8 +44,8 @@ const NeighbourhoodStructure = () => {
     toast.success("form filled Successfully", {
       position: "bottom-center",
     });
-  const failedNotify = (msg) =>
-    toast.error(`${msg}`, {
+  const failedNotify = () =>
+    toast.error(`form not submited. fill complete form`, {
       position: "bottom-center",
     });
     
@@ -120,17 +120,17 @@ if(
       .then((res) => {
         successNotify();
         navigate("/form-list", { replace: true });
-        // const status = { status: "P" };
-        // axios.patch(`api/tasks/${localStorage.getItem("task_id")}/`, status, {
-        //   headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-        // });
+        const status = { status: "P" };
+        axios.patch(`api/tasks/${localStorage.getItem("task_id")}/`, status, {
+          headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        });
       })
-      // .catch((err) => failedNotify());
+      .catch((err) => {failedNotify()});
   };
   return (
     <div className="">
       <ToastContainer autoClose={1500} />
-      <div className="p-3 text-center mt-10 bg-slate-100">
+      <div className="p-3 text-center mt-10 ">
         <h2 className="text-sky-600 text-2xl font-bold">
           Neighbourhood Information
         </h2>
