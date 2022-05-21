@@ -26,13 +26,13 @@ const HomeInfoStructure = () => {
     applianceIncludedWashroom :"",
     fixedSystems :"",
     fireFightingSystem :"",
-    livingRoomFlooring : "",
-    kitchenFlooring : "",
-    bedroom1Flooring : "",
-    bedroom2Flooring : "",
-    washroomFlooring : "",
-    lobbyFlooring : "",
-    balconyFlooring : "",
+    // livingRoomFlooring : "",
+    // kitchenFlooring : "",
+    // bedroom1Flooring : "",
+    // bedroom2Flooring : "",
+    // washroomFlooring : "",
+    // lobbyFlooring : "",
+    // balconyFlooring : "",
     viewFromWindowRating : "",
     viewFromWindow :"",
     mainDoorDirection : "",
@@ -74,7 +74,9 @@ const HomeInfoStructure = () => {
     11, 12, 13, 14, 15,16, 17, 18, 19, 20,
     21 ,22, 23, 24, 25, 26, 27, 28, 29, 30,
      31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
-    41, 42, 43, 44, 45, 46, 47, 48,];
+    41,
+    //  42, 43, 44, 45, 46, 47, 48,
+  ];
   const onSubmit = (e) => {
     e.preventDefault();
   
@@ -96,13 +98,13 @@ const HomeInfoStructure = () => {
         appliance_included_washroom :homeInfo.applianceIncludedWashroom ,
         fixed_systems :homeInfo.fixedSystems ,
         fire_fighting_system :homeInfo.fireFightingSystem ,
-        living_room_flooring : +homeInfo.livingRoomFlooring ,
-        kitchen_flooring : +homeInfo.kitchenFlooring ,
-        bedroom_1_flooring : +homeInfo.bedroom1Flooring ,
-        bedroom_2_flooring : +homeInfo.bedroom2Flooring ,
-        washroom_flooring : +homeInfo.washroomFlooring ,
-        lobby_flooring : +homeInfo.lobbyFlooring ,
-        balcony_flooring : +homeInfo.balconyFlooring ,
+        // living_room_flooring : +homeInfo.livingRoomFlooring ,
+        // kitchen_flooring : +homeInfo.kitchenFlooring ,
+        // bedroom_1_flooring : +homeInfo.bedroom1Flooring ,
+        // bedroom_2_flooring : +homeInfo.bedroom2Flooring ,
+        // washroom_flooring : +homeInfo.washroomFlooring , 
+        // lobby_flooring : +homeInfo.lobbyFlooring ,
+        // balcony_flooring : +homeInfo.balconyFlooring ,
         view_from_window_rating : +homeInfo.viewFromWindowRating ,
         view_from_window :homeInfo.viewFromWindow ,
         main_door_direction : +homeInfo.mainDoorDirection ,
@@ -182,7 +184,7 @@ const HomeInfoStructure = () => {
             >
               previous
             </button>
-            {questionCount == 48 ? (
+            {questionCount == 41 ? (
               <button
                 className="border-2 border-sky-600 bg-sky-700 px-5 py-2 rounded-lg text-white font-medium"
                 onClick={onSubmit}

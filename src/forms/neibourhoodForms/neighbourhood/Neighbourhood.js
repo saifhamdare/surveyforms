@@ -1076,7 +1076,7 @@ const Neighbourhood = ({
             value='1'
             checked={neighbourhoodInfo.kindOfProfessions === "1"}
           />
-          <label className='ml-2'>Business</label>
+          <label className='ml-2'>Working</label>
           <br />
           <input
             type='radio'
@@ -1085,120 +1085,8 @@ const Neighbourhood = ({
             value='2'
             checked={neighbourhoodInfo.kindOfProfessions === "2"}
           />
-          <label className='ml-2'>Banker</label>
-          <br />
-          <input
-            type='radio'
-            className='ml-2'
-            name='typeofprofession'
-            value='3'
-            checked={neighbourhoodInfo.kindOfProfessions === "3"}
-          />
-          <label className='ml-2'>IT Engineer</label>
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='typeofprofession'
-            value='4'
-            checked={neighbourhoodInfo.kindOfProfessions === "4"}
-          />
-          <label className='ml-2'>Other Engineer</label>
-          <br />
-          <input
-            type='radio'
-            className='ml-2'
-            name='typeofprofession'
-            value='5'
-            checked={neighbourhoodInfo.kindOfProfessions === "5"}
-          />
-          <label className='ml-2'>Doctor</label>
-          <br />
-          <input
-            type='radio'
-            className='ml-2'
-            name='typeofprofession'
-            value='6'
-            checked={neighbourhoodInfo.kindOfProfessions === "6"}
-          />
-          <label className='ml-2'>CA/CS</label>
-          <br />
-          <input
-            type='radio'
-            className='ml-2'
-            name='typeofprofession'
-            value='7'
-            checked={neighbourhoodInfo.kindOfProfessions === "7"}
-          />
-          <label className='ml-2'>Teacher</label>
-          <br />
-          <input
-            type='radio'
-            className='ml-2'
-            name='typeofprofession'
-            value='8'
-            checked={neighbourhoodInfo.kindOfProfessions === "8"}
-          />
-          <label className='ml-2'>Entertainment</label>
-          <br />
-          <input
-            type='radio'
-            className='ml-2'
-            name='typeofprofession'
-            value='9'
-            checked={neighbourhoodInfo.kindOfProfessions === "9"}
-          />
-          <label className='ml-2'>Scientist</label>
-          <br />
-          <input
-            type='radio'
-            className='ml-2'
-            name='typeofprofession'
-            value='10'
-            checked={neighbourhoodInfo.kindOfProfessions === "10"}
-          />
-          <label className='ml-2'>Lawyer</label>
-          <br />
-          <input
-            type='radio'
-            className='ml-2'
-            name='typeofprofession'
-            value='11'
-            checked={neighbourhoodInfo.kindOfProfessions === "11"}
-          />
-          <label className='ml-2'>Athelete</label>
-          <br />
-          <input
-            type='radio'
-            className='ml-2'
-            name='typeofprofession'
-            value='12'
-            checked={neighbourhoodInfo.kindOfProfessions === "12"}
-          />
-          <label className='ml-2'>Chef</label>
-          <br />
-          <input
-            type='radio'
-            className='ml-2'
-            name='typeofprofession'
-            value='13'
-            checked={neighbourhoodInfo.kindOfProfessions === "13"}
-          />
-          <label className='ml-2'>Aviation</label>
-          <br />
-          <input
-            type='radio'
-            className='ml-2'
-            name='typeofprofession'
-            value='14'
-            checked={neighbourhoodInfo.kindOfProfessions === "14"}
-          />
-          <label className='ml-2'>Not Working</label>
-          {/* <Input
-            name="typeofprofession"
-            placeholder="if other Please Specify"
-            fullWidth
-          /> */}
+          <label className='ml-2'>Self Employed</label>
+       
         </div>
       )}
 
@@ -1261,6 +1149,7 @@ const Neighbourhood = ({
             }
             placeholder='Enter Number Only'
             fullWidth
+            type='number'
           />
         </div>
       )}
@@ -1282,8 +1171,9 @@ const Neighbourhood = ({
                 twoBHK: e.target.value,
               })
             }
-            placeholder='Enter NNumber Only'
+            placeholder='Enter Number Only'
             fullWidth
+            type='number'
           />
         </div>
       )}
@@ -1307,6 +1197,7 @@ const Neighbourhood = ({
             }
             placeholder='Enter Number Only'
             fullWidth
+            type='number'
           />
         </div>
       )}

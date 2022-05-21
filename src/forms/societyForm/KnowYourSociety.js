@@ -9,121 +9,115 @@ import React, { useEffect, useState } from 'react';
 
 const KnowYourSociety = ({
   questionCount,
-  setKnowYourSoceity,
-  KnowYourSoceity,
+  setKnowYourSocietyInfo,
+  KnowYourSocietyInfo,
 }) => {
-  const [commercialEntities, setCommercialEntities] = useState([]);
-  const [parkingType, setParkingtype] = useState([]);
-  const [lift, setlift] = useState([]);
-  const [playground, setPlayrground] = useState([]);
-  const [swimmingpool, setlswimmingpool] = useState([]);
-  const [amenities, setAmenities] = useState([]);
-  const [securityService, setSecurityService] = useState([]);
-  const [fire, setFire] = useState([]);
-  const [eating, setEating] = useState([]);
-  const [ageGroup, setAgeGroup] = useState([]);
-  const [funcs, setFuncs] = useState([]);
-  const [meeting, setMeeting] = useState([]);
-  const [members, setMembers] = useState([]);
+  const [commercialEntities, setCommercialEntities] = useState('');
+  const [parkingType, setParkingtype] = useState('');
+  const [lift, setlift] = useState('');
+  const [playground, setPlayrground] = useState('');
+  const [swimmingpool, setswimmingpool] = useState('');
+  const [amenities, setAmenities] = useState('');
+  const [securityService, setSecurityService] = useState('');
+  const [fire, setFire] = useState('');
+  const [eating, setEating] = useState('');
+  const [ageGroup, setAgeGroup] = useState('');
+  const [funcs, setFuncs] = useState('');
+  const [meeting, setMeeting] = useState('');
+  const [members, setMembers] = useState('');
 
-  const [management, setManagement] = useState([]);
+  const [management, setManagement] = useState('');
 
   const handleCheckboxChange = (event, state, setState) => {
     console.log(+event.target.value);
     const newNames = state?.includes(+event.target.value)
-      ? state?.filter(name => name !== event.target.value)
+      ? state?.filter(name => name !== +event.target.value)
       : [...(state ?? []), +event.target.value];
     setState(newNames);
     console.log(state);
   };
 
   useEffect(() => {
-    setKnowYourSoceity({
-      ...KnowYourSoceity,
+    setKnowYourSocietyInfo(prevState => ({
+      ...prevState,
       ParkingType: parkingType,
-    });
+    }));
   }, [parkingType]);
 
   useEffect(() => {
-    setKnowYourSoceity({
-      ...KnowYourSoceity,
+    setKnowYourSocietyInfo(prevState => ({
+      ...prevState,
       CommercialEntity: commercialEntities,
-    });
+    }));
   }, [commercialEntities]);
 
   useEffect(() => {
-    setKnowYourSoceity({
-      ...KnowYourSoceity,
-      Lift: lift,
-    });
+    setKnowYourSocietyInfo(prevState => ({ ...prevState, Lift: lift }));
   }, [lift]);
 
   useEffect(() => {
-    setKnowYourSoceity({
-      ...KnowYourSoceity,
+    setKnowYourSocietyInfo(prevState => ({
+      ...prevState,
       PlayGroundtype: playground,
-    });
+    }));
   }, [playground]);
 
   useEffect(() => {
-    setKnowYourSoceity({
-      ...KnowYourSoceity,
+    setKnowYourSocietyInfo(prevState => ({
+      ...prevState,
       SwimmingPoolType: swimmingpool,
-    });
+    }));
   }, [swimmingpool]);
   useEffect(() => {
-    setKnowYourSoceity({
-      ...KnowYourSoceity,
+    setKnowYourSocietyInfo(prevState => ({
+      ...prevState,
       otherAmenities: amenities,
-    });
+    }));
   }, [amenities]);
 
   useEffect(() => {
-    setKnowYourSoceity({
-      ...KnowYourSoceity,
+    setKnowYourSocietyInfo(prevState => ({
+      ...prevState,
       FireFightingSystem: fire,
-    });
+    }));
   }, [fire]);
   useEffect(() => {
-    setKnowYourSoceity({
-      ...KnowYourSoceity,
+    setKnowYourSocietyInfo(prevState => ({
+      ...prevState,
       SecurityService: securityService,
-    });
+    }));
   }, [securityService]);
   useEffect(() => {
-    setKnowYourSoceity({
-      ...KnowYourSoceity,
+    setKnowYourSocietyInfo(prevState => ({
+      ...prevState,
       EatingHabitsAllowed: eating,
-    });
+    }));
   }, [eating]);
   useEffect(() => {
-    setKnowYourSoceity({
-      ...KnowYourSoceity,
+    setKnowYourSocietyInfo(prevState => ({
+      ...prevState,
       MajorityAgeGroup: ageGroup,
-    });
+    }));
   }, [ageGroup]);
   useEffect(() => {
-    setKnowYourSoceity({
-      ...KnowYourSoceity,
+    setKnowYourSocietyInfo(prevState => ({
+      ...prevState,
       MembersAllowed: members,
-    });
+    }));
   }, [members]);
   useEffect(() => {
-    setKnowYourSoceity({
-      ...KnowYourSoceity,
-      Celebration: funcs,
-    });
+    setKnowYourSocietyInfo(prevState => ({ ...prevState, Celebration: funcs }));
   }, [funcs]);
   useEffect(() => {
-    setKnowYourSoceity({
-      ...KnowYourSoceity,
+    setKnowYourSocietyInfo(prevState => ({
+      ...prevState,
       SocietyMeetings: meeting,
-    });
+    }));
   }, [meeting]);
 
   return (
     <div className='	'>
-      {questionCount == 1 && (
+      {questionCount === 1 && (
         <div className='question'>
           <div className='flex mb-10 font-semibold text-xl text-sky-700'>
             <h1 className='mr-2 '>{questionCount}.</h1>
@@ -134,10 +128,10 @@ const KnowYourSociety = ({
 
           <Input
             placeholder='Flats Available in number'
-            value={KnowYourSoceity.FlatsAvailable}
+            value={KnowYourSocietyInfo.FlatsAvailable}
             onChange={e =>
-              setKnowYourSoceity({
-                ...KnowYourSoceity,
+              setKnowYourSocietyInfo({
+                ...KnowYourSocietyInfo,
                 FlatsAvailable: e.target.value,
               })
             }
@@ -146,7 +140,7 @@ const KnowYourSociety = ({
           />
         </div>
       )}
-      {questionCount == 2 && (
+      {questionCount === 2 && (
         <div className='question'>
           <div className='flex mb-10 font-semibold text-xl text-sky-700'>
             <h1 className='mr-2 '>{questionCount}.</h1>
@@ -157,10 +151,10 @@ const KnowYourSociety = ({
 
           <Input
             placeholder='8'
-            value={KnowYourSoceity.Floor}
+            value={KnowYourSocietyInfo.Floor}
             onChange={e =>
-              setKnowYourSoceity({
-                ...KnowYourSoceity,
+              setKnowYourSocietyInfo({
+                ...KnowYourSocietyInfo,
                 Floor: e.target.value,
               })
             }
@@ -170,7 +164,7 @@ const KnowYourSociety = ({
           />
         </div>
       )}
-      {questionCount == 3 && (
+      {questionCount === 3 && (
         <div className='question'>
           <div className='flex mb-10 font-semibold text-xl text-sky-700'>
             <h1 className='mr-2 '>{questionCount}.</h1>
@@ -179,10 +173,10 @@ const KnowYourSociety = ({
 
           <Input
             placeholder=''
-            value={KnowYourSoceity.Landmarks}
+            value={KnowYourSocietyInfo.Landmarks}
             onChange={e =>
-              setKnowYourSoceity({
-                ...KnowYourSoceity,
+              setKnowYourSocietyInfo({
+                ...KnowYourSocietyInfo,
                 Landmarks: e.target.value,
               })
             }
@@ -191,13 +185,13 @@ const KnowYourSociety = ({
           />
         </div>
       )}
-      {questionCount == 4 && (
+      {questionCount === 4 && (
         <div
           className='question '
-          value={KnowYourSoceity.buildingtype}
+          value={KnowYourSocietyInfo.buildingtype}
           onChange={e =>
-            setKnowYourSoceity({
-              ...KnowYourSoceity,
+            setKnowYourSocietyInfo({
+              ...KnowYourSocietyInfo,
               buildingtype: e.target.value,
             })
           }
@@ -214,7 +208,7 @@ const KnowYourSociety = ({
             name='township'
             value='1'
             onChange={e => {}}
-            checked={KnowYourSoceity.KnowYourSoceity === '1'}
+            defaultChecked={KnowYourSocietyInfo.buildingtype === '1'}
           />
           <label className='ml-2'>Multiple wings(High Rise)</label> <br />
           <input
@@ -223,7 +217,7 @@ const KnowYourSociety = ({
             name='township'
             value='2'
             onChange={e => {}}
-            checked={KnowYourSoceity.KnowYourSoceity === '2'}
+            defaultChecked={KnowYourSocietyInfo.buildingtype === '2'}
           />
           <label className='ml-2'>Single structure building(High Rise)</label>{' '}
           <br />
@@ -233,7 +227,7 @@ const KnowYourSociety = ({
             name='township'
             value='3'
             onChange={e => {}}
-            checked={KnowYourSoceity.KnowYourSoceity === '3'}
+            defaultChecked={KnowYourSocietyInfo.buildingtype === '3'}
           />
           <label className='ml-2'>Multiple wings(Low rise)</label> <br />
           <input
@@ -242,18 +236,17 @@ const KnowYourSociety = ({
             name='township'
             value='4'
             onChange={e => {}}
-            checked={KnowYourSoceity.KnowYourSoceity === '4'}
+            defaultChecked={KnowYourSocietyInfo.buildingtype === '4'}
           />
           <label className='ml-2'>Single structure building(Low rise)</label>{' '}
         </div>
       )}
-      {questionCount == 5 && (
+      {questionCount === 5 && (
         <div
           className='question '
-          value={KnowYourSoceity.ParkingType}
           onChange={e =>
-            setKnowYourSoceity({
-              ...KnowYourSoceity,
+            setKnowYourSocietyInfo({
+              ...KnowYourSocietyInfo,
               ParkingType: e.target.value,
             })
           }
@@ -270,7 +263,7 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='1'
-                    checked={KnowYourSoceity.parkingType.includes(1)}
+                    defaultChecked={KnowYourSocietyInfo.ParkingType?.includes(1)}
                     onChange={e => {
                       handleCheckboxChange(e, parkingType, setParkingtype);
                     }}
@@ -282,7 +275,7 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='2'
-                    checked={KnowYourSoceity.parkingType.includes(2)}
+                    defaultChecked={KnowYourSocietyInfo.ParkingType?.includes(2)}
                     onChange={e => {
                       handleCheckboxChange(e, parkingType, setParkingtype);
                     }}
@@ -294,7 +287,7 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='3'
-                    checked={KnowYourSoceity.parkingType.includes(3)}
+                    defaultChecked={KnowYourSocietyInfo.ParkingType?.includes(3)}
                     onChange={e => {
                       handleCheckboxChange(e, parkingType, setParkingtype);
                     }}
@@ -306,7 +299,7 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='4'
-                    checked={KnowYourSoceity.parkingType.includes(4)}
+                    defaultChecked={KnowYourSocietyInfo.ParkingType?.includes(4)}
                     onChange={e => {
                       handleCheckboxChange(e, parkingType, setParkingtype);
                     }}
@@ -323,14 +316,14 @@ const KnowYourSociety = ({
           <label className="ml-2">Basement</label> */}
         </div>
       )}
-      {questionCount == 6 && (
+      {questionCount === 6 && (
         <div
           className='question '
-          value={KnowYourSoceity.amenitieArea}
+          value={KnowYourSocietyInfo.amenitieArea}
           onChange={e =>
-            setKnowYourSoceity({
-              ...KnowYourSoceity,
-              amenitieArea: e.target.value,
+            setKnowYourSocietyInfo({
+              ...KnowYourSocietyInfo,
+              amenitieArea: Number(e.target.value),
             })
           }
           required
@@ -346,7 +339,7 @@ const KnowYourSociety = ({
             name='subtype'
             value='1'
             onChange={e => {}}
-            checked={KnowYourSoceity.amenitieArea === '1'}
+            defaultChecked={KnowYourSocietyInfo.amenitieArea === 1}
           />
           <label className='ml-2'>Podium / Terrace Par</label>
           <br />
@@ -356,20 +349,20 @@ const KnowYourSociety = ({
             name='subtype'
             value='2'
             onChange={e => {}}
-            checked={KnowYourSoceity.amenitieArea === '2'}
+            defaultChecked={KnowYourSocietyInfo.amenitieArea === 2}
           />
           <label className='ml-2'>Open Area mein</label>
         </div>
       )}
 
-      {questionCount == 7 && (
+      {questionCount === 7 && (
         <div
           className='question '
-          value={KnowYourSoceity.society_structure}
+          value={KnowYourSocietyInfo.societyStructure}
           onChange={e =>
-            setKnowYourSoceity({
-              ...KnowYourSoceity,
-              society_structure: Number(e.target.value),
+            setKnowYourSocietyInfo({
+              ...KnowYourSocietyInfo,
+              societyStructure: Number(e.target.value),
             })
           }
           required
@@ -384,7 +377,7 @@ const KnowYourSociety = ({
             name='societystructure'
             value='1'
             onChange={e => {}}
-            checked={KnowYourSoceity.society_structure === 1}
+            defaultChecked={KnowYourSocietyInfo.societyStructure === 1}
           />
           <label className='ml-2'>
             Single Structure (Only Residential - No Commercial)
@@ -396,7 +389,7 @@ const KnowYourSociety = ({
             name='societystructure'
             value='2'
             onChange={e => {}}
-            checked={KnowYourSoceity.society_structure === 2}
+            defaultChecked={KnowYourSocietyInfo.societyStructure === 2}
           />
           <label className='ml-2'>
             Small Township (with commercials front mein)
@@ -408,7 +401,7 @@ const KnowYourSociety = ({
             name='societystructure'
             value='3'
             onChange={e => {}}
-            checked={KnowYourSoceity.society_structure === 3}
+            defaultChecked={KnowYourSocietyInfo.societyStructure === 3}
           />
           <label className='ml-2'>
             High Rise Single Structure (Front mein Commercial)
@@ -420,12 +413,12 @@ const KnowYourSociety = ({
             name='societystructure'
             value='4'
             onChange={e => {}}
-            checked={KnowYourSoceity.society_structure === 4}
+            defaultChecked={KnowYourSocietyInfo.societyStructure === 4}
           />
           <label className='ml-2'>Big Township (Only residential)</label> <br />
         </div>
       )}
-      {questionCount == 8 && (
+      {questionCount === 8 && (
         <div className='question ' required>
           <div className='flex mb-10 font-semibold text-xl text-sky-700'>
             <h1 className='mr-2 '>{questionCount}.</h1>
@@ -440,7 +433,9 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='1'
-                    checked={KnowYourSoceity.commercialEntities.includes(1)}
+                    defaultChecked={KnowYourSocietyInfo.CommercialEntity.includes(
+                      1,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -456,7 +451,9 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='2'
-                    checked={KnowYourSoceity.commercialEntities.includes(2)}
+                    defaultChecked={KnowYourSocietyInfo.CommercialEntity.includes(
+                      2,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -472,7 +469,9 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='3'
-                    checked={KnowYourSoceity.commercialEntities.includes(3)}
+                    defaultChecked={KnowYourSocietyInfo.CommercialEntity.includes(
+                      3,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -488,7 +487,9 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='4'
-                    checked={KnowYourSoceity.commercialEntities.includes(4)}
+                    defaultChecked={KnowYourSocietyInfo.CommercialEntity.includes(
+                      4,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -504,7 +505,9 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='5'
-                    checked={KnowYourSoceity.commercialEntities.includes(5)}
+                    defaultChecked={KnowYourSocietyInfo.CommercialEntity.includes(
+                      5,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -520,7 +523,9 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='6'
-                    checked={KnowYourSoceity.commercialEntities.includes(6)}
+                    defaultChecked={KnowYourSocietyInfo.CommercialEntity.includes(
+                      6,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -536,7 +541,9 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='7'
-                    checked={KnowYourSoceity.commercialEntities.includes(7)}
+                    defaultChecked={KnowYourSocietyInfo.CommercialEntity.includes(
+                      7,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -552,7 +559,9 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='8'
-                    checked={KnowYourSoceity.commercialEntities.includes(8)}
+                    defaultChecked={KnowYourSocietyInfo.CommercialEntity.includes(
+                      8,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -569,17 +578,17 @@ const KnowYourSociety = ({
       )}
 
       {/* amenities and service */}
-      {questionCount == 9 && (
+      {questionCount === 9 && (
         <div
           className='question '
-          value={KnowYourSoceity.lift}
-          onChange={e =>
-            setKnowYourSoceity({
-              ...KnowYourSoceity,
-              lift: e.target.value,
-            })
-          }
-          required
+          // value={KnowYourSocietyInfo.lift}
+          // onChange={e =>
+          //   setKnowYourSocietyInfo({
+          //     ...KnowYourSocietyInfo,
+          //     lift: e.target.value,
+          //   })
+          // }
+          // required
         >
           <div className='flex mb-10 font-semibold text-xl text-sky-700'>
             <h1 className='mr-2 '>{questionCount}.</h1>
@@ -592,7 +601,7 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='1'
-                    checked={KnowYourSoceity.lift.includes(1)}
+                    defaultChecked={KnowYourSocietyInfo.Lift.includes(1)}
                     onChange={e => {
                       handleCheckboxChange(e, lift, setlift);
                     }}
@@ -604,7 +613,7 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='2'
-                    checked={KnowYourSoceity.lift.includes(2)}
+                    defaultChecked={KnowYourSocietyInfo.Lift.includes(2)}
                     onChange={e => {
                       handleCheckboxChange(e, lift, setlift);
                     }}
@@ -616,7 +625,7 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='3'
-                    checked={KnowYourSoceity.lift.includes(3)}
+                    defaultChecked={KnowYourSocietyInfo.Lift.includes(3)}
                     onChange={e => {
                       handleCheckboxChange(e, lift, setlift);
                     }}
@@ -628,7 +637,7 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='4'
-                    checked={KnowYourSoceity.lift.includes(4)}
+                    defaultChecked={KnowYourSocietyInfo.Lift.includes(4)}
                     onChange={e => {
                       handleCheckboxChange(e, lift, setlift);
                     }}
@@ -639,13 +648,13 @@ const KnowYourSociety = ({
           </FormControl>
         </div>
       )}
-      {questionCount == 10 && (
+      {questionCount === 10 && (
         <div
           className='question '
-          value={KnowYourSoceity.liftType}
+          value={KnowYourSocietyInfo.liftType}
           onChange={e =>
-            setKnowYourSoceity({
-              ...KnowYourSoceity,
+            setKnowYourSocietyInfo({
+              ...KnowYourSocietyInfo,
               liftType: e.target.value,
             })
           }
@@ -661,7 +670,7 @@ const KnowYourSociety = ({
             name='lifttype'
             value='1'
             onChange={e => {}}
-            checked={KnowYourSoceity.liftType === '1'}
+            defaultChecked={KnowYourSocietyInfo.liftType === '1'}
           />
           <label className='ml-2'>Automatic Door</label> <br />
           <input
@@ -670,7 +679,7 @@ const KnowYourSociety = ({
             name='lifttype'
             value='2'
             onChange={e => {}}
-            checked={KnowYourSoceity.liftType === '2'}
+            defaultChecked={KnowYourSocietyInfo.liftType === '2'}
           />
           <label className='ml-2'>Door + Sliding (Channel gate jaisi)</label>
           <br />
@@ -680,18 +689,18 @@ const KnowYourSociety = ({
             name='lifttype'
             value='3'
             onChange={e => {}}
-            checked={KnowYourSoceity.liftType === '3'}
+            defaultChecked={KnowYourSocietyInfo.liftType === '3'}
           />
           <label className='ml-2'>N/A</label>
         </div>
       )}
-      {questionCount == 11 && (
+      {questionCount === 11 && (
         <div
           className='question '
-          value={KnowYourSoceity.liftCondition}
+          value={KnowYourSocietyInfo.liftCondition}
           onChange={e =>
-            setKnowYourSoceity({
-              ...KnowYourSoceity,
+            setKnowYourSocietyInfo({
+              ...KnowYourSocietyInfo,
               liftCondition: e.target.value,
             })
           }
@@ -707,7 +716,7 @@ const KnowYourSociety = ({
             name='condition'
             value='1'
             onChange={e => {}}
-            checked={KnowYourSoceity.liftCondition === '1'}
+            defaultChecked={KnowYourSocietyInfo.liftCondition === '1'}
           />
           <label className='ml-2'>Good</label> <br />
           <input
@@ -716,7 +725,7 @@ const KnowYourSociety = ({
             name='condition'
             value='2'
             onChange={e => {}}
-            checked={KnowYourSoceity.liftCondition === '2'}
+            defaultChecked={KnowYourSocietyInfo.liftCondition === '2'}
           />
           <label className='ml-2'>Okay</label>
           <br />
@@ -726,13 +735,13 @@ const KnowYourSociety = ({
             name='condition'
             value='3'
             onChange={e => {}}
-            checked={KnowYourSoceity.liftCondition === '3'}
+            defaultChecked={KnowYourSocietyInfo.liftCondition === '3'}
           />
           <label className='ml-2'>Bad</label>
         </div>
       )}
 
-      {questionCount == 12 && (
+      {questionCount === 12 && (
         <div className='question'>
           <div className='flex mb-10 font-semibold text-xl text-sky-700'>
             <h1 className='mr-2 '>{questionCount}.</h1>
@@ -740,10 +749,10 @@ const KnowYourSociety = ({
           </div>
           <Input
             placeholder=''
-            value={KnowYourSoceity.liftremark}
+            value={KnowYourSocietyInfo.liftremark}
             onChange={e =>
-              setKnowYourSoceity({
-                ...KnowYourSoceity,
+              setKnowYourSocietyInfo({
+                ...KnowYourSocietyInfo,
                 liftremark: e.target.value,
               })
             }
@@ -752,13 +761,13 @@ const KnowYourSociety = ({
           />
         </div>
       )}
-      {questionCount == 13 && (
+      {questionCount === 13 && (
         <div
           className='question '
-          value={KnowYourSoceity.liftLobby}
+          value={KnowYourSocietyInfo.liftLobby}
           onChange={e =>
-            setKnowYourSoceity({
-              ...KnowYourSoceity,
+            setKnowYourSocietyInfo({
+              ...KnowYourSocietyInfo,
               liftLobby: e.target.value,
             })
           }
@@ -777,7 +786,7 @@ const KnowYourSociety = ({
             name='lobby'
             value='1'
             onChange={e => {}}
-            checked={KnowYourSoceity.liftLobby === '1'}
+            defaultChecked={KnowYourSocietyInfo.liftLobby === '1'}
           />
           <label className='ml-2'>
             Private Lobby (Members aur servants ke liye)
@@ -789,20 +798,20 @@ const KnowYourSociety = ({
             name='lobby'
             value='2'
             onChange={e => {}}
-            checked={KnowYourSoceity.liftLobby === '2'}
+            defaultChecked={KnowYourSocietyInfo.liftLobby === '2'}
           />
           <label className='ml-2'>
             Common Lobby (Members aur servants ke liye)
           </label>
         </div>
       )}
-      {questionCount == 14 && (
+      {questionCount === 14 && (
         <div
           className='question '
-          value={KnowYourSoceity.liftLobbyCondition}
+          value={KnowYourSocietyInfo.liftLobbyCondition}
           onChange={e =>
-            setKnowYourSoceity({
-              ...KnowYourSoceity,
+            setKnowYourSocietyInfo({
+              ...KnowYourSocietyInfo,
               liftLobbyCondition: e.target.value,
             })
           }
@@ -818,7 +827,7 @@ const KnowYourSociety = ({
             name='lobbycondition'
             value='1'
             onChange={e => {}}
-            checked={KnowYourSoceity.liftLobbyCondition === '1'}
+            defaultChecked={KnowYourSocietyInfo.liftLobbyCondition === '1'}
           />
           <label className='ml-2'>Good</label> <br />
           <input
@@ -827,7 +836,7 @@ const KnowYourSociety = ({
             name='lobbycondition'
             value='2'
             onChange={e => {}}
-            checked={KnowYourSoceity.liftLobbyCondition === '2'}
+            defaultChecked={KnowYourSocietyInfo.liftLobbyCondition === '2'}
           />
           <label className='ml-2'>Okay</label>
           <br />
@@ -837,13 +846,13 @@ const KnowYourSociety = ({
             name='lobbycondition'
             value='3'
             onChange={e => {}}
-            checked={KnowYourSoceity.liftLobbyCondition === '3'}
+            defaultChecked={KnowYourSocietyInfo.liftLobbyCondition === '3'}
           />
           <label className='ml-2'>Bad</label>
         </div>
       )}
 
-      {questionCount == 15 && (
+      {questionCount === 15 && (
         <div className='question'>
           <div className='flex mb-10 font-semibold text-xl text-sky-700'>
             <h1 className='mr-2 '>{questionCount}.</h1>
@@ -852,10 +861,10 @@ const KnowYourSociety = ({
 
           <Input
             placeholder=''
-            value={KnowYourSoceity.liftlobbyremark}
+            value={KnowYourSocietyInfo.liftlobbyremark}
             onChange={e =>
-              setKnowYourSoceity({
-                ...KnowYourSoceity,
+              setKnowYourSocietyInfo({
+                ...KnowYourSocietyInfo,
                 liftlobbyremark: e.target.value,
               })
             }
@@ -865,13 +874,13 @@ const KnowYourSociety = ({
         </div>
       )}
 
-      {questionCount == 16 && (
+      {questionCount === 16 && (
         <div
           className='question '
-          value={KnowYourSoceity.staircaseCondition}
+          value={KnowYourSocietyInfo.staircaseCondition}
           onChange={e =>
-            setKnowYourSoceity({
-              ...KnowYourSoceity,
+            setKnowYourSocietyInfo({
+              ...KnowYourSocietyInfo,
               staircaseCondition: e.target.value,
             })
           }
@@ -889,7 +898,7 @@ const KnowYourSociety = ({
             name='staircasecondition'
             value='1'
             onChange={e => {}}
-            checked={KnowYourSoceity.staircaseCondition === '1'}
+            defaultChecked={KnowYourSocietyInfo.staircaseCondition === '1'}
           />
           <label className='ml-2'>Good</label> <br />
           <input
@@ -898,7 +907,7 @@ const KnowYourSociety = ({
             name='staircasecondition'
             value='2'
             onChange={e => {}}
-            checked={KnowYourSoceity.staircaseCondition === '2'}
+            defaultChecked={KnowYourSocietyInfo.staircaseCondition === '2'}
           />
           <label className='ml-2'>Okay</label>
           <br />
@@ -908,13 +917,13 @@ const KnowYourSociety = ({
             name='staircasecondition'
             value='3'
             onChange={e => {}}
-            checked={KnowYourSoceity.staircaseCondition === '3'}
+            defaultChecked={KnowYourSocietyInfo.staircaseCondition === '3'}
           />
           <label className='ml-2'>Bad</label>
         </div>
       )}
 
-      {questionCount == 17 && (
+      {questionCount === 17 && (
         <div className='question'>
           <div className='flex mb-10 font-semibold text-xl text-sky-700'>
             <h1 className='mr-2 '>{questionCount}.</h1>
@@ -923,10 +932,10 @@ const KnowYourSociety = ({
 
           <Input
             placeholder=''
-            value={KnowYourSoceity.staircaseremark}
+            value={KnowYourSocietyInfo.staircaseremark}
             onChange={e =>
-              setKnowYourSoceity({
-                ...KnowYourSoceity,
+              setKnowYourSocietyInfo({
+                ...KnowYourSocietyInfo,
                 staircaseremark: e.target.value,
               })
             }
@@ -936,7 +945,7 @@ const KnowYourSociety = ({
         </div>
       )}
 
-      {questionCount == 18 && (
+      {questionCount === 18 && (
         <div className='question'>
           <div className='flex mb-10 font-semibold text-xl text-sky-700'>
             <h1 className='mr-2 '>{questionCount}.</h1>
@@ -944,10 +953,10 @@ const KnowYourSociety = ({
           </div>
           <Input
             placeholder=''
-            value={KnowYourSoceity.entranceLobbyremark}
+            value={KnowYourSocietyInfo.entranceLobbyremark}
             onChange={e =>
-              setKnowYourSoceity({
-                ...KnowYourSoceity,
+              setKnowYourSocietyInfo({
+                ...KnowYourSocietyInfo,
                 entranceLobbyremark: e.target.value,
               })
             }
@@ -956,12 +965,12 @@ const KnowYourSociety = ({
           />
         </div>
       )}
-      {questionCount == 19 && (
+      {questionCount === 19 && (
         <div
           className='question '
           onChange={e =>
-            setKnowYourSoceity({
-              ...KnowYourSoceity,
+            setKnowYourSocietyInfo({
+              ...KnowYourSocietyInfo,
               conditionofMeetingRoom: e.target.value,
             })
           }
@@ -979,7 +988,7 @@ const KnowYourSociety = ({
             name='entrancelobbycondition'
             value='1'
             onChange={e => {}}
-            checked={KnowYourSoceity.conditionofMeetingRoom === '1'}
+            defaultChecked={KnowYourSocietyInfo.conditionofMeetingRoom === '1'}
           />
           <label className='ml-2'>Good</label> <br />
           <input
@@ -988,7 +997,7 @@ const KnowYourSociety = ({
             name='entrancelobbycondition'
             value='2'
             onChange={e => {}}
-            checked={KnowYourSoceity.conditionofMeetingRoom === '2'}
+            defaultChecked={KnowYourSocietyInfo.conditionofMeetingRoom === '2'}
           />
           <label className='ml-2'>Okay</label>
           <br />
@@ -998,7 +1007,7 @@ const KnowYourSociety = ({
             name='entrancelobbycondition'
             value='3'
             onChange={e => {}}
-            checked={KnowYourSoceity.conditionofMeetingRoom === '3'}
+            defaultChecked={KnowYourSocietyInfo.conditionofMeetingRoom === '3'}
           />
           <label className='ml-2'>Bad</label>
           <br />
@@ -1008,13 +1017,13 @@ const KnowYourSociety = ({
             name='entrancelobbycondition'
             value='4'
             onChange={e => {}}
-            checked={KnowYourSoceity.conditionofMeetingRoom === '4'}
+            defaultChecked={KnowYourSocietyInfo.conditionofMeetingRoom === '4'}
           />
           <label className='ml-2'>N/A</label>
         </div>
       )}
 
-      {questionCount == 20 && (
+      {questionCount === 20 && (
         <div className='question'>
           <div className='flex mb-10 font-semibold text-xl text-sky-700'>
             <h1 className='mr-2 '>{questionCount}.</h1>
@@ -1023,10 +1032,10 @@ const KnowYourSociety = ({
 
           <Input
             placeholder=''
-            value={KnowYourSoceity.MeetingRoomremark}
+            value={KnowYourSocietyInfo.MeetingRoomremark}
             onChange={e =>
-              setKnowYourSoceity({
-                ...KnowYourSoceity,
+              setKnowYourSocietyInfo({
+                ...KnowYourSocietyInfo,
                 MeetingRoomremark: e.target.value,
               })
             }
@@ -1036,13 +1045,13 @@ const KnowYourSociety = ({
         </div>
       )}
 
-      {questionCount == 21 && (
+      {questionCount === 21 && (
         <div
           className='question '
-          value={KnowYourSoceity.ClubHouseCondition}
+          value={KnowYourSocietyInfo.ClubHouseCondition}
           onChange={e =>
-            setKnowYourSoceity({
-              ...KnowYourSoceity,
+            setKnowYourSocietyInfo({
+              ...KnowYourSocietyInfo,
               ClubHouseCondition: e.target.value,
             })
           }
@@ -1060,7 +1069,7 @@ const KnowYourSociety = ({
             name='gymcondition'
             value='1'
             onChange={e => {}}
-            checked={KnowYourSoceity.ClubHouseCondition === '1'}
+            defaultChecked={KnowYourSocietyInfo.ClubHouseCondition === '1'}
           />
           <label className='ml-2'>Good</label> <br />
           <input
@@ -1069,7 +1078,7 @@ const KnowYourSociety = ({
             name='gymcondition'
             value='2'
             onChange={e => {}}
-            checked={KnowYourSoceity.ClubHouseCondition === '2'}
+            defaultChecked={KnowYourSocietyInfo.ClubHouseCondition === '2'}
           />
           <label className='ml-2'>Okay</label>
           <br />
@@ -1079,7 +1088,7 @@ const KnowYourSociety = ({
             name='gymcondition'
             value='3'
             onChange={e => {}}
-            checked={KnowYourSoceity.ClubHouseCondition === '3'}
+            defaultChecked={KnowYourSocietyInfo.ClubHouseCondition === '3'}
           />
           <label className='ml-2'>Bad</label>
           <br />
@@ -1089,13 +1098,13 @@ const KnowYourSociety = ({
             name='gymcondition'
             value='4'
             onChange={e => {}}
-            checked={KnowYourSoceity.ClubHouseCondition === '4'}
+            defaultChecked={KnowYourSocietyInfo.ClubHouseCondition === '4'}
           />
           <label className='ml-2'>N/A</label>
         </div>
       )}
 
-      {questionCount == 22 && (
+      {questionCount === 22 && (
         <div className='question'>
           <div className='flex mb-10 font-semibold text-xl text-sky-700'>
             <h1 className='mr-2 '>{questionCount}.</h1>
@@ -1104,10 +1113,10 @@ const KnowYourSociety = ({
 
           <Input
             placeholder=''
-            value={KnowYourSoceity.ClubHouseremark}
+            value={KnowYourSocietyInfo.ClubHouseremark}
             onChange={e =>
-              setKnowYourSoceity({
-                ...KnowYourSoceity,
+              setKnowYourSocietyInfo({
+                ...KnowYourSocietyInfo,
                 ClubHouseremark: e.target.value,
               })
             }
@@ -1116,13 +1125,13 @@ const KnowYourSociety = ({
           />
         </div>
       )}
-      {questionCount == 23 && (
+      {questionCount === 23 && (
         <div
           className='question '
-          value={KnowYourSoceity.PlayGroundtype}
+          value={KnowYourSocietyInfo.PlayGroundtype}
           onChange={e =>
-            setKnowYourSoceity({
-              ...KnowYourSoceity,
+            setKnowYourSocietyInfo({
+              ...KnowYourSocietyInfo,
               PlayGroundtype: e.target.value,
             })
           }
@@ -1141,7 +1150,9 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='1'
-                    checked={KnowYourSoceity.PlayGroundtype.includes(1)}
+                    defaultChecked={KnowYourSocietyInfo.PlayGroundtype.includes(
+                      1,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(e, playground, setPlayrground);
                     }}
@@ -1153,7 +1164,9 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='2'
-                    checked={KnowYourSoceity.PlayGroundtype.includes(2)}
+                    defaultChecked={KnowYourSocietyInfo.PlayGroundtype.includes(
+                      2,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(e, playground, setPlayrground);
                     }}
@@ -1165,7 +1178,9 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='3'
-                    checked={KnowYourSoceity.PlayGroundtype.includes(3)}
+                    defaultChecked={KnowYourSocietyInfo.PlayGroundtype.includes(
+                      3,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(e, playground, setPlayrground);
                     }}
@@ -1177,7 +1192,9 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='4'
-                    checked={KnowYourSoceity.PlayGroundtype.includes(4)}
+                    defaultChecked={KnowYourSocietyInfo.PlayGroundtype.includes(
+                      4,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(e, playground, setPlayrground);
                     }}
@@ -1189,7 +1206,9 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='5'
-                    checked={KnowYourSoceity.PlayGroundtype.includes(5)}
+                    defaultChecked={KnowYourSocietyInfo.PlayGroundtype.includes(
+                      5,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(e, playground, setPlayrground);
                     }}
@@ -1201,7 +1220,9 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='6'
-                    checked={KnowYourSoceity.PlayGroundtype.includes(6)}
+                    defaultChecked={KnowYourSocietyInfo.PlayGroundtype.includes(
+                      6,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(e, playground, setPlayrground);
                     }}
@@ -1213,7 +1234,9 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='7'
-                    checked={KnowYourSoceity.PlayGroundtype.includes(7)}
+                    defaultChecked={KnowYourSocietyInfo.PlayGroundtype.includes(
+                      7,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(e, playground, setPlayrground);
                     }}
@@ -1225,13 +1248,13 @@ const KnowYourSociety = ({
         </div>
       )}
 
-      {questionCount == 24 && (
+      {questionCount === 24 && (
         <div
           className='question '
-          value={KnowYourSoceity.PlayGroundCondition}
+          value={KnowYourSocietyInfo.PlayGroundCondition}
           onChange={e =>
-            setKnowYourSoceity({
-              ...KnowYourSoceity,
+            setKnowYourSocietyInfo({
+              ...KnowYourSocietyInfo,
               PlayGroundCondition: e.target.value,
             })
           }
@@ -1247,7 +1270,7 @@ const KnowYourSociety = ({
             name='playGroundcondition'
             value='1'
             onChange={e => {}}
-            checked={KnowYourSoceity.PlayGroundCondition === '1'}
+            defaultChecked={KnowYourSocietyInfo.PlayGroundCondition === '1'}
           />
           <label className='ml-2'>Good</label> <br />
           <input
@@ -1256,7 +1279,7 @@ const KnowYourSociety = ({
             name='playGroundcondition'
             value='2'
             onChange={e => {}}
-            checked={KnowYourSoceity.PlayGroundCondition === '2'}
+            defaultChecked={KnowYourSocietyInfo.PlayGroundCondition === '2'}
           />
           <label className='ml-2'>Okay</label>
           <br />
@@ -1266,13 +1289,13 @@ const KnowYourSociety = ({
             name='playGroundcondition'
             value='3'
             onChange={e => {}}
-            checked={KnowYourSoceity.PlayGroundCondition === '3'}
+            defaultChecked={KnowYourSocietyInfo.PlayGroundCondition === '3'}
           />
           <label className='ml-2'>Bad</label>
         </div>
       )}
 
-      {questionCount == 25 && (
+      {questionCount === 25 && (
         <div className='question'>
           <div className='flex mb-10 font-semibold text-xl text-sky-700'>
             <h1 className='mr-2 '>{questionCount}.</h1>
@@ -1281,10 +1304,10 @@ const KnowYourSociety = ({
 
           <Input
             placeholder=''
-            value={KnowYourSoceity.PlayGroundremark}
+            value={KnowYourSocietyInfo.PlayGroundremark}
             onChange={e =>
-              setKnowYourSoceity({
-                ...KnowYourSoceity,
+              setKnowYourSocietyInfo({
+                ...KnowYourSocietyInfo,
                 PlayGroundremark: e.target.value,
               })
             }
@@ -1294,13 +1317,13 @@ const KnowYourSociety = ({
         </div>
       )}
 
-      {questionCount == 26 && (
+      {questionCount === 26 && (
         <div
           className='question '
-          value={KnowYourSoceity.SwimmingPoolType}
+          value={KnowYourSocietyInfo.SwimmingPoolType}
           onChange={e =>
-            setKnowYourSoceity({
-              ...KnowYourSoceity,
+            setKnowYourSocietyInfo({
+              ...KnowYourSocietyInfo,
               SwimmingPoolType: e.target.value,
             })
           }
@@ -1317,9 +1340,11 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='1'
-                    checked={KnowYourSoceity.SwimmingPoolType.includes(1)}
+                    defaultChecked={KnowYourSocietyInfo.SwimmigPoolType.includes(
+                      1,
+                    )}
                     onChange={e => {
-                      handleCheckboxChange(e, swimmingpool, setlswimmingpool);
+                      handleCheckboxChange(e, swimmingpool, setswimmingpool);
                     }}
                   />
                 }
@@ -1329,9 +1354,11 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='2'
-                    checked={KnowYourSoceity.SwimmingPoolType.includes(2)}
+                    defaultChecked={KnowYourSocietyInfo.SwimmigPoolType.includes(
+                      2,
+                    )}
                     onChange={e => {
-                      handleCheckboxChange(e, swimmingpool, setlswimmingpool);
+                      handleCheckboxChange(e, swimmingpool, setswimmingpool);
                     }}
                   />
                 }
@@ -1341,9 +1368,11 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='3'
-                    checked={KnowYourSoceity.SwimmingPoolType.includes(3)}
+                    defaultChecked={KnowYourSocietyInfo.SwimmigPoolType.includes(
+                      3,
+                    )}
                     onChange={e => {
-                      handleCheckboxChange(e, swimmingpool, setlswimmingpool);
+                      handleCheckboxChange(e, swimmingpool, setswimmingpool);
                     }}
                   />
                 }
@@ -1352,13 +1381,13 @@ const KnowYourSociety = ({
           </FormControl>
         </div>
       )}
-      {questionCount == 27 && (
+      {questionCount === 27 && (
         <div
           className='question '
-          value={KnowYourSoceity.SwimmingPoolConditiion}
+          value={KnowYourSocietyInfo.SwimmingPoolConditiion}
           onChange={e =>
-            setKnowYourSoceity({
-              ...KnowYourSoceity,
+            setKnowYourSocietyInfo({
+              ...KnowYourSocietyInfo,
               SwimmingPoolConditiion: e.target.value,
             })
           }
@@ -1376,7 +1405,7 @@ const KnowYourSociety = ({
             name='SwimmingPoolcondition'
             value='1'
             onChange={e => {}}
-            checked={KnowYourSoceity.SwimmingPoolConditiion === '1'}
+            defaultChecked={KnowYourSocietyInfo.SwimmingPoolConditiion === '1'}
           />
           <label className='ml-2'>Good</label> <br />
           <input
@@ -1385,7 +1414,7 @@ const KnowYourSociety = ({
             name='SwimmingPoolcondition'
             value='2'
             onChange={e => {}}
-            checked={KnowYourSoceity.SwimmingPoolConditiion === '2'}
+            defaultChecked={KnowYourSocietyInfo.SwimmingPoolConditiion === '2'}
           />
           <label className='ml-2'>Okay</label>
           <br />
@@ -1395,7 +1424,7 @@ const KnowYourSociety = ({
             name='SwimmingPoolcondition'
             value='3'
             onChange={e => {}}
-            checked={KnowYourSoceity.SwimmingPoolConditiion === '3'}
+            defaultChecked={KnowYourSocietyInfo.SwimmingPoolConditiion === '3'}
           />
           <label className='ml-2'>Bad</label>
           <br />
@@ -1405,12 +1434,12 @@ const KnowYourSociety = ({
             name='SwimmingPoolcondition'
             value='4'
             onChange={e => {}}
-            checked={KnowYourSoceity.SwimmingPoolConditiion === '4'}
+            defaultChecked={KnowYourSocietyInfo.SwimmingPoolConditiion === '4'}
           />
           <label className='ml-2'>NA</label>
         </div>
       )}
-      {questionCount == 28 && (
+      {questionCount === 28 && (
         <div className='question'>
           <div className='flex mb-10 font-semibold text-xl text-sky-700'>
             <h1 className='mr-2 '>{questionCount}.</h1>
@@ -1419,10 +1448,10 @@ const KnowYourSociety = ({
 
           <Input
             placeholder=''
-            value={KnowYourSoceity.SwimmingPoolRemark}
+            value={KnowYourSocietyInfo.SwimmingPoolRemark}
             onChange={e =>
-              setKnowYourSoceity({
-                ...KnowYourSoceity,
+              setKnowYourSocietyInfo({
+                ...KnowYourSocietyInfo,
                 SwimmingPoolRemark: e.target.value,
               })
             }
@@ -1432,13 +1461,13 @@ const KnowYourSociety = ({
         </div>
       )}
 
-      {questionCount == 29 && (
+      {questionCount === 29 && (
         <div
           className='question '
-          value={KnowYourSoceity.JoggingTrackCondition}
+          value={KnowYourSocietyInfo.JoggingTrackCondition}
           onChange={e =>
-            setKnowYourSoceity({
-              ...KnowYourSoceity,
+            setKnowYourSocietyInfo({
+              ...KnowYourSocietyInfo,
               JoggingTrackCondition: e.target.value,
             })
           }
@@ -1454,7 +1483,7 @@ const KnowYourSociety = ({
             name='JoggingTrackcondition'
             value='1'
             onChange={e => {}}
-            checked={KnowYourSoceity.JoggingTrackCondition === '1'}
+            defaultChecked={KnowYourSocietyInfo.JoggingTrackCondition === '1'}
           />
           <label className='ml-2'>Good</label> <br />
           <input
@@ -1463,7 +1492,7 @@ const KnowYourSociety = ({
             name='JoggingTrackcondition'
             value='2'
             onChange={e => {}}
-            checked={KnowYourSoceity.JoggingTrackCondition === '2'}
+            defaultChecked={KnowYourSocietyInfo.JoggingTrackCondition === '2'}
           />
           <label className='ml-2'>Okay</label>
           <br />
@@ -1473,7 +1502,7 @@ const KnowYourSociety = ({
             name='JoggingTrackcondition'
             value='3'
             onChange={e => {}}
-            checked={KnowYourSoceity.JoggingTrackCondition === '3'}
+            defaultChecked={KnowYourSocietyInfo.JoggingTrackCondition === '3'}
           />
           <label className='ml-2'>Bad</label>
           <br />
@@ -1483,13 +1512,13 @@ const KnowYourSociety = ({
             name='JoggingTrackcondition'
             value='4'
             onChange={e => {}}
-            checked={KnowYourSoceity.JoggingTrackCondition === '4'}
+            defaultChecked={KnowYourSocietyInfo.JoggingTrackCondition === '4'}
           />
           <label className='ml-2'>N/A</label>
         </div>
       )}
 
-      {questionCount == 30 && (
+      {questionCount === 30 && (
         <div className='question'>
           <div className='flex mb-10 font-semibold text-xl text-sky-700'>
             <h1 className='mr-2 '>{questionCount}.</h1>
@@ -1497,10 +1526,10 @@ const KnowYourSociety = ({
           </div>
           <Input
             placeholder=''
-            value={KnowYourSoceity.JoggingTrackRemark}
+            value={KnowYourSocietyInfo.JoggingTrackRemark}
             onChange={e =>
-              setKnowYourSoceity({
-                ...KnowYourSoceity,
+              setKnowYourSocietyInfo({
+                ...KnowYourSocietyInfo,
                 JoggingTrackRemark: e.target.value,
               })
             }
@@ -1509,13 +1538,13 @@ const KnowYourSociety = ({
           />
         </div>
       )}
-      {questionCount == 31 && (
+      {questionCount === 31 && (
         <div
           className='question '
-          value={KnowYourSoceity.ElectricitySupplier}
+          value={KnowYourSocietyInfo.ElectricitySupplier}
           onChange={e =>
-            setKnowYourSoceity({
-              ...KnowYourSoceity,
+            setKnowYourSocietyInfo({
+              ...KnowYourSocietyInfo,
               ElectricitySupplier: e.target.value,
             })
           }
@@ -1533,7 +1562,7 @@ const KnowYourSociety = ({
             name='electricitysupplier'
             value='1'
             onChange={e => {}}
-            checked={KnowYourSoceity.ElectricitySupplier === '1'}
+            defaultChecked={KnowYourSocietyInfo.ElectricitySupplier === '1'}
           />
           <label className='ml-2'>Government</label> <br />
           <input
@@ -1542,19 +1571,19 @@ const KnowYourSociety = ({
             name='electricitysupplier'
             value='2'
             onChange={e => {}}
-            checked={KnowYourSoceity.ElectricitySupplier === '2'}
+            defaultChecked={KnowYourSocietyInfo.ElectricitySupplier === '2'}
           />
           <label className='ml-2'>Private</label>
         </div>
       )}
 
-      {questionCount == 32 && (
+      {questionCount === 32 && (
         <div
           className='question '
-          value={KnowYourSoceity.ReflexologyCondition}
+          value={KnowYourSocietyInfo.ReflexologyCondition}
           onChange={e =>
-            setKnowYourSoceity({
-              ...KnowYourSoceity,
+            setKnowYourSocietyInfo({
+              ...KnowYourSocietyInfo,
               ReflexologyCondition: e.target.value,
             })
           }
@@ -1572,7 +1601,7 @@ const KnowYourSociety = ({
             name='Reflexologycondition'
             value='1'
             onChange={e => {}}
-            checked={KnowYourSoceity.ReflexologyCondition === '1'}
+            defaultChecked={KnowYourSocietyInfo.ReflexologyCondition === '1'}
           />
           <label className='ml-2'>Good</label> <br />
           <input
@@ -1581,7 +1610,7 @@ const KnowYourSociety = ({
             name='Reflexologycondition'
             value='2'
             onChange={e => {}}
-            checked={KnowYourSoceity.ReflexologyCondition === '2'}
+            defaultChecked={KnowYourSocietyInfo.ReflexologyCondition === '2'}
           />
           <label className='ml-2'>Okay</label>
           <br />
@@ -1591,7 +1620,7 @@ const KnowYourSociety = ({
             name='Reflexologycondition'
             value='3'
             onChange={e => {}}
-            checked={KnowYourSoceity.ReflexologyCondition === '3'}
+            defaultChecked={KnowYourSocietyInfo.ReflexologyCondition === '3'}
           />
           <label className='ml-2'>Bad</label>
           <br />
@@ -1601,12 +1630,12 @@ const KnowYourSociety = ({
             name='Reflexologycondition'
             value='4'
             onChange={e => {}}
-            checked={KnowYourSoceity.ReflexologyCondition === '4'}
+            defaultChecked={KnowYourSocietyInfo.ReflexologyCondition === '4'}
           />
           <label className='ml-2'>N/A</label>
         </div>
       )}
-      {questionCount == 33 && (
+      {questionCount === 33 && (
         <div className='question'>
           <div className='flex mb-10 font-semibold text-xl text-sky-700'>
             <h1 className='mr-2 '>{questionCount}.</h1>
@@ -1617,10 +1646,10 @@ const KnowYourSociety = ({
 
           <Input
             placeholder=''
-            value={KnowYourSoceity.ReflexologyRemark}
+            value={KnowYourSocietyInfo.ReflexologyRemark}
             onChange={e =>
-              setKnowYourSoceity({
-                ...KnowYourSoceity,
+              setKnowYourSocietyInfo({
+                ...KnowYourSocietyInfo,
                 ReflexologyRemark: e.target.value,
               })
             }
@@ -1630,13 +1659,13 @@ const KnowYourSociety = ({
         </div>
       )}
 
-      {questionCount == 34 && (
+      {questionCount === 34 && (
         <div
           className='question '
-          value={KnowYourSoceity.CycleTrackCondition}
+          value={KnowYourSocietyInfo.CycleTrackCondition}
           onChange={e =>
-            setKnowYourSoceity({
-              ...KnowYourSoceity,
+            setKnowYourSocietyInfo({
+              ...KnowYourSocietyInfo,
               CycleTrackCondition: e.target.value,
             })
           }
@@ -1652,7 +1681,7 @@ const KnowYourSociety = ({
             name='CycleTrackcondition'
             value='1'
             onChange={e => {}}
-            checked={KnowYourSoceity.CycleTrackCondition === '1'}
+            defaultChecked={KnowYourSocietyInfo.CycleTrackCondition === '1'}
           />
           <label className='ml-2'>Good</label> <br />
           <input
@@ -1661,7 +1690,7 @@ const KnowYourSociety = ({
             name='CycleTrackcondition'
             value='2'
             onChange={e => {}}
-            checked={KnowYourSoceity.CycleTrackCondition === '2'}
+            defaultChecked={KnowYourSocietyInfo.CycleTrackCondition === '2'}
           />
           <label className='ml-2'>Okay</label>
           <br />
@@ -1671,7 +1700,7 @@ const KnowYourSociety = ({
             name='CycleTrackcondition'
             value='3'
             onChange={e => {}}
-            checked={KnowYourSoceity.CycleTrackCondition === '3'}
+            defaultChecked={KnowYourSocietyInfo.CycleTrackCondition === '3'}
           />
           <label className='ml-2'>Bad</label>
           <br />
@@ -1681,13 +1710,13 @@ const KnowYourSociety = ({
             name='CycleTrackcondition'
             value='4'
             onChange={e => {}}
-            checked={KnowYourSoceity.CycleTrackCondition === '4'}
+            defaultChecked={KnowYourSocietyInfo.CycleTrackCondition === '4'}
           />
           <label className='ml-2'>N/A</label>
         </div>
       )}
 
-      {questionCount == 35 && (
+      {questionCount === 35 && (
         <div className='question'>
           <div className='flex mb-10 font-semibold text-xl text-sky-700'>
             <h1 className='mr-2 '>{questionCount}.</h1>
@@ -1695,10 +1724,10 @@ const KnowYourSociety = ({
           </div>
           <Input
             placeholder=''
-            value={KnowYourSoceity.CycleTrackRemark}
+            value={KnowYourSocietyInfo.CycleTrackRemark}
             onChange={e =>
-              setKnowYourSoceity({
-                ...KnowYourSoceity,
+              setKnowYourSocietyInfo({
+                ...KnowYourSocietyInfo,
                 CycleTrackRemark: e.target.value,
               })
             }
@@ -1708,13 +1737,13 @@ const KnowYourSociety = ({
         </div>
       )}
 
-      {questionCount == 36 && (
+      {questionCount === 36 && (
         <div
           className='question '
-          value={KnowYourSoceity.Greenary}
+          value={KnowYourSocietyInfo.Greenary}
           onChange={e =>
-            setKnowYourSoceity({
-              ...KnowYourSoceity,
+            setKnowYourSocietyInfo({
+              ...KnowYourSocietyInfo,
               Greenary: e.target.value,
             })
           }
@@ -1732,7 +1761,7 @@ const KnowYourSociety = ({
             name='Greenary'
             value='1'
             onChange={e => {}}
-            checked={KnowYourSoceity.Greenary === '1'}
+            defaultChecked={KnowYourSocietyInfo.Greenary === '1'}
           />
           <label className='ml-2'>Bahut and Acche</label> <br />
           <input
@@ -1741,7 +1770,7 @@ const KnowYourSociety = ({
             name='Greenary'
             value='2'
             onChange={e => {}}
-            checked={KnowYourSoceity.Greenary === '2'}
+            defaultChecked={KnowYourSocietyInfo.Greenary === '2'}
           />
           <label className='ml-2'>Thik Thak</label>
           <br />
@@ -1751,7 +1780,7 @@ const KnowYourSociety = ({
             name='Greenary'
             value='3'
             onChange={e => {}}
-            checked={KnowYourSoceity.Greenary === '3'}
+            defaultChecked={KnowYourSocietyInfo.Greenary === '3'}
           />
           <label className='ml-2'>Bahut Kam</label> <br />
           <input
@@ -1760,19 +1789,19 @@ const KnowYourSociety = ({
             name='Greenary'
             value='4'
             onChange={e => {}}
-            checked={KnowYourSoceity.Greenary === '4'}
+            defaultChecked={KnowYourSocietyInfo.Greenary === '4'}
           />
           <label className='ml-2'>N/A</label>
           <br />
         </div>
       )}
 
-      {/* {  questionCount == 36 &&   <div
+      {/* {  questionCount === 36 &&   <div
             className="question "
-                 value={KnowYourSoceity.PublicAreaLightingCondition}
+                 value={KnowYourSocietyInfo.PublicAreaLightingCondition}
               onChange={(e) =>
-                setKnowYourSoceity({
-                  ...KnowYourSoceity,
+                setKnowYourSocietyInfo({
+                  ...KnowYourSocietyInfo,
                   PublicAreaLightingCondition: e.target.value,
                 })
               }
@@ -1811,13 +1840,13 @@ const KnowYourSociety = ({
             <br />
           </div>} */}
 
-      {questionCount == 37 && (
+      {questionCount === 37 && (
         <div
           className='question '
-          value={KnowYourSoceity.PublicAreaLightingCondition}
+          value={KnowYourSocietyInfo.PublicAreaLightingCondition}
           onChange={e =>
-            setKnowYourSoceity({
-              ...KnowYourSoceity,
+            setKnowYourSocietyInfo({
+              ...KnowYourSocietyInfo,
               PublicAreaLightingCondition: e.target.value,
             })
           }
@@ -1835,7 +1864,9 @@ const KnowYourSociety = ({
             name='PublicAreaLightingcondition'
             value='1'
             onChange={e => {}}
-            checked={KnowYourSoceity.PublicAreaLightingCondition === '1'}
+            defaultChecked={
+              KnowYourSocietyInfo.PublicAreaLightingCondition === '1'
+            }
           />
           <label className='ml-2'>Good</label> <br />
           <input
@@ -1844,7 +1875,9 @@ const KnowYourSociety = ({
             name='PublicAreaLightingcondition'
             value='2'
             onChange={e => {}}
-            checked={KnowYourSoceity.PublicAreaLightingCondition === '2'}
+            defaultChecked={
+              KnowYourSocietyInfo.PublicAreaLightingCondition === '2'
+            }
           />
           <label className='ml-2'>Okay</label>
           <br />
@@ -1854,7 +1887,9 @@ const KnowYourSociety = ({
             name='PublicAreaLightingcondition'
             value='3'
             onChange={e => {}}
-            checked={KnowYourSoceity.PublicAreaLightingCondition === '3'}
+            defaultChecked={
+              KnowYourSocietyInfo.PublicAreaLightingCondition === '3'
+            }
           />
           <label className='ml-2'>Bad</label>
           <br />
@@ -1864,12 +1899,14 @@ const KnowYourSociety = ({
             name='PublicAreaLightingcondition'
             value='4'
             onChange={e => {}}
-            checked={KnowYourSoceity.PublicAreaLightingCondition === '4'}
+            defaultChecked={
+              KnowYourSocietyInfo.PublicAreaLightingCondition === '4'
+            }
           />
           <label className='ml-2'>NA</label>
         </div>
       )}
-      {questionCount == 38 && (
+      {questionCount === 38 && (
         <div className='question'>
           <div className='flex mb-10 font-semibold text-xl text-sky-700'>
             <h1 className='mr-2 '>{questionCount}.</h1>
@@ -1880,10 +1917,10 @@ const KnowYourSociety = ({
 
           <Input
             placeholder=''
-            value={KnowYourSoceity.PublicAreaLightingRemark}
+            value={KnowYourSocietyInfo.PublicAreaLightingRemark}
             onChange={e =>
-              setKnowYourSoceity({
-                ...KnowYourSoceity,
+              setKnowYourSocietyInfo({
+                ...KnowYourSocietyInfo,
                 PublicAreaLightingRemark: e.target.value,
               })
             }
@@ -1893,13 +1930,13 @@ const KnowYourSociety = ({
         </div>
       )}
 
-      {questionCount == 39 && (
+      {questionCount === 39 && (
         <div
           className='question '
-          value={KnowYourSoceity.gymCondition}
+          value={KnowYourSocietyInfo.gymCondition}
           onChange={e =>
-            setKnowYourSoceity({
-              ...KnowYourSoceity,
+            setKnowYourSocietyInfo({
+              ...KnowYourSocietyInfo,
               gymCondition: e.target.value,
             })
           }
@@ -1917,7 +1954,7 @@ const KnowYourSociety = ({
             name='Gymcondition'
             value='1'
             onChange={e => {}}
-            checked={KnowYourSoceity.gymCondition === '1'}
+            defaultChecked={KnowYourSocietyInfo.gymCondition === '1'}
           />
           <label className='ml-2'>Good</label> <br />
           <input
@@ -1926,7 +1963,7 @@ const KnowYourSociety = ({
             name='Gymcondition'
             value='2'
             onChange={e => {}}
-            checked={KnowYourSoceity.gymCondition === '2'}
+            defaultChecked={KnowYourSocietyInfo.gymCondition === '2'}
           />
           <label className='ml-2'>Okay</label>
           <br />
@@ -1936,7 +1973,7 @@ const KnowYourSociety = ({
             name='Gymcondition'
             value='3'
             onChange={e => {}}
-            checked={KnowYourSoceity.gymCondition === '3'}
+            defaultChecked={KnowYourSocietyInfo.gymCondition === '3'}
           />
           <label className='ml-2'>Bad</label>
           <br />
@@ -1946,12 +1983,12 @@ const KnowYourSociety = ({
             name='Gymcondition'
             value='4'
             onChange={e => {}}
-            checked={KnowYourSoceity.gymCondition === '4'}
+            defaultChecked={KnowYourSocietyInfo.gymCondition === '4'}
           />
           <label className='ml-2'>NA</label>
         </div>
       )}
-      {questionCount == 39 && (
+      {questionCount === 40 && (
         <div className='question ' required>
           {' '}
           <div className='flex mb-10 font-semibold text-xl text-sky-700'>
@@ -1965,7 +2002,7 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='1'
-                    checked={KnowYourSoceity.amenities.includes(1)}
+                    defaultChecked={KnowYourSocietyInfo.otherAmenities.includes(1)}
                     onChange={e => {
                       handleCheckboxChange(e, amenities, setAmenities);
                     }}
@@ -1977,7 +2014,7 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='2'
-                    checked={KnowYourSoceity.amenities.includes(2)}
+                    defaultChecked={KnowYourSocietyInfo.otherAmenities.includes(2)}
                     onChange={e => {
                       handleCheckboxChange(e, amenities, setAmenities);
                     }}
@@ -1989,7 +2026,7 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='3'
-                    checked={KnowYourSoceity.amenities.includes(3)}
+                    defaultChecked={KnowYourSocietyInfo.otherAmenities.includes(3)}
                     onChange={e => {
                       handleCheckboxChange(e, amenities, setAmenities);
                     }}
@@ -2001,7 +2038,7 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='4'
-                    checked={KnowYourSoceity.amenities.includes(4)}
+                    defaultChecked={KnowYourSocietyInfo.otherAmenities.includes(4)}
                     onChange={e => {
                       handleCheckboxChange(e, amenities, setAmenities);
                     }}
@@ -2024,7 +2061,7 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='5'
-                    checked={KnowYourSoceity.amenities.includes(5)}
+                    defaultChecked={KnowYourSocietyInfo.otherAmenities.includes(5)}
                     onChange={e => {
                       handleCheckboxChange(e, amenities, setAmenities);
                     }}
@@ -2037,7 +2074,7 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='6'
-                    checked={KnowYourSoceity.amenities.includes(6)}
+                    defaultChecked={KnowYourSocietyInfo.otherAmenities.includes(6)}
                     onChange={e => {
                       handleCheckboxChange(e, amenities, setAmenities);
                     }}
@@ -2049,13 +2086,13 @@ const KnowYourSociety = ({
         </div>
       )}
 
-      {questionCount == 40 && (
+      {questionCount === 41 && (
         <div
           className='question '
-          value={KnowYourSoceity.otherAmenitiesCondition}
+          value={KnowYourSocietyInfo.otherAmenitiesCondition}
           onChange={e =>
-            setKnowYourSoceity({
-              ...KnowYourSoceity,
+            setKnowYourSocietyInfo({
+              ...KnowYourSocietyInfo,
               otherAmenitiesCondition: e.target.value,
             })
           }
@@ -2074,7 +2111,7 @@ const KnowYourSociety = ({
             name='OtherAmenitiescondition'
             value='1'
             onChange={e => {}}
-            checked={KnowYourSoceity.otherAmenitiesCondition === '1'}
+            defaultChecked={KnowYourSocietyInfo.otherAmenitiesCondition === '1'}
           />
           <label className='ml-2'>Good</label> <br />
           <input
@@ -2083,7 +2120,7 @@ const KnowYourSociety = ({
             name='OtherAmenitiescondition'
             value='2'
             onChange={e => {}}
-            checked={KnowYourSoceity.otherAmenitiesCondition === '2'}
+            defaultChecked={KnowYourSocietyInfo.otherAmenitiesCondition === '2'}
           />
           <label className='ml-2'>Okay</label>
           <br />
@@ -2093,13 +2130,13 @@ const KnowYourSociety = ({
             name='OtherAmenitiescondition'
             value='3'
             onChange={e => {}}
-            checked={KnowYourSoceity.otherAmenitiesCondition === '3'}
+            defaultChecked={KnowYourSocietyInfo.otherAmenitiesCondition === '3'}
           />
           <label className='ml-2'>Bad</label>
         </div>
       )}
 
-      {questionCount == 41 && (
+      {questionCount === 42 && (
         <div className='question'>
           <div className='flex mb-10 font-semibold text-xl text-sky-700'>
             <h1 className='mr-2 '>{questionCount}.</h1>
@@ -2108,10 +2145,10 @@ const KnowYourSociety = ({
 
           <Input
             placeholder=''
-            value={KnowYourSoceity.otherAmenitiesRemark}
+            value={KnowYourSocietyInfo.otherAmenitiesRemark}
             onChange={e =>
-              setKnowYourSoceity({
-                ...KnowYourSoceity,
+              setKnowYourSocietyInfo({
+                ...KnowYourSocietyInfo,
                 otherAmenitiesRemark: e.target.value,
               })
             }
@@ -2120,7 +2157,7 @@ const KnowYourSociety = ({
           />
         </div>
       )}
-      {/* {questionCount == 42 && (
+      {/* {questionCount === 42 && (
         <div className="question">
           <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
@@ -2131,8 +2168,8 @@ const KnowYourSociety = ({
             type="file"
             accept="image/*"
             onChange={(e) =>
-              setKnowYourSoceity({
-                ...KnowYourSoceity,
+              setKnowYourSocietyInfo({
+                ...KnowYourSocietyInfo,
                 liftphoto: e.target.files[0],
               })
             }
@@ -2141,7 +2178,7 @@ const KnowYourSociety = ({
           />
         </div>
       )}
-      {questionCount == 43 && (
+      {questionCount === 43 && (
         <div className="question">
           <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
@@ -2155,8 +2192,8 @@ const KnowYourSociety = ({
             type="file"
             accept="image/*"
             onChange={(e) =>
-              setKnowYourSoceity({
-                ...KnowYourSoceity,
+              setKnowYourSocietyInfo({
+                ...KnowYourSocietyInfo,
                 liftlobbyphoto: e.target.files[0],
               })
             }
@@ -2165,7 +2202,7 @@ const KnowYourSociety = ({
           />
         </div>
       )}
-      {questionCount == 44 && (
+      {questionCount === 44 && (
         <div className="question">
           <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
@@ -2176,8 +2213,8 @@ const KnowYourSociety = ({
             type="file"
             accept="image/*"
             onChange={(e) =>
-              setKnowYourSoceity({
-                ...KnowYourSoceity,
+              setKnowYourSocietyInfo({
+                ...KnowYourSocietyInfo,
                 staircasephoto: e.target.files[0],
               })
             }
@@ -2186,7 +2223,7 @@ const KnowYourSociety = ({
           />
         </div>
       )}
-      {questionCount == 45 && (
+      {questionCount === 45 && (
         <div className="question">
           <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
@@ -2199,8 +2236,8 @@ const KnowYourSociety = ({
             type="file"
             accept="image/*"
             onChange={(e) =>
-              setKnowYourSoceity({
-                ...KnowYourSoceity,
+              setKnowYourSocietyInfo({
+                ...KnowYourSocietyInfo,
                 entrancelobbyephoto: e.target.files[0],
               })
             }
@@ -2209,7 +2246,7 @@ const KnowYourSociety = ({
           />
         </div>
       )}
-      {questionCount == 46 && (
+      {questionCount === 46 && (
         <div className="question">
           <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
@@ -2222,8 +2259,8 @@ const KnowYourSociety = ({
             type="file"
             accept="image/*"
             onChange={(e) =>
-              setKnowYourSoceity({
-                ...KnowYourSoceity,
+              setKnowYourSocietyInfo({
+                ...KnowYourSocietyInfo,
                 MeetingRoomphoto: e.target.files[0],
               })
             }
@@ -2232,7 +2269,7 @@ const KnowYourSociety = ({
           />
         </div>
       )}
-      {questionCount == 47 && (
+      {questionCount === 47 && (
         <div className="question">
           <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
@@ -2245,8 +2282,8 @@ const KnowYourSociety = ({
             type="file"
             accept="image/*"
             onChange={(e) =>
-              setKnowYourSoceity({
-                ...KnowYourSoceity,
+              setKnowYourSocietyInfo({
+                ...KnowYourSocietyInfo,
                 ClubHousephoto: e.target.files[0],
               })
             }
@@ -2255,7 +2292,7 @@ const KnowYourSociety = ({
           />
         </div>
       )}
-      {questionCount == 48 && (
+      {questionCount === 48 && (
         <div className="question">
           <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
@@ -2267,8 +2304,8 @@ const KnowYourSociety = ({
             type="file"
             accept="image/*"
             onChange={(e) =>
-              setKnowYourSoceity({
-                ...KnowYourSoceity,
+              setKnowYourSocietyInfo({
+                ...KnowYourSocietyInfo,
                 PlayGroundphoto: e.target.files[0],
               })
             }
@@ -2277,7 +2314,7 @@ const KnowYourSociety = ({
           />
         </div>
       )}
-      {questionCount == 49 && (
+      {questionCount === 49 && (
         <div className="question">
           <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
@@ -2290,8 +2327,8 @@ const KnowYourSociety = ({
             type="file"
             accept="image/*"
             onChange={(e) =>
-              setKnowYourSoceity({
-                ...KnowYourSoceity,
+              setKnowYourSocietyInfo({
+                ...KnowYourSocietyInfo,
                 SwimmingPoolphoto: e.target.files[0],
               })
             }
@@ -2300,7 +2337,7 @@ const KnowYourSociety = ({
           />
         </div>
       )}
-      {questionCount == 50 && (
+      {questionCount === 50 && (
         <div className="question">
           <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
@@ -2313,8 +2350,8 @@ const KnowYourSociety = ({
             type="file"
             accept="image/*"
             onChange={(e) =>
-              setKnowYourSoceity({
-                ...KnowYourSoceity,
+              setKnowYourSocietyInfo({
+                ...KnowYourSocietyInfo,
                 JoggingTrackphoto: e.target.files[0],
               })
             }
@@ -2323,7 +2360,7 @@ const KnowYourSociety = ({
           />
         </div>
       )}
-      {questionCount == 51 && (
+      {questionCount === 51 && (
         <div className="question">
           <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
@@ -2336,8 +2373,8 @@ const KnowYourSociety = ({
             type="file"
             accept="image/*"
             onChange={(e) =>
-              setKnowYourSoceity({
-                ...KnowYourSoceity,
+              setKnowYourSocietyInfo({
+                ...KnowYourSocietyInfo,
                 Reflexologyphoto: e.target.files[0],
               })
             }
@@ -2346,7 +2383,7 @@ const KnowYourSociety = ({
           />
         </div>
       )}
-      {questionCount == 52 && (
+      {questionCount === 52 && (
         <div className="question">
           <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
@@ -2356,8 +2393,8 @@ const KnowYourSociety = ({
             type="file"
             accept="image/*"
             onChange={(e) =>
-              setKnowYourSoceity({
-                ...KnowYourSoceity,
+              setKnowYourSocietyInfo({
+                ...KnowYourSocietyInfo,
                 Greenaryphoto: e.target.files[0],
               })
             }
@@ -2366,7 +2403,7 @@ const KnowYourSociety = ({
           />
         </div>
       )}
-      {questionCount == 53 && (
+      {questionCount === 53 && (
         <div className="question">
           <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
@@ -2378,8 +2415,8 @@ const KnowYourSociety = ({
             type="file"
             accept="image/*"
             onChange={(e) =>
-              setKnowYourSoceity({
-                ...KnowYourSoceity,
+              setKnowYourSocietyInfo({
+                ...KnowYourSocietyInfo,
                 cyclingTrackPhoto: e.target.files[0],
               })
             }
@@ -2388,7 +2425,7 @@ const KnowYourSociety = ({
           />
         </div>
       )}
-      {questionCount == 54 && (
+      {questionCount === 54 && (
         <div className="question">
           <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
@@ -2401,8 +2438,8 @@ const KnowYourSociety = ({
             type="file"
             accept="image/*"
             onChange={(e) =>
-              setKnowYourSoceity({
-                ...KnowYourSoceity,
+              setKnowYourSocietyInfo({
+                ...KnowYourSocietyInfo,
                 PublicAreaLightingphoto: e.target.files[0],
               })
             }
@@ -2411,7 +2448,7 @@ const KnowYourSociety = ({
           />
         </div>
       )}
-      {questionCount == 55 && (
+      {questionCount === 55 && (
         <div className="question">
           <div className="flex mb-10 font-semibold text-xl text-sky-700">
             <h1 className="mr-2 ">{questionCount}.</h1>
@@ -2424,8 +2461,8 @@ const KnowYourSociety = ({
             type="file"
             accept="image/*"
             onChange={(e) =>
-              setKnowYourSoceity({
-                ...KnowYourSoceity,
+              setKnowYourSocietyInfo({
+                ...KnowYourSocietyInfo,
                 otherAmenitiesphoto: e.target.files[0],
               })
             }
@@ -2435,13 +2472,13 @@ const KnowYourSociety = ({
         </div>
       )} */}
 
-      {questionCount == 43 && (
+      {questionCount === 43 && (
         <div
           className='question '
-          value={KnowYourSoceity.DailyWasteCollecion}
+          value={KnowYourSocietyInfo.DailyWasteCollecion}
           onChange={e =>
-            setKnowYourSoceity({
-              ...KnowYourSoceity,
+            setKnowYourSocietyInfo({
+              ...KnowYourSocietyInfo,
               DailyWasteCollecion: e.target.value,
             })
           }
@@ -2458,7 +2495,7 @@ const KnowYourSociety = ({
             name='DailyWasteCollecion'
             value='1'
             onChange={e => {}}
-            checked={KnowYourSoceity.DailyWasteCollecion === '1'}
+            defaultChecked={KnowYourSocietyInfo.DailyWasteCollecion === '1'}
           />
           <label className='ml-2'>Ghar ke bahar se pick up </label> <br />
           <input
@@ -2467,7 +2504,7 @@ const KnowYourSociety = ({
             name='DailyWasteCollecion'
             value='2'
             onChange={e => {}}
-            checked={KnowYourSoceity.DailyWasteCollecion === '2'}
+            defaultChecked={KnowYourSocietyInfo.DailyWasteCollecion === '2'}
           />
           <label className='ml-2'>
             Society ke common dustbin mein (flat member) ko aana padta hai
@@ -2479,18 +2516,18 @@ const KnowYourSociety = ({
             name='DailyWasteCollecion'
             value='3'
             onChange={e => {}}
-            checked={KnowYourSoceity.DailyWasteCollecion === '3'}
+            defaultChecked={KnowYourSocietyInfo.DailyWasteCollecion === '3'}
           />
           <label className='ml-2'>Other</label>
         </div>
       )}
 
-      {/* {questionCount == 54 && <div
+      {/* {questionCount === 54 && <div
             className="question "
-                  value={KnowYourSoceity.WaterStorage}
+                  value={KnowYourSocietyInfo.WaterStorage}
               onChange={(e) =>
-                setKnowYourSoceity({
-                  ...KnowYourSoceity,
+                setKnowYourSocietyInfo({
+                  ...KnowYourSocietyInfo,
                   WaterStorage: e.target.value,
                 })
               }
@@ -2505,13 +2542,13 @@ const KnowYourSociety = ({
             <label className="ml-2" >NA</label>
           
           </div>} */}
-      {questionCount == 43 && (
+      {questionCount === 44 && (
         <div
           className='question '
-          value={KnowYourSoceity.WaterStoargeFacility}
+          value={KnowYourSocietyInfo.WaterStoargeFacility}
           onChange={e =>
-            setKnowYourSoceity({
-              ...KnowYourSoceity,
+            setKnowYourSocietyInfo({
+              ...KnowYourSocietyInfo,
               WaterStoargeFacility: e.target.value,
             })
           }
@@ -2528,7 +2565,7 @@ const KnowYourSociety = ({
             name='WaterStoargeFacility'
             value='1'
             onChange={e => {}}
-            checked={KnowYourSoceity.WaterStoargeFacility === '1'}
+            defaultChecked={KnowYourSocietyInfo.WaterStoargeFacility === '1'}
           />
           <label className='ml-2'>UnderGround Tank</label> <br />
           <input
@@ -2537,7 +2574,7 @@ const KnowYourSociety = ({
             name='WaterStoargeFacility'
             value='2'
             onChange={e => {}}
-            checked={KnowYourSoceity.WaterStoargeFacility === '2'}
+            defaultChecked={KnowYourSocietyInfo.WaterStoargeFacility === '2'}
           />
           <label className='ml-2'>OverHead Tank</label>
           <br />
@@ -2547,19 +2584,19 @@ const KnowYourSociety = ({
             name='WaterStoargeFacility'
             value='3'
             onChange={e => {}}
-            checked={KnowYourSoceity.WaterStoargeFacility === '3'}
+            defaultChecked={KnowYourSocietyInfo.WaterStoargeFacility === '3'}
           />
           <label className='ml-2'>N/A</label>
         </div>
       )}
 
-      {questionCount == 44 && (
+      {questionCount === 45 && (
         <div
           className='question '
-          value={KnowYourSoceity.SatelliteTV}
+          value={KnowYourSocietyInfo.SatelliteTV}
           onChange={e =>
-            setKnowYourSoceity({
-              ...KnowYourSoceity,
+            setKnowYourSocietyInfo({
+              ...KnowYourSocietyInfo,
               SatelliteTV: Boolean(e.target.value),
             })
           }
@@ -2577,7 +2614,7 @@ const KnowYourSociety = ({
             name='SatelliteTV'
             value='Yes'
             onChange={e => {}}
-            checked={KnowYourSoceity.SatelliteTV === true}
+            defaultChecked={KnowYourSocietyInfo.SatelliteTV === true}
           />
           <label className='ml-2'>Yes</label> <br />
           <input
@@ -2586,12 +2623,12 @@ const KnowYourSociety = ({
             name='SatelliteTV'
             value=''
             onChange={e => {}}
-            checked={KnowYourSoceity.SatelliteTV === false}
+            defaultChecked={KnowYourSocietyInfo.SatelliteTV === false}
           />
           <label className='ml-2'>No</label>
         </div>
       )}
-      {questionCount == 45 && (
+      {questionCount === 46 && (
         <div className='question'>
           <div className='flex mb-10 font-semibold text-xl text-sky-700'>
             <h1 className='mr-2 '>{questionCount}.</h1>
@@ -2606,10 +2643,10 @@ const KnowYourSociety = ({
           </p>
           <Input
             placeholder=''
-            value={KnowYourSoceity.Agency}
+            value={KnowYourSocietyInfo.Agency}
             onChange={e =>
-              setKnowYourSoceity({
-                ...KnowYourSoceity,
+              setKnowYourSocietyInfo({
+                ...KnowYourSocietyInfo,
                 Agency: e.target.value,
               })
             }
@@ -2618,13 +2655,13 @@ const KnowYourSociety = ({
         </div>
       )}
 
-      {questionCount == 46 && (
+      {questionCount === 47 && (
         <div
           className='question '
-          value={KnowYourSoceity.InsideFlat}
+          value={KnowYourSocietyInfo.InsideFlat}
           onChange={e =>
-            setKnowYourSoceity({
-              ...KnowYourSoceity,
+            setKnowYourSocietyInfo({
+              ...KnowYourSocietyInfo,
               InsideFlat: Boolean(e.target.value),
             })
           }
@@ -2642,7 +2679,7 @@ const KnowYourSociety = ({
             name='InsideFlat'
             value='Yes'
             onChange={e => {}}
-            checked={KnowYourSoceity.InsideFlat === true}
+            defaultChecked={KnowYourSocietyInfo.InsideFlat === true}
           />
           <label className='ml-2'>Yes</label> <br />
           <input
@@ -2651,13 +2688,13 @@ const KnowYourSociety = ({
             name='InsideFlat'
             value=''
             onChange={e => {}}
-            checked={KnowYourSoceity.InsideFlat === false}
+            defaultChecked={KnowYourSocietyInfo.InsideFlat === false}
           />
           <label className='ml-2'>No</label>
         </div>
       )}
 
-      {questionCount == 47 && (
+      {questionCount === 48 && (
         <div className='question '>
           <div className='flex mb-10 font-semibold text-xl text-sky-700'>
             <h1 className='mr-2 '>{questionCount}.</h1>
@@ -2672,7 +2709,7 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='1'
-                    checked={KnowYourSoceity.fire.includes(1)}
+                    defaultChecked={KnowYourSocietyInfo.FireFightingSystem.includes(1)}
                     onChange={e => {
                       handleCheckboxChange(e, fire, setFire);
                     }}
@@ -2684,7 +2721,7 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='2'
-                    checked={KnowYourSoceity.fire.includes(2)}
+                    defaultChecked={KnowYourSocietyInfo.FireFightingSystem.includes(2)}
                     onChange={e => {
                       handleCheckboxChange(e, fire, setFire);
                     }}
@@ -2696,7 +2733,7 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='3'
-                    checked={KnowYourSoceity.fire.includes(3)}
+                    defaultChecked={KnowYourSocietyInfo.FireFightingSystem.includes(3)}
                     onChange={e => {
                       handleCheckboxChange(e, fire, setFire);
                     }}
@@ -2708,7 +2745,7 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='4'
-                    checked={KnowYourSoceity.fire.includes(4)}
+                    defaultChecked={KnowYourSocietyInfo.FireFightingSystem.includes(4)}
                     onChange={e => {
                       handleCheckboxChange(e, fire, setFire);
                     }}
@@ -2720,7 +2757,7 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='5'
-                    checked={KnowYourSoceity.fire.includes(5)}
+                    defaultChecked={KnowYourSocietyInfo.FireFightingSystem.includes(5)}
                     onChange={e => {
                       handleCheckboxChange(e, fire, setFire);
                     }}
@@ -2732,7 +2769,7 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='6'
-                    checked={KnowYourSoceity.fire.includes(6)}
+                    defaultChecked={KnowYourSocietyInfo.FireFightingSystem.includes(6)}
                     onChange={e => {
                       handleCheckboxChange(e, fire, setFire);
                     }}
@@ -2745,7 +2782,7 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='7'
-                    checked={KnowYourSoceity.fire.includes(7)}
+                    defaultChecked={KnowYourSocietyInfo.FireFightingSystem.includes(7)}
                     onChange={e => {
                       handleCheckboxChange(e, fire, setFire);
                     }}
@@ -2757,7 +2794,7 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='8'
-                    checked={KnowYourSoceity.fire.includes(8)}
+                    defaultChecked={KnowYourSocietyInfo.FireFightingSystem.includes(8)}
                     onChange={e => {
                       handleCheckboxChange(e, fire, setFire);
                     }}
@@ -2768,8 +2805,8 @@ const KnowYourSociety = ({
           </FormControl>
         </div>
       )}
-      {questionCount == 48 && (
-        <div className='question ' value={KnowYourSoceity.SecurityService}>
+      {questionCount === 49 && (
+        <div className='question ' value={KnowYourSocietyInfo.SecurityService}>
           <div className='flex mb-10 font-semibold text-xl text-sky-700'>
             <h1 className='mr-2 '>{questionCount}.</h1>
             <h4 className='font-semibold text-lg'>Security Service</h4>
@@ -2781,7 +2818,9 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='1'
-                    checked={KnowYourSoceity.securityService.includes(1)}
+                    defaultChecked={KnowYourSocietyInfo.SecurityService.includes(
+                      1,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -2797,7 +2836,9 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='2'
-                    checked={KnowYourSoceity.securityService.includes(2)}
+                    defaultChecked={KnowYourSocietyInfo.SecurityService.includes(
+                      2,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -2813,7 +2854,9 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='3'
-                    checked={KnowYourSoceity.securityService.includes(3)}
+                    defaultChecked={KnowYourSocietyInfo.SecurityService.includes(
+                      3,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -2829,7 +2872,9 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='4'
-                    checked={KnowYourSoceity.securityService.includes(4)}
+                    defaultChecked={KnowYourSocietyInfo.SecurityService.includes(
+                      4,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -2845,7 +2890,9 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='5'
-                    checked={KnowYourSoceity.securityService.includes(5)}
+                    defaultChecked={KnowYourSocietyInfo.SecurityService.includes(
+                      5,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -2861,7 +2908,9 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='6'
-                    checked={KnowYourSoceity.securityService.includes(6)}
+                    defaultChecked={KnowYourSocietyInfo.SecurityService.includes(
+                      6,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -2876,13 +2925,13 @@ const KnowYourSociety = ({
           </FormControl>
         </div>
       )}
-      {questionCount == 49 && (
+      {questionCount === 50 && (
         <div
           className='question '
-          value={KnowYourSoceity.GuardAtLobby}
+          value={KnowYourSocietyInfo.GuardAtLobby}
           onChange={e =>
-            setKnowYourSoceity({
-              ...KnowYourSoceity,
+            setKnowYourSocietyInfo({
+              ...KnowYourSocietyInfo,
               GuardAtLobby: Boolean(e.target.value),
             })
           }
@@ -2901,7 +2950,7 @@ const KnowYourSociety = ({
             name='GuardAtLobby'
             value='Yes'
             onChange={e => {}}
-            checked={KnowYourSoceity.GuardAtLobby === true}
+            defaultChecked={KnowYourSocietyInfo.GuardAtLobby === true}
           />
           <label className='ml-2'>Yes</label> <br />
           <input
@@ -2910,18 +2959,18 @@ const KnowYourSociety = ({
             name='GuardAtLobby'
             value=''
             onChange={e => {}}
-            checked={KnowYourSoceity.GuardAtLobby === false}
+            defaultChecked={KnowYourSocietyInfo.GuardAtLobby === false}
           />
           <label className='ml-2'>No</label>
         </div>
       )}
-      {questionCount == 50 && (
+      {questionCount === 51 && (
         <div
           className='question '
-          value={KnowYourSoceity.NonMemberDeliveryboy}
+          value={KnowYourSocietyInfo.NonMemberDeliveryboy}
           onChange={e =>
-            setKnowYourSoceity({
-              ...KnowYourSoceity,
+            setKnowYourSocietyInfo({
+              ...KnowYourSocietyInfo,
               NonMemberDeliveryboy: Boolean(e.target.value),
             })
           }
@@ -2940,7 +2989,7 @@ const KnowYourSociety = ({
             name='NonMemberDeliveryboy'
             value='Yes'
             onChange={e => {}}
-            checked={KnowYourSoceity.NonMemberDeliveryboy === true}
+            defaultChecked={KnowYourSocietyInfo.NonMemberDeliveryboy === true}
           />
           <label className='ml-2'>Yes</label> <br />
           <input
@@ -2949,19 +2998,19 @@ const KnowYourSociety = ({
             name='NonMemberDeliveryboy'
             value=''
             onChange={e => {}}
-            checked={KnowYourSoceity.NonMemberDeliveryboy === false}
+            defaultChecked={KnowYourSocietyInfo.NonMemberDeliveryboy === false}
           />
           <label className='ml-2'>No</label>
         </div>
       )}
 
-      {questionCount == 51 && (
+      {questionCount === 52 && (
         <div
           className='question '
-          value={KnowYourSoceity.EatingHabitsAllowed}
+          value={KnowYourSocietyInfo.EatingHabitsAllowed}
           onChange={e =>
-            setKnowYourSoceity({
-              ...KnowYourSoceity,
+            setKnowYourSocietyInfo({
+              ...KnowYourSocietyInfo,
               EatingHabitsAllowed: e.target.value,
             })
           }
@@ -2980,7 +3029,9 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='1'
-                    checked={KnowYourSoceity.EatingHabitsAllowed.includes(1)}
+                    defaultChecked={KnowYourSocietyInfo.EatingHabitsAllowed.includes(
+                      1,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(e, eating, setEating);
                     }}
@@ -2992,7 +3043,9 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='2'
-                    checked={KnowYourSoceity.EatingHabitsAllowed.includes(2)}
+                    defaultChecked={KnowYourSocietyInfo.EatingHabitsAllowed.includes(
+                      2,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(e, eating, setEating);
                     }}
@@ -3003,13 +3056,13 @@ const KnowYourSociety = ({
           </FormControl>
         </div>
       )}
-      {questionCount == 52 && (
+      {questionCount === 53 && (
         <div
           className='question '
-          value={KnowYourSoceity.MajorityAgeGroup}
+          value={KnowYourSocietyInfo.MajorityAgeGroup}
           onChange={e =>
-            setKnowYourSoceity({
-              ...KnowYourSoceity,
+            setKnowYourSocietyInfo({
+              ...KnowYourSocietyInfo,
               MajorityAgeGroup: e.target.value,
             })
           }
@@ -3028,7 +3081,9 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='1'
-                    checked={KnowYourSoceity.MajorityAgeGroup.includes(1)}
+                    defaultChecked={KnowYourSocietyInfo.MajoriyAgeGroup.includes(
+                      1,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(e, ageGroup, setAgeGroup);
                     }}
@@ -3040,7 +3095,9 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='2'
-                    checked={KnowYourSoceity.MajorityAgeGroup.includes(2)}
+                    defaultChecked={KnowYourSocietyInfo.MajoriyAgeGroup.includes(
+                      2,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(e, ageGroup, setAgeGroup);
                     }}
@@ -3052,7 +3109,9 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='3'
-                    checked={KnowYourSoceity.MajorityAgeGroup.includes(3)}
+                    defaultChecked={KnowYourSocietyInfo.MajoriyAgeGroup.includes(
+                      3,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(e, ageGroup, setAgeGroup);
                     }}
@@ -3064,7 +3123,9 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='4'
-                    checked={KnowYourSoceity.MajorityAgeGroup.includes(4)}
+                    defaultChecked={KnowYourSocietyInfo.MajoriyAgeGroup.includes(
+                      4,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(e, ageGroup, setAgeGroup);
                     }}
@@ -3076,7 +3137,9 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='5'
-                    checked={KnowYourSoceity.MajorityAgeGroup.includes(5)}
+                    defaultChecked={KnowYourSocietyInfo.MajoriyAgeGroup.includes(
+                      5,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(e, ageGroup, setAgeGroup);
                     }}
@@ -3088,13 +3151,13 @@ const KnowYourSociety = ({
         </div>
       )}
 
-      {questionCount == 53 && (
+      {questionCount === 54 && (
         <div
           className='question '
-          value={KnowYourSoceity.MembersAllowed}
+          value={KnowYourSocietyInfo.MembersAllowed}
           onChange={e =>
-            setKnowYourSoceity({
-              ...KnowYourSoceity,
+            setKnowYourSocietyInfo({
+              ...KnowYourSocietyInfo,
               MembersAllowed: e.target.value,
             })
           }
@@ -3111,7 +3174,9 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='1'
-                    checked={KnowYourSoceity.MembersAllowed.includes(1)}
+                    defaultChecked={KnowYourSocietyInfo.MembersAllowed.includes(
+                      1,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(e, members, setMembers);
                     }}
@@ -3123,7 +3188,9 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='2'
-                    checked={KnowYourSoceity.MembersAllowed.includes(2)}
+                    defaultChecked={KnowYourSocietyInfo.MembersAllowed.includes(
+                      2,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(e, members, setMembers);
                     }}
@@ -3135,7 +3202,9 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='3'
-                    checked={KnowYourSoceity.MembersAllowed.includes(3)}
+                    defaultChecked={KnowYourSocietyInfo.MembersAllowed.includes(
+                      3,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(e, members, setMembers);
                     }}
@@ -3147,13 +3216,13 @@ const KnowYourSociety = ({
         </div>
       )}
 
-      {questionCount == 54 && (
+      {questionCount === 55 && (
         <div
           className='question '
-          value={KnowYourSoceity.MajorityMemberType}
+          value={KnowYourSocietyInfo.MajorityMemberType}
           onChange={e =>
-            setKnowYourSoceity({
-              ...KnowYourSoceity,
+            setKnowYourSocietyInfo({
+              ...KnowYourSocietyInfo,
               MajorityMemberType: e.target.value,
             })
           }
@@ -3169,7 +3238,7 @@ const KnowYourSociety = ({
             name='MajorityMemberType'
             value='1'
             onChange={e => {}}
-            checked={KnowYourSoceity.change === '1'}
+            defaultChecked={KnowYourSocietyInfo.MajorityMemberType === '1'}
           />
           <label className='ml-2'>Rented</label>
           <br />
@@ -3179,18 +3248,18 @@ const KnowYourSociety = ({
             name='MajorityMemberType'
             value='2'
             onChange={e => {}}
-            checked={KnowYourSoceity.change === '2'}
+            defaultChecked={KnowYourSocietyInfo.MajorityMemberType === '2'}
           />
           <label className='ml-2'>Self Owned</label>
         </div>
       )}
 
-      {/* {questionCount == 64 &&  <div
+      {/* {questionCount === 64 &&  <div
             className="question "
-                  value={KnowYourSoceity.NationalityAllowed}
+                  value={KnowYourSocietyInfo.NationalityAllowed}
               onChange={(e) =>
-                setKnowYourSoceity({
-                  ...KnowYourSoceity,
+                setKnowYourSocietyInfo({
+                  ...KnowYourSocietyInfo,
                   NationalityAllowed: e.target.value,
                 })
               }
@@ -3207,13 +3276,13 @@ const KnowYourSociety = ({
             <label className="ml-2" >Both</label>
           </div>} */}
 
-      {questionCount == 55 && (
+      {questionCount === 56 && (
         <div
           className='question '
-          value={KnowYourSoceity.BatchlorsAllowed}
+          value={KnowYourSocietyInfo.BatchlorsAllowed}
           onChange={e =>
-            setKnowYourSoceity({
-              ...KnowYourSoceity,
+            setKnowYourSocietyInfo({
+              ...KnowYourSocietyInfo,
               BatchlorsAllowed: Boolean(e.target.value),
             })
           }
@@ -3231,7 +3300,7 @@ const KnowYourSociety = ({
             name='BatchlorsAllowed'
             value='Yes'
             onChange={e => {}}
-            checked={KnowYourSoceity.BatchlorsAllowed === true}
+            defaultChecked={KnowYourSocietyInfo.BatchlorsAllowed === true}
           />
           <label className='ml-2'>Yes</label> <br />
           <input
@@ -3240,18 +3309,18 @@ const KnowYourSociety = ({
             name='BatchlorsAllowed'
             value=''
             onChange={e => {}}
-            checked={KnowYourSoceity.BatchlorsAllowed === false}
+            defaultChecked={KnowYourSocietyInfo.BatchlorsAllowed === false}
           />
           <label className='ml-2'>No</label>
         </div>
       )}
 
-      {/* { questionCount == 66 && <div
+      {/* { questionCount === 66 && <div
             className="question "
-                  value={KnowYourSoceity.nonMarriedAllowed}
+                  value={KnowYourSocietyInfo.nonMarriedAllowed}
               onChange={(e) =>
-                setKnowYourSoceity({
-                  ...KnowYourSoceity,
+                setKnowYourSocietyInfo({
+                  ...KnowYourSocietyInfo,
                   nonMarriedAllowed: e.target.value,
                 })
               }
@@ -3265,13 +3334,13 @@ const KnowYourSociety = ({
             <input type="radio" className="ml-2" name="nonMarried" value="" />
             <label className="ml-2" >No</label>
           </div>} */}
-      {questionCount == 56 && (
+      {questionCount === 57 && (
         <div
           className='question '
-          value={KnowYourSoceity.nonMarriedAllowed}
+          value={KnowYourSocietyInfo.nonMarriedAllowed}
           onChange={e =>
-            setKnowYourSoceity({
-              ...KnowYourSoceity,
+            setKnowYourSocietyInfo({
+              ...KnowYourSocietyInfo,
               nonMarriedAllowed: Boolean(e.target.value),
             })
           }
@@ -3291,7 +3360,7 @@ const KnowYourSociety = ({
             name='nonMarried'
             value='Yes'
             onChange={e => {}}
-            checked={KnowYourSoceity.nonMarriedAllowed === true}
+            defaultChecked={KnowYourSocietyInfo.nonMarriedAllowed === true}
           />
           <label className='ml-2'>Yes</label> <br />
           <input
@@ -3300,19 +3369,19 @@ const KnowYourSociety = ({
             name='nonMarried'
             value=''
             onChange={e => {}}
-            checked={KnowYourSoceity.nonMarriedAllowed === false}
+            defaultChecked={KnowYourSocietyInfo.nonMarriedAllowed === false}
           />
           <label className='ml-2'>No</label>
         </div>
       )}
 
-      {questionCount == 57 && (
+      {questionCount === 58 && (
         <div
           className='question '
-          value={KnowYourSoceity.ChildrenPlayingAround}
+          value={KnowYourSocietyInfo.ChildrenPlayingAround}
           onChange={e =>
-            setKnowYourSoceity({
-              ...KnowYourSoceity,
+            setKnowYourSocietyInfo({
+              ...KnowYourSocietyInfo,
               ChildrenPlayingAround: Boolean(e.target.value),
             })
           }
@@ -3331,7 +3400,7 @@ const KnowYourSociety = ({
             name='ChildrenPlayingAround'
             value='Yes'
             onChange={e => {}}
-            checked={KnowYourSoceity.ChildrenPlayingAround === true}
+            defaultChecked={KnowYourSocietyInfo.ChildrenPlayingAround === true}
           />
           <label className='ml-2'>Yes</label> <br />
           <input
@@ -3340,19 +3409,19 @@ const KnowYourSociety = ({
             name='ChildrenPlayingAround'
             value=''
             onChange={e => {}}
-            checked={KnowYourSoceity.ChildrenPlayingAround === false}
+            defaultChecked={KnowYourSocietyInfo.ChildrenPlayingAround === false}
           />
           <label className='ml-2'>No</label>
         </div>
       )}
 
-      {questionCount == 58 && (
+      {questionCount === 59 && (
         <div
           className='question '
-          value={KnowYourSoceity.CalmMember}
+          value={KnowYourSocietyInfo.CalmMember}
           onChange={e =>
-            setKnowYourSoceity({
-              ...KnowYourSoceity,
+            setKnowYourSocietyInfo({
+              ...KnowYourSocietyInfo,
               CalmMember: Boolean(e.target.value),
             })
           }
@@ -3370,7 +3439,7 @@ const KnowYourSociety = ({
             name='CalmMember'
             value='Yes'
             onChange={e => {}}
-            checked={KnowYourSoceity.CalmMember === true}
+            defaultChecked={KnowYourSocietyInfo.CalmMember === true}
           />
           <label className='ml-2'>Yes</label> <br />
           <input
@@ -3379,19 +3448,19 @@ const KnowYourSociety = ({
             name='CalmMember'
             value=''
             onChange={e => {}}
-            checked={KnowYourSoceity.CalmMember === false}
+            defaultChecked={KnowYourSocietyInfo.CalmMember === false}
           />
           <label className='ml-2'>No</label>
         </div>
       )}
 
-      {questionCount == 59 && (
+      {questionCount === 60 && (
         <div
           className='question '
-          value={KnowYourSoceity.ElderPeopleActivity}
+          value={KnowYourSocietyInfo.ElderPeopleActivity}
           onChange={e =>
-            setKnowYourSoceity({
-              ...KnowYourSoceity,
+            setKnowYourSocietyInfo({
+              ...KnowYourSocietyInfo,
               ElderPeopleActivity: Boolean(e.target.value),
             })
           }
@@ -3410,7 +3479,7 @@ const KnowYourSociety = ({
             name='ElderPeopleActivity'
             value='Yes'
             onChange={e => {}}
-            checked={KnowYourSoceity.ElderPeopleActivity === true}
+            defaultChecked={KnowYourSocietyInfo.ElderPeopleActivity === true}
           />
           <label className='ml-2'>Yes</label> <br />
           <input
@@ -3419,19 +3488,19 @@ const KnowYourSociety = ({
             name='ElderPeopleActivity'
             value=''
             onChange={e => {}}
-            checked={KnowYourSoceity.ElderPeopleActivity === false}
+            defaultChecked={KnowYourSocietyInfo.ElderPeopleActivity === false}
           />
           <label className='ml-2'>No</label>
         </div>
       )}
 
-      {questionCount == 60 && (
+      {questionCount === 61 && (
         <div
           className='question '
-          value={KnowYourSoceity.Celebration}
+          value={KnowYourSocietyInfo.Celebration}
           onChange={e =>
-            setKnowYourSoceity({
-              ...KnowYourSoceity,
+            setKnowYourSocietyInfo({
+              ...KnowYourSocietyInfo,
               Celebration: e.target.value,
             })
           }
@@ -3449,7 +3518,9 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='1'
-                    checked={KnowYourSoceity.Celebration.includes(1)}
+                    defaultChecked={KnowYourSocietyInfo?.Celebration?.includes(
+                      1,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(e, funcs, setFuncs);
                     }}
@@ -3461,7 +3532,9 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='2'
-                    checked={KnowYourSoceity.Celebration.includes(2)}
+                    defaultChecked={KnowYourSocietyInfo?.Celebration?.includes(
+                      2,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(e, funcs, setFuncs);
                     }}
@@ -3473,7 +3546,9 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='3'
-                    checked={KnowYourSoceity.Celebration.includes(3)}
+                    defaultChecked={KnowYourSocietyInfo?.Celebration?.includes(
+                      3,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(e, funcs, setFuncs);
                     }}
@@ -3485,7 +3560,9 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='4'
-                    checked={KnowYourSoceity.Celebration.includes(4)}
+                    defaultChecked={KnowYourSocietyInfo?.Celebration?.includes(
+                      4,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(e, funcs, setFuncs);
                     }}
@@ -3497,7 +3574,9 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='5'
-                    checked={KnowYourSoceity.Celebration.includes(5)}
+                    defaultChecked={KnowYourSocietyInfo?.Celebration?.includes(
+                      5,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(e, funcs, setFuncs);
                     }}
@@ -3509,7 +3588,9 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='6'
-                    checked={KnowYourSoceity.Celebration.includes(6)}
+                    defaultChecked={KnowYourSocietyInfo?.Celebration?.includes(
+                      6,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(e, funcs, setFuncs);
                     }}
@@ -3521,7 +3602,9 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='7'
-                    checked={KnowYourSoceity.Celebration.includes(7)}
+                    defaultChecked={KnowYourSocietyInfo?.Celebration?.includes(
+                      7,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(e, funcs, setFuncs);
                     }}
@@ -3533,7 +3616,9 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='8'
-                    checked={KnowYourSoceity.Celebration.includes(8)}
+                    defaultChecked={KnowYourSocietyInfo?.Celebration?.includes(
+                      8,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(e, funcs, setFuncs);
                     }}
@@ -3545,36 +3630,38 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='9'
-                    checked={KnowYourSoceity.Celebration.includes(9)}
+                    defaultChecked={KnowYourSocietyInfo?.Celebration?.includes(
+                      9,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(e, funcs, setFuncs);
                     }}
                   />
                 }
               />
-              <FormControlLabel
+              {/* <FormControlLabel
                 label='Other Celeb.'
                 control={
                   <Checkbox
                     value='10'
-                    checked={KnowYourSoceity.Celebration.includes(10)}
+                    defaultChecked={KnowYourSocietyInfo?.Celebrtion?.includes(10)}
                     onChange={e => {
                       handleCheckboxChange(e, funcs, setFuncs);
                     }}
                   />
                 }
-              />
+              /> */}
             </FormGroup>
           </FormControl>
         </div>
       )}
-      {questionCount == 61 && (
+      {questionCount === 62 && (
         <div
           className='question '
-          value={KnowYourSoceity.SocietyMeetings}
+          value={KnowYourSocietyInfo.SocietyMeetings}
           onChange={e =>
-            setKnowYourSoceity({
-              ...KnowYourSoceity,
+            setKnowYourSocietyInfo({
+              ...KnowYourSocietyInfo,
               SocietyMeetings: e.target.value,
             })
           }
@@ -3593,7 +3680,9 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='1'
-                    checked={KnowYourSoceity.SocietyMeetings.includes(1)}
+                    defaultChecked={KnowYourSocietyInfo.SocietyMeetings.includes(
+                      1,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(e, meeting, setMeeting);
                     }}
@@ -3605,7 +3694,9 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='2'
-                    checked={KnowYourSoceity.SocietyMeetings.includes(2)}
+                    defaultChecked={KnowYourSocietyInfo.SocietyMeetings.includes(
+                      2,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(e, meeting, setMeeting);
                     }}
@@ -3617,7 +3708,9 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='3'
-                    checked={KnowYourSoceity.SocietyMeetings.includes(3)}
+                    defaultChecked={KnowYourSocietyInfo.SocietyMeetings.includes(
+                      3,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(e, meeting, setMeeting);
                     }}
@@ -3629,7 +3722,9 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='4'
-                    checked={KnowYourSoceity.SocietyMeetings.includes(4)}
+                    defaultChecked={KnowYourSocietyInfo.SocietyMeetings.includes(
+                      4,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(e, meeting, setMeeting);
                     }}
@@ -3641,13 +3736,13 @@ const KnowYourSociety = ({
         </div>
       )}
 
-      {questionCount == 62 && (
+      {questionCount === 63 && (
         <div
           className='question '
-          value={KnowYourSoceity.FunctionsAllowed}
+          value={KnowYourSocietyInfo.FunctionsAllowed}
           onChange={e =>
-            setKnowYourSoceity({
-              ...KnowYourSoceity,
+            setKnowYourSocietyInfo({
+              ...KnowYourSocietyInfo,
               FunctionsAllowed: Boolean(e.target.value),
             })
           }
@@ -3658,7 +3753,7 @@ const KnowYourSociety = ({
             <h1 className='mr-2 '>{questionCount}.</h1>
             <h4 className='font-semibold text-lg'>
               Members ko functions karna andar society ke allowed hai ya nahi ?
-              (E.G. MARRIAGES)
+              (Eg Marriage)
             </h4>
           </div>
           <input
@@ -3667,7 +3762,7 @@ const KnowYourSociety = ({
             name='FunctionsAllowed'
             value='Yes'
             onChange={e => {}}
-            checked={KnowYourSoceity.FunctionsAllowed === true}
+            defaultChecked={KnowYourSocietyInfo.FunctionsAllowed === true}
           />
           <label className='ml-2'>Yes</label> <br />
           <input
@@ -3676,19 +3771,19 @@ const KnowYourSociety = ({
             name='FunctionsAllowed'
             value=''
             onChange={e => {}}
-            checked={KnowYourSoceity.FunctionsAllowed === false}
+            defaultChecked={KnowYourSocietyInfo.FunctionsAllowed === false}
           />
           <label className='ml-2'>No</label>
         </div>
       )}
 
-      {questionCount == 63 && (
+      {questionCount === 64 && (
         <div
           className='question '
-          value={KnowYourSoceity.Cleanliness}
+          value={KnowYourSocietyInfo.Cleanliness}
           onChange={e =>
-            setKnowYourSoceity({
-              ...KnowYourSoceity,
+            setKnowYourSocietyInfo({
+              ...KnowYourSocietyInfo,
               Cleanliness: e.target.value,
             })
           }
@@ -3705,7 +3800,7 @@ const KnowYourSociety = ({
             name='Cleanliness'
             value='1'
             onChange={e => {}}
-            checked={KnowYourSoceity.Cleanliness === '1'}
+            defaultChecked={KnowYourSocietyInfo.Cleanliness === '1'}
           />
           <label className='ml-2'>Bahut clean</label> <br />
           <input
@@ -3714,7 +3809,7 @@ const KnowYourSociety = ({
             name='Cleanliness'
             value='2'
             onChange={e => {}}
-            checked={KnowYourSoceity.Cleanliness === '2'}
+            defaultChecked={KnowYourSocietyInfo.Cleanliness === '2'}
           />
           <label className='ml-2'>Thik thak</label>
           <br />
@@ -3724,19 +3819,19 @@ const KnowYourSociety = ({
             name='Cleanliness'
             value='3'
             onChange={e => {}}
-            checked={KnowYourSoceity.Cleanliness === '3'}
+            defaultChecked={KnowYourSocietyInfo.Cleanliness === '3'}
           />
           <label className='ml-2'>Kharab</label>
         </div>
       )}
 
-      {questionCount == 64 && (
+      {questionCount === 65 && (
         <div
           className='question '
-          value={KnowYourSoceity.CleanlinessMaintained}
+          value={KnowYourSocietyInfo.CleanlinessMaintained}
           onChange={e =>
-            setKnowYourSoceity({
-              ...KnowYourSoceity,
+            setKnowYourSocietyInfo({
+              ...KnowYourSocietyInfo,
               CleanlinessMaintained: e.target.value,
             })
           }
@@ -3755,7 +3850,7 @@ const KnowYourSociety = ({
             name='CleanlinessMaintained'
             value='1'
             onChange={e => {}}
-            checked={KnowYourSoceity.CleanlinessMaintained === '1'}
+            defaultChecked={KnowYourSocietyInfo.CleanlinessMaintained === '1'}
           />
           <label className='ml-2'>Bahut clean</label> <br />
           <input
@@ -3764,7 +3859,7 @@ const KnowYourSociety = ({
             name='CleanlinessMaintained'
             value='2'
             onChange={e => {}}
-            checked={KnowYourSoceity.CleanlinessMaintained === '2'}
+            defaultChecked={KnowYourSocietyInfo.CleanlinessMaintained === '2'}
           />
           <label className='ml-2'>Thik thak</label>
           <br />
@@ -3774,19 +3869,19 @@ const KnowYourSociety = ({
             name='CleanlinessMaintained'
             value='3'
             onChange={e => {}}
-            checked={KnowYourSoceity.CleanlinessMaintained === '3'}
+            defaultChecked={KnowYourSocietyInfo.CleanlinessMaintained === '3'}
           />
           <label className='ml-2'>Kharab</label>
         </div>
       )}
 
-      {questionCount == 65 && (
+      {questionCount === 66 && (
         <div
           className='question '
-          value={KnowYourSoceity.Handymen}
+          value={KnowYourSocietyInfo.Handymen}
           onChange={e =>
-            setKnowYourSoceity({
-              ...KnowYourSoceity,
+            setKnowYourSocietyInfo({
+              ...KnowYourSocietyInfo,
               Handymen: Boolean(e.target.value),
             })
           }
@@ -3806,7 +3901,7 @@ const KnowYourSociety = ({
             name='Handymen'
             value='Yes'
             onChange={e => {}}
-            checked={KnowYourSoceity.Handymen === true}
+            defaultChecked={KnowYourSocietyInfo.Handymen === true}
           />
           <label className='ml-2'>Yes</label> <br />
           <input
@@ -3815,19 +3910,19 @@ const KnowYourSociety = ({
             name='Handymen'
             value=''
             onChange={e => {}}
-            checked={KnowYourSoceity.Handymen === false}
+            defaultChecked={KnowYourSocietyInfo.Handymen === false}
           />
           <label className='ml-2'>No</label>
         </div>
       )}
 
-      {questionCount == 66 && (
+      {questionCount === 67 && (
         <div
           className='question '
-          value={KnowYourSoceity.Ramp}
+          value={KnowYourSocietyInfo.Ramp}
           onChange={e =>
-            setKnowYourSoceity({
-              ...KnowYourSoceity,
+            setKnowYourSocietyInfo({
+              ...KnowYourSocietyInfo,
               Ramp: Boolean(e.target.value),
             })
           }
@@ -3846,7 +3941,7 @@ const KnowYourSociety = ({
             name='ramp'
             value='Yes'
             onChange={e => {}}
-            checked={KnowYourSoceity.Ramp === true}
+            defaultChecked={KnowYourSocietyInfo.Ramp === true}
           />
           <label className='ml-2'>Yes</label> <br />
           <input
@@ -3855,13 +3950,13 @@ const KnowYourSociety = ({
             name='ramp'
             value=''
             onChange={e => {}}
-            checked={KnowYourSoceity.Ramp === false}
+            defaultChecked={KnowYourSocietyInfo.Ramp === false}
           />
           <label className='ml-2'>No</label>
         </div>
       )}
 
-      {questionCount == 67 && (
+      {questionCount === 68 && (
         <div className='question'>
           <div className='flex mb-10 font-semibold text-xl text-sky-700'>
             <h1 className='mr-2 '>{questionCount}.</h1>
@@ -3872,10 +3967,10 @@ const KnowYourSociety = ({
 
           <Input
             placeholder=''
-            value={KnowYourSoceity.OneBHK}
+            value={KnowYourSocietyInfo.OneBHK}
             onChange={e =>
-              setKnowYourSoceity({
-                ...KnowYourSoceity,
+              setKnowYourSocietyInfo({
+                ...KnowYourSocietyInfo,
                 OneBHK: e.target.value,
               })
             }
@@ -3884,7 +3979,7 @@ const KnowYourSociety = ({
           />
         </div>
       )}
-      {questionCount == 68 && (
+      {questionCount === 69 && (
         <div className='question'>
           <div className='flex mb-10 font-semibold text-xl text-sky-700'>
             <h1 className='mr-2 '>{questionCount}.</h1>
@@ -3895,10 +3990,10 @@ const KnowYourSociety = ({
 
           <Input
             placeholder=''
-            value={KnowYourSoceity.TwoBHK}
+            value={KnowYourSocietyInfo.TwoBHK}
             onChange={e =>
-              setKnowYourSoceity({
-                ...KnowYourSoceity,
+              setKnowYourSocietyInfo({
+                ...KnowYourSocietyInfo,
                 TwoBHK: e.target.value,
               })
             }
@@ -3907,7 +4002,7 @@ const KnowYourSociety = ({
           />
         </div>
       )}
-      {questionCount == 69 && (
+      {questionCount === 70 && (
         <div className='question'>
           <div className='flex mb-10 font-semibold text-xl text-sky-700'>
             <h1 className='mr-2 '>{questionCount}.</h1>
@@ -3918,10 +4013,10 @@ const KnowYourSociety = ({
 
           <Input
             placeholder=''
-            value={KnowYourSoceity.ThreeBHK}
+            value={KnowYourSocietyInfo.ThreeBHK}
             onChange={e =>
-              setKnowYourSoceity({
-                ...KnowYourSoceity,
+              setKnowYourSocietyInfo({
+                ...KnowYourSocietyInfo,
                 ThreeBHK: e.target.value,
               })
             }
@@ -3931,7 +4026,7 @@ const KnowYourSociety = ({
         </div>
       )}
 
-      {questionCount == 70 && (
+      {questionCount === 71 && (
         <div className='question'>
           <div className='flex mb-10 font-semibold text-xl text-sky-700'>
             <h1 className='mr-2 '>{questionCount}.</h1>
@@ -3942,10 +4037,10 @@ const KnowYourSociety = ({
 
           <Input
             placeholder=''
-            value={KnowYourSoceity.Visitor}
+            value={KnowYourSocietyInfo.Visitor}
             onChange={e =>
-              setKnowYourSoceity({
-                ...KnowYourSoceity,
+              setKnowYourSocietyInfo({
+                ...KnowYourSocietyInfo,
                 Visitor: e.target.value,
               })
             }
@@ -3954,13 +4049,13 @@ const KnowYourSociety = ({
           />
         </div>
       )}
-      {questionCount == 71 && (
+      {questionCount === 72 && (
         <div
           className='question '
-          value={KnowYourSoceity.Noise}
+          value={KnowYourSocietyInfo.Noise}
           onChange={e =>
-            setKnowYourSoceity({
-              ...KnowYourSoceity,
+            setKnowYourSocietyInfo({
+              ...KnowYourSocietyInfo,
               Noise: Boolean(e.target.value),
             })
           }
@@ -3978,7 +4073,7 @@ const KnowYourSociety = ({
             name='noise'
             value='Yes'
             onChange={e => {}}
-            checked={KnowYourSoceity.Noise === true}
+            defaultChecked={KnowYourSocietyInfo.Noise === true}
           />
           <label className='ml-2'>Yes</label> <br />
           <input
@@ -3987,18 +4082,18 @@ const KnowYourSociety = ({
             name='noise'
             value=''
             onChange={e => {}}
-            checked={KnowYourSoceity.Noise === false}
+            defaultChecked={KnowYourSocietyInfo.Noise === false}
           />
           <label className='ml-2'>No</label>
         </div>
       )}
-      {questionCount == 72 && (
+      {questionCount === 73 && (
         <div
           className='question '
-          value={KnowYourSoceity.StrayDogs}
+          value={KnowYourSocietyInfo.StrayDogs}
           onChange={e =>
-            setKnowYourSoceity({
-              ...KnowYourSoceity,
+            setKnowYourSocietyInfo({
+              ...KnowYourSocietyInfo,
               StrayDogs: Boolean(e.target.value),
             })
           }
@@ -4016,7 +4111,7 @@ const KnowYourSociety = ({
             name='straydogs'
             value='Yes'
             onChange={e => {}}
-            checked={KnowYourSoceity.StrayDogs === true}
+            defaultChecked={KnowYourSocietyInfo.StrayDogs === true}
           />
           <label className='ml-2'>Yes</label> <br />
           <input
@@ -4025,18 +4120,18 @@ const KnowYourSociety = ({
             name='straydogs'
             value=''
             onChange={e => {}}
-            checked={KnowYourSoceity.StrayDogs === false}
+            defaultChecked={KnowYourSocietyInfo.StrayDogs === false}
           />
           <label className='ml-2'>No</label>
         </div>
       )}
-      {questionCount == 73 && (
+      {questionCount === 74 && (
         <div
           className='question '
-          value={KnowYourSoceity.Crack}
+          value={KnowYourSocietyInfo.Crack}
           onChange={e =>
-            setKnowYourSoceity({
-              ...KnowYourSoceity,
+            setKnowYourSocietyInfo({
+              ...KnowYourSocietyInfo,
               Crack: Boolean(e.target.value),
             })
           }
@@ -4055,7 +4150,7 @@ const KnowYourSociety = ({
             name='crack'
             value='1'
             onChange={e => {}}
-            checked={KnowYourSoceity.Crack === true}
+            defaultChecked={KnowYourSocietyInfo.Crack === true}
           />
           <label className='ml-2'>Yes</label>
           <br />
@@ -4065,19 +4160,19 @@ const KnowYourSociety = ({
             name='crack'
             value=''
             onChange={e => {}}
-            checked={KnowYourSoceity.Crack === false}
+            defaultChecked={KnowYourSocietyInfo.Crack === false}
           />
           <label className='ml-2'>No</label>
         </div>
       )}
 
-      {questionCount == 74 && (
+      {questionCount === 75 && (
         <div
           className='question '
-          value={KnowYourSoceity.Deed}
+          value={KnowYourSocietyInfo.Deed}
           onChange={e =>
-            setKnowYourSoceity({
-              ...KnowYourSoceity,
+            setKnowYourSocietyInfo({
+              ...KnowYourSocietyInfo,
               Deed: e.target.value,
             })
           }
@@ -4094,7 +4189,7 @@ const KnowYourSociety = ({
             name='Deed'
             value='1'
             onChange={e => {}}
-            checked={KnowYourSoceity.Deed === '1'}
+            defaultChecked={KnowYourSocietyInfo.Deed === '1'}
           />
           <label className='ml-2'>OC</label>
           <br />
@@ -4104,7 +4199,7 @@ const KnowYourSociety = ({
             name='Deed'
             value='2'
             onChange={e => {}}
-            checked={KnowYourSoceity.Deed === '2'}
+            defaultChecked={KnowYourSocietyInfo.Deed === '2'}
           />
           <label className='ml-2'>BCC</label>
           <br />
@@ -4114,7 +4209,7 @@ const KnowYourSociety = ({
             name='Deed'
             value='3'
             onChange={e => {}}
-            checked={KnowYourSoceity.Deed === '3'}
+            defaultChecked={KnowYourSocietyInfo.Deed === '3'}
           />
           <label className='ml-2'>Not Approved</label>
         </div>

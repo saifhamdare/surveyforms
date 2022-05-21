@@ -9,6 +9,7 @@ import React, { useEffect, useState } from 'react';
 
 const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
   const [washroom, setWashroom] = useState('');
+  const [parkingtype, setparkingtype] = useState('');
   const [washingAreaAttached, setwashingAreaAttached] = useState('');
   const [applianceIncludedKitchen, setapplianceIncludedKitchen] = useState('');
   const [applianceIncludedLivingRoom, setapplianceIncludedLivingRoom] =
@@ -98,6 +99,12 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
       viewFromWindow: viewFromWindow,
     }));
   }, [viewFromWindow]);
+  useEffect(() => {
+    sethomeInfo(prevState => ({
+      ...prevState,
+      parkingType: parkingtype,
+    }));
+  }, [parkingtype]);
 
   return (
     //             <p className='italic font-light text-sm'></p>
@@ -110,6 +117,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
           </div>
           <Input
             placeholder='address'
+            value={homeInfo.address}
             onChange={e =>
               sethomeInfo({
                 ...homeInfo,
@@ -129,6 +137,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
           </div>
           <Input
             placeholder='location'
+            value={homeInfo.location}
             onChange={e =>
               sethomeInfo({
                 ...homeInfo,
@@ -137,7 +146,6 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
             }
             required
             fullWidth
-            
           />
         </div>
       )}
@@ -177,28 +185,84 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
             <h4 className='font-semibold text-lg'>Property configuration</h4>
           </div>
 
-          <input type='radio' className='ml-2' name='configuration' value='1' />
+          <input
+            type='radio'
+            className='ml-2'
+            name='configuration'
+            value='1'
+            onChange={e => {}}
+            checked={homeInfo.configuration === '1'}
+          />
           <label className='ml-2'>1 RK</label>
           <br />
-          <input className='ml-2' type='radio' name='configuration' value='2' />
+          <input
+            className='ml-2'
+            type='radio'
+            name='configuration'
+            value='2'
+            onChange={e => {}}
+            checked={homeInfo.configuration === '2'}
+          />
           <label className='ml-2'>1 BHK</label>
           <br />
-          <input className='ml-2' type='radio' name='configuration' value='8' />
+          <input
+            className='ml-2'
+            type='radio'
+            name='configuration'
+            value='8'
+            onChange={e => {}}
+            checked={homeInfo.configuration === '8'}
+          />
           <label className='ml-2'>1.5 BHK</label>
           <br />
-          <input className='ml-2' type='radio' name='configuration' value='3' />
+          <input
+            className='ml-2'
+            type='radio'
+            name='configuration'
+            value='3'
+            onChange={e => {}}
+            checked={homeInfo.configuration === '3'}
+          />
           <label className='ml-2'>2 BHK</label>
           <br />
-          <input className='ml-2' type='radio' name='configuration' value='4' />
+          <input
+            className='ml-2'
+            type='radio'
+            name='configuration'
+            value='4'
+            onChange={e => {}}
+            checked={homeInfo.configuration === '4'}
+          />
           <label className='ml-2'>2.5 BHK</label>
           <br />
-          <input className='ml-2' type='radio' name='configuration' value='5' />
+          <input
+            className='ml-2'
+            type='radio'
+            name='configuration'
+            value='5'
+            onChange={e => {}}
+            checked={homeInfo.configuration === '5'}
+          />
           <label className='ml-2'>3 BHK</label>
           <br />
-          <input className='ml-2' type='radio' name='configuration' value='6' />
+          <input
+            className='ml-2'
+            type='radio'
+            name='configuration'
+            value='6'
+            onChange={e => {}}
+            checked={homeInfo.configuration === '6'}
+          />
           <label className='ml-2'>3.5 BHK</label>
           <br />
-          <input className='ml-2' type='radio' name='configuration' value='7' />
+          <input
+            className='ml-2'
+            type='radio'
+            name='configuration'
+            value='7'
+            onChange={e => {}}
+            checked={homeInfo.configuration === '7'}
+          />
           <label className='ml-2'>4 BHK</label>
         </div>
       )}
@@ -210,6 +274,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
           </div>
           <Input
             placeholder='Carpet Area'
+            value={homeInfo.carpetArea}
             onChange={e =>
               sethomeInfo({
                 ...homeInfo,
@@ -230,6 +295,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
           </div>
           <Input
             placeholder='Price'
+            value={homeInfo.quotedPrice}
             onChange={e =>
               sethomeInfo({
                 ...homeInfo,
@@ -250,6 +316,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
           </div>
           <Input
             placeholder='floor'
+            value={homeInfo.floorNumber}
             onChange={e =>
               sethomeInfo({
                 ...homeInfo,
@@ -277,14 +344,45 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
             <h4 className='font-semibold text-lg'>Owner Type</h4>
           </div>
 
-          <input type='radio' className='ml-2' name='ownerType' value='1' />
+          <input
+            type='radio'
+            className='ml-2'
+            name='ownerType'
+            value='1'
+            onChange={e => {}}
+            checked={homeInfo.ownerType === '1'}
+          />
           <label className='ml-2'>1st Owner</label>
           <br />
-          <input className='ml-2' type='radio' name='ownerType' value='2' />
+          <input
+            className='ml-2'
+            type='radio'
+            name='ownerType'
+            value='2'
+            onChange={e => {}}
+            checked={homeInfo.ownerType === '2'}
+          />
           <label className='ml-2'>2nd Owner</label>
           <br />
-          <input className='ml-2' type='radio' name='ownerType' value='3' />
+          <input
+            className='ml-2'
+            type='radio'
+            name='ownerType'
+            value='3'
+            onChange={e => {}}
+            checked={homeInfo.ownerType === '3'}
+          />
           <label className='ml-2'>3rd Owner</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='ownerType'
+            value='4'
+            onChange={e => {}}
+            checked={homeInfo.ownerType === '4'}
+          />
+          <label className='ml-2'>3+</label>
         </div>
       )}
       {questionCount === 9 && (
@@ -301,6 +399,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='1'
+                    checked={homeInfo?.washrooms?.includes(1)}
                     onChange={e => {
                       handleCheckboxChange(e, washroom, setWashroom);
                     }}
@@ -312,6 +411,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='2'
+                    checked={homeInfo?.washrooms?.includes(2)}
                     onChange={e => {
                       handleCheckboxChange(e, washroom, setWashroom);
                     }}
@@ -338,6 +438,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='1'
+                    checked={homeInfo?.washingAreaAttachedTo?.includes(1)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -353,6 +454,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='2'
+                    checked={homeInfo?.washingAreaAttachedTo?.includes(2)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -368,6 +470,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='3'
+                    checked={homeInfo?.washingAreaAttachedTo?.includes(3)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -383,6 +486,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='4'
+                    checked={homeInfo?.washingAreaAttachedTo?.includes(4)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -398,6 +502,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='5'
+                    checked={homeInfo?.washingAreaAttachedTo?.includes(5)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -428,6 +533,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='1'
+                    checked={homeInfo?.applianceIncludedKitchen?.includes(1)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -443,6 +549,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='2'
+                    checked={homeInfo?.applianceIncludedKitchen?.includes(2)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -458,6 +565,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='3'
+                    checked={homeInfo?.applianceIncludedKitchen?.includes(31)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -473,6 +581,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='4'
+                    checked={homeInfo?.applianceIncludedKitchen?.includes(4)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -488,6 +597,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='5'
+                    checked={homeInfo?.applianceIncludedKitchen?.includes(5)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -503,6 +613,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='6'
+                    checked={homeInfo?.applianceIncludedKitchen?.includes(6)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -518,6 +629,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='7'
+                    checked={homeInfo?.applianceIncludedKitchen?.includes(7)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -533,6 +645,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='8'
+                    checked={homeInfo?.applianceIncludedKitchen?.includes(8)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -563,6 +676,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='1'
+                    checked={homeInfo?.applianceIncludedLivingRoom?.includes(1)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -578,6 +692,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='2'
+                    checked={homeInfo?.applianceIncludedLivingRoom?.includes(2)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -593,6 +708,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='3'
+                    checked={homeInfo?.applianceIncludedLivingRoom?.includes(3)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -608,6 +724,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='4'
+                    checked={homeInfo?.applianceIncludedLivingRoom?.includes(4)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -623,6 +740,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='5'
+                    checked={homeInfo?.applianceIncludedLivingRoom?.includes(5)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -638,6 +756,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='6'
+                    checked={homeInfo?.applianceIncludedLivingRoom?.includes(6)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -668,6 +787,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='1'
+                    checked={homeInfo?.applianceIncludedBedroom1?.includes(1)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -683,6 +803,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='2'
+                    checked={homeInfo?.applianceIncludedBedroom1?.includes(2)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -698,6 +819,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='3'
+                    checked={homeInfo?.applianceIncludedBedroom1?.includes(3)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -728,6 +850,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='1'
+                    checked={homeInfo?.applianceIncludedBedroom2?.includes(1)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -743,6 +866,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='2'
+                    checked={homeInfo?.applianceIncludedBedroom2?.includes(2)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -758,6 +882,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='3'
+                    checked={homeInfo?.applianceIncludedBedroom2?.includes(3)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -788,6 +913,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='1'
+                    checked={homeInfo?.applianceIncludedBedroom3?.includes(1)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -803,6 +929,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='2'
+                    checked={homeInfo?.applianceIncludedBedroom3?.includes(2)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -818,6 +945,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='3'
+                    checked={homeInfo?.applianceIncludedBedroom3?.includes(3)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -848,6 +976,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='1'
+                    checked={homeInfo?.fixedSystems?.includes(1)}
                     onChange={e => {
                       handleCheckboxChange(e, fixedSystems, setfixedSystems);
                     }}
@@ -859,6 +988,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='2'
+                    checked={homeInfo?.fixedSystems?.includes(2)}
                     onChange={e => {
                       handleCheckboxChange(e, fixedSystems, setfixedSystems);
                     }}
@@ -870,19 +1000,20 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='3'
+                    checked={homeInfo?.fixedSystems?.includes(3)}
                     onChange={e => {
                       handleCheckboxChange(e, fixedSystems, setfixedSystems);
                     }}
                   />
                 }
               />
-       
 
               <FormControlLabel
                 label='Gas Pipeline'
                 control={
                   <Checkbox
                     value='4'
+                    checked={homeInfo?.fixedSystems?.includes(4)}
                     onChange={e => {
                       handleCheckboxChange(e, fixedSystems, setfixedSystems);
                     }}
@@ -894,6 +1025,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='5'
+                    checked={homeInfo?.fixedSystems?.includes(5)}
                     onChange={e => {
                       handleCheckboxChange(e, fixedSystems, setfixedSystems);
                     }}
@@ -918,6 +1050,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='1'
+                    checked={homeInfo?.fireFightingSystem?.includes(1)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -933,6 +1066,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='2'
+                    checked={homeInfo?.fireFightingSystem?.includes(2)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -948,6 +1082,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='3'
+                    checked={homeInfo?.fireFightingSystem?.includes(3)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -963,6 +1098,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='4'
+                    checked={homeInfo?.fireFightingSystem?.includes(4)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -979,6 +1115,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='5'
+                    checked={homeInfo?.fireFightingSystem?.includes(5)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -993,7 +1130,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
           </FormControl>
         </div>
       )}
-      {questionCount === 18 && (
+      {/* {questionCount === 18 && (
         <div
           className='question '
           onChange={e =>
@@ -1016,6 +1153,8 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
             className='ml-2'
             name='LivingroomFloor'
             value='1'
+            onChange={e => {}}
+            checked={homeInfo.livingRoomFlooring === '1'}
           />
           <label className='ml-2'>Vitrified / Ceramic Tile</label>
           <br />
@@ -1024,6 +1163,8 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
             type='radio'
             name='LivingroomFloor'
             value='2'
+            onChange={e => {}}
+            checked={homeInfo.livingRoomFlooring === '2'}
           />
           <label className='ml-2'>Stoned FLooring</label>
           <br />
@@ -1032,6 +1173,8 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
             type='radio'
             name='LivingroomFloor'
             value='3'
+            onChange={e => {}}
+            checked={homeInfo.livingRoomFlooring === '3'}
           />
           <label className='ml-2'>Wooden Flooring</label>
           <br />
@@ -1040,6 +1183,8 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
             type='radio'
             name='LivingroomFloor'
             value='4'
+            onChange={e => {}}
+            checked={homeInfo.livingRoomFlooring === '4'}
           />
           <label className='ml-2'>PVC</label>
           <br />
@@ -1048,6 +1193,8 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
             type='radio'
             name='LivingroomFloor'
             value='5'
+            onChange={e => {}}
+            checked={homeInfo.livingRoomFlooring === '5'}
           />
           <label className='ml-2'>Cement /IPS</label>
           <br />
@@ -1056,6 +1203,8 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
             type='radio'
             name='LivingroomFloor'
             value='6'
+            onChange={e => {}}
+            checked={homeInfo.livingRoomFlooring === '6'}
           />
           <label className='ml-2'>Artificial Lawn</label>
           <br />
@@ -1064,6 +1213,8 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
             type='radio'
             name='LivingroomFloor'
             value='7'
+            onChange={e => {}}
+            checked={homeInfo.livingRoomFlooring === '7'}
           />
           <label className='ml-2'>Fabric Carpet</label>
         </div>
@@ -1084,25 +1235,74 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
             <h4 className='font-semibold text-lg'>Flooring Type(Kitchen)</h4>
           </div>
 
-          <input type='radio' className='ml-2' name='KitchenFloor' value='1' />
+          <input
+            type='radio'
+            className='ml-2'
+            name='KitchenFloor'
+            value='1'
+            onChange={e => {}}
+            checked={homeInfo.kitchenFlooring === '1'}
+          />
           <label className='ml-2'>Vitrified / Ceramic Tile</label>
           <br />
-          <input className='ml-2' type='radio' name='KitchenFloor' value='2' />
+          <input
+            className='ml-2'
+            type='radio'
+            name='KitchenFloor'
+            value='2'
+            onChange={e => {}}
+            checked={homeInfo.kitchenFlooring === '2'}
+          />
           <label className='ml-2'>Stoned FLooring</label>
           <br />
-          <input className='ml-2' type='radio' name='KitchenFloor' value='3' />
+          <input
+            className='ml-2'
+            type='radio'
+            name='KitchenFloor'
+            value='3'
+            onChange={e => {}}
+            checked={homeInfo.kitchenFlooring === '3'}
+          />
           <label className='ml-2'>Wooden Flooring</label>
           <br />
-          <input className='ml-2' type='radio' name='KitchenFloor' value='4' />
+          <input
+            className='ml-2'
+            type='radio'
+            name='KitchenFloor'
+            value='4'
+            onChange={e => {}}
+            checked={homeInfo.kitchenFlooring === '4'}
+          />
           <label className='ml-2'>PVC</label>
           <br />
-          <input className='ml-2' type='radio' name='KitchenFloor' value='5' />
+          <input
+            className='ml-2'
+            type='radio'
+            name='KitchenFloor'
+            value='5'
+            onChange={e => {}}
+            checked={homeInfo.kitchenFlooring === '5'}
+          />
           <label className='ml-2'>Cement /IPS</label>
           <br />
-          <input className='ml-2' type='radio' name='KitchenFloor' value='6' />
+          <input
+            className='ml-2'
+            type='radio'
+            name='KitchenFloor'
+            value='6'
+            onChange={e => {}}
+            checked={homeInfo.kitchenFlooring === '6'}
+          />
           <label className='ml-2'>Artificial Lawn</label>
           <br />
-          <input className='ml-2' type='radio' name='KitchenFloor' value='7' />
+          <input
+            className='ml-2'
+            type='radio'
+            name='KitchenFloor'
+            value='7'
+            onChange={e => {}}
+            checked={homeInfo.kitchenFlooring === '7'}
+          />
           <label className='ml-2'>Fabric Carpet</label>
         </div>
       )}
@@ -1122,25 +1322,74 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
             <h4 className='font-semibold text-lg'>Flooring Type(Bedroom 1)</h4>
           </div>
 
-          <input type='radio' className='ml-2' name='bedroom1Floor' value='1' />
+          <input
+            type='radio'
+            className='ml-2'
+            name='bedroom1Floor'
+            value='1'
+            onChange={e => {}}
+            checked={homeInfo.bedroom1Flooring === '1'}
+          />
           <label className='ml-2'>Vitrified / Ceramic Tile</label>
           <br />
-          <input className='ml-2' type='radio' name='bedroom1Floor' value='2' />
+          <input
+            className='ml-2'
+            type='radio'
+            name='bedroom1Floor'
+            value='2'
+            onChange={e => {}}
+            checked={homeInfo.bedroom1Flooring === '2'}
+          />
           <label className='ml-2'>Stoned FLooring</label>
           <br />
-          <input className='ml-2' type='radio' name='bedroom1Floor' value='3' />
+          <input
+            className='ml-2'
+            type='radio'
+            name='bedroom1Floor'
+            value='3'
+            onChange={e => {}}
+            checked={homeInfo.bedroom1Flooring === '3'}
+          />
           <label className='ml-2'>Wooden Flooring</label>
           <br />
-          <input className='ml-2' type='radio' name='bedroom1Floor' value='4' />
+          <input
+            className='ml-2'
+            type='radio'
+            name='bedroom1Floor'
+            value='4'
+            onChange={e => {}}
+            checked={homeInfo.bedroom1Flooring === '4'}
+          />
           <label className='ml-2'>PVC</label>
           <br />
-          <input className='ml-2' type='radio' name='bedroom1Floor' value='5' />
+          <input
+            className='ml-2'
+            type='radio'
+            name='bedroom1Floor'
+            value='5'
+            onChange={e => {}}
+            checked={homeInfo.bedroom1Flooring === '5'}
+          />
           <label className='ml-2'>Cement /IPS</label>
           <br />
-          <input className='ml-2' type='radio' name='bedroom1Floor' value='6' />
+          <input
+            className='ml-2'
+            type='radio'
+            name='bedroom1Floor'
+            value='6'
+            onChange={e => {}}
+            checked={homeInfo.bedroom1Flooring === '6'}
+          />
           <label className='ml-2'>Artificial Lawn</label>
           <br />
-          <input className='ml-2' type='radio' name='bedroom1Floor' value='7' />
+          <input
+            className='ml-2'
+            type='radio'
+            name='bedroom1Floor'
+            value='7'
+            onChange={e => {}}
+            checked={homeInfo.bedroom1Flooring === '7'}
+          />
           <label className='ml-2'>Fabric Carpet</label>
         </div>
       )}
@@ -1160,25 +1409,74 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
             <h4 className='font-semibold text-lg'>Flooring Type(Bedroom 2)</h4>
           </div>
 
-          <input type='radio' className='ml-2' name='bedroom2Floor' value='1' />
+          <input
+            type='radio'
+            className='ml-2'
+            name='bedroom2Floor'
+            value='1'
+            onChange={e => {}}
+            checked={homeInfo.bedroom2Flooring === '1'}
+          />
           <label className='ml-2'>Vitrified / Ceramic Tile</label>
           <br />
-          <input className='ml-2' type='radio' name='bedroom2Floor' value='2' />
+          <input
+            className='ml-2'
+            type='radio'
+            name='bedroom2Floor'
+            value='2'
+            onChange={e => {}}
+            checked={homeInfo.bedroom2Flooring === '2'}
+          />
           <label className='ml-2'>Stoned FLooring</label>
           <br />
-          <input className='ml-2' type='radio' name='bedroom2Floor' value='3' />
+          <input
+            className='ml-2'
+            type='radio'
+            name='bedroom2Floor'
+            value='3'
+            onChange={e => {}}
+            checked={homeInfo.bedroom2Flooring === '3'}
+          />
           <label className='ml-2'>Wooden Flooring</label>
           <br />
-          <input className='ml-2' type='radio' name='bedroom2Floor' value='4' />
+          <input
+            className='ml-2'
+            type='radio'
+            name='bedroom2Floor'
+            value='4'
+            onChange={e => {}}
+            checked={homeInfo.bedroom2Flooring === '4'}
+          />
           <label className='ml-2'>PVC</label>
           <br />
-          <input className='ml-2' type='radio' name='bedroom2Floor' value='5' />
+          <input
+            className='ml-2'
+            type='radio'
+            name='bedroom2Floor'
+            value='5'
+            onChange={e => {}}
+            checked={homeInfo.bedroom2Flooring === '5'}
+          />
           <label className='ml-2'>Cement /IPS</label>
           <br />
-          <input className='ml-2' type='radio' name='bedroom2Floor' value='6' />
+          <input
+            className='ml-2'
+            type='radio'
+            name='bedroom2Floor'
+            value='6'
+            onChange={e => {}}
+            checked={homeInfo.bedroom2Flooring === '6'}
+          />
           <label className='ml-2'>Artificial Lawn</label>
           <br />
-          <input className='ml-2' type='radio' name='bedroom2Floor' value='7' />
+          <input
+            className='ml-2'
+            type='radio'
+            name='bedroom2Floor'
+            value='7'
+            onChange={e => {}}
+            checked={homeInfo.bedroom2Flooring === '7'}
+          />
           <label className='ml-2'>Fabric Carpet</label>
         </div>
       )}
@@ -1330,8 +1628,8 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
           />
           <label className='ml-2'>Fabric Carpet</label>
         </div>
-      )}
-      {questionCount === 25 && (
+      )} */}
+      {questionCount === 18 && (
         <div
           className='question '
           onChange={e =>
@@ -1360,7 +1658,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
           <label className='ml-2'>Bad</label>
         </div>
       )}
-      {questionCount === 26 && (
+      {questionCount === 19 && (
         <div className='question   '>
           <div className='flex mb-10 font-semibold text-xl text-sky-700'>
             <h1 className='mr-2 '>{questionCount}.</h1>
@@ -1653,7 +1951,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
           </FormControl>
         </div>
       )}
-      {questionCount === 27 && (
+      {questionCount === 20 && (
         <div
           className='question '
           onChange={e =>
@@ -1736,7 +2034,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
           <label className='ml-2'>North-East</label>
         </div>
       )}
-      {questionCount === 28 && (
+      {questionCount === 21 && (
         <div
           className='question '
           onChange={e =>
@@ -1817,7 +2115,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
           <label className='ml-2'>North-East</label>
         </div>
       )}
-      {questionCount === 29 && (
+      {questionCount === 22 && (
         <div
           className='question '
           onChange={e =>
@@ -1860,7 +2158,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
           <label className='ml-2'>North-East</label>
         </div>
       )}
-      {questionCount === 30 && (
+      {questionCount === 23 && (
         <div
           className='question '
           onChange={e =>
@@ -1943,7 +2241,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
           <label className='ml-2'>North-East</label>
         </div>
       )}
-      {questionCount === 31 && (
+      {questionCount === 24 && (
         <div
           className='question '
           onChange={e =>
@@ -2026,7 +2324,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
           <label className='ml-2'>North-East</label>
         </div>
       )}
-      {questionCount === 32 && (
+      {questionCount === 25 && (
         <div
           className='question '
           onChange={e =>
@@ -2109,7 +2407,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
           <label className='ml-2'>North-East</label>
         </div>
       )}
-      {questionCount === 33 && (
+      {questionCount === 26 && (
         <div
           className='question '
           onChange={e =>
@@ -2192,7 +2490,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
           <label className='ml-2'>North-East</label>
         </div>
       )}
-      {questionCount === 34 && (
+      {questionCount === 27 && (
         <div
           className='question '
           onChange={e =>
@@ -2275,7 +2573,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
           <label className='ml-2'>North-East</label>
         </div>
       )}
-      {questionCount === 35 && (
+      {questionCount === 28 && (
         <div
           className='question '
           onChange={e =>
@@ -2358,7 +2656,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
           <label className='ml-2'>North-East</label>
         </div>
       )}
-      {questionCount === 36 && (
+      {questionCount === 29 && (
         <div
           className='question '
           onChange={e =>
@@ -2388,7 +2686,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
           <label className='ml-2'>No</label>
         </div>
       )}
-      {questionCount === 37 && (
+      {questionCount === 30 && (
         <div
           className='question '
           onChange={e =>
@@ -2421,7 +2719,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
           <label className='ml-2'>No</label>
         </div>
       )}
-      {questionCount === 38 && (
+      {questionCount === 31 && (
         <div
           className='question '
           onChange={e =>
@@ -2456,7 +2754,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
           <label className='ml-2'>No</label>
         </div>
       )}
-      {questionCount === 39 && (
+      {questionCount === 32 && (
         <div
           className='question '
           onChange={e =>
@@ -2484,7 +2782,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
           <label className='ml-2'>No</label>
         </div>
       )}
-      {questionCount === 40 && (
+      {questionCount === 33 && (
         <div
           className='question '
           onChange={e =>
@@ -2519,7 +2817,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
           <label className='ml-2'>No</label>
         </div>
       )}
-      {questionCount === 41 && (
+      {questionCount === 34 && (
         <div className='question font-semibold text-xl text-sky-700  '>
           <div className='flex mb-10'>
             <h1 className='mr-2 '>{questionCount}.</h1>
@@ -2542,7 +2840,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
           />
         </div>
       )}
-      {questionCount === 42 && (
+      {questionCount === 35 && (
         <div className='question font-semibold text-xl text-sky-700  '>
           <div className='flex mb-10'>
             <h1 className='mr-2 '>{questionCount}.</h1>
@@ -2565,7 +2863,64 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
           />
         </div>
       )}
-      {questionCount === 43 && (
+      {questionCount === 36 && (
+        <div className='question   '>
+          <div className='flex mb-10 font-semibold text-xl text-sky-700'>
+            <h1 className='mr-2 '>{questionCount}.</h1>
+            <h4 className='font-semibold text-lg'>Fire Fighting System</h4>
+          </div>
+
+          <FormControl>
+            <FormGroup>
+              <FormControlLabel
+                label='Open'
+                control={
+                  <Checkbox
+                    value='1'
+                    onChange={e => {
+                      handleCheckboxChange(e, parkingtype, setparkingtype);
+                    }}
+                  />
+                }
+              />
+              <FormControlLabel
+                label='Covered'
+                control={
+                  <Checkbox
+                    value='2'
+                    onChange={e => {
+                      handleCheckboxChange(e, parkingtype, setparkingtype);
+                    }}
+                  />
+                }
+              />
+              <FormControlLabel
+                label='Automated'
+                control={
+                  <Checkbox
+                    value='3'
+                    onChange={e => {
+                      handleCheckboxChange(e, parkingtype, setparkingtype);
+                    }}
+                  />
+                }
+              />
+              <FormControlLabel
+                label='NA'
+                control={
+                  <Checkbox
+                    value='4'
+                    onChange={e => {
+                      handleCheckboxChange(e, parkingtype, setparkingtype);
+                    }}
+                  />
+                }
+              />
+            </FormGroup>
+          </FormControl>
+        </div>
+      )}
+      {/* {questionCount === 43 && (
         <div
           className='question '
           onChange={e =>
@@ -2582,16 +2937,19 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
           </div>
 
           <input type='radio' className='ml-2' name='parkingType' value='1' />
-          <label className='ml-2'>Open</label>
+          <label className='ml-2'></label>
           <br />
           <input className='ml-2' type='radio' name='parkingType' value='2' />
-          <label className='ml-2'>Covered</label>
+          <label className='ml-2'></label>
           <br />
           <input className='ml-2' type='radio' name='parkingType' value='3' />
-          <label className='ml-2'>Automated</label>
+          <label className='ml-2'></label>
+          <br />
+          <input className='ml-2' type='radio' name='parkingType' value='4' />
+          <label className='ml-2'></label>
         </div>
-      )}
-      {questionCount === 44 && (
+      )} */}
+      {questionCount === 37 && (
         <div
           className='question '
           onChange={e =>
@@ -2609,14 +2967,24 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
             </h4>
           </div>
 
-          <input type='radio' className='ml-2' name='parkingType' value='1' />
+          <input
+            type='radio'
+            className='ml-2'
+            name='parkingEasyToAccess'
+            value='1'
+          />
           <label className='ml-2'>Yes</label>
           <br />
-          <input className='ml-2' type='radio' name='parkingType' value='' />
+          <input
+            className='ml-2'
+            type='radio'
+            name='parkingEasyToAccess'
+            value=''
+          />
           <label className='ml-2'>No</label>
         </div>
       )}
-      {questionCount === 45 && (
+      {questionCount === 38 && (
         <div
           className='question '
           onChange={e =>
@@ -2634,14 +3002,19 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
             </h4>
           </div>
 
-          <input type='radio' className='ml-2' name='parkingType' value='1' />
+          <input
+            type='radio'
+            className='ml-2'
+            name='highNoiseLevel'
+            value='1'
+          />
           <label className='ml-2'>Yes</label>
           <br />
-          <input className='ml-2' type='radio' name='parkingType' value='' />
+          <input className='ml-2' type='radio' name='highNoiseLevel' value='' />
           <label className='ml-2'>No</label>
         </div>
       )}
-      {questionCount === 46 && (
+      {questionCount === 39 && (
         <div
           className='question '
           onChange={e =>
@@ -2665,7 +3038,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
             name='peopleprofessionType'
             value='1'
           />
-          <label className='ml-2'>Business</label>
+          <label className='ml-2'>Working</label>
           <br />
           <input
             className='ml-2'
@@ -2673,113 +3046,10 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
             name='peopleprofessionType'
             value='2'
           />
-          <label className='ml-2'>Banker</label>
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='peopleprofessionType'
-            value='3'
-          />
-          <label className='ml-2'>IT Engineer</label>
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='peopleprofessionType'
-            value='4'
-          />
-          <label className='ml-2'>Other Engineer</label>
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='peopleprofessionType'
-            value='5'
-          />
-          <label className='ml-2'>Doctor</label>
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='peopleprofessionType'
-            value='6'
-          />
-          <label className='ml-2'>CA/CS</label>
-
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='peopleprofessionType'
-            value='7'
-          />
-          <label className='ml-2'>Teacher</label>
-
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='peopleprofessionType'
-            value='8'
-          />
-          <label className='ml-2'>Entertainment</label>
-
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='peopleprofessionType'
-            value='9'
-          />
-          <label className='ml-2'>Scientist</label>
-
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='peopleprofessionType'
-            value='10'
-          />
-          <label className='ml-2'>Lawyer</label>
-
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='peopleprofessionType'
-            value='11'
-          />
-          <label className='ml-2'>Athelete</label>
-
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='peopleprofessionType'
-            value='12'
-          />
-          <label className='ml-2'>Chef</label>
-
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='peopleprofessionType'
-            value='13'
-          />
-          <label className='ml-2'>Aviation</label>
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='peopleprofessionType'
-            value='14'
-          />
-          <label className='ml-2'>Not Working</label>
+          <label className='ml-2'>Self Employed</label>
         </div>
       )}
-            {questionCount === 47 && (
+      {questionCount === 40 && (
         <div
           className='question '
           onChange={e =>
@@ -2793,7 +3063,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
           <div className='flex mb-10  font-semibold text-xl text-sky-700 '>
             <h1 className='mr-2 '>{questionCount}.</h1>
             <h4 className='font-semibold text-lg'>
-            Are there frequent activities held for elderly people?
+              Are there frequent activities held for elderly people?
             </h4>
           </div>
 
@@ -2814,7 +3084,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
           <label className='ml-2'>No</label>
         </div>
       )}
-            {questionCount === 48 && (
+      {questionCount === 41 && (
         <div
           className='question '
           onChange={e =>
@@ -2828,7 +3098,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
           <div className='flex mb-10  font-semibold text-xl text-sky-700 '>
             <h1 className='mr-2 '>{questionCount}.</h1>
             <h4 className='font-semibold text-lg'>
-            Are there frequent activities held for small children?
+              Are there frequent activities held for small children?
             </h4>
           </div>
 

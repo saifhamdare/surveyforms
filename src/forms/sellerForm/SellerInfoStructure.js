@@ -59,12 +59,16 @@ const SellerInfoStructure = () => {
     SellerStory: "",
     SellerRentedDuration: "",
     SellerPurschaseDuration: "",
+    familyInfo:'',
+    ExperienceWithHome: '',
+    PositiveStory: '',
+    AdviceToBuyer: '',
   });
 
   const Questions = [
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
     22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
-    41, 42, 43, 44, 45, 46, 47, 48, 
+    41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51 , 52,
   ];
   const Title = [
     "About seller",
@@ -87,10 +91,10 @@ const SellerInfoStructure = () => {
     });
   const onSubmit = (e) => {
     e.preventDefault();
-    if (0 === 1) {
-      var msg = "fill complete form";
-      failedNotify(msg);
-    }
+    // if (0 === 1) {
+    //   var msg = "fill complete form";
+    //   failedNotify(msg);
+    // }
     const body = {
       husband_name: knowYourSellerInfo.HusbandName,
       wife_name: knowYourSellerInfo.WifeName,
@@ -114,7 +118,7 @@ const SellerInfoStructure = () => {
       wife_college: knowYourSellerInfo.WifeCollegeName,
       children_school: knowYourSellerInfo.InfoChildrenInstituteName,
       family_belongs_to_college: knowYourSellerInfo.TopUniversity,
-      family_belongs_to_institute: knowYourSellerInfo.TopInstitute,
+      family_belongs_to_institute: +knowYourSellerInfo.TopInstitute,
       husband_profession: knowYourSellerInfo.HusbandProfessionType,
       husband_organization: knowYourSellerInfo.HusbandOrganization,
       wife_profession: knowYourSellerInfo.WifeProfessionType,
@@ -140,6 +144,10 @@ const SellerInfoStructure = () => {
       seller_story: knowYourSellerInfo.SellerStory,
       rent_living_duration: knowYourSellerInfo.SellerRentedDuration,
       purchase_living_duration: knowYourSellerInfo.SellerPurschaseDuration,
+      family_info: knowYourSellerInfo.familyInfo,
+      experience_with_home: knowYourSellerInfo.ExperienceWithHome,
+      positive_story: knowYourSellerInfo.PositiveStory,
+      advice_to_buyer: knowYourSellerInfo.AdviceToBuyer,
     };
 
     const data = {
@@ -154,12 +162,17 @@ const SellerInfoStructure = () => {
       .then((res) => {
         successNotify();
         navigate("/form-list", { replace: true });
-        // const status = { status: "P" };
-        // axios.patch(`api/tasks/${localStorage.getItem("task_id")}/`, status, {
-        //   headers: data,
-        // });
-      });
-    // .catch((err) => failedNotify());
+        const status = { status: "C" };
+        axios.patch(`api/tasks/${localStorage.getItem("task_id")}/`, status, {
+          headers: data,
+        });
+      })
+    .catch((err) => 
+    
+    { var msg = "Form uploading Failed";
+    failedNotify(msg);
+    
+    });
   };
   return (
     <div className="">
@@ -207,7 +220,7 @@ const SellerInfoStructure = () => {
             >
               previous
             </button>
-            {questionCount == 48 ? (
+            {questionCount == 52 ? (
               <button
                 className="border-2 border-sky-600 bg-sky-700 px-5 py-2 rounded-lg text-white font-medium"
                 onClick={onSubmit}

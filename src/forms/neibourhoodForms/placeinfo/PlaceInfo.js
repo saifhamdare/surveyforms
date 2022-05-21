@@ -181,7 +181,8 @@ const PlaceInfo = ({questionCount,placeInfo,setPlaceInfo}) => {
             name='surrounding'
             id='Good'
             value='1'
-            checked={placeInfo.surroundingArea === 1}
+            onChange={e => {}}
+            checked={placeInfo.surroundingArea === '1'}
           />
           <label className='ml-2'>Good</label>
           <br />
@@ -191,7 +192,8 @@ const PlaceInfo = ({questionCount,placeInfo,setPlaceInfo}) => {
             name='surrounding'
             id='Okay'
             value='2'
-            checked={placeInfo.surroundingArea === 2}
+            onChange={e => {}}
+            checked={placeInfo.surroundingArea === '2'}
           />
           <label className='ml-2'>Okay</label>
           <br />
@@ -201,7 +203,8 @@ const PlaceInfo = ({questionCount,placeInfo,setPlaceInfo}) => {
             name='surrounding'
             id='Bad'
             value='3'
-            checked={placeInfo.surroundingArea === 3}
+            onChange={e => {}}
+            checked={placeInfo.surroundingArea === '3'}
           />
           <label className='ml-2'>Bad</label>
           <br />
@@ -453,6 +456,7 @@ const PlaceInfo = ({questionCount,placeInfo,setPlaceInfo}) => {
             id='Yes'
             value='true'
             
+onChange={e => {}}
             checked={placeInfo.commercialEstablishments === true}
           />
           <label className='ml-2'>Yes</label>
@@ -463,6 +467,7 @@ const PlaceInfo = ({questionCount,placeInfo,setPlaceInfo}) => {
             name='commercial'
             id='No'
             value=''
+            onChange={e => {}}
             checked={placeInfo.commercialEstablishments === false}
           />
           <label className='ml-2'>No</label>
@@ -495,7 +500,7 @@ const PlaceInfo = ({questionCount,placeInfo,setPlaceInfo}) => {
             name='cleanliness'
             id='Clean'
             value='1'
-            checked={placeInfo.vicinity === 1}
+            checked={placeInfo.vicinity === '1'}
           />
           <label className='ml-2'>Clean</label>
           <br />
@@ -505,7 +510,7 @@ const PlaceInfo = ({questionCount,placeInfo,setPlaceInfo}) => {
             name='cleanliness'
             id='Slums & Stalls'
             value='2'
-            checked={placeInfo.vicinity === 2}
+            checked={placeInfo.vicinity === '2'}
           />
           <label className='ml-2'>Slums & Stalls</label>
           <br />
@@ -515,7 +520,7 @@ const PlaceInfo = ({questionCount,placeInfo,setPlaceInfo}) => {
             name='cleanliness'
             id='Trees & Greenery'
             value='3'
-            checked={placeInfo.vicinity === 3}
+            checked={placeInfo.vicinity === '3'}
           />
           <label className='ml-2'>Trees & Greenery</label>
           <br />
@@ -525,7 +530,7 @@ const PlaceInfo = ({questionCount,placeInfo,setPlaceInfo}) => {
             name='cleanliness'
             id='Garbage & Dirt'
             value='4'
-            checked={placeInfo.vicinity === 4}
+            checked={placeInfo.vicinity === '4'}
           />
           <label className='ml-2'>Garbage & Dirt</label>
           <br />
@@ -602,7 +607,8 @@ const PlaceInfo = ({questionCount,placeInfo,setPlaceInfo}) => {
             name='maintained'
             id='Good'
             value='1'
-            checked={placeInfo.maintained === 1}
+            onChange={e => {}}
+            checked={placeInfo.maintained === '1'}
           />
           <label className='ml-2'>Good</label>
           <br />
@@ -612,7 +618,8 @@ const PlaceInfo = ({questionCount,placeInfo,setPlaceInfo}) => {
             name='maintained'
             id='Ok'
             value='2'
-            checked={placeInfo.maintained === 2}
+            onChange={e => {}}
+            checked={placeInfo.maintained === '2'}
           />
           <label className='ml-2'>Ok</label>
           <br />
@@ -622,7 +629,8 @@ const PlaceInfo = ({questionCount,placeInfo,setPlaceInfo}) => {
             name='maintained'
             id='Bad'
             value='3'
-            checked={placeInfo.maintained === 3}
+            onChange={e => {}}
+            checked={placeInfo.maintained === '3'}
           />
           <label className='ml-2'>Bad</label>
           <br />
@@ -652,7 +660,7 @@ const PlaceInfo = ({questionCount,placeInfo,setPlaceInfo}) => {
             name='anyrepair'
             id='Yes'
             value='1'
-            checked={placeInfo.anyRepair === 1}
+            checked={placeInfo.anyRepair === '1'}
           />
           <label className='ml-2'>Yes</label>
           <br />
@@ -662,7 +670,7 @@ const PlaceInfo = ({questionCount,placeInfo,setPlaceInfo}) => {
             name='anyrepair'
             id='No'
             value='2'
-            checked={placeInfo.anyRepair === 2}
+            checked={placeInfo.anyRepair === '2'}
           />
           <label className='ml-2'>No</label>
 
@@ -699,7 +707,8 @@ const PlaceInfo = ({questionCount,placeInfo,setPlaceInfo}) => {
             name='quality'
             id='Good'
             value='1'
-            checked={placeInfo.structureQuality === 1}
+            onChange={e => {}}
+            checked={placeInfo.structureQuality === '1'}
           />
           <label className='ml-2'>Good</label>
           <br />
@@ -709,7 +718,8 @@ const PlaceInfo = ({questionCount,placeInfo,setPlaceInfo}) => {
             name='quality'
             id='Okay'
             value='2'
-            checked={placeInfo.structureQuality === 2}
+            onChange={e => {}}
+            checked={placeInfo.structureQuality === '2'}
           />
           <label className='ml-2'>Okay</label>
           <br />
@@ -719,7 +729,8 @@ const PlaceInfo = ({questionCount,placeInfo,setPlaceInfo}) => {
             name='quality'
             id='bad'
             value='3'
-            checked={placeInfo.structureQuality === 3}
+            onChange={e => {}}
+            checked={placeInfo.structureQuality === '3'}
           />
           <label className='ml-2'>bad</label>
           <br />
