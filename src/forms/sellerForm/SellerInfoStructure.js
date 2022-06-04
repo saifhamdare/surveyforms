@@ -1,65 +1,71 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import axios from "axios";
-import { ToastContainer, toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
-import SellerInfo from "./SellerInfo";
+import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
+import SellerInfo from './SellerInfo';
+import {  ActionButtons } from '../../components';
 
 const SellerInfoStructure = () => {
   const navigate = useNavigate();
+
+  const [check, setCheck] = useState(false);
   const [questionCount, setQuestionCount] = useState(1);
+  const [loading, setLoading] = useState(false);
+  const [isMobileNoValid, setIsMobileNoValid] = useState(1);
+  const [isEmailValid, setIsEmailValid] = useState(1);
   const [knowYourSellerInfo, setKnowYourSellerInfo] = useState({
-    HusbandName: "",
-    WifeName: "",
-    ContactNoPrimary: "",
-    ContactNoSecondary: "",
-    Email: "",
-    SocietyName: "",
-    GeoLocation: "",
-    SellerNativePlace: "",
-    TotalFamilyMembers: "",
-    SelectFamilyMember: [],
-    HusbandAge: "",
-    WifeAge: "",
-    FamilyMemberSpecialNeeds: [],
-    PetFriendlyHome: "",
-    PetFriendlySociety: "",
-    Handymen: "",
-    HusbandQualification: "",
-    HusbandStream: "",
-    HusbandCollegeName: "",
-    WifeQualification: "",
-    WifeStream: "",
-    WifeCollegeName: "",
-    InfoChildrenInstituteName: "",
-    TopUniversity: "",
-    TopInstitute: "",
-    HusbandProfessionType: "",
-    HusbandOrganization: "",
-    WifeProfessionType: "",
-    WifeOrganization: "",
-    HusbandLinkedInProfile: "",
-    WifeLinkedInProfile: "",
-    TravelBy: "",
-    HusbandSocialStatus: "",
-    HusbandSocialCircle: "",
-    HusbandInterest: [],
-    WifeSocialStatus: "",
-    WifeSocialCircle: "",
-    WifeInterest: [],
-    Languages: [],
-    Cuisine: "",
-    NeighbourHouse: "",
-    NeighbourFamilyConfig: [],
-    NeighbourprofessionType: "",
-    NeighbourNature: "",
-    Intent: "",
+    HusbandName: '',
+    WifeName: '',
+    ContactNoPrimary: '',
+    ContactNoSecondary: '',
+    Email: '',
+    SocietyName: '',
+    GeoLocation: '',
+    SellerNativePlace: '',
+    TotalFamilyMembers: '',
+    SelectFamilyMember: '',
+    HusbandAge: '',
+    WifeAge: '',
+    FamilyMemberSpecialNeeds: '',
+    PetFriendlyHome: '',
+    PetFriendlySociety: '',
+    Handymen: '',
+    HusbandQualification: '',
+    HusbandStream: '',
+    HusbandCollegeName: '',
+    WifeQualification: '',
+    WifeStream: '',
+    WifeCollegeName: '',
+    InfoChildrenInstituteName: '',
+    TopUniversity: '',
+    TopInstitute: '',
+    HusbandProfessionType: '',
+    HusbandOrganization: '',
+    WifeProfessionType: '',
+    WifeOrganization: '',
+    HusbandLinkedInProfile: '',
+    WifeLinkedInProfile: '',
+    TravelBy: '',
+    HusbandSocialStatus: '',
+    HusbandSocialCircle: '',
+    HusbandInterest: '',
+    WifeSocialStatus: '',
+    WifeSocialCircle: '',
+    WifeInterest: '',
+    Languages: '',
+    Cuisine: '',
+    NeighbourHouse: '',
+    NeighbourFamilyConfig: '',
+    NeighbourprofessionType: '',
+    NeighbourNature: '',
+    Intent: '',
     // Sellerphoto: "",
     // SellerFamilyphoto: "",
-    SellerStory: "",
-    SellerRentedDuration: "",
-    SellerPurschaseDuration: "",
-    familyInfo:'',
+    SellerStory: '',
+    SellerRentedDuration: '',
+    SellerPurschaseDuration: '',
+    familyInfo: '',
     ExperienceWithHome: '',
     PositiveStory: '',
     AdviceToBuyer: '',
@@ -68,30 +74,35 @@ const SellerInfoStructure = () => {
   const Questions = [
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
     22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
-    41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51 , 52,
+    41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52,
+  ];
+  const mandatory = [
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
+    22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
+    41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52,
   ];
   const Title = [
-    "About seller",
-    "Family Details",
-    "Education",
-    "Profession",
-    "Likes & Interest",
-    "Neighbour",
-    "Intent of Selling",
-    "Seller Story",
+    'About seller',
+    'Family Details',
+    'Education',
+    'Profession',
+    'Likes & Interest',
+    'Neighbour',
+    'Intent of Selling',
+    'Seller Story',
   ];
 
   const successNotify = () =>
-    toast.success("form filled Successfully", {
-      position: "bottom-center",
+    toast.success('form filled Successfully', {
+      position: 'bottom-center',
     });
-  const failedNotify = (msg) =>
+  const failedNotify = msg =>
     toast.error(`${msg}`, {
-      position: "bottom-center",
+      position: 'bottom-center',
     });
-  const onSubmit = (e) => {
+  const onSubmit = e => {
     e.preventDefault();
-
+    setLoading(true);
     const body = {
       husband_name: knowYourSellerInfo.HusbandName,
       wife_name: knowYourSellerInfo.WifeName,
@@ -148,38 +159,50 @@ const SellerInfoStructure = () => {
     };
 
     const data = {
-      Accept: "application/json",
-      "Content-type": "application/json",
-      Authorization: `Bearer ${localStorage.getItem("token")}`,
+      Accept: 'application/json',
+      'Content-type': 'application/json',
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
     };
     axios
-      .put(`api/tasks/${localStorage.getItem("task_id")}/seller-info/`, body, {
+      .put(`api/tasks/${localStorage.getItem('task_id')}/seller-info/`, body, {
         headers: data,
       })
-      .then((res) => {
+      .then(res => {
         successNotify();
-        navigate("/form-list", { replace: true });
-        const status = { status: "C" };
-        axios.patch(`api/tasks/${localStorage.getItem("task_id")}/`, status, {
+        navigate('/todays-task', { replace: true });
+        const status = { status: 'C' };
+        axios.patch(`api/tasks/${localStorage.getItem('task_id')}/`, status, {
           headers: data,
         });
       })
-    .catch((err) => 
-    
-    { var msg = "Form uploading Failed";
-    failedNotify(msg);
-    
-    });
+      .catch(err => {
+        var msg = 'Form uploading Failed';
+        failedNotify(msg);
+        setLoading(false);
+      });
   };
+
+  let keysArr = Object.keys(knowYourSellerInfo);
+
+  console.log(
+    keysArr,
+    'keysArr >>>>',
+    questionCount,
+    'ques',
+    knowYourSellerInfo[keysArr[questionCount - 1]],
+  );
+
+
+
   return (
-    <div className="">
+    <div className=''>
       <ToastContainer autoClose={1500} />
-      <div className="p-3 text-center mt-10 bg-slate-100">
-        <h2 className="text-sky-600 text-2xl font-bold">Know Your Seller</h2>
-        <div className="text-left ">
-          <div className="flex px-5 mt-10 justify-between">
-            <div className="text-lg font-bold text-sky-500  ">
-              {" "}
+      <div className='p-3 text-center mt-10 bg-slate-100'>
+        <h2 className='text-sky-600 text-2xl font-bold'>Know Your Seller</h2>
+        <div className='text-left '>
+          <div className='flex px-5 mt-10 justify-between'>
+            <div className='text-lg font-bold text-sky-500  '>
+              {' '}
               {questionCount <= 8
                 ? Title[0]
                 : questionCount <= 16
@@ -194,48 +217,34 @@ const SellerInfoStructure = () => {
                 ? Title[5]
                 : Title[6]}
             </div>
-            <div className="font-normal  ">
+            <div className='font-normal  '>
               Total Questions: {Questions.length}
             </div>
           </div>
-          <div className="form-container border-4 border-solid shadow-2xl shadow-indigo-500/40 rounded-2xl border-zinc-400   py-10 px-5 ">
-            <div className="main-body  ">
+          <div className='form-container border-4 border-solid shadow-2xl shadow-indigo-500/40 rounded-2xl border-zinc-400   py-10 px-5 '>
+            <div className='main-body  '>
               <SellerInfo
                 questionCount={questionCount}
                 knowYourSellerInfo={knowYourSellerInfo}
                 setKnowYourSellerInfo={setKnowYourSellerInfo}
+                check={check}
+                isMobileNoValid={isMobileNoValid}
+                setIsMobileNoValid={setIsMobileNoValid}
+                isEmailValid={isEmailValid}
+                setIsEmailValid={setIsEmailValid}
               />
             </div>
           </div>
-          <div className="footer text-center m-5 mt-10 flex justify-around">
-            <button
-              className="border-2 border-sky-700 px-3 py-1 rounded-lg text-sky-700 font-medium"
-              disabled={questionCount == 1}
-              onClick={() => {
-                setQuestionCount((currentPage) => currentPage - 1);
-              }}
-            >
-              previous
-            </button>
-            {questionCount == 52 ? (
-              <button
-                className="border-2 border-sky-600 bg-sky-700 px-5 py-2 rounded-lg text-white font-medium"
-                onClick={onSubmit}
-              >
-                finish
-              </button>
-            ) : (
-              <button
-                className="border-2 border-sky-600 bg-sky-700 px-5 py-2 rounded-lg text-white font-medium"
-                disabled={questionCount == Questions.length}
-                onClick={() => {
-                  setQuestionCount((currentPage) => currentPage + 1);
-                }}
-              >
-                Next
-              </button>
-            )}
-          </div>
+          <ActionButtons
+            setCheck={setCheck}
+            setQuestionCount={setQuestionCount}
+            onSubmit={onSubmit}
+            mandatory={mandatory}
+            questionCount={questionCount}
+            loading={loading}
+            objName={knowYourSellerInfo}
+            finishNo={52}
+          />
         </div>
       </div>
     </div>

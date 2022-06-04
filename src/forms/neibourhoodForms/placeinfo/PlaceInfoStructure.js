@@ -3,9 +3,11 @@ import PlaceInfo from "./PlaceInfo";
 import { ToastContainer, toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { ActionButtons } from "../../../components";
 const PlaceInfoStructure = () => {
   const [questionCount, setQuestionCount] = useState(1);
-  // const [isVendorQuestion, setIsVendorQuestion] = useState(false);
+  const [check, setCheck] = useState(false);
+  const [loading,setLoading]=useState(false);
   const [placeInfo, setPlaceInfo] = useState({
     geoCode: "",
     cookslivingNearby: "",
@@ -13,8 +15,8 @@ const PlaceInfoStructure = () => {
     highwayFromSociety: "",
     localMarketName: "",
     localMarketDistance: "",
-    groceryStoresName: [],
-    vegetablesStoresName: [],
+    groceryStoresName: '',
+    vegetablesStoresName: '',
     commercialEstablishments: "",
     vicinity: "",
     accessForVehicles: "",
@@ -34,11 +36,10 @@ const PlaceInfoStructure = () => {
   const navigate = useNavigate();
 
   const Questions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+  const mandatory = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
   const onSubmit = (e) => {
     e.preventDefault();
-
-
-    console.log(placeInfo)
+    setLoading(true)
     const body = {
       geo_location: placeInfo.geoCode,
       number_of_maids: +placeInfo.cookslivingNearby,
@@ -78,9 +79,12 @@ const PlaceInfoStructure = () => {
       })
       .catch((err) => {
         failedNotify();
+        setLoading(false)
       });
   };
-
+  let keysArr = Object.keys(placeInfo);
+ 
+  console.log(keysArr, "keysArr >>>>",questionCount,"ques",placeInfo[keysArr[questionCount-1]]);
   return (
     <div>
       <ToastContainer autoClose={1500} />
@@ -97,39 +101,20 @@ const PlaceInfoStructure = () => {
                 questionCount={questionCount}
                 placeInfo={placeInfo}
                 setPlaceInfo={setPlaceInfo}
-                // isVendorQuestion={isVendorQuestion}
+                check={check}
               />
             </div>
           </div>
-          <div className="footer text-center m-5 mt-10 flex justify-around">
-          <button
-              className="border-2 border-sky-700 px-3 py-1 rounded-lg text-sky-700 font-medium"
-              disabled={questionCount == 1}
-              onClick={() => {
-                setQuestionCount((currentPage) => currentPage - 1);
-              }}
-            >
-              previous
-            </button>
-            {questionCount == 15 ? (
-              <button
-                className="border-2 border-sky-600 bg-sky-700 px-5 py-2 rounded-lg text-white font-medium"
-                onClick={onSubmit}
-              >
-                finish
-              </button>
-            ) : (
-              <button
-                className="border-2 border-sky-600 bg-sky-700 px-5 py-2 rounded-lg text-white font-medium"
-                disabled={questionCount == Questions.length}
-                onClick={() => {
-                  setQuestionCount((currentPage) => currentPage + 1);
-                }}
-              >
-                Next
-              </button>
-            )}
-          </div>
+          <ActionButtons
+            setCheck={setCheck}
+            setQuestionCount={setQuestionCount}
+            onSubmit={onSubmit}
+            mandatory={mandatory}
+            questionCount={questionCount}
+            loading={loading}
+            objName={placeInfo}
+            finishNo={15}
+          />
         </div>
       </div>
     </div>

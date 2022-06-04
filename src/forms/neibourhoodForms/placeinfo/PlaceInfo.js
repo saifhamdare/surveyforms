@@ -2,7 +2,7 @@ import { Button,Input,Table,TableBody,TableCell,TableContainer,Paper, TableHead,
 import React, { useEffect, useState } from 'react';
 import 'react-toastify/dist/ReactToastify.css';
 import { v4 as getRandomID } from 'uuid';
-const PlaceInfo = ({questionCount,placeInfo,setPlaceInfo}) => {
+const PlaceInfo = ({questionCount,placeInfo,setPlaceInfo,check}) => {
  
 
   // vendor state
@@ -137,7 +137,7 @@ const PlaceInfo = ({questionCount,placeInfo,setPlaceInfo}) => {
 
           <p className='italic font-light text-sm'>Please enter in numbers.</p>
           <Input
-            placeholder='no.'
+            placeholder='5'
             type='number'
             value={placeInfo.cookslivingNearby}
             onChange={e =>
@@ -756,6 +756,7 @@ onChange={e => {}}
           />
         </div>
       )}
+         { check && <p className='text-red-500'>Required Question </p>}
     </div>
   );
 };

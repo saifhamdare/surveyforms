@@ -2,18 +2,27 @@ import { Input } from '@mui/material';
 
 import React, { useState } from 'react';
 import 'react-toastify/dist/ReactToastify.css';
+import { checkForMobileNumber } from '../../../utils/helpers';
+
 const Neighbourhood = ({
   neighbourhoodInfo,
   questionCount,
   setNeighbourhoodInfo,
+  check,
+  isMobileNoValid,
+  setIsMobileNoValid,
+  isEmailValid,
+  setIsEmailValid,
 }) => {
   return (
     <div className=''>
-      {questionCount == 1 && (
+      {questionCount === 1 && (
         <div className='question font-semibold text-xl text-sky-700 '>
           <div className='flex mb-10'>
             <h1 className='mr-2 '>{questionCount}.</h1>
-            <h4 className='font-semibold text-lg'>Party Name  (Jiss See Information Collect Kari Hein) </h4>
+            <h4 className='font-semibold text-lg'>
+              Party Name (Jiss See Information Collect Kari Hein){' '}
+            </h4>
           </div>
           <Input
             placeholder='John Doe'
@@ -29,7 +38,7 @@ const Neighbourhood = ({
           />
         </div>
       )}
-      {questionCount == 2 && (
+      {questionCount === 2 && (
         <div className='question font-semibold text-xl text-sky-700 '>
           <div className='flex mb-10'>
             <h1 className='mr-2 '>{questionCount}.</h1>
@@ -40,18 +49,24 @@ const Neighbourhood = ({
             placeholder='9876543211'
             value={neighbourhoodInfo.mobileNo}
             onChange={e =>
-              setNeighbourhoodInfo({
-                ...neighbourhoodInfo,
-                mobileNo: e.target.value,
-              })
+              checkForMobileNumber(
+                e,
+                setNeighbourhoodInfo,
+                neighbourhoodInfo,
+                'mobileNo',
+                setIsMobileNoValid,
+              )
             }
             required
             fullWidth
             type='number'
           />
+          {(neighbourhoodInfo.mobileNo.length > 0 && isMobileNoValid) ? (
+            <small className='text-red-500'>Enter Valid Mobile No.</small>
+          ): null}
         </div>
       )}
-      {questionCount == 3 && (
+      {questionCount === 3 && (
         <div
           className='question bg-white  '
           value={neighbourhoodInfo.gender}
@@ -98,7 +113,7 @@ const Neighbourhood = ({
           <label className='ml-2'>Other</label>
         </div>
       )}
-      {questionCount == 4 && (
+      {questionCount === 4 && (
         <div
           className='question bg-white  '
           value={neighbourhoodInfo.profession}
@@ -262,7 +277,7 @@ const Neighbourhood = ({
           />*/}
         </div>
       )}
-      {questionCount == 5 && (
+      {questionCount === 5 && (
         <div
           className=''
           value={neighbourhoodInfo.redevelopment}
@@ -277,9 +292,7 @@ const Neighbourhood = ({
           <div className='flex mb-10 font-semibold text-xl text-sky-700'>
             <h1 className='mr-2 '>{questionCount}.</h1>
             <h4 className=''>
-              
               Have you heard, this society is going for redevelopment?
-              
             </h4>
           </div>
           <input
@@ -314,7 +327,7 @@ const Neighbourhood = ({
           <br />
         </div>
       )}
-      {questionCount == 6 && (
+      {questionCount === 6 && (
         <div
           className=''
           value={neighbourhoodInfo.reputation}
@@ -365,7 +378,7 @@ const Neighbourhood = ({
           <br />
         </div>
       )}
-      {questionCount == 7 && (
+      {questionCount === 7 && (
         <div
           className=''
           value={neighbourhoodInfo.complaint}
@@ -380,7 +393,7 @@ const Neighbourhood = ({
           <div className='flex mb-10 font-semibold text-xl text-sky-700'>
             <h1 className='mr-2 '>{questionCount}.</h1>
             <h4 className=''>
-            Koi Complaints society ke members ke baare mein suni hai?
+              Koi Complaints society ke members ke baare mein suni hai?
             </h4>
           </div>
           <p className='italic font-light text-sm'>
@@ -413,7 +426,7 @@ const Neighbourhood = ({
           />
         </div>
       )}
-      {questionCount == 8 && (
+      {questionCount === 8 && (
         <div
           className=''
           value={neighbourhoodInfo.peopleInSociety}
@@ -427,7 +440,9 @@ const Neighbourhood = ({
         >
           <div className='flex mb-10 font-semibold text-xl text-sky-700'>
             <h1 className='mr-2 '>{questionCount}.</h1>
-            <h4 className=''>Society ke members ka nature kiis type kaa hai ?</h4>
+            <h4 className=''>
+              Society ke members ka nature kiis type kaa hai ?
+            </h4>
           </div>
           <input
             className='ml-2'
@@ -461,7 +476,7 @@ const Neighbourhood = ({
           <br />
         </div>
       )}
-      {questionCount == 9 && (
+      {questionCount === 9 && (
         <div
           className=''
           value={neighbourhoodInfo.societyManagement}
@@ -476,7 +491,8 @@ const Neighbourhood = ({
           <div className='flex mb-10 font-semibold text-xl text-sky-700'>
             <h1 className='mr-2 '>{questionCount}.</h1>
             <h4 className=''>
-            Society management (secertary, chairman, etc.) friendly nature ke hai? 
+              Society management (secertary, chairman, etc.) friendly nature ke
+              hai?
             </h4>
           </div>
           <input
@@ -511,7 +527,7 @@ const Neighbourhood = ({
           <br />
         </div>
       )}
-      {questionCount == 10 && (
+      {questionCount === 10 && (
         <div
           className=''
           value={neighbourhoodInfo.deliveryServices}
@@ -526,7 +542,7 @@ const Neighbourhood = ({
           <div className='flex mb-10 font-semibold text-xl text-sky-700'>
             <h1 className='mr-2 '>{questionCount}.</h1>
             <h4 className=''>
-            Aap kuch iss building mein deliver / bechte hai ?
+              Aap kuch iss building mein deliver / bechte hai ?
             </h4>
           </div>
           <input
@@ -561,7 +577,7 @@ const Neighbourhood = ({
           <br />
         </div>
       )}
-      {questionCount == 11 && (
+      {questionCount === 11 && (
         <div
           className=''
           value={neighbourhoodInfo.deliveringEssential}
@@ -576,7 +592,7 @@ const Neighbourhood = ({
           <div className='flex mb-10 font-semibold text-xl text-sky-700'>
             <h1 className='mr-2 '>{questionCount}.</h1>
             <h4 className=''>
-            Daily items iss building mein easily mil jaati hai?
+              Daily items iss building mein easily mil jaati hai?
             </h4>
           </div>
           <p className='italic font-light text-sm'>
@@ -605,7 +621,7 @@ const Neighbourhood = ({
           <br />
         </div>
       )}
-      {questionCount == 12 && (
+      {questionCount === 12 && (
         <div
           className=''
           value={neighbourhoodInfo.socialEvents}
@@ -620,7 +636,8 @@ const Neighbourhood = ({
           <div className='flex mb-10 font-semibold text-xl text-sky-700'>
             <h1 className='mr-2 '>{questionCount}.</h1>
             <h4 className=''>
-            Aapne society mein functions / parties hote huein dekhe hai (ganpati, new year, holi, etc...)kya ?
+              Aapne society mein functions / parties hote huein dekhe hai
+              (ganpati, new year, holi, etc...)kya ?
             </h4>
           </div>
           <input
@@ -655,7 +672,7 @@ const Neighbourhood = ({
           <br />
         </div>
       )}
-      {questionCount == 13 && (
+      {questionCount === 13 && (
         <div
           className=''
           value={neighbourhoodInfo.children}
@@ -669,9 +686,7 @@ const Neighbourhood = ({
         >
           <div className='flex mb-10 font-semibold text-xl text-sky-700'>
             <h1 className='mr-2 '>{questionCount}.</h1>
-            <h4 className=''>
-            Kis age ke bacche yahaan par sabse jyada hai?
-            </h4>
+            <h4 className=''>Kis age ke bacche yahaan par sabse jyada hai?</h4>
           </div>
           <input
             type='radio'
@@ -705,7 +720,7 @@ const Neighbourhood = ({
           <br />
         </div>
       )}
-      {questionCount == 14 && (
+      {questionCount === 14 && (
         <div
           className=''
           value={neighbourhoodInfo.older}
@@ -719,7 +734,9 @@ const Neighbourhood = ({
         >
           <div className='flex mb-10 font-semibold text-xl text-sky-700'>
             <h1 className='mr-2 '>{questionCount}.</h1>
-            <h4 className=''>Kis type ke Older people iss building mein rehte hai ? </h4>
+            <h4 className=''>
+              Kis type ke Older people iss building mein rehte hai ?{' '}
+            </h4>
           </div>
           <h4 className='font-semibold text-lg'></h4>
           <input
@@ -754,7 +771,7 @@ const Neighbourhood = ({
           <br />
         </div>
       )}
-      {questionCount == 15 && (
+      {questionCount === 15 && (
         <div
           className=''
           value={neighbourhoodInfo.electricityBreakDown}
@@ -768,9 +785,7 @@ const Neighbourhood = ({
         >
           <div className='flex mb-10 font-semibold text-xl text-sky-700'>
             <h1 className='mr-2 '>{questionCount}.</h1>
-            <h4 className=''>
-            Electricity iss  area mein jaati rehti hai kya? 
-            </h4>
+            <h4 className=''>Electricity iss area mein jaati rehti hai kya?</h4>
           </div>
           <input
             className='ml-2'
@@ -778,7 +793,7 @@ const Neighbourhood = ({
             name='electricitybreakdown'
             id='Yes'
             value='1'
-            checked={neighbourhoodInfo.electricityBreakDown === "1"}
+            checked={neighbourhoodInfo.electricityBreakDown === '1'}
           />
           <label className='ml-2'>Yes</label>
           <br />
@@ -788,7 +803,7 @@ const Neighbourhood = ({
             name='electricitybreakdown'
             id='No'
             value='2'
-            checked={neighbourhoodInfo.electricityBreakDown === "2"}
+            checked={neighbourhoodInfo.electricityBreakDown === '2'}
           />
           <label className='ml-2'>No</label>
           <br />
@@ -798,13 +813,13 @@ const Neighbourhood = ({
             name='electricitybreakdown'
             id='Not Sure'
             value='3'
-            checked={neighbourhoodInfo.electricityBreakDown === "3"}
+            checked={neighbourhoodInfo.electricityBreakDown === '3'}
           />
           <label className='ml-2'>Not Sure</label>
           <br />
         </div>
       )}
-      {questionCount == 16 && (
+      {questionCount === 16 && (
         <div
           className=''
           value={neighbourhoodInfo.waterSupply}
@@ -826,7 +841,7 @@ const Neighbourhood = ({
             name='watersupply'
             id='Yes'
             value='1'
-            checked={neighbourhoodInfo.waterSupply === "1"}
+            checked={neighbourhoodInfo.waterSupply === '1'}
           />
           <label className='ml-2'>Yes</label>
           <br />
@@ -836,7 +851,7 @@ const Neighbourhood = ({
             name='watersupply'
             id='No'
             value='2'
-            checked={neighbourhoodInfo.waterSupply === "2"}
+            checked={neighbourhoodInfo.waterSupply === '2'}
           />
           <label className='ml-2'>No</label>
           <br />
@@ -846,13 +861,13 @@ const Neighbourhood = ({
             name='watersupply'
             id='Not Sure'
             value='3'
-            checked={neighbourhoodInfo.waterSupply === "3"}
+            checked={neighbourhoodInfo.waterSupply === '3'}
           />
           <label className='ml-2'>Not Sure</label>
           <br />
         </div>
       )}
-      {questionCount == 17 && (
+      {questionCount === 17 && (
         <div
           className=''
           value={neighbourhoodInfo.traffic}
@@ -866,18 +881,16 @@ const Neighbourhood = ({
         >
           <div className='flex mb-10 font-semibold text-xl text-sky-700'>
             <h1 className='mr-2 '>{questionCount}.</h1>
-            <h4 className=''>
-            Traffic kaisa hai ?
-            </h4>
-            <p>Peak hour is 8 am to 10.30 and 6.30pm to 9pm.</p>
+            <h4 className=''>Traffic kaisa hai ?</h4>
           </div>
+          <p>Peak hour is 8 am to 10.30 and 6.30pm to 9pm.</p>
           <input
             className='ml-2'
             type='radio'
             name='traffic'
             id='Peak Hour Jam'
             value='1'
-            checked={neighbourhoodInfo.traffic === "1"}
+            checked={neighbourhoodInfo.traffic === '1'}
           />
           <label className='ml-2'>Office timings par</label>
           <br />
@@ -887,7 +900,7 @@ const Neighbourhood = ({
             name='traffic'
             id='Always Jam'
             value='2'
-            checked={neighbourhoodInfo.traffic === "2"}
+            checked={neighbourhoodInfo.traffic === '2'}
           />
           <label className='ml-2'>Hamesha</label>
           <br />
@@ -897,13 +910,13 @@ const Neighbourhood = ({
             name='traffic'
             id='Random Jam'
             value='3'
-            checked={neighbourhoodInfo.traffic === "3"}
+            checked={neighbourhoodInfo.traffic === '3'}
           />
           <label className='ml-2'>Kabhi Kabhi</label>
           <br />
         </div>
       )}
-      {questionCount == 18 && (
+      {questionCount === 18 && (
         <div
           className=''
           value={neighbourhoodInfo.sellingProperty}
@@ -927,7 +940,7 @@ const Neighbourhood = ({
             name='SellingProperty'
             id='Yes'
             value='1'
-            checked={neighbourhoodInfo.sellingProperty === "1"}
+            checked={neighbourhoodInfo.sellingProperty === '1'}
           />
           <label className='ml-2'>Yes</label>
           <br />
@@ -937,7 +950,7 @@ const Neighbourhood = ({
             name='SellingProperty'
             id='No'
             value='2'
-            checked={neighbourhoodInfo.sellingProperty === "2"}
+            checked={neighbourhoodInfo.sellingProperty === '2'}
           />
           <label className='ml-2'>No</label>
           <br />
@@ -947,13 +960,13 @@ const Neighbourhood = ({
             name='SellingProperty'
             id='Not Sure'
             value='3'
-            checked={neighbourhoodInfo.sellingProperty === "3"}
+            checked={neighbourhoodInfo.sellingProperty === '3'}
           />
           <label className='ml-2'>Not Sure</label>
           <br />
         </div>
       )}
-      {questionCount == 19 && (
+      {questionCount === 19 && (
         <div
           className=''
           value={neighbourhoodInfo.policeComplaints}
@@ -975,7 +988,7 @@ const Neighbourhood = ({
             name='policecomplaint'
             id='Yes'
             value='1'
-            checked={neighbourhoodInfo.policeComplaints === "1"}
+            checked={neighbourhoodInfo.policeComplaints === '1'}
           />
           <label className='ml-2'>Yes</label>
           <br />
@@ -985,7 +998,7 @@ const Neighbourhood = ({
             name='policecomplaint'
             id='No'
             value='2'
-            checked={neighbourhoodInfo.policeComplaints === "2"}
+            checked={neighbourhoodInfo.policeComplaints === '2'}
           />
           <label className='ml-2'>No</label>
           <br />
@@ -995,13 +1008,13 @@ const Neighbourhood = ({
             name='policecomplaint'
             id='Not Sure'
             value='3'
-            checked={neighbourhoodInfo.policeComplaints === "3"}
+            checked={neighbourhoodInfo.policeComplaints === '3'}
           />
           <label className='ml-2'>Not Sure</label>
           <br />
         </div>
       )}
-      {questionCount == 20 && (
+      {questionCount === 20 && (
         <div
           className=''
           value={neighbourhoodInfo.easyToGet}
@@ -1016,7 +1029,8 @@ const Neighbourhood = ({
           <div className='flex mb-10 font-semibold text-xl text-sky-700'>
             <h1 className='mr-2 '>{questionCount}.</h1>
             <h4 className=''>
-            Kaam wali, electrician, maharaaj, driver araam se mil jaate hai...ki taklif hoti hai?
+              Kaam wali, electrician, maharaaj, driver araam se mil jaate
+              hai...ki taklif hoti hai?
             </h4>
           </div>
           <input
@@ -1025,7 +1039,7 @@ const Neighbourhood = ({
             name='easytoget'
             id='Yes'
             value='1'
-            checked={neighbourhoodInfo.easyToGet === "1"}
+            checked={neighbourhoodInfo.easyToGet === '1'}
           />
           <label className='ml-2'>Yes</label>
           <br />
@@ -1035,7 +1049,7 @@ const Neighbourhood = ({
             name='easytoget'
             id='No'
             value='2'
-            checked={neighbourhoodInfo.easyToGet === "2"}
+            checked={neighbourhoodInfo.easyToGet === '2'}
           />
           <label className='ml-2'>No</label>
           <br />
@@ -1045,13 +1059,13 @@ const Neighbourhood = ({
             name='easytoget'
             id='Not Sure'
             value='3'
-            checked={neighbourhoodInfo.easyToGet === "3"}
+            checked={neighbourhoodInfo.easyToGet === '3'}
           />
           <label className='ml-2'>Not Sure</label>
           <br />
         </div>
       )}
-      {questionCount == 21 && (
+      {questionCount === 21 && (
         <div
           className=''
           value={neighbourhoodInfo.kindOfProfessions}
@@ -1066,7 +1080,7 @@ const Neighbourhood = ({
           <div className='flex mb-10 font-semibold text-xl text-sky-700'>
             <h1 className='mr-2 '>{questionCount}.</h1>
             <h4 className=''>
-            Kis type ke members is building mein jyada rehte hai ? 
+              Kis type ke members is building mein jyada rehte hai ?
             </h4>
           </div>
           <input
@@ -1074,7 +1088,7 @@ const Neighbourhood = ({
             className='ml-2'
             name='typeofprofession'
             value='1'
-            checked={neighbourhoodInfo.kindOfProfessions === "1"}
+            checked={neighbourhoodInfo.kindOfProfessions === '1'}
           />
           <label className='ml-2'>Working</label>
           <br />
@@ -1083,14 +1097,13 @@ const Neighbourhood = ({
             className='ml-2'
             name='typeofprofession'
             value='2'
-            checked={neighbourhoodInfo.kindOfProfessions === "2"}
+            checked={neighbourhoodInfo.kindOfProfessions === '2'}
           />
           <label className='ml-2'>Self Employed</label>
-       
         </div>
       )}
 
-      {questionCount == 22 && (
+      {questionCount === 22 && (
         <div
           className=''
           value={neighbourhoodInfo.strayDogs}
@@ -1105,7 +1118,7 @@ const Neighbourhood = ({
           <div className='flex mb-10 font-semibold text-xl text-sky-700'>
             <h1 className='mr-2 '>{questionCount}.</h1>
             <h4 className=''>
-            Dogs, Cow, Cat ka bahut taklif hai kya ? Yahaan par 
+              Dogs, Cow, Cat ka bahut taklif hai kya ? Yahaan par
             </h4>
           </div>
           <input
@@ -1131,12 +1144,12 @@ const Neighbourhood = ({
         </div>
       )}
 
-      {questionCount == 23 && (
+      {questionCount === 23 && (
         <div className=''>
           <div className='flex mb-10 font-semibold text-xl text-sky-700'>
             <h1 className='mr-2 '>{questionCount}.</h1>
             <h4 className=''>
-              1 BHK sale hua hai - uska Sale Price - Last 6 months 
+              1 BHK sale hua hai - uska Sale Price - Last 6 months
             </h4>
           </div>
           <Input
@@ -1153,13 +1166,12 @@ const Neighbourhood = ({
           />
         </div>
       )}
-      {questionCount == 24 && (
+      {questionCount === 24 && (
         <div className=''>
           <div className='flex mb-10 font-semibold text-xl text-sky-700'>
             <h1 className='mr-2 '>{questionCount}.</h1>
             <h4 className=''>
-              
-            2 BHK sale hua hai - uska Sale Price - Last 6 months 
+              2 BHK sale hua hai - uska Sale Price - Last 6 months
             </h4>
           </div>
 
@@ -1177,13 +1189,12 @@ const Neighbourhood = ({
           />
         </div>
       )}
-      {questionCount == 25 && (
+      {questionCount === 25 && (
         <div className=''>
           <div className='flex mb-10 font-semibold text-xl text-sky-700'>
             <h1 className='mr-2 '>{questionCount}.</h1>
             <h4 className=''>
-              
-            3 BHK sale hua hai - uska Sale Price - Last 6 months 
+              3 BHK sale hua hai - uska Sale Price - Last 6 months
             </h4>
           </div>
           <h4 className='font-semibold text-lg'></h4>
@@ -1201,6 +1212,7 @@ const Neighbourhood = ({
           />
         </div>
       )}
+      {check && <p className='text-red-500'>Required Question </p>}
     </div>
   );
 };

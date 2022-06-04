@@ -7,7 +7,7 @@ import {
 } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 
-const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
+const HomeInfo = ({ questionCount, homeInfo, sethomeInfo ,check}) => {
   const [washroom, setWashroom] = useState('');
   const [parkingtype, setparkingtype] = useState('');
   const [washingAreaAttached, setwashingAreaAttached] = useState('');
@@ -25,11 +25,13 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
   const [viewFromWindow, setviewFromWindow] = useState('');
 
   const handleCheckboxChange = (event, state, setState) => {
+    console.log(+event.target.value);
     const newNames = state?.includes(+event.target.value)
-      ? state?.filter(name => name !== event.target.value)
+      ? state?.filter(name => name !== +event.target.value)
       : [...(state ?? []), +event.target.value];
     setState(newNames);
   };
+
 
   useEffect(() => {
     sethomeInfo(prevState => ({
@@ -102,7 +104,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
   useEffect(() => {
     sethomeInfo(prevState => ({
       ...prevState,
-      parkingType: parkingtype,
+      ParkingType: parkingtype,
     }));
   }, [parkingtype]);
 
@@ -157,6 +159,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
           </div>
           <Input
             placeholder='property Age'
+            value={homeInfo.PropertyAge}
             onChange={e =>
               sethomeInfo({
                 ...homeInfo,
@@ -273,7 +276,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
             <h4 className='font-semibold text-lg'>Carpet Area</h4>
           </div>
           <Input
-            placeholder='Carpet Area'
+            placeholder='Carpet Area in Sq.ft'
             value={homeInfo.carpetArea}
             onChange={e =>
               sethomeInfo({
@@ -294,7 +297,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
             <h4 className='font-semibold text-lg'>Your Quoted Price</h4>
           </div>
           <Input
-            placeholder='Price'
+            placeholder='Price in ₹'
             value={homeInfo.quotedPrice}
             onChange={e =>
               sethomeInfo({
@@ -399,7 +402,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='1'
-                    checked={homeInfo?.washrooms?.includes(1)}
+                    defaultChecked={homeInfo.washrooms.includes(1)}
                     onChange={e => {
                       handleCheckboxChange(e, washroom, setWashroom);
                     }}
@@ -411,7 +414,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='2'
-                    checked={homeInfo?.washrooms?.includes(2)}
+                    defaultChecked={homeInfo.washrooms.includes(2)}
                     onChange={e => {
                       handleCheckboxChange(e, washroom, setWashroom);
                     }}
@@ -438,7 +441,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='1'
-                    checked={homeInfo?.washingAreaAttachedTo?.includes(1)}
+                    defaultChecked={homeInfo.washingAreaAttachedTo.includes(1)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -454,7 +457,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='2'
-                    checked={homeInfo?.washingAreaAttachedTo?.includes(2)}
+                    defaultChecked={homeInfo.washingAreaAttachedTo.includes(2)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -470,7 +473,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='3'
-                    checked={homeInfo?.washingAreaAttachedTo?.includes(3)}
+                    defaultChecked={homeInfo.washingAreaAttachedTo.includes(3)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -486,7 +489,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='4'
-                    checked={homeInfo?.washingAreaAttachedTo?.includes(4)}
+                    defaultChecked={homeInfo.washingAreaAttachedTo.includes(4)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -498,11 +501,11 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 }
               />
               <FormControlLabel
-                label='NA'
+                label='N/A'
                 control={
                   <Checkbox
                     value='5'
-                    checked={homeInfo?.washingAreaAttachedTo?.includes(5)}
+                    defaultChecked={homeInfo.washingAreaAttachedTo.includes(5)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -533,7 +536,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='1'
-                    checked={homeInfo?.applianceIncludedKitchen?.includes(1)}
+                    defaultChecked={homeInfo.applianceIncludedKitchen.includes(1)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -549,7 +552,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='2'
-                    checked={homeInfo?.applianceIncludedKitchen?.includes(2)}
+                    defaultChecked={homeInfo.applianceIncludedKitchen.includes(2)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -565,7 +568,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='3'
-                    checked={homeInfo?.applianceIncludedKitchen?.includes(31)}
+                    defaultChecked={homeInfo.applianceIncludedKitchen.includes(31)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -581,7 +584,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='4'
-                    checked={homeInfo?.applianceIncludedKitchen?.includes(4)}
+                    defaultChecked={homeInfo.applianceIncludedKitchen.includes(4)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -597,7 +600,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='5'
-                    checked={homeInfo?.applianceIncludedKitchen?.includes(5)}
+                    defaultChecked={homeInfo.applianceIncludedKitchen.includes(5)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -613,7 +616,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='6'
-                    checked={homeInfo?.applianceIncludedKitchen?.includes(6)}
+                    defaultChecked={homeInfo.applianceIncludedKitchen.includes(6)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -629,7 +632,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='7'
-                    checked={homeInfo?.applianceIncludedKitchen?.includes(7)}
+                    defaultChecked={homeInfo.applianceIncludedKitchen.includes(7)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -645,7 +648,23 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='8'
-                    checked={homeInfo?.applianceIncludedKitchen?.includes(8)}
+                    defaultChecked={homeInfo.applianceIncludedKitchen.includes(8)}
+                    onChange={e => {
+                      handleCheckboxChange(
+                        e,
+                        applianceIncludedKitchen,
+                        setapplianceIncludedKitchen,
+                      );
+                    }}
+                  />
+                }
+              />
+              <FormControlLabel
+                label='N/A'
+                control={
+                  <Checkbox
+                    value='8'
+                    defaultChecked={homeInfo.applianceIncludedKitchen.includes(9)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -676,7 +695,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='1'
-                    checked={homeInfo?.applianceIncludedLivingRoom?.includes(1)}
+                    defaultChecked={homeInfo.applianceIncludedLivingRoom.includes(1)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -692,7 +711,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='2'
-                    checked={homeInfo?.applianceIncludedLivingRoom?.includes(2)}
+                    defaultChecked={homeInfo.applianceIncludedLivingRoom.includes(2)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -708,7 +727,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='3'
-                    checked={homeInfo?.applianceIncludedLivingRoom?.includes(3)}
+                    defaultChecked={homeInfo.applianceIncludedLivingRoom.includes(3)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -724,7 +743,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='4'
-                    checked={homeInfo?.applianceIncludedLivingRoom?.includes(4)}
+                    defaultChecked={homeInfo.applianceIncludedLivingRoom.includes(4)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -740,7 +759,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='5'
-                    checked={homeInfo?.applianceIncludedLivingRoom?.includes(5)}
+                    defaultChecked={homeInfo.applianceIncludedLivingRoom.includes(5)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -756,7 +775,23 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='6'
-                    checked={homeInfo?.applianceIncludedLivingRoom?.includes(6)}
+                    defaultChecked={homeInfo.applianceIncludedLivingRoom.includes(6)}
+                    onChange={e => {
+                      handleCheckboxChange(
+                        e,
+                        applianceIncludedLivingRoom,
+                        setapplianceIncludedLivingRoom,
+                      );
+                    }}
+                  />
+                }
+              />
+              <FormControlLabel
+                label='N/A'
+                control={
+                  <Checkbox
+                    value='6'
+                    defaultChecked={homeInfo.applianceIncludedLivingRoom.includes(7)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -787,7 +822,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='1'
-                    checked={homeInfo?.applianceIncludedBedroom1?.includes(1)}
+                    defaultChecked={homeInfo.applianceIncludedBedroom1.includes(1)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -803,7 +838,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='2'
-                    checked={homeInfo?.applianceIncludedBedroom1?.includes(2)}
+                    defaultChecked={homeInfo.applianceIncludedBedroom1.includes(2)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -819,7 +854,23 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='3'
-                    checked={homeInfo?.applianceIncludedBedroom1?.includes(3)}
+                    defaultChecked={homeInfo.applianceIncludedBedroom1.includes(3)}
+                    onChange={e => {
+                      handleCheckboxChange(
+                        e,
+                        applianceIncludedBedroom1,
+                        setapplianceIncludedBedroom1,
+                      );
+                    }}
+                  />
+                }
+              />
+              <FormControlLabel
+                label='N/A'
+                control={
+                  <Checkbox
+                    value='3'
+                    defaultChecked={homeInfo.applianceIncludedBedroom1.includes(4)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -850,7 +901,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='1'
-                    checked={homeInfo?.applianceIncludedBedroom2?.includes(1)}
+                    defaultChecked={homeInfo.applianceIncludedBedroom2.includes(1)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -866,7 +917,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='2'
-                    checked={homeInfo?.applianceIncludedBedroom2?.includes(2)}
+                    defaultChecked={homeInfo.applianceIncludedBedroom2.includes(2)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -882,7 +933,23 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='3'
-                    checked={homeInfo?.applianceIncludedBedroom2?.includes(3)}
+                    defaultChecked={homeInfo.applianceIncludedBedroom2.includes(3)}
+                    onChange={e => {
+                      handleCheckboxChange(
+                        e,
+                        applianceIncludedBedroom2,
+                        setapplianceIncludedBedroom2,
+                      );
+                    }}
+                  />
+                }
+              />
+              <FormControlLabel
+                label='N/A'
+                control={
+                  <Checkbox
+                    value='3'
+                    defaultChecked={homeInfo.applianceIncludedBedroom2.includes(4)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -897,7 +964,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
           </FormControl>
         </div>
       )}
-      {questionCount === 15 && (
+{questionCount === 15 && (
         <div className='question   '>
           <div className='flex mb-10 font-semibold text-xl text-sky-700'>
             <h1 className='mr-2 '>{questionCount}.</h1>
@@ -913,7 +980,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='1'
-                    checked={homeInfo?.applianceIncludedBedroom3?.includes(1)}
+                    defaultChecked={homeInfo.applianceIncludedWashroom.includes(1)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -929,7 +996,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='2'
-                    checked={homeInfo?.applianceIncludedBedroom3?.includes(2)}
+                    defaultChecked={homeInfo.applianceIncludedWashroom.includes(2)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -945,7 +1012,23 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='3'
-                    checked={homeInfo?.applianceIncludedBedroom3?.includes(3)}
+                    defaultChecked={homeInfo.applianceIncludedWashroom.includes(3)}
+                    onChange={e => {
+                      handleCheckboxChange(
+                        e,
+                        applianceIncludedWashroom,
+                        setapplianceIncludedWashroom,
+                      );
+                    }}
+                  />
+                }
+              />
+              <FormControlLabel
+                label='N/A'
+                control={
+                  <Checkbox
+                    value='3'
+                    defaultChecked={homeInfo.applianceIncludedWashroom.includes(4)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -976,7 +1059,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='1'
-                    checked={homeInfo?.fixedSystems?.includes(1)}
+                    defaultChecked={homeInfo.fixedSystems.includes(1)}
                     onChange={e => {
                       handleCheckboxChange(e, fixedSystems, setfixedSystems);
                     }}
@@ -988,7 +1071,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='2'
-                    checked={homeInfo?.fixedSystems?.includes(2)}
+                    defaultChecked={homeInfo.fixedSystems.includes(2)}
                     onChange={e => {
                       handleCheckboxChange(e, fixedSystems, setfixedSystems);
                     }}
@@ -1000,7 +1083,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='3'
-                    checked={homeInfo?.fixedSystems?.includes(3)}
+                    defaultChecked={homeInfo.fixedSystems.includes(3)}
                     onChange={e => {
                       handleCheckboxChange(e, fixedSystems, setfixedSystems);
                     }}
@@ -1013,7 +1096,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='4'
-                    checked={homeInfo?.fixedSystems?.includes(4)}
+                    defaultChecked={homeInfo.fixedSystems.includes(4)}
                     onChange={e => {
                       handleCheckboxChange(e, fixedSystems, setfixedSystems);
                     }}
@@ -1025,7 +1108,19 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='5'
-                    checked={homeInfo?.fixedSystems?.includes(5)}
+                    defaultChecked={homeInfo.fixedSystems.includes(5)}
+                    onChange={e => {
+                      handleCheckboxChange(e, fixedSystems, setfixedSystems);
+                    }}
+                  />
+                }
+              />
+              <FormControlLabel
+                label='N/A'
+                control={
+                  <Checkbox
+                    value='5'
+                    defaultChecked={homeInfo.fixedSystems.includes(6)}
                     onChange={e => {
                       handleCheckboxChange(e, fixedSystems, setfixedSystems);
                     }}
@@ -1050,7 +1145,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='1'
-                    checked={homeInfo?.fireFightingSystem?.includes(1)}
+                    defaultChecked={homeInfo.fireFightingSystem.includes(1)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -1066,7 +1161,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='2'
-                    checked={homeInfo?.fireFightingSystem?.includes(2)}
+                    defaultChecked={homeInfo.fireFightingSystem.includes(2)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -1082,7 +1177,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='3'
-                    checked={homeInfo?.fireFightingSystem?.includes(3)}
+                    defaultChecked={homeInfo.fireFightingSystem.includes(3)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -1098,7 +1193,7 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
                 control={
                   <Checkbox
                     value='4'
-                    checked={homeInfo?.fireFightingSystem?.includes(4)}
+                    defaultChecked={homeInfo.fireFightingSystem.includes(4)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -1111,11 +1206,11 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
               />
 
               <FormControlLabel
-                label='NA'
+                label='N/A'
                 control={
                   <Checkbox
                     value='5'
-                    checked={homeInfo?.fireFightingSystem?.includes(5)}
+                    defaultChecked={homeInfo.fireFightingSystem.includes(5)}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -1130,7 +1225,1762 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
           </FormControl>
         </div>
       )}
-      {/* {questionCount === 18 && (
+
+      {questionCount === 18 && (
+        <div
+          className='question '
+          onChange={e =>
+            sethomeInfo({
+              ...homeInfo,
+              viewFromWindowRating: e.target.value,
+            })
+          }
+          required
+        >
+          <div className='flex mb-10  font-semibold text-xl text-sky-700 '>
+            <h1 className='mr-2 '>{questionCount}.</h1>
+            <h4 className='font-semibold text-lg'>View From Window(Rate)</h4>
+          </div>
+
+          <input
+            type='radio'
+            className='ml-2'
+            name='Rateview'
+            value='1'
+            onChange={e => {}}
+            defaultChecked={homeInfo.viewFromWindowRating === '1'}
+          />
+          <label className='ml-2'>Wow</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='Rateview'
+            value='2'
+            onChange={e => {}}
+            defaultChecked={homeInfo.viewFromWindowRating === '2'}
+          />
+          <label className='ml-2'>Pleasent</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='Rateview'
+            value='3'
+            onChange={e => {}}
+            defaultChecked={homeInfo.viewFromWindowRating === '3'}
+          />
+          <label className='ml-2'>Routine</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='Rateview'
+            value='4'
+            onChange={e => {}}
+            defaultChecked={homeInfo.viewFromWindowRating === '4'}
+          />
+          <label className='ml-2'>Bad</label>
+        </div>
+      )}
+      {questionCount === 19 && (
+        <div className='question   '>
+          <div className='flex mb-10 font-semibold text-xl text-sky-700'>
+            <h1 className='mr-2 '>{questionCount}.</h1>
+            <h4 className='font-semibold text-lg'>View From Window</h4>
+          </div>
+
+          <FormControl>
+            <FormGroup>
+              <FormControlLabel
+                label='Slums'
+                control={
+                  <Checkbox
+                    value='1'
+                    defaultChecked={homeInfo.viewFromWindow.includes(1)}
+                    onChange={e => {
+                      handleCheckboxChange(
+                        e,
+                        viewFromWindow,
+                        setviewFromWindow,
+                      );
+                    }}
+                  />
+                }
+              />
+              <FormControlLabel
+                label='Building'
+                control={
+                  <Checkbox
+                    value='2'
+                    defaultChecked={homeInfo.viewFromWindow.includes(2)}
+                    onChange={e => {
+                      handleCheckboxChange(
+                        e,
+                        viewFromWindow,
+                        setviewFromWindow,
+                      );
+                    }}
+                  />
+                }
+              />
+              <FormControlLabel
+                label='Open Land'
+                control={
+                  <Checkbox
+                    value='3'
+                    defaultChecked={homeInfo.viewFromWindow.includes(3)}
+                    onChange={e => {
+                      handleCheckboxChange(
+                        e,
+                        viewFromWindow,
+                        setviewFromWindow,
+                      );
+                    }}
+                  />
+                }
+              />
+              <FormControlLabel
+                label='Beach / Seaface'
+                control={
+                  <Checkbox
+                    value='4'
+                    defaultChecked={homeInfo.viewFromWindow.includes(4)}
+                    onChange={e => {
+                      handleCheckboxChange(
+                        e,
+                        viewFromWindow,
+                        setviewFromWindow,
+                      );
+                    }}
+                  />
+                }
+              />
+
+              <FormControlLabel
+                label='Lake / Pond'
+                control={
+                  <Checkbox
+                    value='5'
+                    defaultChecked={homeInfo.viewFromWindow.includes(5)}
+                    onChange={e => {
+                      handleCheckboxChange(
+                        e,
+                        viewFromWindow,
+                        setviewFromWindow,
+                      );
+                    }}
+                  />
+                }
+              />
+
+              <FormControlLabel
+                label='River'
+                control={
+                  <Checkbox
+                    value='6'
+                    defaultChecked={homeInfo.viewFromWindow.includes(6)}
+                    onChange={e => {
+                      handleCheckboxChange(
+                        e,
+                        viewFromWindow,
+                        setviewFromWindow,
+                      );
+                    }}
+                  />
+                }
+              />
+
+              <FormControlLabel
+                label='Mountains'
+                control={
+                  <Checkbox
+                    value='7'
+                    defaultChecked={homeInfo.viewFromWindow.includes(7)}
+                    onChange={e => {
+                      handleCheckboxChange(
+                        e,
+                        viewFromWindow,
+                        setviewFromWindow,
+                      );
+                    }}
+                  />
+                }
+              />
+
+              <FormControlLabel
+                label='Valley'
+                control={
+                  <Checkbox
+                    value='8'
+                    defaultChecked={homeInfo.viewFromWindow.includes(8)}
+                    onChange={e => {
+                      handleCheckboxChange(
+                        e,
+                        viewFromWindow,
+                        setviewFromWindow,
+                      );
+                    }}
+                  />
+                }
+              />
+
+              <FormControlLabel
+                label='Internal Road'
+                control={
+                  <Checkbox
+                    value='9'
+                    defaultChecked={homeInfo.viewFromWindow.includes(9)}
+                    onChange={e => {
+                      handleCheckboxChange(
+                        e,
+                        viewFromWindow,
+                        setviewFromWindow,
+                      );
+                    }}
+                  />
+                }
+              />
+
+              <FormControlLabel
+                label='Highway'
+                control={
+                  <Checkbox
+                    value='10'
+                    defaultChecked={homeInfo.viewFromWindow.includes(10)}
+                    onChange={e => {
+                      handleCheckboxChange(
+                        e,
+                        viewFromWindow,
+                        setviewFromWindow,
+                      );
+                    }}
+                  />
+                }
+              />
+
+              <FormControlLabel
+                label='Metro'
+                control={
+                  <Checkbox
+                    value='11'
+                    defaultChecked={homeInfo.viewFromWindow.includes(11)}
+                    onChange={e => {
+                      handleCheckboxChange(
+                        e,
+                        viewFromWindow,
+                        setviewFromWindow,
+                      );
+                    }}
+                  />
+                }
+              />
+
+              <FormControlLabel
+                label='Temple /Church /Mosque'
+                control={
+                  <Checkbox
+                    value='12'
+                    defaultChecked={homeInfo.viewFromWindow.includes(12)}
+                    onChange={e => {
+                      handleCheckboxChange(
+                        e,
+                        viewFromWindow,
+                        setviewFromWindow,
+                      );
+                    }}
+                  />
+                }
+              />
+
+              <FormControlLabel
+                label='Crematorium/ Graveyard/ Kabrastan'
+                control={
+                  <Checkbox
+                    value='13'
+                    defaultChecked={homeInfo.viewFromWindow.includes(13)}
+                    onChange={e => {
+                      handleCheckboxChange(
+                        e,
+                        viewFromWindow,
+                        setviewFromWindow,
+                      );
+                    }}
+                  />
+                }
+              />
+
+              <FormControlLabel
+                label='Iconic structure'
+                control={
+                  <Checkbox
+                    value='14'
+                    defaultChecked={homeInfo.viewFromWindow.includes(14)}
+                    onChange={e => {
+                      handleCheckboxChange(
+                        e,
+                        viewFromWindow,
+                        setviewFromWindow,
+                      );
+                    }}
+                  />
+                }
+              />
+              <FormControlLabel
+                label='Podium garden'
+                control={
+                  <Checkbox
+                    value='15'
+                    defaultChecked={homeInfo.viewFromWindow.includes(15)}
+                    onChange={e => {
+                      handleCheckboxChange(
+                        e,
+                        viewFromWindow,
+                        setviewFromWindow,
+                      );
+                    }}
+                  />
+                }
+              />
+              <FormControlLabel
+                label='Skyline'
+                control={
+                  <Checkbox
+                    value='16'
+                    defaultChecked={homeInfo.viewFromWindow.includes(16)}
+                    onChange={e => {
+                      handleCheckboxChange(
+                        e,
+                        viewFromWindow,
+                        setviewFromWindow,
+                      );
+                    }}
+                  />
+                }
+              />
+              <FormControlLabel
+                label='Horizon'
+                control={
+                  <Checkbox
+                    value='17'
+                    defaultChecked={homeInfo.viewFromWindow.includes(17)}
+                    onChange={e => {
+                      handleCheckboxChange(
+                        e,
+                        viewFromWindow,
+                        setviewFromWindow,
+                      );
+                    }}
+                  />
+                }
+              />
+              <FormControlLabel
+                label='Swimming Pool'
+                control={
+                  <Checkbox
+                    value='18'
+                    defaultChecked={homeInfo.viewFromWindow.includes(18)}
+                    onChange={e => {
+                      handleCheckboxChange(
+                        e,
+                        viewFromWindow,
+                        setviewFromWindow,
+                      );
+                    }}
+                  />
+                }
+              />
+            </FormGroup>
+          </FormControl>
+        </div>
+      )}
+      {questionCount === 20 && (
+        <div
+          className='question '
+          onChange={e =>
+            sethomeInfo({
+              ...homeInfo,
+              mainDoorDirection: e.target.value,
+            })
+          }
+          required
+        >
+          <div className='flex mb-10  font-semibold text-xl text-sky-700 '>
+            <h1 className='mr-2 '>{questionCount}.</h1>
+            <h4 className='font-semibold text-lg'>
+              Living Room Maindoor Position
+            </h4>
+          </div>
+
+          <input
+            type='radio'
+            className='ml-2'
+            name='MaindoorPosition'
+            value='1'
+            onChange={e => {}}
+            defaultChecked={homeInfo.mainDoorDirection === '1'}
+          />
+          <label className='ml-2'>East</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='MaindoorPosition'
+            value='2'
+            onChange={e => {}}
+            defaultChecked={homeInfo.mainDoorDirection === '2'}
+          />
+          <label className='ml-2'>South-East</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='MaindoorPosition'
+            value='3'
+            onChange={e => {}}
+            defaultChecked={homeInfo.mainDoorDirection === '3'}
+          />
+          <label className='ml-2'>South</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='MaindoorPosition'
+            value='4'
+            onChange={e => {}}
+            defaultChecked={homeInfo.mainDoorDirection === '4'}
+          />
+          <label className='ml-2'>South-West</label>
+          <br />
+          <input
+            type='radio'
+            className='ml-2'
+            name='MaindoorPosition'
+            value='5'
+            onChange={e => {}}
+            defaultChecked={homeInfo.mainDoorDirection === '5'}
+          />
+          <label className='ml-2'>West</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='MaindoorPosition'
+            value='6'
+            onChange={e => {}}
+            defaultChecked={homeInfo.mainDoorDirection === '6'}
+          />
+          <label className='ml-2'>North-West</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='MaindoorPosition'
+            value='7'
+            onChange={e => {}}
+            defaultChecked={homeInfo.mainDoorDirection === '7'}
+          />
+          <label className='ml-2'>North</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='MaindoorPosition'
+            value='8'
+            onChange={e => {}}
+            defaultChecked={homeInfo.mainDoorDirection === '8'}
+          />
+          <label className='ml-2'>North-East</label>
+        </div>
+      )}
+      {questionCount === 21 && (
+        <div
+          className='question '
+          onChange={e =>
+            sethomeInfo({
+              ...homeInfo,
+              kitchenDirection: e.target.value,
+            })
+          }
+          required
+        >
+          <div className='flex mb-10  font-semibold text-xl text-sky-700 '>
+            <h1 className='mr-2 '>{questionCount}.</h1>
+            <h4 className='font-semibold text-lg'>Kitchen Position (Vaastu)</h4>
+          </div>
+
+          <input
+            type='radio'
+            className='ml-2'
+            name='KitchenPosition'
+            value='1'
+            onChange={e => {}}
+            defaultChecked={homeInfo.kitchenDirection === '1'}
+          />
+          <label className='ml-2'>East</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='KitchenPosition'
+            value='2'
+            onChange={e => {}}
+            defaultChecked={homeInfo.kitchenDirection === '2'}
+          />
+          <label className='ml-2'>South-East</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='KitchenPosition'
+            value='3'
+            onChange={e => {}}
+            defaultChecked={homeInfo.kitchenDirection === '3'}
+          />
+          <label className='ml-2'>South</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='KitchenPosition'
+            value='4'
+            onChange={e => {}}
+            defaultChecked={homeInfo.kitchenDirection === '4'}
+          />
+          <label className='ml-2'>South-West</label>
+          <br />
+          <input
+            type='radio'
+            className='ml-2'
+            name='KitchenPosition'
+            value='5'
+            onChange={e => {}}
+            defaultChecked={homeInfo.kitchenDirection === '5'}
+          />
+          <label className='ml-2'>West</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='KitchenPosition'
+            value='6'
+            onChange={e => {}}
+            defaultChecked={homeInfo.kitchenDirection === '6'}
+          />
+          <label className='ml-2'>North-West</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='KitchenPosition'
+            value='7'
+            onChange={e => {}}
+            defaultChecked={homeInfo.kitchenDirection === '7'}
+          />
+          <label className='ml-2'>North</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='KitchenPosition'
+            value='8'
+            onChange={e => {}}
+            defaultChecked={homeInfo.kitchenDirection === '8'}
+          />
+          <label className='ml-2'>North-East</label>
+        </div>
+      )}
+      {questionCount === 22 && (
+        <div
+          className='question '
+          onChange={e =>
+            sethomeInfo({
+              ...homeInfo,
+              kitchenSinkDirection: e.target.value,
+            })
+          }
+          required
+        >
+          <div className='flex mb-10  font-semibold text-xl text-sky-700 '>
+            <h1 className='mr-2 '>{questionCount}.</h1>
+            <h4 className='font-semibold text-lg'>
+              Kitchen Sink Position (Vaastu)
+            </h4>
+          </div>
+          <input
+            type='radio'
+            className='ml-2'
+            name='sinkPosition'
+            value='1'
+            onChange={e => {}}
+            defaultChecked={homeInfo.kitchenSinkDirection === '1'}
+          />
+          <label className='ml-2'>East</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='sinkPosition'
+            value='2'
+            onChange={e => {}}
+            defaultChecked={homeInfo.kitchenSinkDirection === '2'}
+          />
+          <label className='ml-2'>South-East</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='sinkPosition'
+            value='3'
+            onChange={e => {}}
+            defaultChecked={homeInfo.kitchenSinkDirection === '3'}
+          />
+          <label className='ml-2'>South</label>
+          <br />
+          <input className='ml-2' type='radio' name='sinkPosition' value='4'onChange={e => {}}
+          defaultChecked={homeInfo.kitchenSinkDirection === '4'} />
+          <label className='ml-2'>South-West</label>
+          
+          <br />
+          <input
+            type='radio'
+            className='ml-2'
+            name='sinkPosition'
+            value='5'
+            onChange={e => {}}
+            defaultChecked={homeInfo.kitchenSinkDirection === '5'}
+          />
+          <label className='ml-2'>West</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='sinkPosition'
+            value='6'
+            onChange={e => {}}
+            defaultChecked={homeInfo.kitchenSinkDirection === '6'}
+          />
+          <label className='ml-2'>North-West</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='sinkPosition'
+            value='7'
+            onChange={e => {}}
+            defaultChecked={homeInfo.kitchenSinkDirection === '7'}
+          />
+          <label className='ml-2'>North</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='sinkPosition'
+            value='8'
+            onChange={e => {}}
+            defaultChecked={homeInfo.kitchenSinkDirection === '8'}
+          />
+          <label className='ml-2'>North-East</label>
+        </div>
+      )}
+      {questionCount === 23 && (
+        <div
+          className='question '
+          onChange={e =>
+            sethomeInfo({
+              ...homeInfo,
+              mandirDirection: e.target.value,
+            })
+          }
+          required
+        >
+          <div className='flex mb-10  font-semibold text-xl text-sky-700 '>
+            <h1 className='mr-2 '>{questionCount}.</h1>
+            <h4 className='font-semibold text-lg'>
+              Mandir Pooja Room Position (Vaastu)
+            </h4>
+          </div>
+
+          <input
+            type='radio'
+            className='ml-2'
+            name='mandirPosition'
+            value='1'
+            onChange={e => {}}
+            defaultChecked={homeInfo.mandirDirection === '1'}
+          />
+          <label className='ml-2'>East</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='mandirPosition'
+            value='2'
+            onChange={e => {}}
+            defaultChecked={homeInfo.mandirDirection === '2'}
+          />
+          <label className='ml-2'>South-East</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='mandirPosition'
+            value='3'
+            onChange={e => {}}
+            defaultChecked={homeInfo.mandirDirection === '3'}
+          />
+          <label className='ml-2'>South</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='mandirPosition'
+            value='4'
+            onChange={e => {}}
+            defaultChecked={homeInfo.mandirDirection === '4'}
+          />
+          <label className='ml-2'>South-West</label>
+          <br />
+          <input
+            type='radio'
+            className='ml-2'
+            name='mandirPosition'
+            value='5'
+            onChange={e => {}}
+            defaultChecked={homeInfo.mandirDirection === '5'}
+          />
+          <label className='ml-2'>West</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='mandirPosition'
+            value='6'
+            onChange={e => {}}
+            defaultChecked={homeInfo.mandirDirection === '6'}
+          />
+          <label className='ml-2'>North-West</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='mandirPosition'
+            value='7'
+            onChange={e => {}}
+            defaultChecked={homeInfo.mandirDirection === '7'}
+          />
+          <label className='ml-2'>North</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='mandirPosition'
+            value='8'
+            onChange={e => {}}
+            defaultChecked={homeInfo.mandirDirection === '8'}
+          />
+          <label className='ml-2'>North-East</label>
+        </div>
+      )}
+      {questionCount === 24 && (
+        <div
+          className='question '
+          onChange={e =>
+            sethomeInfo({
+              ...homeInfo,
+              bedroom1Direction: e.target.value,
+            })
+          }
+          required
+        >
+          <div className='flex mb-10  font-semibold text-xl text-sky-700 '>
+            <h1 className='mr-2 '>{questionCount}.</h1>
+            <h4 className='font-semibold text-lg'>
+              Bedroom 1 Position (Vaastu)
+            </h4>
+          </div>
+
+          <input
+            type='radio'
+            className='ml-2'
+            name='bedroom1Position'
+            value='1'
+            onChange={e => {}}
+            defaultChecked={homeInfo.bedroom1Direction === '1'}
+          />
+          <label className='ml-2'>East</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='bedroom1Position'
+            value='2'
+            onChange={e => {}}
+            defaultChecked={homeInfo.bedroom1Direction === '2'}
+          />
+          <label className='ml-2'>South-East</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='bedroom1Position'
+            value='3'
+            onChange={e => {}}
+            defaultChecked={homeInfo.bedroom1Direction === '3'}
+          />
+          <label className='ml-2'>South</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='bedroom1Position'
+            value='4'
+            onChange={e => {}}
+            defaultChecked={homeInfo.bedroom1Direction === '4'}
+          />
+          <label className='ml-2'>South-West</label>
+          <br />
+          <input
+            type='radio'
+            className='ml-2'
+            name='bedroom1Position'
+            value='5'
+            onChange={e => {}}
+            defaultChecked={homeInfo.bedroom1Direction === '5'}
+          />
+          <label className='ml-2'>West</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='bedroom1Position'
+            value='6'
+            onChange={e => {}}
+            defaultChecked={homeInfo.bedroom1Direction === '6'}
+          />
+          <label className='ml-2'>North-West</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='bedroom1Position'
+            value='7'
+            onChange={e => {}}
+            defaultChecked={homeInfo.bedroom1Direction === '7'}
+          />
+          <label className='ml-2'>North</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='bedroom1Position'
+            value='8'
+            onChange={e => {}}
+            defaultChecked={homeInfo.bedroom1Direction === '8'}
+          />
+          <label className='ml-2'>North-East</label>
+        </div>
+      )}
+      {questionCount === 25 && (
+        <div
+          className='question '
+          onChange={e =>
+            sethomeInfo({
+              ...homeInfo,
+              bedroom2Direction: e.target.value,
+            })
+          }
+          required
+        >
+          <div className='flex mb-10  font-semibold text-xl text-sky-700 '>
+            <h1 className='mr-2 '>{questionCount}.</h1>
+            <h4 className='font-semibold text-lg'>
+              Bedroom 2 Position (Vaastu)
+            </h4>
+          </div>
+
+          <input
+            type='radio'
+            className='ml-2'
+            name='bedroom2Position'
+            value='1'
+            onChange={e => {}}
+            defaultChecked={homeInfo.bedroom2Direction === '2'}
+          />
+          <label className='ml-2'>East</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='bedroom2Position'
+            value='2'
+            onChange={e => {}}
+            defaultChecked={homeInfo.bedroom2Direction === '3'}
+          />
+          <label className='ml-2'>South-East</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='bedroom2Position'
+            value='3'
+            onChange={e => {}}
+            defaultChecked={homeInfo.bedroom2Direction === '4'}
+          />
+          <label className='ml-2'>South</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='bedroom2Position'
+            value='4'
+            onChange={e => {}}
+            defaultChecked={homeInfo.bedroom2Direction === '5'}
+          />
+          <label className='ml-2'>South-West</label>
+          <br />
+          <input
+            type='radio'
+            className='ml-2'
+            name='bedroom2Position'
+            value='5'
+            onChange={e => {}}
+            defaultChecked={homeInfo.bedroom2Direction === '5'}
+          />
+          <label className='ml-2'>West</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='bedroom2Position'
+            value='6'
+            onChange={e => {}}
+            defaultChecked={homeInfo.bedroom2Direction === '6'}
+          />
+          <label className='ml-2'>North-West</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='bedroom2Position'
+            value='7'
+            onChange={e => {}}
+            defaultChecked={homeInfo.bedroom2Direction === '7'}
+          />
+          <label className='ml-2'>North</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='bedroom2Position'
+            value='8'
+            onChange={e => {}}
+            defaultChecked={homeInfo.bedroom2Direction === '8'}
+          />
+          <label className='ml-2'>North-East</label>
+        </div>
+      )}
+      {questionCount === 26 && (
+        <div
+          className='question '
+          onChange={e =>
+            sethomeInfo({
+              ...homeInfo,
+              washroom1Direction: e.target.value,
+            })
+          }
+          required
+        >
+          <div className='flex mb-10  font-semibold text-xl text-sky-700 '>
+            <h1 className='mr-2 '>{questionCount}.</h1>
+            <h4 className='font-semibold text-lg'>
+              Washroom 1 Position (Vaastu)
+            </h4>
+          </div>
+
+          <input
+            type='radio'
+            className='ml-2'
+            name='washroom1Position'
+            value='1'
+            onChange={e => {}}
+            defaultChecked={homeInfo.washroom1Direction === '1'}
+          />
+          <label className='ml-2'>East</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='washroom1Position'
+            value='2'
+            onChange={e => {}}
+            defaultChecked={homeInfo.washroom1Direction === '2'}
+          />
+          <label className='ml-2'>South-East</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='washroom1Position'
+            value='3'
+            onChange={e => {}}
+            defaultChecked={homeInfo.washroom1Direction === '3'}
+          />
+          <label className='ml-2'>South</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='washroom1Position'
+            value='4'
+            onChange={e => {}}
+            defaultChecked={homeInfo.washroom1Direction === '4'}
+          />
+          <label className='ml-2'>South-West</label>
+          <br />
+          <input
+            type='radio'
+            className='ml-2'
+            name='washroom1Position'
+            value='5'
+            onChange={e => {}}
+            defaultChecked={homeInfo.washroom1Direction === '5'}
+          />
+          <label className='ml-2'>West</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='washroom1Position'
+            value='6'
+            onChange={e => {}}
+            defaultChecked={homeInfo.washroom1Direction === '6'}
+          />
+          <label className='ml-2'>North-West</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='washroom1Position'
+            value='7'
+            onChange={e => {}}
+            defaultChecked={homeInfo.washroom1Direction === '7'}
+          />
+          <label className='ml-2'>North</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='washroom1Position'
+            value='8'
+            onChange={e => {}}
+            defaultChecked={homeInfo.washroom1Direction === '8'}
+          />
+          <label className='ml-2'>North-East</label>
+        </div>
+      )}
+      {questionCount === 27 && (
+        <div
+          className='question '
+          onChange={e =>
+            sethomeInfo({
+              ...homeInfo,
+              washroom2Direction: e.target.value,
+            })
+          }
+          required
+        >
+          <div className='flex mb-10  font-semibold text-xl text-sky-700 '>
+            <h1 className='mr-2 '>{questionCount}.</h1>
+            <h4 className='font-semibold text-lg'>
+              Washroom 2 Position (Vaastu)
+            </h4>
+          </div>
+
+          <input
+            type='radio'
+            className='ml-2'
+            name='washroom2Position'
+            value='1'
+            onChange={e => {}}
+            defaultChecked={homeInfo.washroom2Direction === '1'}
+          />
+          <label className='ml-2'>East</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='washroom2Position'
+            value='2'
+            onChange={e => {}}
+            defaultChecked={homeInfo.washroom2Direction === '2'}
+          />
+          <label className='ml-2'>South-East</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='washroom2Position'
+            value='3'
+            onChange={e => {}}
+            defaultChecked={homeInfo.washroom2Direction === '3'}
+          />
+          <label className='ml-2'>South</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='washroom2Position'
+            value='4'
+            onChange={e => {}}
+            defaultChecked={homeInfo.washroom2Direction === '4'}
+          />
+          <label className='ml-2'>South-West</label>
+          <br />
+          <input
+            type='radio'
+            className='ml-2'
+            name='washroom2Position'
+            value='5'
+            onChange={e => {}}
+            defaultChecked={homeInfo.washroom2Direction === '5'}
+          />
+          <label className='ml-2'>West</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='washroom2Position'
+            value='6'
+            onChange={e => {}}
+            defaultChecked={homeInfo.washroom2Direction === '6'}
+          />
+          <label className='ml-2'>North-West</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='washroom2Position'
+            value='7'
+            onChange={e => {}}
+            defaultChecked={homeInfo.washroom2Direction === '7'}
+          />
+          <label className='ml-2'>North</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='washroom2Position'
+            value='8'
+            onChange={e => {}}
+            defaultChecked={homeInfo.washroom2Direction === '8'}
+          />
+          <label className='ml-2'>North-East</label>
+        </div>
+      )}
+      {questionCount === 28 && (
+        <div
+          className='question '
+          onChange={e =>
+            sethomeInfo({
+              ...homeInfo,
+              washroom3Direction: e.target.value,
+            })
+          }
+          required
+        >
+          <div className='flex mb-10  font-semibold text-xl text-sky-700 '>
+            <h1 className='mr-2 '>{questionCount}.</h1>
+            <h4 className='font-semibold text-lg'>
+              Washroom 3 Position (Vaastu)
+            </h4>
+          </div>
+
+          <input
+            type='radio'
+            className='ml-2'
+            name='washroom3Position'
+            value='1'
+            onChange={e => {}}
+            defaultChecked={homeInfo.washroom3Direction === '1'}
+          />
+          <label className='ml-2'>East</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='washroom3Position'
+            value='2'
+            onChange={e => {}}
+            defaultChecked={homeInfo.washroom3Direction === '2'}
+          />
+          <label className='ml-2'>South-East</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='washroom3Position'
+            value='3'
+            onChange={e => {}}
+            defaultChecked={homeInfo.washroom3Direction === '3'}
+          />
+          <label className='ml-2'>South</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='washroom3Position'
+            value='4'
+            onChange={e => {}}
+            defaultChecked={homeInfo.washroom3Direction === '4'}
+          />
+          <label className='ml-2'>South-West</label>
+          <br />
+          <input
+            type='radio'
+            className='ml-2'
+            name='washroom3Position'
+            value='5'
+            onChange={e => {}}
+            defaultChecked={homeInfo.washroom3Direction === '5'}
+          />
+          <label className='ml-2'>West</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='washroom3Position'
+            value='6'
+            onChange={e => {}}
+            defaultChecked={homeInfo.washroom3Direction === '6'}
+          />
+          <label className='ml-2'>North-West</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='washroom3Position'
+            value='7'
+            onChange={e => {}}
+            defaultChecked={homeInfo.washroom3Direction === '7'}
+          />
+          <label className='ml-2'>North</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='washroom3Position'
+            value='8'
+            onChange={e => {}}
+            defaultChecked={homeInfo.washroom3Direction === '8'}
+          />
+          <label className='ml-2'>North-East</label>
+        </div>
+      )}
+      {questionCount === 29 && (
+        <div
+          className='question '
+          onChange={e =>
+            sethomeInfo({
+              ...homeInfo,
+              mainDoorLarger: Boolean(e.target.value),
+            })
+          }
+          required
+        >
+          <div className='flex mb-10  font-semibold text-xl text-sky-700 '>
+            <h1 className='mr-2 '>{questionCount}.</h1>
+            <h4 className='font-semibold text-lg'>
+              Main door larger than other doors of the house?
+            </h4>
+          </div>
+
+          <input
+            type='radio'
+            className='ml-2'
+            name='mainDoorLarger'
+            value='True'
+            onChange={e => {}}
+            defaultChecked={homeInfo.mainDoorLarger === true}
+          />
+          <label className='ml-2'>Yes</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='mainDoorLarger'
+            value=''
+            onChange={e => {}}
+            defaultChecked={homeInfo.mainDoorLarger === false}
+          />
+          <label className='ml-2'>No</label>
+        </div>
+      )}
+      {questionCount === 30 && (
+        <div
+          className='question '
+          onChange={e =>
+            sethomeInfo({
+              ...homeInfo,
+              wellLitEntrance: Boolean(e.target.value),
+            })
+          }
+          required
+        >
+          <div className='flex mb-10  font-semibold text-xl text-sky-700 '>
+            <h1 className='mr-2 '>{questionCount}.</h1>
+            <h4 className='font-semibold text-lg'>A well lit entrance area</h4>
+          </div>
+
+          <input
+            type='radio'
+            className='ml-2'
+            name='wellLitEntrance'
+            value='True'
+            onChange={e => {}}
+            defaultChecked={homeInfo.wellLitEntrance === true}
+          />
+          <label className='ml-2'>Yes</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='wellLitEntrance'
+            value=''
+            onChange={e => {}}
+            defaultChecked={homeInfo.wellLitEntrance === false}
+          />
+          <label className='ml-2'>No</label>
+        </div>
+      )}
+      {questionCount === 31 && (
+        <div
+          className='question '
+          onChange={e =>
+            sethomeInfo({
+              ...homeInfo,
+              washroomNearMainEntrance: Boolean(e.target.value),
+            })
+          }
+          required
+        >
+          <div className='flex mb-10  font-semibold text-xl text-sky-700 '>
+            <h1 className='mr-2 '>{questionCount}.</h1>
+            <h4 className='font-semibold text-lg'>
+              A washroom near main entrance?
+            </h4>
+          </div>
+
+          <input
+            type='radio'
+            className='ml-2'
+            name='washroomNearMainEntrance'
+            value='True'
+            onChange={e => {}}
+            defaultChecked={homeInfo.washroomNearMainEntrance === true}
+          />
+          <label className='ml-2'>Yes</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='washroomNearMainEntrance'
+            value=''
+            onChange={e => {}}
+            defaultChecked={homeInfo.washroomNearMainEntrance === false}
+          />
+          <label className='ml-2'>No</label>
+        </div>
+      )}
+      {questionCount === 32 && (
+        <div
+          className='question '
+          onChange={e =>
+            sethomeInfo({
+              ...homeInfo,
+              hobNextToSink: Boolean(e.target.value),
+            })
+          }
+          required
+        >
+          <div className='flex mb-10  font-semibold text-xl text-sky-700 '>
+            <h1 className='mr-2 '>{questionCount}.</h1>
+            <h4 className='font-semibold text-lg'>Hob placed next to sink </h4>
+          </div>
+
+          <input
+            type='radio'
+            className='ml-2'
+            name='hobNextToSink'
+            value='True'
+            onChange={e => {}}
+            defaultChecked={homeInfo.hobNextToSink === true}
+          />
+          <label className='ml-2'>Yes</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='hobNextToSink'
+            value=''
+            onChange={e => {}}
+            defaultChecked={homeInfo.hobNextToSink === false}
+          />
+          <label className='ml-2'>No</label>
+        </div>
+      )}
+      {questionCount === 33 && (
+        <div
+          className='question '
+          onChange={e =>
+            sethomeInfo({
+              ...homeInfo,
+              poojaRoomWallNotWithWashroom: Boolean(e.target.value),
+            })
+          }
+          required
+        >
+          <div className='flex mb-10  font-semibold text-xl text-sky-700 '>
+            <h1 className='mr-2 '>{questionCount}.</h1>
+            <h4 className='font-semibold text-lg'>
+              Pooja room does not share wall with washroom{' '}
+            </h4>
+          </div>
+
+          <input
+            type='radio'
+            className='ml-2'
+            name='poojaRoomWallNotWithWashroom'
+            value='True'
+            onChange={e => {}}
+            defaultChecked={homeInfo.poojaRoomWallNotWithWashroom === true}
+          />
+          <label className='ml-2'>Yes</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='poojaRoomWallNotWithWashroom'
+            value=''
+            onChange={e => {}}
+            defaultChecked={homeInfo.poojaRoomWallNotWithWashroom === false}
+          />
+          <label className='ml-2'>No</label>
+        </div>
+      )}
+      {questionCount === 34 && (
+        <div className='question font-semibold text-xl text-sky-700  '>
+          <div className='flex mb-10'>
+            <h1 className='mr-2 '>{questionCount}.</h1>
+            <h4 className='font-semibold text-lg'>
+              {' '}
+              Number of Four Wheeler parking
+            </h4>
+          </div>
+          <Input
+            placeholder='Four Wheeler parking'
+            value={homeInfo.numberOfFourWheelerParking}
+            onChange={e =>
+              sethomeInfo({
+                ...homeInfo,
+                numberOfFourWheelerParking: e.target.value,
+              })
+            }
+            required
+            fullWidth
+            type='number'
+          />
+        </div>
+      )}
+      {questionCount === 35 && (
+        <div className='question font-semibold text-xl text-sky-700  '>
+          <div className='flex mb-10'>
+            <h1 className='mr-2 '>{questionCount}.</h1>
+            <h4 className='font-semibold text-lg'>
+              {' '}
+              Number of Two Wheeler parking
+            </h4>
+          </div>
+          <Input
+            placeholder='Two Wheeler parking'
+            value={homeInfo.numberOfTwoWheelerParking}
+            onChange={e =>
+              sethomeInfo({
+                ...homeInfo,
+                numberOfTwoWheelerParking: e.target.value,
+              })
+            }
+            required
+            fullWidth
+            type='number'
+          />
+        </div>
+      )}
+      {questionCount === 36 && (
+        <div className='question   '>
+          <div className='flex mb-10 font-semibold text-xl text-sky-700'>
+            <h1 className='mr-2 '>{questionCount}.</h1>
+            <h4 className='font-semibold text-lg'>Parking type</h4>
+          </div>
+
+          <FormControl>
+            <FormGroup>
+              <FormControlLabel
+                label='Open'
+                control={
+                  <Checkbox
+                    value='1'
+                    defaultChecked={homeInfo.ParkingType.includes(1)}
+                    onChange={e => {
+                      handleCheckboxChange(e, parkingtype, setparkingtype);
+                    }}
+                  />
+                }
+              />
+              <FormControlLabel
+                label='Covered'
+                control={
+                  <Checkbox
+                    value='2'
+                    defaultChecked={homeInfo.ParkingType.includes(2)}
+                    onChange={e => {
+                      handleCheckboxChange(e, parkingtype, setparkingtype);
+                    }}
+                  />
+                }
+              />
+              <FormControlLabel
+                label='Automated'
+                control={
+                  <Checkbox
+                    value='3'
+                    defaultChecked={homeInfo.ParkingType.includes(3)}
+                    onChange={e => {
+                      handleCheckboxChange(e, parkingtype, setparkingtype);
+                    }}
+                  />
+                }
+              />
+              <FormControlLabel
+                label='N/A'
+                control={
+                  <Checkbox
+                    value='4'
+                    defaultChecked={homeInfo.ParkingType.includes(4)}
+                    onChange={e => {
+                      handleCheckboxChange(e, parkingtype, setparkingtype);
+                    }}
+                  />
+                }
+              />
+            </FormGroup>
+          </FormControl>
+        </div>
+      )}
+
+      {questionCount === 37 && (
+        <div
+          className='question '
+          onChange={e =>
+            sethomeInfo({
+              ...homeInfo,
+              parkingEasyToAccess: Boolean(e.target.value),
+            })
+          }
+          required
+        >
+          <div className='flex mb-10  font-semibold text-xl text-sky-700 '>
+            <h1 className='mr-2 '>{questionCount}.</h1>
+            <h4 className='font-semibold text-lg'>
+              is Owner's Parking Easily Available?
+            </h4>
+          </div>
+
+          <input
+            type='radio'
+            className='ml-2'
+            name='parkingEasyToAccess'
+            value='1'
+            onChange={e => {}}
+            defaultChecked={homeInfo.parkingEasyToAccess === true}
+          />
+          <label className='ml-2'>Yes</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='parkingEasyToAccess'
+            value=''
+            onChange={e => {}}
+            defaultChecked={homeInfo.parkingEasyToAccess === false}
+          />
+          <label className='ml-2'>No</label>
+        </div>
+      )}
+      {questionCount === 38 && (
+        <div
+          className='question '
+          onChange={e =>
+            sethomeInfo({
+              ...homeInfo,
+              highNoiseLevel: Boolean(e.target.value),
+            })
+          }
+          required
+        >
+          <div className='flex mb-10  font-semibold text-xl text-sky-700 '>
+            <h1 className='mr-2 '>{questionCount}.</h1>
+            <h4 className='font-semibold text-lg'>
+              is noise level High inside Property?{' '}
+            </h4>
+          </div>
+
+          <input
+            type='radio'
+            className='ml-2'
+            name='highNoiseLevel'
+            value='1'
+            onChange={e => {}}
+            defaultChecked={homeInfo.highNoiseLevel === true}
+          />
+          <label className='ml-2'>Yes</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='highNoiseLevel'
+            value=''
+            onChange={e => {}}
+            defaultChecked={homeInfo.highNoiseLevel === false}
+          />
+          <label className='ml-2'>No</label>
+        </div>
+      )}
+      {questionCount === 39 && (
+        <div
+          className='question '
+          onChange={e =>
+            sethomeInfo({
+              ...homeInfo,
+              peopleProfession: e.target.value,
+            })
+          }
+          required
+        >
+          <div className='flex mb-10  font-semibold text-xl text-sky-700 '>
+            <h1 className='mr-2 '>{questionCount}.</h1>
+            <h4 className='font-semibold text-lg'>
+              What is the profession of people living in the society ?
+            </h4>
+          </div>
+
+          <input
+            className='ml-2'
+            type='radio'
+            name='peopleprofessionType'
+            value='1'
+            onChange={e => {}}
+            defaultChecked={homeInfo.peopleProfession === '1'}
+          />
+          <label className='ml-2'>Working</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='peopleprofessionType'
+            value='2'
+            onChange={e => {}}
+            defaultChecked={homeInfo.peopleProfession === '2'}
+          />
+          <label className='ml-2'>Self Employed</label>
+        </div>
+      )}
+      {questionCount === 40 && (
+        <div
+          className='question '
+          onChange={e =>
+            sethomeInfo({
+              ...homeInfo,
+              frequentElderlyActivities: Boolean(e.target.value),
+            })
+          }
+          required
+        >
+          <div className='flex mb-10  font-semibold text-xl text-sky-700 '>
+            <h1 className='mr-2 '>{questionCount}.</h1>
+            <h4 className='font-semibold text-lg'>
+              Are there frequent activities held for elderly people?
+            </h4>
+          </div>
+
+          <input
+            type='radio'
+            className='ml-2'
+            name='frequentElderlyActivities'
+            value='True'
+            onChange={e => {}}
+            defaultChecked={homeInfo.frequentElderlyActivities === true}
+          />
+          <label className='ml-2'>Yes</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='frequentElderlyActivities'
+            value=''
+            onChange={e => {}}
+            defaultChecked={homeInfo.frequentElderlyActivities === false}
+          />
+          <label className='ml-2'>No</label>
+        </div>
+      )}
+      {questionCount === 41 && (
+        <div
+          className='question '
+          onChange={e =>
+            sethomeInfo({
+              ...homeInfo,
+              frequentChildrenActivities: Boolean(e.target.value),
+            })
+          }
+          required
+        >
+          <div className='flex mb-10  font-semibold text-xl text-sky-700 '>
+            <h1 className='mr-2 '>{questionCount}.</h1>
+            <h4 className='font-semibold text-lg'>
+              Are there frequent activities held for small children?
+            </h4>
+          </div>
+
+          <input
+            type='radio'
+            className='ml-2'
+            name='frequentChildrenActivities'
+            value='True'
+            onChange={e => {}}
+            defaultChecked={homeInfo.frequentChildrenActivities === true}
+          />
+          <label className='ml-2'>Yes</label>
+          <br />
+          <input
+            className='ml-2'
+            type='radio'
+            name='frequentChildrenActivities'
+            value=''
+            onChange={e => {}}
+            defaultChecked={homeInfo.frequentChildrenActivities === false}
+          />
+          <label className='ml-2'>No</label>
+        </div>
+      )}
+         { check && <p className='text-red-500'>Required Question </p>}
+    </div>
+  );
+};
+
+export default HomeInfo;
+{
+  /* {questionCount === 18 && (
         <div
           className='question '
           onChange={e =>
@@ -1628,1299 +3478,11 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
           />
           <label className='ml-2'>Fabric Carpet</label>
         </div>
-      )} */}
-      {questionCount === 18 && (
-        <div
-          className='question '
-          onChange={e =>
-            sethomeInfo({
-              ...homeInfo,
-              viewFromWindowRating: e.target.value,
-            })
-          }
-          required
-        >
-          <div className='flex mb-10  font-semibold text-xl text-sky-700 '>
-            <h1 className='mr-2 '>{questionCount}.</h1>
-            <h4 className='font-semibold text-lg'>View From Window(Rate)</h4>
-          </div>
+      )} */
+}
 
-          <input type='radio' className='ml-2' name='Rateview' value='1' />
-          <label className='ml-2'>Wow</label>
-          <br />
-          <input className='ml-2' type='radio' name='Rateview' value='2' />
-          <label className='ml-2'>Pleasent</label>
-          <br />
-          <input className='ml-2' type='radio' name='Rateview' value='3' />
-          <label className='ml-2'>Routine</label>
-          <br />
-          <input className='ml-2' type='radio' name='Rateview' value='4' />
-          <label className='ml-2'>Bad</label>
-        </div>
-      )}
-      {questionCount === 19 && (
-        <div className='question   '>
-          <div className='flex mb-10 font-semibold text-xl text-sky-700'>
-            <h1 className='mr-2 '>{questionCount}.</h1>
-            <h4 className='font-semibold text-lg'>View From Window</h4>
-          </div>
-
-          <FormControl>
-            <FormGroup>
-              <FormControlLabel
-                label='Slums'
-                control={
-                  <Checkbox
-                    value='1'
-                    onChange={e => {
-                      handleCheckboxChange(
-                        e,
-                        viewFromWindow,
-                        setviewFromWindow,
-                      );
-                    }}
-                  />
-                }
-              />
-              <FormControlLabel
-                label='Building'
-                control={
-                  <Checkbox
-                    value='2'
-                    onChange={e => {
-                      handleCheckboxChange(
-                        e,
-                        viewFromWindow,
-                        setviewFromWindow,
-                      );
-                    }}
-                  />
-                }
-              />
-              <FormControlLabel
-                label='Open Land'
-                control={
-                  <Checkbox
-                    value='3'
-                    onChange={e => {
-                      handleCheckboxChange(
-                        e,
-                        viewFromWindow,
-                        setviewFromWindow,
-                      );
-                    }}
-                  />
-                }
-              />
-              <FormControlLabel
-                label='Beach / Seaface'
-                control={
-                  <Checkbox
-                    value='4'
-                    onChange={e => {
-                      handleCheckboxChange(
-                        e,
-                        viewFromWindow,
-                        setviewFromWindow,
-                      );
-                    }}
-                  />
-                }
-              />
-
-              <FormControlLabel
-                label='Lake / Pond'
-                control={
-                  <Checkbox
-                    value='5'
-                    onChange={e => {
-                      handleCheckboxChange(
-                        e,
-                        viewFromWindow,
-                        setviewFromWindow,
-                      );
-                    }}
-                  />
-                }
-              />
-
-              <FormControlLabel
-                label='River'
-                control={
-                  <Checkbox
-                    value='6'
-                    onChange={e => {
-                      handleCheckboxChange(
-                        e,
-                        viewFromWindow,
-                        setviewFromWindow,
-                      );
-                    }}
-                  />
-                }
-              />
-
-              <FormControlLabel
-                label='Mountains'
-                control={
-                  <Checkbox
-                    value='7'
-                    onChange={e => {
-                      handleCheckboxChange(
-                        e,
-                        viewFromWindow,
-                        setviewFromWindow,
-                      );
-                    }}
-                  />
-                }
-              />
-
-              <FormControlLabel
-                label='Valley'
-                control={
-                  <Checkbox
-                    value='8'
-                    onChange={e => {
-                      handleCheckboxChange(
-                        e,
-                        viewFromWindow,
-                        setviewFromWindow,
-                      );
-                    }}
-                  />
-                }
-              />
-
-              <FormControlLabel
-                label='Internal Road'
-                control={
-                  <Checkbox
-                    value='9'
-                    onChange={e => {
-                      handleCheckboxChange(
-                        e,
-                        viewFromWindow,
-                        setviewFromWindow,
-                      );
-                    }}
-                  />
-                }
-              />
-
-              <FormControlLabel
-                label='Highway'
-                control={
-                  <Checkbox
-                    value='10'
-                    onChange={e => {
-                      handleCheckboxChange(
-                        e,
-                        viewFromWindow,
-                        setviewFromWindow,
-                      );
-                    }}
-                  />
-                }
-              />
-
-              <FormControlLabel
-                label='Metro'
-                control={
-                  <Checkbox
-                    value='11'
-                    onChange={e => {
-                      handleCheckboxChange(
-                        e,
-                        viewFromWindow,
-                        setviewFromWindow,
-                      );
-                    }}
-                  />
-                }
-              />
-
-              <FormControlLabel
-                label='Temple /Church /Mosque'
-                control={
-                  <Checkbox
-                    value='12'
-                    onChange={e => {
-                      handleCheckboxChange(
-                        e,
-                        viewFromWindow,
-                        setviewFromWindow,
-                      );
-                    }}
-                  />
-                }
-              />
-
-              <FormControlLabel
-                label='Crematorium/ Graveyard/ Kabrastan'
-                control={
-                  <Checkbox
-                    value='13'
-                    onChange={e => {
-                      handleCheckboxChange(
-                        e,
-                        viewFromWindow,
-                        setviewFromWindow,
-                      );
-                    }}
-                  />
-                }
-              />
-
-              <FormControlLabel
-                label='Iconic structure'
-                control={
-                  <Checkbox
-                    value='15'
-                    onChange={e => {
-                      handleCheckboxChange(
-                        e,
-                        viewFromWindow,
-                        setviewFromWindow,
-                      );
-                    }}
-                  />
-                }
-              />
-              <FormControlLabel
-                label='Podium garden'
-                control={
-                  <Checkbox
-                    value='16'
-                    onChange={e => {
-                      handleCheckboxChange(
-                        e,
-                        viewFromWindow,
-                        setviewFromWindow,
-                      );
-                    }}
-                  />
-                }
-              />
-              <FormControlLabel
-                label='Skyline'
-                control={
-                  <Checkbox
-                    value='17'
-                    onChange={e => {
-                      handleCheckboxChange(
-                        e,
-                        viewFromWindow,
-                        setviewFromWindow,
-                      );
-                    }}
-                  />
-                }
-              />
-              <FormControlLabel
-                label='Horizon'
-                control={
-                  <Checkbox
-                    value='18'
-                    onChange={e => {
-                      handleCheckboxChange(
-                        e,
-                        viewFromWindow,
-                        setviewFromWindow,
-                      );
-                    }}
-                  />
-                }
-              />
-              <FormControlLabel
-                label='Swimming Pool'
-                control={
-                  <Checkbox
-                    value='19'
-                    onChange={e => {
-                      handleCheckboxChange(
-                        e,
-                        viewFromWindow,
-                        setviewFromWindow,
-                      );
-                    }}
-                  />
-                }
-              />
-            </FormGroup>
-          </FormControl>
-        </div>
-      )}
-      {questionCount === 20 && (
-        <div
-          className='question '
-          onChange={e =>
-            sethomeInfo({
-              ...homeInfo,
-              mainDoorDirection: e.target.value,
-            })
-          }
-          required
-        >
-          <div className='flex mb-10  font-semibold text-xl text-sky-700 '>
-            <h1 className='mr-2 '>{questionCount}.</h1>
-            <h4 className='font-semibold text-lg'>
-              Living Room Maindoor Position
-            </h4>
-          </div>
-
-          <input
-            type='radio'
-            className='ml-2'
-            name='MaindoorPosition'
-            value='1'
-          />
-          <label className='ml-2'>East</label>
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='MaindoorPosition'
-            value='2'
-          />
-          <label className='ml-2'>South-East</label>
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='MaindoorPosition'
-            value='3'
-          />
-          <label className='ml-2'>South</label>
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='MaindoorPosition'
-            value='4'
-          />
-          <label className='ml-2'>South-West</label>
-          <br />
-          <input
-            type='radio'
-            className='ml-2'
-            name='MaindoorPosition'
-            value='5'
-          />
-          <label className='ml-2'>West</label>
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='MaindoorPosition'
-            value='6'
-          />
-          <label className='ml-2'>North-West</label>
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='MaindoorPosition'
-            value='7'
-          />
-          <label className='ml-2'>North</label>
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='MaindoorPosition'
-            value='8'
-          />
-          <label className='ml-2'>North-East</label>
-        </div>
-      )}
-      {questionCount === 21 && (
-        <div
-          className='question '
-          onChange={e =>
-            sethomeInfo({
-              ...homeInfo,
-              kitchenDirection: e.target.value,
-            })
-          }
-          required
-        >
-          <div className='flex mb-10  font-semibold text-xl text-sky-700 '>
-            <h1 className='mr-2 '>{questionCount}.</h1>
-            <h4 className='font-semibold text-lg'>Kitchen Position (Vaastu)</h4>
-          </div>
-
-          <input
-            type='radio'
-            className='ml-2'
-            name='KitchenPosition'
-            value='1'
-          />
-          <label className='ml-2'>East</label>
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='KitchenPosition'
-            value='2'
-          />
-          <label className='ml-2'>South-East</label>
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='KitchenPosition'
-            value='3'
-          />
-          <label className='ml-2'>South</label>
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='KitchenPosition'
-            value='4'
-          />
-          <label className='ml-2'>South-West</label>
-          <br />
-          <input
-            type='radio'
-            className='ml-2'
-            name='KitchenPosition'
-            value='5'
-          />
-          <label className='ml-2'>West</label>
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='KitchenPosition'
-            value='6'
-          />
-          <label className='ml-2'>North-West</label>
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='KitchenPosition'
-            value='7'
-          />
-          <label className='ml-2'>North</label>
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='KitchenPosition'
-            value='8'
-          />
-          <label className='ml-2'>North-East</label>
-        </div>
-      )}
-      {questionCount === 22 && (
-        <div
-          className='question '
-          onChange={e =>
-            sethomeInfo({
-              ...homeInfo,
-              kitchenSinkDirection: e.target.value,
-            })
-          }
-          required
-        >
-          <div className='flex mb-10  font-semibold text-xl text-sky-700 '>
-            <h1 className='mr-2 '>{questionCount}.</h1>
-            <h4 className='font-semibold text-lg'>
-              Kitchen Sink Position (Vaastu)
-            </h4>
-          </div>
-
-          <input type='radio' className='ml-2' name='sinkPosition' value='1' />
-          <label className='ml-2'>East</label>
-          <br />
-          <input className='ml-2' type='radio' name='sinkPosition' value='2' />
-          <label className='ml-2'>South-East</label>
-          <br />
-          <input className='ml-2' type='radio' name='sinkPosition' value='3' />
-          <label className='ml-2'>South</label>
-          <br />
-          <input className='ml-2' type='radio' name='sinkPosition' value='4' />
-          <label className='ml-2'>South-West</label>
-          <br />
-          <input type='radio' className='ml-2' name='sinkPosition' value='5' />
-          <label className='ml-2'>West</label>
-          <br />
-          <input className='ml-2' type='radio' name='sinkPosition' value='6' />
-          <label className='ml-2'>North-West</label>
-          <br />
-          <input className='ml-2' type='radio' name='sinkPosition' value='7' />
-          <label className='ml-2'>North</label>
-          <br />
-          <input className='ml-2' type='radio' name='sinkPosition' value='8' />
-          <label className='ml-2'>North-East</label>
-        </div>
-      )}
-      {questionCount === 23 && (
-        <div
-          className='question '
-          onChange={e =>
-            sethomeInfo({
-              ...homeInfo,
-              mandirDirection: e.target.value,
-            })
-          }
-          required
-        >
-          <div className='flex mb-10  font-semibold text-xl text-sky-700 '>
-            <h1 className='mr-2 '>{questionCount}.</h1>
-            <h4 className='font-semibold text-lg'>
-              Mandir Pooja Room Position (Vaastu)
-            </h4>
-          </div>
-
-          <input
-            type='radio'
-            className='ml-2'
-            name='mandirPosition'
-            value='1'
-          />
-          <label className='ml-2'>East</label>
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='mandirPosition'
-            value='2'
-          />
-          <label className='ml-2'>South-East</label>
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='mandirPosition'
-            value='3'
-          />
-          <label className='ml-2'>South</label>
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='mandirPosition'
-            value='4'
-          />
-          <label className='ml-2'>South-West</label>
-          <br />
-          <input
-            type='radio'
-            className='ml-2'
-            name='mandirPosition'
-            value='5'
-          />
-          <label className='ml-2'>West</label>
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='mandirPosition'
-            value='6'
-          />
-          <label className='ml-2'>North-West</label>
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='mandirPosition'
-            value='7'
-          />
-          <label className='ml-2'>North</label>
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='mandirPosition'
-            value='8'
-          />
-          <label className='ml-2'>North-East</label>
-        </div>
-      )}
-      {questionCount === 24 && (
-        <div
-          className='question '
-          onChange={e =>
-            sethomeInfo({
-              ...homeInfo,
-              bedroom1Direction: e.target.value,
-            })
-          }
-          required
-        >
-          <div className='flex mb-10  font-semibold text-xl text-sky-700 '>
-            <h1 className='mr-2 '>{questionCount}.</h1>
-            <h4 className='font-semibold text-lg'>
-              Bedroom 1 Position (Vaastu)
-            </h4>
-          </div>
-
-          <input
-            type='radio'
-            className='ml-2'
-            name='bedroom1Position'
-            value='1'
-          />
-          <label className='ml-2'>East</label>
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='bedroom1Position'
-            value='2'
-          />
-          <label className='ml-2'>South-East</label>
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='bedroom1Position'
-            value='3'
-          />
-          <label className='ml-2'>South</label>
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='bedroom1Position'
-            value='4'
-          />
-          <label className='ml-2'>South-West</label>
-          <br />
-          <input
-            type='radio'
-            className='ml-2'
-            name='bedroom1Position'
-            value='5'
-          />
-          <label className='ml-2'>West</label>
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='bedroom1Position'
-            value='6'
-          />
-          <label className='ml-2'>North-West</label>
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='bedroom1Position'
-            value='7'
-          />
-          <label className='ml-2'>North</label>
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='bedroom1Position'
-            value='8'
-          />
-          <label className='ml-2'>North-East</label>
-        </div>
-      )}
-      {questionCount === 25 && (
-        <div
-          className='question '
-          onChange={e =>
-            sethomeInfo({
-              ...homeInfo,
-              bedroom2Direction: e.target.value,
-            })
-          }
-          required
-        >
-          <div className='flex mb-10  font-semibold text-xl text-sky-700 '>
-            <h1 className='mr-2 '>{questionCount}.</h1>
-            <h4 className='font-semibold text-lg'>
-              Bedroom 2 Position (Vaastu)
-            </h4>
-          </div>
-
-          <input
-            type='radio'
-            className='ml-2'
-            name='bedroom2Position'
-            value='1'
-          />
-          <label className='ml-2'>East</label>
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='bedroom2Position'
-            value='2'
-          />
-          <label className='ml-2'>South-East</label>
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='bedroom2Position'
-            value='3'
-          />
-          <label className='ml-2'>South</label>
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='bedroom2Position'
-            value='4'
-          />
-          <label className='ml-2'>South-West</label>
-          <br />
-          <input
-            type='radio'
-            className='ml-2'
-            name='bedroom2Position'
-            value='5'
-          />
-          <label className='ml-2'>West</label>
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='bedroom2Position'
-            value='6'
-          />
-          <label className='ml-2'>North-West</label>
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='bedroom2Position'
-            value='7'
-          />
-          <label className='ml-2'>North</label>
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='bedroom2Position'
-            value='8'
-          />
-          <label className='ml-2'>North-East</label>
-        </div>
-      )}
-      {questionCount === 26 && (
-        <div
-          className='question '
-          onChange={e =>
-            sethomeInfo({
-              ...homeInfo,
-              washroom1Direction: e.target.value,
-            })
-          }
-          required
-        >
-          <div className='flex mb-10  font-semibold text-xl text-sky-700 '>
-            <h1 className='mr-2 '>{questionCount}.</h1>
-            <h4 className='font-semibold text-lg'>
-              Washroom 1 Position (Vaastu)
-            </h4>
-          </div>
-
-          <input
-            type='radio'
-            className='ml-2'
-            name='washroom1Position'
-            value='1'
-          />
-          <label className='ml-2'>East</label>
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='washroom1Position'
-            value='2'
-          />
-          <label className='ml-2'>South-East</label>
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='washroom1Position'
-            value='3'
-          />
-          <label className='ml-2'>South</label>
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='washroom1Position'
-            value='4'
-          />
-          <label className='ml-2'>South-West</label>
-          <br />
-          <input
-            type='radio'
-            className='ml-2'
-            name='washroom1Position'
-            value='5'
-          />
-          <label className='ml-2'>West</label>
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='washroom1Position'
-            value='6'
-          />
-          <label className='ml-2'>North-West</label>
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='washroom1Position'
-            value='7'
-          />
-          <label className='ml-2'>North</label>
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='washroom1Position'
-            value='8'
-          />
-          <label className='ml-2'>North-East</label>
-        </div>
-      )}
-      {questionCount === 27 && (
-        <div
-          className='question '
-          onChange={e =>
-            sethomeInfo({
-              ...homeInfo,
-              washroom2Direction: e.target.value,
-            })
-          }
-          required
-        >
-          <div className='flex mb-10  font-semibold text-xl text-sky-700 '>
-            <h1 className='mr-2 '>{questionCount}.</h1>
-            <h4 className='font-semibold text-lg'>
-              Washroom 2 Position (Vaastu)
-            </h4>
-          </div>
-
-          <input
-            type='radio'
-            className='ml-2'
-            name='washroom2Position'
-            value='1'
-          />
-          <label className='ml-2'>East</label>
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='washroom2Position'
-            value='2'
-          />
-          <label className='ml-2'>South-East</label>
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='washroom2Position'
-            value='3'
-          />
-          <label className='ml-2'>South</label>
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='washroom2Position'
-            value='4'
-          />
-          <label className='ml-2'>South-West</label>
-          <br />
-          <input
-            type='radio'
-            className='ml-2'
-            name='washroom2Position'
-            value='5'
-          />
-          <label className='ml-2'>West</label>
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='washroom2Position'
-            value='6'
-          />
-          <label className='ml-2'>North-West</label>
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='washroom2Position'
-            value='7'
-          />
-          <label className='ml-2'>North</label>
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='washroom2Position'
-            value='8'
-          />
-          <label className='ml-2'>North-East</label>
-        </div>
-      )}
-      {questionCount === 28 && (
-        <div
-          className='question '
-          onChange={e =>
-            sethomeInfo({
-              ...homeInfo,
-              washroom3Direction: e.target.value,
-            })
-          }
-          required
-        >
-          <div className='flex mb-10  font-semibold text-xl text-sky-700 '>
-            <h1 className='mr-2 '>{questionCount}.</h1>
-            <h4 className='font-semibold text-lg'>
-              Washroom 3 Position (Vaastu)
-            </h4>
-          </div>
-
-          <input
-            type='radio'
-            className='ml-2'
-            name='washroom3Position'
-            value='1'
-          />
-          <label className='ml-2'>East</label>
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='washroom3Position'
-            value='2'
-          />
-          <label className='ml-2'>South-East</label>
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='washroom3Position'
-            value='3'
-          />
-          <label className='ml-2'>South</label>
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='washroom3Position'
-            value='4'
-          />
-          <label className='ml-2'>South-West</label>
-          <br />
-          <input
-            type='radio'
-            className='ml-2'
-            name='washroom3Position'
-            value='5'
-          />
-          <label className='ml-2'>West</label>
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='washroom3Position'
-            value='6'
-          />
-          <label className='ml-2'>North-West</label>
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='washroom3Position'
-            value='7'
-          />
-          <label className='ml-2'>North</label>
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='washroom3Position'
-            value='8'
-          />
-          <label className='ml-2'>North-East</label>
-        </div>
-      )}
-      {questionCount === 29 && (
-        <div
-          className='question '
-          onChange={e =>
-            sethomeInfo({
-              ...homeInfo,
-              mainDoorLarger: Boolean(e.target.value),
-            })
-          }
-          required
-        >
-          <div className='flex mb-10  font-semibold text-xl text-sky-700 '>
-            <h1 className='mr-2 '>{questionCount}.</h1>
-            <h4 className='font-semibold text-lg'>
-              Main door larger than other doors of the house?
-            </h4>
-          </div>
-
-          <input
-            type='radio'
-            className='ml-2'
-            name='mainDoorLarger'
-            value='True'
-          />
-          <label className='ml-2'>Yes</label>
-          <br />
-          <input className='ml-2' type='radio' name='mainDoorLarger' value='' />
-          <label className='ml-2'>No</label>
-        </div>
-      )}
-      {questionCount === 30 && (
-        <div
-          className='question '
-          onChange={e =>
-            sethomeInfo({
-              ...homeInfo,
-              wellLitEntrance: Boolean(e.target.value),
-            })
-          }
-          required
-        >
-          <div className='flex mb-10  font-semibold text-xl text-sky-700 '>
-            <h1 className='mr-2 '>{questionCount}.</h1>
-            <h4 className='font-semibold text-lg'>A well lit entrance area</h4>
-          </div>
-
-          <input
-            type='radio'
-            className='ml-2'
-            name='wellLitEntrance'
-            value='True'
-          />
-          <label className='ml-2'>Yes</label>
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='wellLitEntrance'
-            value=''
-          />
-          <label className='ml-2'>No</label>
-        </div>
-      )}
-      {questionCount === 31 && (
-        <div
-          className='question '
-          onChange={e =>
-            sethomeInfo({
-              ...homeInfo,
-              washroomNearMainEntrance: Boolean(e.target.value),
-            })
-          }
-          required
-        >
-          <div className='flex mb-10  font-semibold text-xl text-sky-700 '>
-            <h1 className='mr-2 '>{questionCount}.</h1>
-            <h4 className='font-semibold text-lg'>
-              A washroom near main entrance?
-            </h4>
-          </div>
-
-          <input
-            type='radio'
-            className='ml-2'
-            name='washroomNearMainEntrance'
-            value='True'
-          />
-          <label className='ml-2'>Yes</label>
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='washroomNearMainEntrance'
-            value=''
-          />
-          <label className='ml-2'>No</label>
-        </div>
-      )}
-      {questionCount === 32 && (
-        <div
-          className='question '
-          onChange={e =>
-            sethomeInfo({
-              ...homeInfo,
-              hobNextToSink: Boolean(e.target.value),
-            })
-          }
-          required
-        >
-          <div className='flex mb-10  font-semibold text-xl text-sky-700 '>
-            <h1 className='mr-2 '>{questionCount}.</h1>
-            <h4 className='font-semibold text-lg'>Hob placed next to sink </h4>
-          </div>
-
-          <input
-            type='radio'
-            className='ml-2'
-            name='hobNextToSink'
-            value='True'
-          />
-          <label className='ml-2'>Yes</label>
-          <br />
-          <input className='ml-2' type='radio' name='hobNextToSink' value='' />
-          <label className='ml-2'>No</label>
-        </div>
-      )}
-      {questionCount === 33 && (
-        <div
-          className='question '
-          onChange={e =>
-            sethomeInfo({
-              ...homeInfo,
-              poojaRoomWallNotWithWashroom: Boolean(e.target.value),
-            })
-          }
-          required
-        >
-          <div className='flex mb-10  font-semibold text-xl text-sky-700 '>
-            <h1 className='mr-2 '>{questionCount}.</h1>
-            <h4 className='font-semibold text-lg'>
-              Pooja room does not share wall with washroom{' '}
-            </h4>
-          </div>
-
-          <input
-            type='radio'
-            className='ml-2'
-            name='poojaRoomWallNotWithWashroom'
-            value='True'
-          />
-          <label className='ml-2'>Yes</label>
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='poojaRoomWallNotWithWashroom'
-            value=''
-          />
-          <label className='ml-2'>No</label>
-        </div>
-      )}
-      {questionCount === 34 && (
-        <div className='question font-semibold text-xl text-sky-700  '>
-          <div className='flex mb-10'>
-            <h1 className='mr-2 '>{questionCount}.</h1>
-            <h4 className='font-semibold text-lg'>
-              {' '}
-              Number of Four Wheeler parking
-            </h4>
-          </div>
-          <Input
-            placeholder='Four Wheeler parking'
-            onChange={e =>
-              sethomeInfo({
-                ...homeInfo,
-                numberOfFourWheelerParking: e.target.value,
-              })
-            }
-            required
-            fullWidth
-            type='number'
-          />
-        </div>
-      )}
-      {questionCount === 35 && (
-        <div className='question font-semibold text-xl text-sky-700  '>
-          <div className='flex mb-10'>
-            <h1 className='mr-2 '>{questionCount}.</h1>
-            <h4 className='font-semibold text-lg'>
-              {' '}
-              Number of Two Wheeler parking
-            </h4>
-          </div>
-          <Input
-            placeholder='Two Wheeler parking'
-            onChange={e =>
-              sethomeInfo({
-                ...homeInfo,
-                numberOfTwoWheelerParking: e.target.value,
-              })
-            }
-            required
-            fullWidth
-            type='number'
-          />
-        </div>
-      )}
-      {questionCount === 36 && (
-        <div className='question   '>
-          <div className='flex mb-10 font-semibold text-xl text-sky-700'>
-            <h1 className='mr-2 '>{questionCount}.</h1>
-            <h4 className='font-semibold text-lg'>Fire Fighting System</h4>
-          </div>
-
-          <FormControl>
-            <FormGroup>
-              <FormControlLabel
-                label='Open'
-                control={
-                  <Checkbox
-                    value='1'
-                    onChange={e => {
-                      handleCheckboxChange(e, parkingtype, setparkingtype);
-                    }}
-                  />
-                }
-              />
-              <FormControlLabel
-                label='Covered'
-                control={
-                  <Checkbox
-                    value='2'
-                    onChange={e => {
-                      handleCheckboxChange(e, parkingtype, setparkingtype);
-                    }}
-                  />
-                }
-              />
-              <FormControlLabel
-                label='Automated'
-                control={
-                  <Checkbox
-                    value='3'
-                    onChange={e => {
-                      handleCheckboxChange(e, parkingtype, setparkingtype);
-                    }}
-                  />
-                }
-              />
-              <FormControlLabel
-                label='NA'
-                control={
-                  <Checkbox
-                    value='4'
-                    onChange={e => {
-                      handleCheckboxChange(e, parkingtype, setparkingtype);
-                    }}
-                  />
-                }
-              />
-            </FormGroup>
-          </FormControl>
-        </div>
-      )}
-      {/* {questionCount === 43 && (
+{
+  /* {questionCount === 43 && (
         <div
           className='question '
           onChange={e =>
@@ -2948,179 +3510,5 @@ const HomeInfo = ({ questionCount, homeInfo, sethomeInfo }) => {
           <input className='ml-2' type='radio' name='parkingType' value='4' />
           <label className='ml-2'></label>
         </div>
-      )} */}
-      {questionCount === 37 && (
-        <div
-          className='question '
-          onChange={e =>
-            sethomeInfo({
-              ...homeInfo,
-              parkingEasyToAccess: Boolean(e.target.value),
-            })
-          }
-          required
-        >
-          <div className='flex mb-10  font-semibold text-xl text-sky-700 '>
-            <h1 className='mr-2 '>{questionCount}.</h1>
-            <h4 className='font-semibold text-lg'>
-              is Owner's Parking Easily Available?{' '}
-            </h4>
-          </div>
-
-          <input
-            type='radio'
-            className='ml-2'
-            name='parkingEasyToAccess'
-            value='1'
-          />
-          <label className='ml-2'>Yes</label>
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='parkingEasyToAccess'
-            value=''
-          />
-          <label className='ml-2'>No</label>
-        </div>
-      )}
-      {questionCount === 38 && (
-        <div
-          className='question '
-          onChange={e =>
-            sethomeInfo({
-              ...homeInfo,
-              highNoiseLevel: Boolean(e.target.value),
-            })
-          }
-          required
-        >
-          <div className='flex mb-10  font-semibold text-xl text-sky-700 '>
-            <h1 className='mr-2 '>{questionCount}.</h1>
-            <h4 className='font-semibold text-lg'>
-              is noise level High inside Property?{' '}
-            </h4>
-          </div>
-
-          <input
-            type='radio'
-            className='ml-2'
-            name='highNoiseLevel'
-            value='1'
-          />
-          <label className='ml-2'>Yes</label>
-          <br />
-          <input className='ml-2' type='radio' name='highNoiseLevel' value='' />
-          <label className='ml-2'>No</label>
-        </div>
-      )}
-      {questionCount === 39 && (
-        <div
-          className='question '
-          onChange={e =>
-            sethomeInfo({
-              ...homeInfo,
-              peopleProfession: e.target.value,
-            })
-          }
-          required
-        >
-          <div className='flex mb-10  font-semibold text-xl text-sky-700 '>
-            <h1 className='mr-2 '>{questionCount}.</h1>
-            <h4 className='font-semibold text-lg'>
-              What is the profession of people living in the society ?
-            </h4>
-          </div>
-
-          <input
-            className='ml-2'
-            type='radio'
-            name='peopleprofessionType'
-            value='1'
-          />
-          <label className='ml-2'>Working</label>
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='peopleprofessionType'
-            value='2'
-          />
-          <label className='ml-2'>Self Employed</label>
-        </div>
-      )}
-      {questionCount === 40 && (
-        <div
-          className='question '
-          onChange={e =>
-            sethomeInfo({
-              ...homeInfo,
-              frequentElderlyActivities: Boolean(e.target.value),
-            })
-          }
-          required
-        >
-          <div className='flex mb-10  font-semibold text-xl text-sky-700 '>
-            <h1 className='mr-2 '>{questionCount}.</h1>
-            <h4 className='font-semibold text-lg'>
-              Are there frequent activities held for elderly people?
-            </h4>
-          </div>
-
-          <input
-            type='radio'
-            className='ml-2'
-            name='frequentElderlyActivities'
-            value='True'
-          />
-          <label className='ml-2'>Yes</label>
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='frequentElderlyActivities'
-            value=''
-          />
-          <label className='ml-2'>No</label>
-        </div>
-      )}
-      {questionCount === 41 && (
-        <div
-          className='question '
-          onChange={e =>
-            sethomeInfo({
-              ...homeInfo,
-              frequentChildrenActivities: Boolean(e.target.value),
-            })
-          }
-          required
-        >
-          <div className='flex mb-10  font-semibold text-xl text-sky-700 '>
-            <h1 className='mr-2 '>{questionCount}.</h1>
-            <h4 className='font-semibold text-lg'>
-              Are there frequent activities held for small children?
-            </h4>
-          </div>
-
-          <input
-            type='radio'
-            className='ml-2'
-            name='frequentChildrenActivities'
-            value='True'
-          />
-          <label className='ml-2'>Yes</label>
-          <br />
-          <input
-            className='ml-2'
-            type='radio'
-            name='frequentChildrenActivities'
-            value=''
-          />
-          <label className='ml-2'>No</label>
-        </div>
-      )}
-    </div>
-  );
-};
-
-export default HomeInfo;
+      )} */
+}

@@ -64,17 +64,33 @@ export default function ButtonAppBar({ isloggedIn }) {
     if(
       window.location.pathname === "/neighbourhood-form" ||
       window.location.pathname === "/placeinfo-form" ||
-      window.location.pathname === "/photoupload-form" 
-      // ||window.location.pathname === "/communityleader-form"
-      )
+      window.location.pathname === "/photoupload-form" )
+      
       {
-      navigate("/form-list", { replace: true });
-    } 
+        let result = window.confirm("Are sure you want cancel exit form you will Loose all our form data ?");
+        if (result === true) {
+          navigate("/form-list", { replace: true });
+        }
+    }
+    else if(      
+    window.location.pathname === "/knowyoursociety-form" ||
+    window.location.pathname === "/sellerinfo-form" ||
+    window.location.pathname === "/homeinfo-form" ||
+    window.location.pathname === "/homeinspection-form" ){
+      let result = window.confirm("Are sure you want cancel exit form you will Loose all our form data ?");
+      if (result === true) {
+        navigate("/todays-task", { replace: true });
+      }
+    }
+    else if(window.location.pathname === "/communityleader-form" ){
+      let result = window.confirm("Are sure you want cancel exit form you will Loose all our form data ?");
+      if (result === true) {
+        navigate("/dashboard", { replace: true });
+      }
+    }
    
     else if (window.location.pathname === "/dashboard") {
-      let result = window.confirm(
-        "Are sure you want to log out ?"
-      );
+      let result = window.confirm("Are sure you want to log out ?");
       if (result === true) {
         logout();
       }

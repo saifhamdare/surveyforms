@@ -20,7 +20,7 @@ const PendingTask = ({ tasks, handlePendingTask }) => {
                 <h6 className="font-bold text-base text-violet-700 uppercase " >{task.type}</h6>
                 </div>
                 <p className="font-medium"> {task.address} </p>
-                <p className="font-semibold text-sm">Property ID: {task.property_id}</p>
+                <p className="font-semibold text-sm">Property ID: {task.property}</p>
               </div>
             </Link>
           ))}
@@ -35,7 +35,7 @@ const PendingTask = ({ tasks, handlePendingTask }) => {
                 <h6 className="font-bold text-base text-violet-700 uppercase " >{task.type}</h6>
                 </div>
                 <p className="font-medium"> {task.address} </p>
-                <p className="font-semibold text-sm">Property ID: {task.property_id}</p>
+                <p className="font-semibold text-sm">Property ID: {task.property}</p>
               </div>
             </Link>
           ))}
@@ -50,7 +50,7 @@ const PendingTask = ({ tasks, handlePendingTask }) => {
                 <h6 className="font-bold text-base text-violet-700 uppercase " >{task.type}</h6>
                 </div>
                 <p className="font-medium"> {task.address} </p>
-                <p className="font-semibold text-sm">Property ID: {task.property_id}</p>
+                <p className="font-semibold text-sm">Property ID: {task.property}</p>
               </div>
             </Link>
           ))}
@@ -65,7 +65,7 @@ const PendingTask = ({ tasks, handlePendingTask }) => {
                 <h6 className="font-bold text-base text-violet-700 uppercase " >{task.type}</h6>
                 </div>
                 <p className="font-medium"> {task.address} </p>
-                <p className="font-semibold text-sm">Property ID: {task.property_id}</p>
+                <p className="font-semibold text-sm">Property ID: {task.property}</p>
               </div>
             </Link>
           ))}
@@ -80,7 +80,7 @@ const PendingTask = ({ tasks, handlePendingTask }) => {
                 <h6 className="font-bold text-base text-violet-700 uppercase " >{task.type}</h6>
                 </div>
                 <p className="font-medium"> {task.address} </p>
-                <p className="font-semibold text-sm">Property ID: {task.property_id}</p>
+                <p className="font-semibold text-sm">Property ID: {task.property}</p>
               </div>
             </Link>
           ))}

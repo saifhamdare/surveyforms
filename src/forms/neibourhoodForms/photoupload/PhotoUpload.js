@@ -2,7 +2,7 @@ import React from "react";
 import { Input } from "@mui/material";
 
 import 'react-toastify/dist/ReactToastify.css';
-const PhotoUpload = ({setPhotoUploadImages,photoUploadImages,questionCount}) => {
+const PhotoUpload = ({setPhotoUploadImages,photoUploadImages,questionCount ,check}) => {
   console.log(photoUploadImages.entrance)
   return (
     <div className="">
@@ -143,7 +143,7 @@ const PhotoUpload = ({setPhotoUploadImages,photoUploadImages,questionCount}) => 
               fullWidth
             />
           </div>}
- 
+          { check && <p className='text-red-500'>Required Question </p>}
 
     </div>
   );

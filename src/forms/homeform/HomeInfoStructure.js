@@ -3,10 +3,13 @@ import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+
 import HomeInfo from "./HomeInfo";
+import { ActionButtons } from "../../components";
 const HomeInfoStructure = () => {
   const [questionCount, setQuestionCount] = useState(1);
-
+  const [check, setCheck] = useState(false);
+  const [loading,setLoading]=useState(false)
   const [homeInfo, sethomeInfo] = useState({
   
     address : "",
@@ -17,7 +20,7 @@ const HomeInfoStructure = () => {
     quotedPrice : "",
     floorNumber : "",
     ownerType : "",
-    washrooms :"",
+    washrooms : "",
     washingAreaAttachedTo :"",
     applianceIncludedKitchen :"",
     applianceIncludedLivingRoom :"",
@@ -26,13 +29,6 @@ const HomeInfoStructure = () => {
     applianceIncludedWashroom :"",
     fixedSystems :"",
     fireFightingSystem :"",
-    // livingRoomFlooring : "",
-    // kitchenFlooring : "",
-    // bedroom1Flooring : "",
-    // bedroom2Flooring : "",
-    // washroomFlooring : "",
-    // lobbyFlooring : "",
-    // balconyFlooring : "",
     viewFromWindowRating : "",
     viewFromWindow :"",
     mainDoorDirection : "",
@@ -51,7 +47,7 @@ const HomeInfoStructure = () => {
     poojaRoomWallNotWithWashroom : "",
     numberOfFourWheelerParking : "",
     numberOfTwoWheelerParking : "",
-    parkingType : "",
+    ParkingType : "",
     parkingEasyToAccess : "",
     highNoiseLevel : "",
     peopleProfession : "",
@@ -73,13 +69,20 @@ const HomeInfoStructure = () => {
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 
     11, 12, 13, 14, 15,16, 17, 18, 19, 20,
     21 ,22, 23, 24, 25, 26, 27, 28, 29, 30,
-     31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
-    41,
+     31, 32, 33, 34, 35, 36, 37, 38, 39, 40,41
+    
     //  42, 43, 44, 45, 46, 47, 48,
+  ];
+
+  const mandatory = [
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 
+    11, 12, 13, 14, 15,16, 17, 18, 19, 20,
+    21 ,22, 23, 24, 25, 26, 27, 28, 29, 30,
+     31, 32, 33, 34, 35, 36, 37, 38, 39, 40,41
   ];
   const onSubmit = (e) => {
     e.preventDefault();
-  
+    setLoading(true)
     const body = {
         address : homeInfo.address, 
         location : homeInfo.location ,
@@ -123,7 +126,7 @@ const HomeInfoStructure = () => {
         pooja_room_wall_not_with_washroom : homeInfo.poojaRoomWallNotWithWashroom ,
         number_of_four_wheeler_parking : +homeInfo.numberOfFourWheelerParking ,
         number_of_two_wheeler_parking : +homeInfo.numberOfTwoWheelerParking ,
-        parking_type : +homeInfo.parkingType ,
+        parking_type : homeInfo.ParkingType ,
         parking_easy_to_access : homeInfo.parkingEasyToAccess ,
         high_noise_level : homeInfo.highNoiseLevel ,
         people_profession : +homeInfo.peopleProfession ,
@@ -142,7 +145,7 @@ const HomeInfoStructure = () => {
       })
       .then((res) => {
         successNotify();
-        navigate("/form-list", { replace: true });
+        navigate("/dashboard", { replace: true });
         const status = { status: "C" };
         axios.patch(`api/tasks/${localStorage.getItem("task_id")}/`, status, {
           headers: {
@@ -152,8 +155,13 @@ const HomeInfoStructure = () => {
       })
       .catch((err) => {
         failedNotify();
+        setLoading(false)
       });
   };
+
+  let keysArr = Object.keys(homeInfo);
+ 
+  console.log(keysArr, "keysArr >>>>",questionCount,"ques",homeInfo[keysArr[questionCount-1]]);
 
   return (
     <div>
@@ -171,38 +179,20 @@ const HomeInfoStructure = () => {
                 questionCount={questionCount}
                 homeInfo={homeInfo}
                 sethomeInfo={sethomeInfo}
+                check={check}
               />
             </div>
           </div>
-          <div className="footer text-center m-5 mt-10 flex justify-around">
-          <button
-              className="border-2 border-sky-700 px-3 py-1 rounded-lg text-sky-700 font-medium"
-              disabled={questionCount == 1}
-              onClick={() => {
-                setQuestionCount((currentPage) => currentPage - 1);
-              }}
-            >
-              previous
-            </button>
-            {questionCount == 41 ? (
-              <button
-                className="border-2 border-sky-600 bg-sky-700 px-5 py-2 rounded-lg text-white font-medium"
-                onClick={onSubmit}
-              >
-                finish
-              </button>
-            ) : (
-              <button
-                className="border-2 border-sky-600 bg-sky-700 px-5 py-2 rounded-lg text-white font-medium"
-                disabled={questionCount == Questions.length}
-                onClick={() => {
-                  setQuestionCount((currentPage) => currentPage + 1);
-                }}
-              >
-                Next
-              </button>
-            )}
-          </div>
+          <ActionButtons
+            setCheck={setCheck}
+            setQuestionCount={setQuestionCount}
+            onSubmit={onSubmit}
+            mandatory={mandatory}
+            questionCount={questionCount}
+            loading={loading}
+            objName={homeInfo}
+            finishNo={41}
+          />
         </div>
       </div>
     </div>

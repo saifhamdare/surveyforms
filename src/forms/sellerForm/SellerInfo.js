@@ -7,10 +7,15 @@ import {
   FormGroup,
   Input,
 } from '@mui/material';
+import { checkForEmail, checkForMobileNumber } from '../../utils/helpers';
 const SellerInfo = ({
   knowYourSellerInfo,
   questionCount,
-  setKnowYourSellerInfo,
+  setKnowYourSellerInfo,check,
+  isMobileNoValid,
+  setIsMobileNoValid,
+  isEmailValid,
+  setIsEmailValid,
 }) => {
   const [GeoLocation, setGeoLocation] = useState('');
   const [selectFamily, setSelectFamily] = useState('');
@@ -173,16 +178,28 @@ const SellerInfo = ({
           <Input
             placeholder='eg. 9874563210'
             value={knowYourSellerInfo.ContactNoPrimary}
+            // onChange={e =>
+            //   setKnowYourSellerInfo({
+            //     ...knowYourSellerInfo,
+            //     ContactNoPrimary: e.target.value,
+            //   })
+            // }
             onChange={e =>
-              setKnowYourSellerInfo({
-                ...knowYourSellerInfo,
-                ContactNoPrimary: e.target.value,
-              })
+              checkForMobileNumber(
+                e,
+                setKnowYourSellerInfo,
+                knowYourSellerInfo,
+                'ContactNoPrimary',
+                setIsMobileNoValid,
+              )
             }
             required
             type='number'
             fullWidth
           />
+            {(knowYourSellerInfo.ContactNoPrimary.length > 0 && isMobileNoValid) ? (
+            <small className='text-red-500'>Enter Valid Mobile No.</small>
+          ): null}
         </div>
       )}
 
@@ -196,16 +213,28 @@ const SellerInfo = ({
           <Input
             placeholder='eg. 9874563210'
             value={knowYourSellerInfo.ContactNoSecondary}
+            // onChange={e =>
+            //   setKnowYourSellerInfo({
+            //     ...knowYourSellerInfo,
+            //     ContactNoSecondary: e.target.value,
+            //   })
+            // }
             onChange={e =>
-              setKnowYourSellerInfo({
-                ...knowYourSellerInfo,
-                ContactNoSecondary: e.target.value,
-              })
+              checkForMobileNumber(
+                e,
+                setKnowYourSellerInfo,
+                knowYourSellerInfo,
+                'ContactNoSecondary',
+                setIsMobileNoValid,
+              )
             }
             required
             type='number'
             fullWidth
           />
+            {(knowYourSellerInfo.ContactNoSecondary.length > 0 && isMobileNoValid) ? (
+            <small className='text-red-500'>Enter Valid Mobile No.</small>
+          ): null}
         </div>
       )}
 
@@ -219,16 +248,28 @@ const SellerInfo = ({
           <Input
             placeholder='eg. champak@gmail.com'
             value={knowYourSellerInfo.Email}
+            // onChange={e =>
+            //   setKnowYourSellerInfo({
+            //     ...knowYourSellerInfo,
+            //     Email: e.target.value,
+            //   })
+            // }
             onChange={e =>
-              setKnowYourSellerInfo({
-                ...knowYourSellerInfo,
-                Email: e.target.value,
-              })
+              checkForEmail(
+                e,
+                setKnowYourSellerInfo,
+                knowYourSellerInfo,
+                'Email',
+                setIsEmailValid,
+              )
             }
+            type='text'
             required
-            type='email'
             fullWidth
           />
+           {(knowYourSellerInfo.Email.length > 0 && isEmailValid) ? (
+            <small className='text-red-500'>Enter Valid Email.</small>
+          ): null}
         </div>
       )}
 
@@ -550,7 +591,7 @@ const SellerInfo = ({
           onChange={e =>
             setKnowYourSellerInfo({
               ...knowYourSellerInfo,
-              PetFriendlyHome: Boolean(e.target.value),
+              PetFriendlyHome: Boolean(e.target.value)
             })
           }
           required
@@ -574,7 +615,7 @@ const SellerInfo = ({
             name='PetAtHome'
             value=''
             onPetFriendlyHome={e => {}}
-            checked={knowYourSellerInfo.change === false}
+            checked={knowYourSellerInfo.PetFriendlyHome === false}
           />
           <label className='ml-2'>No</label>
         </div>
@@ -2877,7 +2918,8 @@ const SellerInfo = ({
           <div className='flex mb-10 font-semibold text-xl text-sky-700'>
             <h1 className='mr-2 '>{questionCount}.</h1>
             <h4 className='font-semibold text-lg'>
-              Neighbour's Family Configuiration(to be mentioned)
+            Neighbor's Family Configuration(to be mentioned)
+                 
             </h4>
           </div>
           <FormControl>
@@ -3470,6 +3512,7 @@ const SellerInfo = ({
 
         </div>
       )}
+         { check && <p className='text-red-500'>Required Question </p>}
     </div>
   );
 };

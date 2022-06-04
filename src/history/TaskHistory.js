@@ -27,14 +27,14 @@ const TaskHistory = ({ tasks }) => {
                       <p className="text-green-500 font-bold text-lg">
                         Completed
                       </p>
-                      <p className="font-semibold">
+                      <p className="font-semibold text-sm ">
                         On: {moment(task.updated_at).format("Do MMM  YY")}
                       </p>
                     </div>
                   </div>
                   <p className="font-medium"> {task.address} </p>
                   <p className="font-semibold text-sm">
-                    Property ID: {task.property_id}
+                    Property ID: {task.property}
                   </p>
                 </div>
               </div>
@@ -60,14 +60,14 @@ const TaskHistory = ({ tasks }) => {
                       <p className="text-green-500 font-bold text-lg">
                         Completed
                       </p>
-                      <p className="font-semibold">
+                      <p className="font-semibold text-sm">
                         On: {moment(task.updated_at).format("Do MMM  YY")}
                       </p>
                     </div>
                   </div>
                   <p className="font-medium"> {task.address} </p>
                   <p className="font-semibold text-sm">
-                    Property ID: {task.property_id}
+                    Property ID: {task.property}
                   </p>
                 </div>
               </div>
@@ -93,14 +93,14 @@ const TaskHistory = ({ tasks }) => {
                       <p className="text-green-500 font-bold text-lg">
                         Completed
                       </p>
-                      <p className="font-semibold">
+                      <p className="font-semibold text-sm">
                         On: {moment(task.updated_at).format("Do MMM  YY")}
                       </p>
                     </div>
                   </div>
                   <p className="font-medium"> {task.address} </p>
                   <p className="font-semibold text-sm">
-                    Property ID: {task.property_id}
+                    Property ID: {task.property}
                   </p>
                 </div>
               </div>
@@ -126,14 +126,14 @@ const TaskHistory = ({ tasks }) => {
                       <p className="text-green-500 font-bold text-lg">
                         Completed
                       </p>
-                      <p className="font-semibold">
+                      <p className="font-semibold text-sm">
                         On: {moment(task.updated_at).format("Do MMM  YY")}
                       </p>
                     </div>
                   </div>
                   <p className="font-medium"> {task.address} </p>
                   <p className="font-semibold text-sm">
-                    Property ID: {task.property_id}
+                    Property ID: {task.property}
                   </p>
                 </div>
               </div>
@@ -159,14 +159,14 @@ const TaskHistory = ({ tasks }) => {
                       <p className="text-green-500 font-bold text-lg">
                         Completed
                       </p>
-                      <p className="font-semibold">
+                      <p className="font-semibold text-sm">
                         On: {moment(task.updated_at).format("Do MMM  YY")}
                       </p>
                     </div>
                   </div>
                   <p className="font-medium"> {task.address} </p>
                   <p className="font-semibold text-sm">
-                    Property ID: {task.property_id}
+                    Property ID: {task.property}
                   </p>
                 </div>
               </div>

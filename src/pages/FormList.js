@@ -9,29 +9,37 @@ const FormList = () => {
   const [nhFormCount, setnhFormCount] = useState("");
   const [piFormCount, setpiFormCount] = useState("");
   const [puFormCount, setpuFormCount] = useState("");
+  const [loading, setLoading] = useState(false);
   // const [clFormCount, setclFormCount] = useState("");
 
   const checkSubmit = () => {
+    setTimeout(() => {
+      setLoading(false)
+    }, 3000);
+    setLoading(true);
     let nhform = nhFormCount.length;
     let piform = Boolean(piFormCount.cleanliness);
     let puform = Boolean(puFormCount.entrance);
     // let clform = clFormCount.length;
 
-    if (nhform === 8 && piform === true && puform === true ) {
+    if (nhform == 7 && piform == 1 && puform == 1 ) {
       const body = { status: "C" };
       axios
-        .patch(`tasks/${localStorage.getItem("task_id")}/`, body, {
+        .patch(`/api/tasks/${localStorage.getItem("task_id")}/`, body, {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         })
         .then((res) => {
           successNotify();
+          navigate("/todays-task", { replace: true });
         })
         .catch((err) => {
           failedNotify();
-        });
-    } else {
+        })
+        ;
+    }else{
       failedNotify();
     }
+    
   };
 
   const successNotify = () =>
@@ -162,11 +170,11 @@ const FormList = () => {
             onClick={checkSubmit}
             className="text-white  bg-sky-600 hover:bg-sky-700 font-bold px-4 py-2 rounded-md"
           >
-            Submit
+            Submit  {loading &&  <i className="fa-solid fa-lg fa-spinner fa-spin-pulse"></i>}
           </button>
         </div>
       </div>
-      <ToastContainer />
+      <ToastContainer  autoClose={3000}/>
     </div>
   );
 };

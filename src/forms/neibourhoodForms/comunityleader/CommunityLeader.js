@@ -1,10 +1,16 @@
 import { Input } from "@mui/material";
 import React from "react";
 import "react-toastify/dist/ReactToastify.css";
+import { checkForEmail, checkForMobileNumber } from "../../../utils/helpers";
 const CommunityLeader = ({
   questionCount,
   communityLeaderInfo,
   setCommunityLeaderInfo,
+  isMobileNoValid,
+  setIsMobileNoValid,
+  isEmailValid,
+  setIsEmailValid,
+  check
 }) => {
   return (
     <div className="">
@@ -36,18 +42,30 @@ const CommunityLeader = ({
           </div>
 
           <Input
-            placeholder="eg. 9876543211"
+            placeholder="Enter 10 digit mobile number"
             value={communityLeaderInfo.mobileNo}
-            onChange={(e) =>
-              setCommunityLeaderInfo({
-                ...communityLeaderInfo,
-                mobileNo: e.target.value,
-              })
+            // onChange={(e) =>
+            //   setCommunityLeaderInfo({
+            //     ...communityLeaderInfo,
+            //     mobileNo: e.target.value,
+            //   })
+            // }
+            onChange={e =>
+              checkForMobileNumber(
+                e,
+                setCommunityLeaderInfo,
+                communityLeaderInfo,
+                'mobileNo',
+                setIsMobileNoValid,
+              )
             }
             type='number'
             required
             fullWidth
           />
+           {(communityLeaderInfo.mobileNo.length > 0 && isMobileNoValid) ? (
+            <small className='text-red-500'>Enter Valid Mobile No.</small>
+          ): null}
         </div>
       )}
       {questionCount == 3 && (
@@ -60,15 +78,28 @@ const CommunityLeader = ({
           <Input
             placeholder="eg. rameshk@gmail.com"
             value={communityLeaderInfo.emailId}
-            onChange={(e) =>
-              setCommunityLeaderInfo({
-                ...communityLeaderInfo,
-                emailId: e.target.value,
-              })
+            // onChange={(e) =>
+            //   setCommunityLeaderInfo({
+            //     ...communityLeaderInfo,
+            //     emailId: e.target.value,
+            //   })
+            // }
+            onChange={e =>
+              checkForEmail(
+                e,
+                setCommunityLeaderInfo,
+                communityLeaderInfo,
+                'emailId',
+                setIsEmailValid,
+              )
             }
+            type='text'
             required
             fullWidth
           />
+           {(communityLeaderInfo.emailId.length > 0 && isEmailValid) ? (
+            <small className='text-red-500'>Enter Valid Email.</small>
+          ): null}
         </div>
       )}
       {questionCount == 4 && (
@@ -152,6 +183,7 @@ const CommunityLeader = ({
           />
         </div>
       )}
+       { check && <p className='text-red-500'>Required Question </p>}
     </div>
   );
 };

@@ -1,31 +1,32 @@
-import React from "react";
-import { Link, Outlet } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import React from 'react';
+import { Link, Outlet } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 const Dashboard = () => {
   const navigate = useNavigate();
   return (
-    <div className=" grid grid-rows-1 ">
-      <div className="container justify-center p-2 mt-5 grid grid-cols-2 gap-4 md:px-10 lg:px-36">
-        <Link to={"/todays-task"}>
-          <div className="border-2  bg-white border-slate-800 rounded-lg text-center px-5 py-16 font-bold   ">
+    <div className=' grid grid-rows-1 '>
+      <div className='container justify-center p-2 mt-5 grid grid-cols-2 gap-4 md:px-10 lg:px-36'>
+        <Link to={'/todays-task'}>
+          <div className='border-2  bg-white border-slate-800 rounded-lg text-center px-5 py-16 font-bold   '>
             Today's Task
           </div>
         </Link>
-        <Link to={"/history-task"}>
-          <div className="border-2 bg-white border-slate-800 rounded-lg text-center px-6 py-16  font-bold  ">
+        <Link to={'/history-task'}>
+          <div className='border-2 bg-white border-slate-800 rounded-lg text-center px-6 py-16  font-bold  '>
             Task History
           </div>
         </Link>
-        <Link to={"/pending-task"}>
-          <div className="border-2 bg-white border-slate-800 rounded-lg text-center px-5 py-16 font-bold  ">
+        <Link to={'/pending-task'}>
+          <div className='border-2 bg-white border-slate-800 rounded-lg text-center px-5 py-16 font-bold  '>
             Pending Task
           </div>
         </Link>
-
-        <div onClick={() => { navigate("/communityleader-form", { replace: true });}}
-           className="border-2 bg-white border-slate-800 rounded-lg text-center px-1 py-16 font-bold">
-          Add Channel Partner
-        </div>
+        <Link to={'/communityleader-form'}>
+          <div className='border-2 bg-white border-slate-800 rounded-lg text-center px-1 py-16 font-bold'>
+            Add Channel Partner
+          </div>
+        </Link>
+        
         {/* <Link to={"/searchseller"}>
           <div className="border-2 bg-white border-slate-800 rounded-lg text-center px-3 py-16 font-bold  ">
             Know Your Seller

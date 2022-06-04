@@ -1,4 +1,4 @@
-import { CollectionsOutlined } from '@mui/icons-material';
+
 import {
   Checkbox,
   FormControl,
@@ -12,6 +12,7 @@ const HomeInspection = ({
   questionCount,
   homeInspectionInfo,
   sethomeInspectionInfo,
+  check,
 }) => {
   const [livingRoomFlooringDefects, setLivingRoomFlooringDefects] =
     useState('');
@@ -71,7 +72,7 @@ const HomeInspection = ({
     useState('');
   const [kitchenWindowShutterDefects, setkitchenWindowShutterDefects] =
     useState('');
-  
+
   const [kitchenWallPanelDefects, setkitchenWallPanelDefects] = useState('');
 
   const [kitchenPlumbingDefects, setkitchenPlumbingDefects] = useState('');
@@ -168,11 +169,10 @@ const HomeInspection = ({
     useState('');
 
   const handleCheckboxChange = (event, state, setState) => {
-    console.log(event.target.checked);
-    console.log(event.target);
-
     // event.target.checked =  !event.target.checked;
-    const newNames = state?.includes(+event.target.value) ? state?.filter(name => name !== +event.target.value) : [...(state ?? []), +event.target.value];
+    const newNames = state?.includes(+event.target.value)
+      ? state?.filter(name => name !== +event.target.value)
+      : [...(state ?? []), +event.target.value];
     setState(newNames);
   };
 
@@ -412,12 +412,7 @@ const HomeInspection = ({
     }));
   }, [kitchenWindowShutterDefects]);
 
-  // useEffect(() => {
-  //   sethomeInspectionInfo(prevState => ({
-  //     ...prevState,
-  //     kitchenWallPanel: kitchenWallPanel,
-  //   }));
-  // }, [kitchenWallPanel]);
+
 
   useEffect(() => {
     sethomeInspectionInfo(prevState => ({
@@ -439,12 +434,7 @@ const HomeInspection = ({
     }));
   }, [kitchenCeilingLightDefects]);
 
-  // useEffect(() => {
-  //   sethomeInspectionInfo(prevState => ({
-  //     ...prevState,
-  //     kitchenFanType: kitchenFanType,
-  //   }));
-  // }, [kitchenFanType]);
+
 
   useEffect(() => {
     sethomeInspectionInfo(prevState => ({
@@ -891,7 +881,9 @@ const HomeInspection = ({
             name='livingRoomCeramicTileType'
             value='1'
             onChange={e => {}}
-            defaultChecked={homeInspectionInfo.livingRoomCeramicTileType === '1'}
+            defaultChecked={
+              homeInspectionInfo.livingRoomCeramicTileType === '1'
+            }
           />
           <label className='ml-2'>High Gloss</label>
           <br />
@@ -901,7 +893,9 @@ const HomeInspection = ({
             name='livingRoomCeramicTileType'
             value='2'
             onChange={e => {}}
-            defaultChecked={homeInspectionInfo.livingRoomCeramicTileType === '2'}
+            defaultChecked={
+              homeInspectionInfo.livingRoomCeramicTileType === '2'
+            }
           />
           <label className='ml-2'>Matt</label>
           <br />
@@ -911,7 +905,9 @@ const HomeInspection = ({
             name='livingRoomCeramicTileType'
             value='3'
             onChange={e => {}}
-            defaultChecked={homeInspectionInfo.livingRoomCeramicTileType === '3'}
+            defaultChecked={
+              homeInspectionInfo.livingRoomCeramicTileType === '3'
+            }
           />
           <label className='ml-2'>Anti Skid</label>
           <br />
@@ -921,7 +917,9 @@ const HomeInspection = ({
             name='livingRoomCeramicTileType'
             value='4'
             onChange={e => {}}
-            defaultChecked={homeInspectionInfo.livingRoomCeramicTileType === '4'}
+            defaultChecked={
+              homeInspectionInfo.livingRoomCeramicTileType === '4'
+            }
           />
           <label className='ml-2'>NA</label>
           <br />
@@ -951,7 +949,9 @@ const HomeInspection = ({
             name='livingRoomStoneFlooringType'
             value='1'
             onChange={e => {}}
-            defaultChecked={homeInspectionInfo.livingRoomStoneFlooringType === '1'}
+            defaultChecked={
+              homeInspectionInfo.livingRoomStoneFlooringType === '1'
+            }
           />
           <label className='ml-2'>Marble</label>
           <br />
@@ -961,7 +961,9 @@ const HomeInspection = ({
             name='livingRoomStoneFlooringType'
             value='2'
             onChange={e => {}}
-            defaultChecked={homeInspectionInfo.livingRoomStoneFlooringType === '2'}
+            defaultChecked={
+              homeInspectionInfo.livingRoomStoneFlooringType === '2'
+            }
           />
           <label className='ml-2'>Italian Marble</label>
           <br />
@@ -971,7 +973,9 @@ const HomeInspection = ({
             name='livingRoomStoneFlooringType'
             value='3'
             onChange={e => {}}
-            defaultChecked={homeInspectionInfo.livingRoomStoneFlooringType === '3'}
+            defaultChecked={
+              homeInspectionInfo.livingRoomStoneFlooringType === '3'
+            }
           />
           <label className='ml-2'>Granite</label>
           <br />
@@ -981,7 +985,9 @@ const HomeInspection = ({
             name='livingRoomStoneFlooringType'
             value='4'
             onChange={e => {}}
-            defaultChecked={homeInspectionInfo.livingRoomStoneFlooringType === '4'}
+            defaultChecked={
+              homeInspectionInfo.livingRoomStoneFlooringType === '4'
+            }
           />
           <label className='ml-2'>Kota</label>
           <br />
@@ -991,7 +997,9 @@ const HomeInspection = ({
             name='livingRoomStoneFlooringType'
             value='5'
             onChange={e => {}}
-            defaultChecked={homeInspectionInfo.livingRoomStoneFlooringType === '5'}
+            defaultChecked={
+              homeInspectionInfo.livingRoomStoneFlooringType === '5'
+            }
           />
           <label className='ml-2'>Sandstone</label>
           <br />
@@ -1001,7 +1009,9 @@ const HomeInspection = ({
             name='livingRoomStoneFlooringType'
             value='6'
             onChange={e => {}}
-            defaultChecked={homeInspectionInfo.livingRoomStoneFlooringType === '6'}
+            defaultChecked={
+              homeInspectionInfo.livingRoomStoneFlooringType === '6'
+            }
           />
           <label className='ml-2'>NA</label>
           <br />
@@ -1031,7 +1041,9 @@ const HomeInspection = ({
             name='livingRoomWoodenFlooringType'
             value='1'
             onChange={e => {}}
-            defaultChecked={homeInspectionInfo.livingRoomWoodenFlooringType === '1'}
+            defaultChecked={
+              homeInspectionInfo.livingRoomWoodenFlooringType === '1'
+            }
           />
           <label className='ml-2'>Engineered Wood</label>
           <br />
@@ -1041,7 +1053,9 @@ const HomeInspection = ({
             name='livingRoomWoodenFlooringType'
             value='2'
             onChange={e => {}}
-            defaultChecked={homeInspectionInfo.livingRoomWoodenFlooringType === '2'}
+            defaultChecked={
+              homeInspectionInfo.livingRoomWoodenFlooringType === '2'
+            }
           />
           <label className='ml-2'>Hard Wood</label>
           <br />
@@ -1051,7 +1065,9 @@ const HomeInspection = ({
             name='livingRoomWoodenFlooringType'
             value='3'
             onChange={e => {}}
-            defaultChecked={homeInspectionInfo.livingRoomWoodenFlooringType === '3'}
+            defaultChecked={
+              homeInspectionInfo.livingRoomWoodenFlooringType === '3'
+            }
           />
           <label className='ml-2'>NA</label>
         </div>
@@ -1078,7 +1094,9 @@ const HomeInspection = ({
             name='livingRoomPvcFlooringType'
             value='1'
             onChange={e => {}}
-            defaultChecked={homeInspectionInfo.livingRoomPvcFlooringType === '1'}
+            defaultChecked={
+              homeInspectionInfo.livingRoomPvcFlooringType === '1'
+            }
           />
           <label className='ml-2'>Planks</label>
           <br />
@@ -1088,7 +1106,9 @@ const HomeInspection = ({
             name='livingRoomPvcFlooringType'
             value='2'
             onChange={e => {}}
-            defaultChecked={homeInspectionInfo.livingRoomPvcFlooringType === '2'}
+            defaultChecked={
+              homeInspectionInfo.livingRoomPvcFlooringType === '2'
+            }
           />
           <label className='ml-2'>Carpet</label>
           <br />
@@ -1098,7 +1118,9 @@ const HomeInspection = ({
             name='livingRoomPvcFlooringType'
             value='3'
             onChange={e => {}}
-            defaultChecked={homeInspectionInfo.livingRoomPvcFlooringType === '3'}
+            defaultChecked={
+              homeInspectionInfo.livingRoomPvcFlooringType === '3'
+            }
           />
           <label className='ml-2'>NA</label>
         </div>
@@ -1583,7 +1605,9 @@ const HomeInspection = ({
             name='livingRoomWallTileCeramicType'
             value='1'
             onChange={e => {}}
-            defaultChecked={homeInspectionInfo.livingRoomWallTileCeramicType === '1'}
+            defaultChecked={
+              homeInspectionInfo.livingRoomWallTileCeramicType === '1'
+            }
           />
           <label className='ml-2'>High Gloss</label>
 
@@ -1594,7 +1618,9 @@ const HomeInspection = ({
             name='livingRoomWallTileCeramicType'
             value='2'
             onChange={e => {}}
-            defaultChecked={homeInspectionInfo.livingRoomWallTileCeramicType === '2'}
+            defaultChecked={
+              homeInspectionInfo.livingRoomWallTileCeramicType === '2'
+            }
           />
           <label className='ml-2'>Matt</label>
         </div>
@@ -3872,7 +3898,9 @@ const HomeInspection = ({
             name='livingRoomElectricalWiring'
             value='1'
             onChange={e => {}}
-            defaultChecked={homeInspectionInfo.livingRoomElectricalWiring === '1'}
+            defaultChecked={
+              homeInspectionInfo.livingRoomElectricalWiring === '1'
+            }
           />
           <label className='ml-2'>Cocealed</label>
 
@@ -3883,7 +3911,9 @@ const HomeInspection = ({
             name='livingRoomElectricalWiring'
             value='2'
             onChange={e => {}}
-            defaultChecked={homeInspectionInfo.livingRoomElectricalWiring === '2'}
+            defaultChecked={
+              homeInspectionInfo.livingRoomElectricalWiring === '2'
+            }
           />
           <label className='ml-2'>Exposed</label>
         </div>
@@ -4109,7 +4139,9 @@ const HomeInspection = ({
             name='livingRoomElectricalPoints'
             value='1'
             onChange={e => {}}
-            defaultChecked={homeInspectionInfo.livingRoomElectricalPoints === '1'}
+            defaultChecked={
+              homeInspectionInfo.livingRoomElectricalPoints === '1'
+            }
           />
           <label className='ml-2'>Flushed</label>
 
@@ -4120,7 +4152,9 @@ const HomeInspection = ({
             name='livingRoomElectricalPoints'
             value='2'
             onChange={e => {}}
-            defaultChecked={homeInspectionInfo.livingRoomElectricalPoints === '2'}
+            defaultChecked={
+              homeInspectionInfo.livingRoomElectricalPoints === '2'
+            }
           />
           <label className='ml-2'>Surfaced</label>
         </div>
@@ -4427,7 +4461,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='1'
-                    defaultChecked={homeInspectionInfo.livingRoomAcDefects.includes(1)}
+                    defaultChecked={homeInspectionInfo.livingRoomAcDefects.includes(
+                      1,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -4443,7 +4479,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='2'
-                    defaultChecked={homeInspectionInfo.livingRoomAcDefects.includes(2)}
+                    defaultChecked={homeInspectionInfo.livingRoomAcDefects.includes(
+                      2,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -4459,7 +4497,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='3'
-                    defaultChecked={homeInspectionInfo.livingRoomAcDefects.includes(3)}
+                    defaultChecked={homeInspectionInfo.livingRoomAcDefects.includes(
+                      3,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -4475,7 +4515,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='4'
-                    defaultChecked={homeInspectionInfo.livingRoomAcDefects.includes(4)}
+                    defaultChecked={homeInspectionInfo.livingRoomAcDefects.includes(
+                      4,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -4491,7 +4533,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='5'
-                    defaultChecked={homeInspectionInfo.livingRoomAcDefects.includes(5)}
+                    defaultChecked={homeInspectionInfo.livingRoomAcDefects.includes(
+                      5,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -4507,7 +4551,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='6'
-                    defaultChecked={homeInspectionInfo.livingRoomAcDefects.includes(6)}
+                    defaultChecked={homeInspectionInfo.livingRoomAcDefects.includes(
+                      6,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -4523,7 +4569,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='7'
-                    defaultChecked={homeInspectionInfo.livingRoomAcDefects.includes(7)}
+                    defaultChecked={homeInspectionInfo.livingRoomAcDefects.includes(
+                      7,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -4539,7 +4587,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='8'
-                    defaultChecked={homeInspectionInfo.livingRoomAcDefects.includes(8)}
+                    defaultChecked={homeInspectionInfo.livingRoomAcDefects.includes(
+                      8,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -4555,7 +4605,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='9'
-                    defaultChecked={homeInspectionInfo.livingRoomAcDefects.includes(9)}
+                    defaultChecked={homeInspectionInfo.livingRoomAcDefects.includes(
+                      9,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -4866,7 +4918,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='1'
-                    defaultChecked={homeInspectionInfo.livingRoomWallBuild.includes(1)}
+                    defaultChecked={homeInspectionInfo.livingRoomWallBuild.includes(
+                      1,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -4882,7 +4936,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='2'
-                    defaultChecked={homeInspectionInfo.livingRoomWallBuild.includes(2)}
+                    defaultChecked={homeInspectionInfo.livingRoomWallBuild.includes(
+                      2,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -4898,7 +4954,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='3'
-                    defaultChecked={homeInspectionInfo.livingRoomWallBuild.includes(3)}
+                    defaultChecked={homeInspectionInfo.livingRoomWallBuild.includes(
+                      3,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -4914,7 +4972,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='4'
-                    defaultChecked={homeInspectionInfo.livingRoomWallBuild.includes(4)}
+                    defaultChecked={homeInspectionInfo.livingRoomWallBuild.includes(
+                      4,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -4930,7 +4990,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='5'
-                    defaultChecked={homeInspectionInfo.livingRoomWallBuild.includes(5)}
+                    defaultChecked={homeInspectionInfo.livingRoomWallBuild.includes(
+                      5,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -4946,7 +5008,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='6'
-                    defaultChecked={homeInspectionInfo.livingRoomWallBuild.includes(6)}
+                    defaultChecked={homeInspectionInfo.livingRoomWallBuild.includes(
+                      6,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -5701,7 +5765,9 @@ const HomeInspection = ({
             name='kitchenPlumbingFixturesTap'
             value='1'
             onChange={e => {}}
-            defaultChecked={homeInspectionInfo.kitchenPlumbingFixturesTap === '1'}
+            defaultChecked={
+              homeInspectionInfo.kitchenPlumbingFixturesTap === '1'
+            }
           />
           <label className='ml-2'>Local</label>
 
@@ -5712,7 +5778,9 @@ const HomeInspection = ({
             name='kitchenPlumbingFixturesTap'
             value='2'
             onChange={e => {}}
-            defaultChecked={homeInspectionInfo.kitchenPlumbingFixturesTap === '2'}
+            defaultChecked={
+              homeInspectionInfo.kitchenPlumbingFixturesTap === '2'
+            }
           />
           <label className='ml-2'>Branded</label>
         </div>
@@ -6010,7 +6078,9 @@ const HomeInspection = ({
             name='kitchenWoodenFlooringType'
             value='1'
             onChange={e => {}}
-            defaultChecked={homeInspectionInfo.kitchenWoodenFlooringType === '1'}
+            defaultChecked={
+              homeInspectionInfo.kitchenWoodenFlooringType === '1'
+            }
           />
           <label className='ml-2'>Engineered Wood</label>
           <br />
@@ -6020,7 +6090,9 @@ const HomeInspection = ({
             name='kitchenWoodenFlooringType'
             value='2'
             onChange={e => {}}
-            defaultChecked={homeInspectionInfo.kitchenWoodenFlooringType === '2'}
+            defaultChecked={
+              homeInspectionInfo.kitchenWoodenFlooringType === '2'
+            }
           />
           <label className='ml-2'>Hard Wood</label>
           <br />
@@ -6030,7 +6102,9 @@ const HomeInspection = ({
             name='kitchenWoodenFlooringType'
             value='3'
             onChange={e => {}}
-            defaultChecked={homeInspectionInfo.kitchenWoodenFlooringType === '3'}
+            defaultChecked={
+              homeInspectionInfo.kitchenWoodenFlooringType === '3'
+            }
           />
           <label className='ml-2'>NA</label>
         </div>
@@ -6958,7 +7032,9 @@ const HomeInspection = ({
             name='kitchenWallTileCeramicType'
             value='1'
             onChange={e => {}}
-            defaultChecked={homeInspectionInfo.kitchenWallTileCeramicType === '1'}
+            defaultChecked={
+              homeInspectionInfo.kitchenWallTileCeramicType === '1'
+            }
           />
           <label className='ml-2'>High Gloss</label>
           <br />
@@ -6968,7 +7044,9 @@ const HomeInspection = ({
             name='kitchenWallTileCeramicType'
             value='2'
             onChange={e => {}}
-            defaultChecked={homeInspectionInfo.kitchenWallTileCeramicType === '2'}
+            defaultChecked={
+              homeInspectionInfo.kitchenWallTileCeramicType === '2'
+            }
           />
           <label className='ml-2'>Matt</label>
 
@@ -6989,7 +7067,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='1'
-                    defaultChecked={homeInspectionInfo.kitchenWallDefects.includes(1)}
+                    defaultChecked={homeInspectionInfo.kitchenWallDefects.includes(
+                      1,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -7005,7 +7085,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='2'
-                    defaultChecked={homeInspectionInfo.kitchenWallDefects.includes(2)}
+                    defaultChecked={homeInspectionInfo.kitchenWallDefects.includes(
+                      2,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -7021,7 +7103,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='3'
-                    defaultChecked={homeInspectionInfo.kitchenWallDefects.includes(3)}
+                    defaultChecked={homeInspectionInfo.kitchenWallDefects.includes(
+                      3,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -7037,7 +7121,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='4'
-                    defaultChecked={homeInspectionInfo.kitchenWallDefects.includes(4)}
+                    defaultChecked={homeInspectionInfo.kitchenWallDefects.includes(
+                      4,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -7053,7 +7139,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='5'
-                    defaultChecked={homeInspectionInfo.kitchenWallDefects.includes(5)}
+                    defaultChecked={homeInspectionInfo.kitchenWallDefects.includes(
+                      5,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -7069,7 +7157,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='6'
-                    defaultChecked={homeInspectionInfo.kitchenWallDefects.includes(6)}
+                    defaultChecked={homeInspectionInfo.kitchenWallDefects.includes(
+                      6,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -7085,7 +7175,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='7'
-                    defaultChecked={homeInspectionInfo.kitchenWallDefects.includes(7)}
+                    defaultChecked={homeInspectionInfo.kitchenWallDefects.includes(
+                      7,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -7101,7 +7193,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='8'
-                    defaultChecked={homeInspectionInfo.kitchenWallDefects.includes(8)}
+                    defaultChecked={homeInspectionInfo.kitchenWallDefects.includes(
+                      8,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -7117,7 +7211,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='9'
-                    defaultChecked={homeInspectionInfo.kitchenWallDefects.includes(9)}
+                    defaultChecked={homeInspectionInfo.kitchenWallDefects.includes(
+                      9,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -7133,7 +7229,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='10'
-                    defaultChecked={homeInspectionInfo.kitchenWallDefects.includes(10)}
+                    defaultChecked={homeInspectionInfo.kitchenWallDefects.includes(
+                      10,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -7149,7 +7247,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='11'
-                    defaultChecked={homeInspectionInfo.kitchenWallDefects.includes(11)}
+                    defaultChecked={homeInspectionInfo.kitchenWallDefects.includes(
+                      11,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -7165,7 +7265,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='12'
-                    defaultChecked={homeInspectionInfo.kitchenWallDefects.includes(12)}
+                    defaultChecked={homeInspectionInfo.kitchenWallDefects.includes(
+                      12,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -7181,7 +7283,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='13'
-                    defaultChecked={homeInspectionInfo.kitchenWallDefects.includes(13)}
+                    defaultChecked={homeInspectionInfo.kitchenWallDefects.includes(
+                      13,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -7197,7 +7301,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='14'
-                    defaultChecked={homeInspectionInfo.kitchenWallDefects.includes(14)}
+                    defaultChecked={homeInspectionInfo.kitchenWallDefects.includes(
+                      14,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -7213,7 +7319,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='15'
-                    defaultChecked={homeInspectionInfo.kitchenWallDefects.includes(15)}
+                    defaultChecked={homeInspectionInfo.kitchenWallDefects.includes(
+                      15,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -7895,7 +8003,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='1'
-                    defaultChecked={homeInspectionInfo.kitchenDoorDefects.includes(1)}
+                    defaultChecked={homeInspectionInfo.kitchenDoorDefects.includes(
+                      1,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -7911,7 +8021,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='2'
-                    defaultChecked={homeInspectionInfo.kitchenDoorDefects.includes(2)}
+                    defaultChecked={homeInspectionInfo.kitchenDoorDefects.includes(
+                      2,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -7927,7 +8039,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='3'
-                    defaultChecked={homeInspectionInfo.kitchenDoorDefects.includes(3)}
+                    defaultChecked={homeInspectionInfo.kitchenDoorDefects.includes(
+                      3,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -7943,7 +8057,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='4'
-                    defaultChecked={homeInspectionInfo.kitchenDoorDefects.includes(4)}
+                    defaultChecked={homeInspectionInfo.kitchenDoorDefects.includes(
+                      4,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -7959,7 +8075,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='5'
-                    defaultChecked={homeInspectionInfo.kitchenDoorDefects.includes(5)}
+                    defaultChecked={homeInspectionInfo.kitchenDoorDefects.includes(
+                      5,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -7975,7 +8093,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='6'
-                    defaultChecked={homeInspectionInfo.kitchenDoorDefects.includes(6)}
+                    defaultChecked={homeInspectionInfo.kitchenDoorDefects.includes(
+                      6,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -7991,7 +8111,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='7'
-                    defaultChecked={homeInspectionInfo.kitchenDoorDefects.includes(7)}
+                    defaultChecked={homeInspectionInfo.kitchenDoorDefects.includes(
+                      7,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -8008,7 +8130,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='8'
-                    defaultChecked={homeInspectionInfo.kitchenDoorDefects.includes(8)}
+                    defaultChecked={homeInspectionInfo.kitchenDoorDefects.includes(
+                      8,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -8858,7 +8982,7 @@ const HomeInspection = ({
           />
         </div>
       )}
-       {questionCount === 93 && (
+      {questionCount === 93 && (
         <div
           className='question '
           onChange={e =>
@@ -9841,7 +9965,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='1'
-                    defaultChecked={homeInspectionInfo.kitchenFanDefects.includes(1)}
+                    defaultChecked={homeInspectionInfo.kitchenFanDefects.includes(
+                      1,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -9857,7 +9983,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='2'
-                    defaultChecked={homeInspectionInfo.kitchenFanDefects.includes(2)}
+                    defaultChecked={homeInspectionInfo.kitchenFanDefects.includes(
+                      2,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -9873,7 +10001,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='3'
-                    defaultChecked={homeInspectionInfo.kitchenFanDefects.includes(3)}
+                    defaultChecked={homeInspectionInfo.kitchenFanDefects.includes(
+                      3,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -10084,7 +10214,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='1'
-                    defaultChecked={homeInspectionInfo?.kitchenAlteration?.includes(1)}
+                    defaultChecked={homeInspectionInfo.kitchenAlteration.includes(
+                      1,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -10100,7 +10232,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='2'
-                    defaultChecked={homeInspectionInfo?.kitchenAlteration?.includes(2)}
+                    defaultChecked={homeInspectionInfo.kitchenAlteration.includes(
+                      2,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -10116,7 +10250,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='3'
-                    defaultChecked={homeInspectionInfo?.kitchenAlteration?.includes(3)}
+                    defaultChecked={homeInspectionInfo.kitchenAlteration.includes(
+                      3,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -10132,7 +10268,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='4'
-                    defaultChecked={homeInspectionInfo?.kitchenAlteration?.includes(4)}
+                    defaultChecked={homeInspectionInfo.kitchenAlteration.includes(
+                      4,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -10148,7 +10286,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='5'
-                    defaultChecked={homeInspectionInfo?.kitchenAlteration?.includes(5)}
+                    defaultChecked={homeInspectionInfo.kitchenAlteration.includes(
+                      5,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -10164,7 +10304,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='6'
-                    defaultChecked={homeInspectionInfo?.kitchenAlteration?.includes(6)}
+                    defaultChecked={homeInspectionInfo.kitchenAlteration.includes(
+                      6,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -10180,7 +10322,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='7'
-                    defaultChecked={homeInspectionInfo?.kitchenAlteration?.includes(7)}
+                    defaultChecked={homeInspectionInfo.kitchenAlteration.includes(
+                      7,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -10209,7 +10353,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='1'
-                    defaultChecked={homeInspectionInfo?.kitchenWallDemolition?.includes(
+                    defaultChecked={homeInspectionInfo.kitchenWallDemolition.includes(
                       1,
                     )}
                     onChange={e => {
@@ -10227,7 +10371,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='2'
-                    defaultChecked={homeInspectionInfo?.kitchenWallDemolition?.includes(
+                    defaultChecked={homeInspectionInfo.kitchenWallDemolition.includes(
                       2,
                     )}
                     onChange={e => {
@@ -10245,7 +10389,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='3'
-                    defaultChecked={homeInspectionInfo?.kitchenWallDemolition?.includes(
+                    defaultChecked={homeInspectionInfo.kitchenWallDemolition.includes(
                       3,
                     )}
                     onChange={e => {
@@ -10263,7 +10407,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='4'
-                    defaultChecked={homeInspectionInfo?.kitchenWallDemolition?.includes(
+                    defaultChecked={homeInspectionInfo.kitchenWallDemolition.includes(
                       4,
                     )}
                     onChange={e => {
@@ -10281,7 +10425,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='5'
-                    defaultChecked={homeInspectionInfo?.kitchenWallDemolition?.includes(
+                    defaultChecked={homeInspectionInfo.kitchenWallDemolition.includes(
                       5,
                     )}
                     onChange={e => {
@@ -10299,7 +10443,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='6'
-                    defaultChecked={homeInspectionInfo?.kitchenWallDemolition?.includes(
+                    defaultChecked={homeInspectionInfo.kitchenWallDemolition.includes(
                       6,
                     )}
                     onChange={e => {
@@ -10330,7 +10474,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='1'
-                    defaultChecked={homeInspectionInfo?.kitchenWallBuilt?.includes(1)}
+                    defaultChecked={homeInspectionInfo.kitchenWallBuilt.includes(
+                      1,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -10346,7 +10492,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='2'
-                    defaultChecked={homeInspectionInfo?.kitchenWallBuilt?.includes(2)}
+                    defaultChecked={homeInspectionInfo.kitchenWallBuilt.includes(
+                      2,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -10362,7 +10510,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='3'
-                    defaultChecked={homeInspectionInfo?.kitchenWallBuilt?.includes(3)}
+                    defaultChecked={homeInspectionInfo.kitchenWallBuilt.includes(
+                      3,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -10378,7 +10528,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='4'
-                    defaultChecked={homeInspectionInfo?.kitchenWallBuilt?.includes(4)}
+                    defaultChecked={homeInspectionInfo.kitchenWallBuilt.includes(
+                      4,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -10394,7 +10546,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='5'
-                    defaultChecked={homeInspectionInfo?.kitchenWallBuilt?.includes(5)}
+                    defaultChecked={homeInspectionInfo.kitchenWallBuilt.includes(
+                      5,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -10410,7 +10564,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='6'
-                    defaultChecked={homeInspectionInfo?.kitchenWallBuilt?.includes(6)}
+                    defaultChecked={homeInspectionInfo.kitchenWallBuilt.includes(
+                      6,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -10441,7 +10597,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='1'
-                    defaultChecked={homeInspectionInfo?.kitchenBalconyFloorExtended?.includes(
+                    defaultChecked={homeInspectionInfo.kitchenBalconyFloorExtended.includes(
                       1,
                     )}
                     onChange={e => {
@@ -10459,7 +10615,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='2'
-                    defaultChecked={homeInspectionInfo?.kitchenBalconyFloorExtended?.includes(
+                    defaultChecked={homeInspectionInfo.kitchenBalconyFloorExtended.includes(
                       2,
                     )}
                     onChange={e => {
@@ -10477,7 +10633,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='3'
-                    defaultChecked={homeInspectionInfo?.kitchenBalconyFloorExtended?.includes(
+                    defaultChecked={homeInspectionInfo.kitchenBalconyFloorExtended.includes(
                       3,
                     )}
                     onChange={e => {
@@ -10510,7 +10666,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='1'
-                    defaultChecked={homeInspectionInfo?.kitchenBoxWindowSpaceUtilized?.includes(
+                    defaultChecked={homeInspectionInfo.kitchenBoxWindowSpaceUtilized.includes(
                       1,
                     )}
                     onChange={e => {
@@ -10528,7 +10684,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='2'
-                    defaultChecked={homeInspectionInfo?.kitchenBoxWindowSpaceUtilized?.includes(
+                    defaultChecked={homeInspectionInfo.kitchenBoxWindowSpaceUtilized.includes(
                       2,
                     )}
                     onChange={e => {
@@ -10546,7 +10702,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='3'
-                    defaultChecked={homeInspectionInfo?.kitchenBoxWindowSpaceUtilized?.includes(
+                    defaultChecked={homeInspectionInfo.kitchenBoxWindowSpaceUtilized.includes(
                       3,
                     )}
                     onChange={e => {
@@ -10564,7 +10720,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='4'
-                    defaultChecked={homeInspectionInfo?.kitchenBoxWindowSpaceUtilized?.includes(
+                    defaultChecked={homeInspectionInfo.kitchenBoxWindowSpaceUtilized.includes(
                       4,
                     )}
                     onChange={e => {
@@ -10595,7 +10751,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='1'
-                    defaultChecked={homeInspectionInfo?.kitchenBuiltPlatform?.includes(
+                    defaultChecked={homeInspectionInfo.kitchenBuiltPlatform.includes(
                       1,
                     )}
                     onChange={e => {
@@ -10613,7 +10769,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='2'
-                    defaultChecked={homeInspectionInfo?.kitchenBuiltPlatform?.includes(
+                    defaultChecked={homeInspectionInfo.kitchenBuiltPlatform.includes(
                       2,
                     )}
                     onChange={e => {
@@ -10631,7 +10787,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='3'
-                    defaultChecked={homeInspectionInfo?.kitchenBuiltPlatform?.includes(
+                    defaultChecked={homeInspectionInfo.kitchenBuiltPlatform.includes(
                       3,
                     )}
                     onChange={e => {
@@ -10649,7 +10805,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='4'
-                    defaultChecked={homeInspectionInfo?.kitchenBuiltPlatform?.includes(
+                    defaultChecked={homeInspectionInfo.kitchenBuiltPlatform.includes(
                       4,
                     )}
                     onChange={e => {
@@ -10682,7 +10838,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='1'
-                    defaultChecked={homeInspectionInfo?.kitchenDemolishedPlatform?.includes(
+                    defaultChecked={homeInspectionInfo.kitchenDemolishedPlatform.includes(
                       1,
                     )}
                     onChange={e => {
@@ -10700,7 +10856,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='2'
-                    defaultChecked={homeInspectionInfo?.kitchenDemolishedPlatform?.includes(
+                    defaultChecked={homeInspectionInfo.kitchenDemolishedPlatform.includes(
                       2,
                     )}
                     onChange={e => {
@@ -10718,7 +10874,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='3'
-                    defaultChecked={homeInspectionInfo?.kitchenDemolishedPlatform?.includes(
+                    defaultChecked={homeInspectionInfo.kitchenDemolishedPlatform.includes(
                       3,
                     )}
                     onChange={e => {
@@ -10736,7 +10892,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='4'
-                    defaultChecked={homeInspectionInfo?.kitchenDemolishedPlatform?.includes(
+                    defaultChecked={homeInspectionInfo.kitchenDemolishedPlatform.includes(
                       4,
                     )}
                     onChange={e => {
@@ -10940,7 +11096,9 @@ const HomeInspection = ({
             name='bathroomPlumbingFixturesType'
             value='1'
             onChange={e => {}}
-            defaultChecked={homeInspectionInfo.bathroomPlumbingFixturesType === '1'}
+            defaultChecked={
+              homeInspectionInfo.bathroomPlumbingFixturesType === '1'
+            }
           />
           <label className='ml-2'>Local</label>
 
@@ -10951,7 +11109,9 @@ const HomeInspection = ({
             name='bathroomPlumbingFixturesType'
             value='2'
             onChange={e => {}}
-            defaultChecked={homeInspectionInfo.bathroomPlumbingFixturesType === '2'}
+            defaultChecked={
+              homeInspectionInfo.bathroomPlumbingFixturesType === '2'
+            }
           />
           <label className='ml-2'>Branded</label>
         </div>
@@ -10972,7 +11132,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='1'
-                    defaultChecked={homeInspectionInfo?.bathroomPlumbingDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomPlumbingDefects.includes(
                       1,
                     )}
                     onChange={e => {
@@ -10990,7 +11150,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='2'
-                    defaultChecked={homeInspectionInfo?.bathroomPlumbingDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomPlumbingDefects.includes(
                       2,
                     )}
                     onChange={e => {
@@ -11008,7 +11168,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='3'
-                    defaultChecked={homeInspectionInfo?.bathroomPlumbingDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomPlumbingDefects.includes(
                       3,
                     )}
                     onChange={e => {
@@ -11026,7 +11186,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='4'
-                    defaultChecked={homeInspectionInfo?.bathroomPlumbingDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomPlumbingDefects.includes(
                       4,
                     )}
                     onChange={e => {
@@ -11045,7 +11205,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='5'
-                    defaultChecked={homeInspectionInfo?.bathroomPlumbingDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomPlumbingDefects.includes(
                       5,
                     )}
                     onChange={e => {
@@ -11063,7 +11223,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='6'
-                    defaultChecked={homeInspectionInfo?.bathroomPlumbingDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomPlumbingDefects.includes(
                       6,
                     )}
                     onChange={e => {
@@ -11081,7 +11241,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='7'
-                    defaultChecked={homeInspectionInfo?.bathroomPlumbingDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomPlumbingDefects.includes(
                       7,
                     )}
                     onChange={e => {
@@ -11100,7 +11260,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='8'
-                    defaultChecked={homeInspectionInfo?.bathroomPlumbingDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomPlumbingDefects.includes(
                       8,
                     )}
                     onChange={e => {
@@ -11287,7 +11447,9 @@ const HomeInspection = ({
             name='bathroomStoneFlooringType'
             value='1'
             onChange={e => {}}
-            defaultChecked={homeInspectionInfo.bathroomStoneFlooringType === '1'}
+            defaultChecked={
+              homeInspectionInfo.bathroomStoneFlooringType === '1'
+            }
           />
           <label className='ml-2'>Marble</label>
           <br />
@@ -11297,7 +11459,9 @@ const HomeInspection = ({
             name='bathroomStoneFlooringType'
             value='2'
             onChange={e => {}}
-            defaultChecked={homeInspectionInfo.bathroomStoneFlooringType === '2'}
+            defaultChecked={
+              homeInspectionInfo.bathroomStoneFlooringType === '2'
+            }
           />
           <label className='ml-2'>Italian Marble</label>
           <br />
@@ -11307,7 +11471,9 @@ const HomeInspection = ({
             name='bathroomStoneFlooringType'
             value='3'
             onChange={e => {}}
-            defaultChecked={homeInspectionInfo.bathroomStoneFlooringType === '3'}
+            defaultChecked={
+              homeInspectionInfo.bathroomStoneFlooringType === '3'
+            }
           />
           <label className='ml-2'>Granite</label>
           <br />
@@ -11317,7 +11483,9 @@ const HomeInspection = ({
             name='bathroomStoneFlooringType'
             value='4'
             onChange={e => {}}
-            defaultChecked={homeInspectionInfo.bathroomStoneFlooringType === '4'}
+            defaultChecked={
+              homeInspectionInfo.bathroomStoneFlooringType === '4'
+            }
           />
           <label className='ml-2'>Kota</label>
           <br />
@@ -11327,7 +11495,9 @@ const HomeInspection = ({
             name='bathroomStoneFlooringType'
             value='5'
             onChange={e => {}}
-            defaultChecked={homeInspectionInfo.bathroomStoneFlooringType === '5'}
+            defaultChecked={
+              homeInspectionInfo.bathroomStoneFlooringType === '5'
+            }
           />
           <label className='ml-2'>Sandstone</label>
           <br />
@@ -11337,7 +11507,9 @@ const HomeInspection = ({
             name='bathroomStoneFlooringType'
             value='6'
             onChange={e => {}}
-            defaultChecked={homeInspectionInfo.bathroomStoneFlooringType === '6'}
+            defaultChecked={
+              homeInspectionInfo.bathroomStoneFlooringType === '6'
+            }
           />
           <label className='ml-2'>NA</label>
           <br />
@@ -11367,7 +11539,9 @@ const HomeInspection = ({
             name='bathroomWoodenFlooringType'
             value='1'
             onChange={e => {}}
-            defaultChecked={homeInspectionInfo.bathroomWoodenFlooringType === '1'}
+            defaultChecked={
+              homeInspectionInfo.bathroomWoodenFlooringType === '1'
+            }
           />
           <label className='ml-2'>Engineered Wood</label>
           <br />
@@ -11377,7 +11551,9 @@ const HomeInspection = ({
             name='bathroomWoodenFlooringType'
             value='2'
             onChange={e => {}}
-            defaultChecked={homeInspectionInfo.bathroomWoodenFlooringType === '2'}
+            defaultChecked={
+              homeInspectionInfo.bathroomWoodenFlooringType === '2'
+            }
           />
           <label className='ml-2'>Hard Wood</label>
           <br />
@@ -11387,7 +11563,9 @@ const HomeInspection = ({
             name='bathroomWoodenFlooringType'
             value='3'
             onChange={e => {}}
-            defaultChecked={homeInspectionInfo.bathroomWoodenFlooringType === '3'}
+            defaultChecked={
+              homeInspectionInfo.bathroomWoodenFlooringType === '3'
+            }
           />
           <label className='ml-2'>NA</label>
         </div>
@@ -11455,7 +11633,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='1'
-                    defaultChecked={homeInspectionInfo?.bathroomFlooringDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomFlooringDefects.includes(
                       1,
                     )}
                     onChange={e => {
@@ -11473,7 +11651,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='2'
-                    defaultChecked={homeInspectionInfo?.bathroomFlooringDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomFlooringDefects.includes(
                       2,
                     )}
                     onChange={e => {
@@ -11491,7 +11669,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='3'
-                    defaultChecked={homeInspectionInfo?.bathroomFlooringDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomFlooringDefects.includes(
                       3,
                     )}
                     onChange={e => {
@@ -11509,7 +11687,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='4'
-                    defaultChecked={homeInspectionInfo?.bathroomFlooringDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomFlooringDefects.includes(
                       4,
                     )}
                     onChange={e => {
@@ -11527,7 +11705,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='5'
-                    defaultChecked={homeInspectionInfo?.bathroomFlooringDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomFlooringDefects.includes(
                       5,
                     )}
                     onChange={e => {
@@ -11545,7 +11723,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='6'
-                    defaultChecked={homeInspectionInfo?.bathroomFlooringDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomFlooringDefects.includes(
                       6,
                     )}
                     onChange={e => {
@@ -11563,7 +11741,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='7'
-                    defaultChecked={homeInspectionInfo?.bathroomFlooringDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomFlooringDefects.includes(
                       7,
                     )}
                     onChange={e => {
@@ -11581,7 +11759,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='8'
-                    defaultChecked={homeInspectionInfo?.bathroomFlooringDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomFlooringDefects.includes(
                       8,
                     )}
                     onChange={e => {
@@ -11599,7 +11777,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='9'
-                    defaultChecked={homeInspectionInfo?.bathroomFlooringDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomFlooringDefects.includes(
                       9,
                     )}
                     onChange={e => {
@@ -11617,7 +11795,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='10'
-                    defaultChecked={homeInspectionInfo?.bathroomFlooringDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomFlooringDefects.includes(
                       10,
                     )}
                     onChange={e => {
@@ -11635,7 +11813,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='11'
-                    defaultChecked={homeInspectionInfo?.bathroomFlooringDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomFlooringDefects.includes(
                       11,
                     )}
                     onChange={e => {
@@ -11653,7 +11831,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='12'
-                    defaultChecked={homeInspectionInfo?.bathroomFlooringDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomFlooringDefects.includes(
                       12,
                     )}
                     onChange={e => {
@@ -11671,7 +11849,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='13'
-                    defaultChecked={homeInspectionInfo?.bathroomFlooringDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomFlooringDefects.includes(
                       13,
                     )}
                     onChange={e => {
@@ -11689,7 +11867,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='14'
-                    defaultChecked={homeInspectionInfo?.bathroomFlooringDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomFlooringDefects.includes(
                       14,
                     )}
                     onChange={e => {
@@ -11707,7 +11885,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='15'
-                    defaultChecked={homeInspectionInfo?.bathroomFlooringDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomFlooringDefects.includes(
                       15,
                     )}
                     onChange={e => {
@@ -11795,7 +11973,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='1'
-                    defaultChecked={homeInspectionInfo?.bathroomWallDefects?.includes(1)}
+                    defaultChecked={homeInspectionInfo.bathroomWallDefects.includes(
+                      1,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -11811,7 +11991,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='2'
-                    defaultChecked={homeInspectionInfo?.bathroomWallDefects?.includes(2)}
+                    defaultChecked={homeInspectionInfo.bathroomWallDefects.includes(
+                      2,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -11827,7 +12009,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='3'
-                    defaultChecked={homeInspectionInfo?.bathroomWallDefects?.includes(3)}
+                    defaultChecked={homeInspectionInfo.bathroomWallDefects.includes(
+                      3,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -11843,7 +12027,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='4'
-                    defaultChecked={homeInspectionInfo?.bathroomWallDefects?.includes(4)}
+                    defaultChecked={homeInspectionInfo.bathroomWallDefects.includes(
+                      4,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -11859,7 +12045,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='5'
-                    defaultChecked={homeInspectionInfo?.bathroomWallDefects?.includes(5)}
+                    defaultChecked={homeInspectionInfo.bathroomWallDefects.includes(
+                      5,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -11875,7 +12063,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='6'
-                    defaultChecked={homeInspectionInfo?.bathroomWallDefects?.includes(6)}
+                    defaultChecked={homeInspectionInfo.bathroomWallDefects.includes(
+                      6,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -11891,7 +12081,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='7'
-                    defaultChecked={homeInspectionInfo?.bathroomWallDefects?.includes(7)}
+                    defaultChecked={homeInspectionInfo.bathroomWallDefects.includes(
+                      7,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -11907,7 +12099,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='8'
-                    defaultChecked={homeInspectionInfo?.bathroomWallDefects?.includes(8)}
+                    defaultChecked={homeInspectionInfo.bathroomWallDefects.includes(
+                      8,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -11923,7 +12117,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='9'
-                    defaultChecked={homeInspectionInfo?.bathroomWallDefects?.includes(9)}
+                    defaultChecked={homeInspectionInfo.bathroomWallDefects.includes(
+                      9,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -11939,7 +12135,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='10'
-                    defaultChecked={homeInspectionInfo?.bathroomWallDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomWallDefects.includes(
                       10,
                     )}
                     onChange={e => {
@@ -11957,7 +12153,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='11'
-                    defaultChecked={homeInspectionInfo?.bathroomWallDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomWallDefects.includes(
                       11,
                     )}
                     onChange={e => {
@@ -11975,7 +12171,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='12'
-                    defaultChecked={homeInspectionInfo?.bathroomWallDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomWallDefects.includes(
                       12,
                     )}
                     onChange={e => {
@@ -11993,7 +12189,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='13'
-                    defaultChecked={homeInspectionInfo?.bathroomWallDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomWallDefects.includes(
                       13,
                     )}
                     onChange={e => {
@@ -12011,7 +12207,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='14'
-                    defaultChecked={homeInspectionInfo?.bathroomWallDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomWallDefects.includes(
                       14,
                     )}
                     onChange={e => {
@@ -12029,7 +12225,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='15'
-                    defaultChecked={homeInspectionInfo?.bathroomWallDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomWallDefects.includes(
                       15,
                     )}
                     onChange={e => {
@@ -12047,7 +12243,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='16'
-                    defaultChecked={homeInspectionInfo?.bathroomWallDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomWallDefects.includes(
                       16,
                     )}
                     onChange={e => {
@@ -12065,7 +12261,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='17'
-                    defaultChecked={homeInspectionInfo?.bathroomWallDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomWallDefects.includes(
                       17,
                     )}
                     onChange={e => {
@@ -12083,7 +12279,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='18'
-                    defaultChecked={homeInspectionInfo?.bathroomWallDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomWallDefects.includes(
                       18,
                     )}
                     onChange={e => {
@@ -12101,7 +12297,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='19'
-                    defaultChecked={homeInspectionInfo?.bathroomWallDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomWallDefects.includes(
                       19,
                     )}
                     onChange={e => {
@@ -12119,7 +12315,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='20'
-                    defaultChecked={homeInspectionInfo?.bathroomWallDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomWallDefects.includes(
                       20,
                     )}
                     onChange={e => {
@@ -12137,7 +12333,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='21'
-                    defaultChecked={homeInspectionInfo?.bathroomWallDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomWallDefects.includes(
                       21,
                     )}
                     onChange={e => {
@@ -12294,7 +12490,9 @@ const HomeInspection = ({
             name='bathroomWallTileCeramicType'
             value='1'
             onChange={e => {}}
-            defaultChecked={homeInspectionInfo.bathroomWallTileCeramicType === '1'}
+            defaultChecked={
+              homeInspectionInfo.bathroomWallTileCeramicType === '1'
+            }
           />
           <label className='ml-2'>High Gloss</label>
 
@@ -12305,7 +12503,9 @@ const HomeInspection = ({
             name='bathroomWallTileCeramicType'
             value='2'
             onChange={e => {}}
-            defaultChecked={homeInspectionInfo.bathroomWallTileCeramicType === '2'}
+            defaultChecked={
+              homeInspectionInfo.bathroomWallTileCeramicType === '2'
+            }
           />
           <label className='ml-2'>Matt</label>
         </div>
@@ -12317,11 +12517,11 @@ const HomeInspection = ({
             <h4 className=''>Wall Remark(Bathroom)</h4>
           </div>
           <Input
-            value={homeInspectionInfo.BathroomWallRemarks}
+            value={homeInspectionInfo.bathroomWallRemarks}
             onChange={e =>
               sethomeInspectionInfo({
                 ...homeInspectionInfo,
-                BathroomWallRemarks: e.target.value,
+                bathroomWallRemarks: e.target.value,
               })
             }
             placeholder='remark'
@@ -12441,7 +12641,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='1'
-                    defaultChecked={homeInspectionInfo?.bathroomCeilingDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomCeilingDefects.includes(
                       1,
                     )}
                     onChange={e => {
@@ -12459,7 +12659,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='2'
-                    defaultChecked={homeInspectionInfo?.bathroomCeilingDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomCeilingDefects.includes(
                       2,
                     )}
                     onChange={e => {
@@ -12477,7 +12677,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='3'
-                    defaultChecked={homeInspectionInfo?.bathroomCeilingDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomCeilingDefects.includes(
                       3,
                     )}
                     onChange={e => {
@@ -12495,7 +12695,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='4'
-                    defaultChecked={homeInspectionInfo?.bathroomCeilingDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomCeilingDefects.includes(
                       4,
                     )}
                     onChange={e => {
@@ -12513,7 +12713,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='5'
-                    defaultChecked={homeInspectionInfo?.bathroomCeilingDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomCeilingDefects.includes(
                       5,
                     )}
                     onChange={e => {
@@ -12531,7 +12731,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='6'
-                    defaultChecked={homeInspectionInfo?.bathroomCeilingDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomCeilingDefects.includes(
                       6,
                     )}
                     onChange={e => {
@@ -12549,7 +12749,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='7'
-                    defaultChecked={homeInspectionInfo?.bathroomCeilingDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomCeilingDefects.includes(
                       7,
                     )}
                     onChange={e => {
@@ -12567,7 +12767,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='8'
-                    defaultChecked={homeInspectionInfo?.bathroomCeilingDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomCeilingDefects.includes(
                       8,
                     )}
                     onChange={e => {
@@ -12585,7 +12785,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='9'
-                    defaultChecked={homeInspectionInfo?.bathroomCeilingDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomCeilingDefects.includes(
                       9,
                     )}
                     onChange={e => {
@@ -12603,7 +12803,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='10'
-                    defaultChecked={homeInspectionInfo?.bathroomCeilingDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomCeilingDefects.includes(
                       10,
                     )}
                     onChange={e => {
@@ -12621,7 +12821,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='11'
-                    defaultChecked={homeInspectionInfo?.bathroomCeilingDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomCeilingDefects.includes(
                       11,
                     )}
                     onChange={e => {
@@ -12639,7 +12839,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='12'
-                    defaultChecked={homeInspectionInfo?.bathroomCeilingDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomCeilingDefects.includes(
                       12,
                     )}
                     onChange={e => {
@@ -12657,7 +12857,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='13'
-                    defaultChecked={homeInspectionInfo?.bathroomCeilingDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomCeilingDefects.includes(
                       13,
                     )}
                     onChange={e => {
@@ -12675,7 +12875,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='14'
-                    defaultChecked={homeInspectionInfo?.bathroomCeilingDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomCeilingDefects.includes(
                       14,
                     )}
                     onChange={e => {
@@ -12765,7 +12965,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='1'
-                    defaultChecked={homeInspectionInfo?.bathroomDoorFrameDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomDoorFrameDefects.includes(
                       1,
                     )}
                     onChange={e => {
@@ -12783,7 +12983,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='2'
-                    defaultChecked={homeInspectionInfo?.bathroomDoorFrameDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomDoorFrameDefects.includes(
                       2,
                     )}
                     onChange={e => {
@@ -12801,7 +13001,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='3'
-                    defaultChecked={homeInspectionInfo?.bathroomDoorFrameDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomDoorFrameDefects.includes(
                       3,
                     )}
                     onChange={e => {
@@ -12819,7 +13019,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='4'
-                    defaultChecked={homeInspectionInfo?.bathroomDoorFrameDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomDoorFrameDefects.includes(
                       4,
                     )}
                     onChange={e => {
@@ -12837,7 +13037,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='5'
-                    defaultChecked={homeInspectionInfo?.bathroomDoorFrameDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomDoorFrameDefects.includes(
                       5,
                     )}
                     onChange={e => {
@@ -12855,7 +13055,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='6'
-                    defaultChecked={homeInspectionInfo?.bathroomDoorFrameDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomDoorFrameDefects.includes(
                       6,
                     )}
                     onChange={e => {
@@ -12873,7 +13073,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='7'
-                    defaultChecked={homeInspectionInfo?.bathroomDoorFrameDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomDoorFrameDefects.includes(
                       7,
                     )}
                     onChange={e => {
@@ -12891,7 +13091,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='8'
-                    defaultChecked={homeInspectionInfo?.bathroomDoorFrameDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomDoorFrameDefects.includes(
                       8,
                     )}
                     onChange={e => {
@@ -12909,7 +13109,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='9'
-                    defaultChecked={homeInspectionInfo?.bathroomDoorFrameDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomDoorFrameDefects.includes(
                       9,
                     )}
                     onChange={e => {
@@ -12927,7 +13127,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='10'
-                    defaultChecked={homeInspectionInfo?.bathroomDoorFrameDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomDoorFrameDefects.includes(
                       10,
                     )}
                     onChange={e => {
@@ -12946,7 +13146,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='11'
-                    defaultChecked={homeInspectionInfo?.bathroomDoorFrameDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomDoorFrameDefects.includes(
                       11,
                     )}
                     onChange={e => {
@@ -12998,7 +13198,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='1'
-                    defaultChecked={homeInspectionInfo?.bathroomDoorDefects?.includes(1)}
+                    defaultChecked={homeInspectionInfo.bathroomDoorDefects.includes(
+                      1,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -13014,7 +13216,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='2'
-                    defaultChecked={homeInspectionInfo?.bathroomDoorDefects?.includes(2)}
+                    defaultChecked={homeInspectionInfo.bathroomDoorDefects.includes(
+                      2,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -13030,7 +13234,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='3'
-                    defaultChecked={homeInspectionInfo?.bathroomDoorDefects?.includes(3)}
+                    defaultChecked={homeInspectionInfo.bathroomDoorDefects.includes(
+                      3,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -13046,7 +13252,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='4'
-                    defaultChecked={homeInspectionInfo?.bathroomDoorDefects?.includes(4)}
+                    defaultChecked={homeInspectionInfo.bathroomDoorDefects.includes(
+                      4,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -13062,7 +13270,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='5'
-                    defaultChecked={homeInspectionInfo?.bathroomDoorDefects?.includes(5)}
+                    defaultChecked={homeInspectionInfo.bathroomDoorDefects.includes(
+                      5,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -13078,7 +13288,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='6'
-                    defaultChecked={homeInspectionInfo?.bathroomDoorDefects?.includes(6)}
+                    defaultChecked={homeInspectionInfo.bathroomDoorDefects.includes(
+                      6,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -13094,7 +13306,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='7'
-                    defaultChecked={homeInspectionInfo?.bathroomDoorDefects?.includes(7)}
+                    defaultChecked={homeInspectionInfo.bathroomDoorDefects.includes(
+                      7,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -13111,7 +13325,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='8'
-                    defaultChecked={homeInspectionInfo?.bathroomDoorDefects?.includes(8)}
+                    defaultChecked={homeInspectionInfo.bathroomDoorDefects.includes(
+                      8,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -13193,7 +13409,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='1'
-                    defaultChecked={homeInspectionInfo?.bathroomDoorHardwareDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomDoorHardwareDefects.includes(
                       1,
                     )}
                     onChange={e => {
@@ -13211,7 +13427,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='2'
-                    defaultChecked={homeInspectionInfo?.bathroomDoorHardwareDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomDoorHardwareDefects.includes(
                       2,
                     )}
                     onChange={e => {
@@ -13229,7 +13445,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='3'
-                    defaultChecked={homeInspectionInfo?.bathroomDoorHardwareDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomDoorHardwareDefects.includes(
                       3,
                     )}
                     onChange={e => {
@@ -13247,7 +13463,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='4'
-                    defaultChecked={homeInspectionInfo?.bathroomDoorHardwareDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomDoorHardwareDefects.includes(
                       4,
                     )}
                     onChange={e => {
@@ -13265,7 +13481,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='5'
-                    defaultChecked={homeInspectionInfo?.bathroomDoorHardwareDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomDoorHardwareDefects.includes(
                       5,
                     )}
                     onChange={e => {
@@ -13283,7 +13499,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='6'
-                    defaultChecked={homeInspectionInfo?.bathroomDoorHardwareDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomDoorHardwareDefects.includes(
                       6,
                     )}
                     onChange={e => {
@@ -13376,7 +13592,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='1'
-                    defaultChecked={homeInspectionInfo?.bathroomWindowFrameDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomWindowFrameDefects.includes(
                       1,
                     )}
                     onChange={e => {
@@ -13394,7 +13610,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='2'
-                    defaultChecked={homeInspectionInfo?.bathroomWindowFrameDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomWindowFrameDefects.includes(
                       2,
                     )}
                     onChange={e => {
@@ -13412,7 +13628,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='3'
-                    defaultChecked={homeInspectionInfo?.bathroomWindowFrameDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomWindowFrameDefects.includes(
                       3,
                     )}
                     onChange={e => {
@@ -13430,7 +13646,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='4'
-                    defaultChecked={homeInspectionInfo?.bathroomWindowFrameDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomWindowFrameDefects.includes(
                       4,
                     )}
                     onChange={e => {
@@ -13448,7 +13664,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='5'
-                    defaultChecked={homeInspectionInfo?.bathroomWindowFrameDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomWindowFrameDefects.includes(
                       5,
                     )}
                     onChange={e => {
@@ -13466,7 +13682,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='6'
-                    defaultChecked={homeInspectionInfo?.bathroomWindowFrameDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomWindowFrameDefects.includes(
                       6,
                     )}
                     onChange={e => {
@@ -13484,7 +13700,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='7'
-                    defaultChecked={homeInspectionInfo?.bathroomWindowFrameDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomWindowFrameDefects.includes(
                       7,
                     )}
                     onChange={e => {
@@ -13502,7 +13718,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='8'
-                    defaultChecked={homeInspectionInfo?.bathroomWindowFrameDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomWindowFrameDefects.includes(
                       8,
                     )}
                     onChange={e => {
@@ -13520,7 +13736,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='9'
-                    defaultChecked={homeInspectionInfo?.bathroomWindowFrameDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomWindowFrameDefects.includes(
                       9,
                     )}
                     onChange={e => {
@@ -13538,7 +13754,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='10'
-                    defaultChecked={homeInspectionInfo?.bathroomWindowFrameDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomWindowFrameDefects.includes(
                       10,
                     )}
                     onChange={e => {
@@ -13557,7 +13773,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='11'
-                    defaultChecked={homeInspectionInfo?.bathroomWindowFrameDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomWindowFrameDefects.includes(
                       11,
                     )}
                     onChange={e => {
@@ -13641,7 +13857,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='1'
-                    defaultChecked={homeInspectionInfo?.bathroomWindowHardwareDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomWindowHardwareDefects.includes(
                       1,
                     )}
                     onChange={e => {
@@ -13659,7 +13875,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='2'
-                    defaultChecked={homeInspectionInfo?.bathroomWindowHardwareDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomWindowHardwareDefects.includes(
                       2,
                     )}
                     onChange={e => {
@@ -13677,7 +13893,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='3'
-                    defaultChecked={homeInspectionInfo?.bathroomWindowHardwareDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomWindowHardwareDefects.includes(
                       3,
                     )}
                     onChange={e => {
@@ -13695,7 +13911,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='4'
-                    defaultChecked={homeInspectionInfo?.bathroomWindowHardwareDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomWindowHardwareDefects.includes(
                       4,
                     )}
                     onChange={e => {
@@ -13713,7 +13929,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='5'
-                    defaultChecked={homeInspectionInfo?.bathroomWindowHardwareDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomWindowHardwareDefects.includes(
                       5,
                     )}
                     onChange={e => {
@@ -13731,7 +13947,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='6'
-                    defaultChecked={homeInspectionInfo?.bathroomWindowHardwareDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomWindowHardwareDefects.includes(
                       6,
                     )}
                     onChange={e => {
@@ -13805,7 +14021,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='1'
-                    defaultChecked={homeInspectionInfo?.bathroomWindowShutterDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomWindowShutterDefects.includes(
                       1,
                     )}
                     onChange={e => {
@@ -13823,7 +14039,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='2'
-                    defaultChecked={homeInspectionInfo?.bathroomWindowShutterDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomWindowShutterDefects.includes(
                       2,
                     )}
                     onChange={e => {
@@ -13841,7 +14057,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='3'
-                    defaultChecked={homeInspectionInfo?.bathroomWindowShutterDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomWindowShutterDefects.includes(
                       3,
                     )}
                     onChange={e => {
@@ -13859,7 +14075,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='4'
-                    defaultChecked={homeInspectionInfo?.bathroomWindowShutterDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomWindowShutterDefects.includes(
                       4,
                     )}
                     onChange={e => {
@@ -13877,7 +14093,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='5'
-                    defaultChecked={homeInspectionInfo?.bathroomWindowShutterDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomWindowShutterDefects.includes(
                       5,
                     )}
                     onChange={e => {
@@ -13895,7 +14111,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='6'
-                    defaultChecked={homeInspectionInfo?.bathroomWindowShutterDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomWindowShutterDefects.includes(
                       6,
                     )}
                     onChange={e => {
@@ -13913,7 +14129,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='7'
-                    defaultChecked={homeInspectionInfo?.bathroomWindowShutterDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomWindowShutterDefects.includes(
                       7,
                     )}
                     onChange={e => {
@@ -13931,7 +14147,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='8'
-                    defaultChecked={homeInspectionInfo?.bathroomWindowShutterDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomWindowShutterDefects.includes(
                       8,
                     )}
                     onChange={e => {
@@ -13983,7 +14199,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='1'
-                    defaultChecked={homeInspectionInfo?.bathroomWallPanelDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomWallPanelDefects.includes(
                       1,
                     )}
                     onChange={e => {
@@ -14001,7 +14217,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='2'
-                    defaultChecked={homeInspectionInfo?.bathroomWallPanelDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomWallPanelDefects.includes(
                       2,
                     )}
                     onChange={e => {
@@ -14019,7 +14235,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='3'
-                    defaultChecked={homeInspectionInfo?.bathroomWallPanelDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomWallPanelDefects.includes(
                       3,
                     )}
                     onChange={e => {
@@ -14037,7 +14253,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='4'
-                    defaultChecked={homeInspectionInfo?.bathroomWallPanelDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomWallPanelDefects.includes(
                       4,
                     )}
                     onChange={e => {
@@ -14055,7 +14271,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='5'
-                    defaultChecked={homeInspectionInfo?.bathroomWallPanelDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomWallPanelDefects.includes(
                       5,
                     )}
                     onChange={e => {
@@ -14165,7 +14381,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='1'
-                    defaultChecked={homeInspectionInfo?.bathroomWallPartitionDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomWallPartitionDefects.includes(
                       1,
                     )}
                     onChange={e => {
@@ -14183,7 +14399,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='2'
-                    defaultChecked={homeInspectionInfo?.bathroomWallPartitionDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomWallPartitionDefects.includes(
                       2,
                     )}
                     onChange={e => {
@@ -14201,7 +14417,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='3'
-                    defaultChecked={homeInspectionInfo?.bathroomWallPartitionDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomWallPartitionDefects.includes(
                       3,
                     )}
                     onChange={e => {
@@ -14219,7 +14435,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='4'
-                    defaultChecked={homeInspectionInfo?.bathroomWallPartitionDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomWallPartitionDefects.includes(
                       4,
                     )}
                     onChange={e => {
@@ -14237,7 +14453,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='5'
-                    defaultChecked={homeInspectionInfo?.bathroomWallPartitionDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomWallPartitionDefects.includes(
                       5,
                     )}
                     onChange={e => {
@@ -14255,7 +14471,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='6'
-                    defaultChecked={homeInspectionInfo?.bathroomWallPartitionDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomWallPartitionDefects.includes(
                       6,
                     )}
                     onChange={e => {
@@ -14348,7 +14564,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='1'
-                    defaultChecked={homeInspectionInfo?.bathroomElectricalWiringDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomElectricalWiringDefects.includes(
                       1,
                     )}
                     onChange={e => {
@@ -14366,7 +14582,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='2'
-                    defaultChecked={homeInspectionInfo?.bathroomElectricalWiringDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomElectricalWiringDefects.includes(
                       2,
                     )}
                     onChange={e => {
@@ -14384,7 +14600,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='3'
-                    defaultChecked={homeInspectionInfo?.bathroomElectricalWiringDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomElectricalWiringDefects.includes(
                       3,
                     )}
                     onChange={e => {
@@ -14402,7 +14618,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='4'
-                    defaultChecked={homeInspectionInfo?.bathroomElectricalWiringDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomElectricalWiringDefects.includes(
                       4,
                     )}
                     onChange={e => {
@@ -14420,7 +14636,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='5'
-                    defaultChecked={homeInspectionInfo?.bathroomElectricalWiringDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomElectricalWiringDefects.includes(
                       5,
                     )}
                     onChange={e => {
@@ -14438,7 +14654,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='6'
-                    defaultChecked={homeInspectionInfo?.bathroomElectricalWiringDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomElectricalWiringDefects.includes(
                       6,
                     )}
                     onChange={e => {
@@ -14456,7 +14672,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='7'
-                    defaultChecked={homeInspectionInfo?.bathroomElectricalWiringDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomElectricalWiringDefects.includes(
                       7,
                     )}
                     onChange={e => {
@@ -14474,7 +14690,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='8'
-                    defaultChecked={homeInspectionInfo?.bathroomElectricalWiringDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomElectricalWiringDefects.includes(
                       8,
                     )}
                     onChange={e => {
@@ -14492,7 +14708,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='9'
-                    defaultChecked={homeInspectionInfo?.bathroomElectricalWiringDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomElectricalWiringDefects.includes(
                       9,
                     )}
                     onChange={e => {
@@ -14584,7 +14800,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='1'
-                    defaultChecked={homeInspectionInfo?.bathroomElectricalPointsDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomElectricalPointsDefects.includes(
                       1,
                     )}
                     onChange={e => {
@@ -14602,7 +14818,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='2'
-                    defaultChecked={homeInspectionInfo?.bathroomElectricalPointsDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomElectricalPointsDefects.includes(
                       2,
                     )}
                     onChange={e => {
@@ -14620,7 +14836,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='3'
-                    defaultChecked={homeInspectionInfo?.bathroomElectricalPointsDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomElectricalPointsDefects.includes(
                       3,
                     )}
                     onChange={e => {
@@ -14710,7 +14926,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='1'
-                    defaultChecked={homeInspectionInfo?.bathroomCeilingLightDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomCeilingLightDefects.includes(
                       1,
                     )}
                     onChange={e => {
@@ -14728,7 +14944,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='2'
-                    defaultChecked={homeInspectionInfo?.bathroomCeilingLightDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomCeilingLightDefects.includes(
                       2,
                     )}
                     onChange={e => {
@@ -14746,7 +14962,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='3'
-                    defaultChecked={homeInspectionInfo?.bathroomCeilingLightDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomCeilingLightDefects.includes(
                       3,
                     )}
                     onChange={e => {
@@ -14782,7 +14998,7 @@ const HomeInspection = ({
           />
         </div>
       )}
-            {questionCount === 172 && (
+      {questionCount === 172 && (
         <div
           className='question '
           onChange={e =>
@@ -14795,9 +15011,7 @@ const HomeInspection = ({
         >
           <div className='flex mb-10  font-semibold text-xl text-sky-700 '>
             <h1 className='mr-2 '>{questionCount}.</h1>
-            <h4 className='font-semibold text-lg'>
-            FAN (Bathroom)
-            </h4>
+            <h4 className='font-semibold text-lg'>FAN (Bathroom)</h4>
           </div>
 
           <input
@@ -14836,7 +15050,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='1'
-                    defaultChecked={homeInspectionInfo?.bathroomFan?.includes(1)}
+                    defaultChecked={homeInspectionInfo.bathroomFan.includes(1)}
                     onChange={e => {
                       handleCheckboxChange(e, bathroomFan, setbathroomFan);
                     }}
@@ -14848,7 +15062,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='2'
-                    defaultChecked={homeInspectionInfo?.bathroomFan?.includes(2)}
+                    defaultChecked={homeInspectionInfo.bathroomFan.includes(2)}
                     onChange={e => {
                       handleCheckboxChange(e, bathroomFan, setbathroomFan);
                     }}
@@ -14873,7 +15087,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='1'
-                    defaultChecked={homeInspectionInfo?.bathroomFanDefects?.includes(1)}
+                    defaultChecked={homeInspectionInfo.bathroomFanDefects.includes(
+                      1,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -14889,7 +15105,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='2'
-                    defaultChecked={homeInspectionInfo?.bathroomFanDefects?.includes(2)}
+                    defaultChecked={homeInspectionInfo.bathroomFanDefects.includes(
+                      2,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -14905,7 +15123,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='3'
-                    defaultChecked={homeInspectionInfo?.bathroomFanDefects?.includes(3)}
+                    defaultChecked={homeInspectionInfo.bathroomFanDefects.includes(
+                      3,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -14920,7 +15140,7 @@ const HomeInspection = ({
           </FormControl>
         </div>
       )}
-      
+
       {questionCount === 174 && (
         <div className=''>
           <div className='flex mb-10 font-semibold text-xl text-sky-700'>
@@ -14955,7 +15175,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='1'
-                    defaultChecked={homeInspectionInfo?.bathroomAlterations?.includes(1)}
+                    defaultChecked={homeInspectionInfo.bathroomAlterations.includes(
+                      1,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -14971,7 +15193,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='2'
-                    defaultChecked={homeInspectionInfo?.bathroomAlterations?.includes(1)}
+                    defaultChecked={homeInspectionInfo.bathroomAlterations.includes(
+                      2,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -14987,7 +15211,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='3'
-                    defaultChecked={homeInspectionInfo?.bathroomAlterations?.includes(2)}
+                    defaultChecked={homeInspectionInfo.bathroomAlterations.includes(
+                      3,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -15003,7 +15229,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='4'
-                    defaultChecked={homeInspectionInfo?.bathroomAlterations?.includes(3)}
+                    defaultChecked={homeInspectionInfo.bathroomAlterations.includes(
+                      4,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -15019,7 +15247,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='5'
-                    defaultChecked={homeInspectionInfo?.bathroomAlterations?.includes(4)}
+                    defaultChecked={homeInspectionInfo.bathroomAlterations.includes(
+                      5,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -15035,7 +15265,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='6'
-                    defaultChecked={homeInspectionInfo?.bathroomAlterations?.includes(5)}
+                    defaultChecked={homeInspectionInfo.bathroomAlterations.includes(
+                      6,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -15051,7 +15283,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='7'
-                    defaultChecked={homeInspectionInfo?.bathroomAlterations?.includes(6)}
+                    defaultChecked={homeInspectionInfo.bathroomAlterations.includes(
+                      7,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -15082,7 +15316,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='1'
-                    defaultChecked={homeInspectionInfo?.bathroomWallDemolition?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomWallDemolition.includes(
                       1,
                     )}
                     onChange={e => {
@@ -15100,7 +15334,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='2'
-                    defaultChecked={homeInspectionInfo?.bathroomWallDemolition?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomWallDemolition.includes(
                       2,
                     )}
                     onChange={e => {
@@ -15118,7 +15352,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='3'
-                    defaultChecked={homeInspectionInfo?.bathroomWallDemolition?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomWallDemolition.includes(
                       3,
                     )}
                     onChange={e => {
@@ -15136,7 +15370,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='4'
-                    defaultChecked={homeInspectionInfo?.bathroomWallDemolition?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomWallDemolition.includes(
                       4,
                     )}
                     onChange={e => {
@@ -15154,7 +15388,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='5'
-                    defaultChecked={homeInspectionInfo?.bathroomWallDemolition?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomWallDemolition.includes(
                       5,
                     )}
                     onChange={e => {
@@ -15172,7 +15406,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='6'
-                    defaultChecked={homeInspectionInfo?.bathroomWallDemolition?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomWallDemolition.includes(
                       6,
                     )}
                     onChange={e => {
@@ -15203,7 +15437,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='1'
-                    defaultChecked={homeInspectionInfo?.bathroomWallBuilt?.includes(1)}
+                    defaultChecked={homeInspectionInfo.bathroomWallBuilt.includes(
+                      1,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -15219,7 +15455,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='2'
-                    defaultChecked={homeInspectionInfo?.bathroomWallBuilt?.includes(2)}
+                    defaultChecked={homeInspectionInfo.bathroomWallBuilt.includes(
+                      2,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -15235,7 +15473,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='3'
-                    defaultChecked={homeInspectionInfo?.bathroomWallBuilt?.includes(3)}
+                    defaultChecked={homeInspectionInfo.bathroomWallBuilt.includes(
+                      3,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -15251,7 +15491,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='4'
-                    defaultChecked={homeInspectionInfo?.bathroomWallBuilt?.includes(4)}
+                    defaultChecked={homeInspectionInfo.bathroomWallBuilt.includes(
+                      4,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -15267,7 +15509,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='5'
-                    defaultChecked={homeInspectionInfo?.bathroomWallBuilt?.includes(5)}
+                    defaultChecked={homeInspectionInfo.bathroomWallBuilt.includes(
+                      5,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -15283,7 +15527,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='6'
-                    defaultChecked={homeInspectionInfo?.bathroomWallBuilt?.includes(6)}
+                    defaultChecked={homeInspectionInfo.bathroomWallBuilt.includes(
+                      6,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -15314,7 +15560,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='1'
-                    defaultChecked={homeInspectionInfo?.bathroomBalconyFloorExtended?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomBalconyFloorExtended.includes(
                       1,
                     )}
                     onChange={e => {
@@ -15332,7 +15578,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='2'
-                    defaultChecked={homeInspectionInfo?.bathroomBalconyFloorExtended?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomBalconyFloorExtended.includes(
                       2,
                     )}
                     onChange={e => {
@@ -15350,7 +15596,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='3'
-                    defaultChecked={homeInspectionInfo?.bathroomBalconyFloorExtended?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomBalconyFloorExtended.includes(
                       3,
                     )}
                     onChange={e => {
@@ -15383,7 +15629,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='1'
-                    defaultChecked={homeInspectionInfo?.bathroomBoxWindowSpaceUtilized?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomBoxWindowSpaceUtilized.includes(
                       1,
                     )}
                     onChange={e => {
@@ -15401,7 +15647,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='2'
-                    defaultChecked={homeInspectionInfo?.bathroomBoxWindowSpaceUtilized?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomBoxWindowSpaceUtilized.includes(
                       2,
                     )}
                     onChange={e => {
@@ -15419,7 +15665,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='3'
-                    defaultChecked={homeInspectionInfo?.bathroomBoxWindowSpaceUtilized?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomBoxWindowSpaceUtilized.includes(
                       3,
                     )}
                     onChange={e => {
@@ -15437,7 +15683,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='4'
-                    defaultChecked={homeInspectionInfo?.bathroomBoxWindowSpaceUtilized?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomBoxWindowSpaceUtilized.includes(
                       4,
                     )}
                     onChange={e => {
@@ -15468,7 +15714,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='1'
-                    defaultChecked={homeInspectionInfo?.bathroomBuiltPlatform?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomBuiltPlatform.includes(
                       1,
                     )}
                     onChange={e => {
@@ -15486,7 +15732,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='2'
-                    defaultChecked={homeInspectionInfo?.bathroomBuiltPlatform?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomBuiltPlatform.includes(
                       2,
                     )}
                     onChange={e => {
@@ -15504,7 +15750,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='3'
-                    defaultChecked={homeInspectionInfo?.bathroomBuiltPlatform?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomBuiltPlatform.includes(
                       3,
                     )}
                     onChange={e => {
@@ -15522,7 +15768,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='4'
-                    defaultChecked={homeInspectionInfo?.bathroomBuiltPlatform?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomBuiltPlatform.includes(
                       4,
                     )}
                     onChange={e => {
@@ -15555,7 +15801,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='1'
-                    defaultChecked={homeInspectionInfo?.bathroomDemolishedPlatform?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomDemolishedPlatform.includes(
                       1,
                     )}
                     onChange={e => {
@@ -15573,7 +15819,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='2'
-                    defaultChecked={homeInspectionInfo?.bathroomDemolishedPlatform?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomDemolishedPlatform.includes(
                       2,
                     )}
                     onChange={e => {
@@ -15591,7 +15837,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='3'
-                    defaultChecked={homeInspectionInfo?.bathroomDemolishedPlatform?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomDemolishedPlatform.includes(
                       3,
                     )}
                     onChange={e => {
@@ -15609,7 +15855,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='4'
-                    defaultChecked={homeInspectionInfo?.bathroomDemolishedPlatform?.includes(
+                    defaultChecked={homeInspectionInfo.bathroomDemolishedPlatform.includes(
                       4,
                     )}
                     onChange={e => {
@@ -15855,7 +16101,9 @@ const HomeInspection = ({
             name='bedroomWoodenFlooringType'
             value='1'
             onChange={e => {}}
-            defaultChecked={homeInspectionInfo.bedroomWoodenFlooringType === '1'}
+            defaultChecked={
+              homeInspectionInfo.bedroomWoodenFlooringType === '1'
+            }
           />
           <label className='ml-2'>Engineered Wood</label>
           <br />
@@ -15865,7 +16113,9 @@ const HomeInspection = ({
             name='bedroomWoodenFlooringType'
             value='2'
             onChange={e => {}}
-            defaultChecked={homeInspectionInfo.bedroomWoodenFlooringType === '2'}
+            defaultChecked={
+              homeInspectionInfo.bedroomWoodenFlooringType === '2'
+            }
           />
           <label className='ml-2'>Hard Wood</label>
           <br />
@@ -15875,7 +16125,9 @@ const HomeInspection = ({
             name='bedroomWoodenFlooringType'
             value='3'
             onChange={e => {}}
-            defaultChecked={homeInspectionInfo.bedroomWoodenFlooringType === '3'}
+            defaultChecked={
+              homeInspectionInfo.bedroomWoodenFlooringType === '3'
+            }
           />
           <label className='ml-2'>NA</label>
         </div>
@@ -15943,7 +16195,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='1'
-                    defaultChecked={homeInspectionInfo?.bedroomFlooringDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomFlooringDefects.includes(
                       1,
                     )}
                     onChange={e => {
@@ -15961,7 +16213,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='2'
-                    defaultChecked={homeInspectionInfo?.bedroomFlooringDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomFlooringDefects.includes(
                       2,
                     )}
                     onChange={e => {
@@ -15979,7 +16231,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='3'
-                    defaultChecked={homeInspectionInfo?.bedroomFlooringDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomFlooringDefects.includes(
                       3,
                     )}
                     onChange={e => {
@@ -15997,7 +16249,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='4'
-                    defaultChecked={homeInspectionInfo?.bedroomFlooringDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomFlooringDefects.includes(
                       4,
                     )}
                     onChange={e => {
@@ -16015,7 +16267,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='5'
-                    defaultChecked={homeInspectionInfo?.bedroomFlooringDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomFlooringDefects.includes(
                       5,
                     )}
                     onChange={e => {
@@ -16033,7 +16285,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='6'
-                    defaultChecked={homeInspectionInfo?.bedroomFlooringDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomFlooringDefects.includes(
                       6,
                     )}
                     onChange={e => {
@@ -16051,7 +16303,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='7'
-                    defaultChecked={homeInspectionInfo?.bedroomFlooringDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomFlooringDefects.includes(
                       7,
                     )}
                     onChange={e => {
@@ -16069,7 +16321,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='8'
-                    defaultChecked={homeInspectionInfo?.bedroomFlooringDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomFlooringDefects.includes(
                       8,
                     )}
                     onChange={e => {
@@ -16087,7 +16339,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='9'
-                    defaultChecked={homeInspectionInfo?.bedroomFlooringDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomFlooringDefects.includes(
                       9,
                     )}
                     onChange={e => {
@@ -16105,7 +16357,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='10'
-                    defaultChecked={homeInspectionInfo?.bedroomFlooringDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomFlooringDefects.includes(
                       10,
                     )}
                     onChange={e => {
@@ -16123,7 +16375,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='11'
-                    defaultChecked={homeInspectionInfo?.bedroomFlooringDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomFlooringDefects.includes(
                       11,
                     )}
                     onChange={e => {
@@ -16141,7 +16393,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='12'
-                    defaultChecked={homeInspectionInfo?.bedroomFlooringDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomFlooringDefects.includes(
                       12,
                     )}
                     onChange={e => {
@@ -16159,7 +16411,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='13'
-                    defaultChecked={homeInspectionInfo?.bedroomFlooringDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomFlooringDefects.includes(
                       13,
                     )}
                     onChange={e => {
@@ -16177,7 +16429,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='14'
-                    defaultChecked={homeInspectionInfo?.bedroomFlooringDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomFlooringDefects.includes(
                       14,
                     )}
                     onChange={e => {
@@ -16195,7 +16447,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='15'
-                    defaultChecked={homeInspectionInfo?.bedroomFlooringDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomFlooringDefects.includes(
                       15,
                     )}
                     onChange={e => {
@@ -16285,7 +16537,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='1'
-                    defaultChecked={homeInspectionInfo?.bedroomWallPlasterDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomWallPlasterDefects.includes(
                       1,
                     )}
                     onChange={e => {
@@ -16303,7 +16555,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='2'
-                    defaultChecked={homeInspectionInfo?.bedroomWallPlasterDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomWallPlasterDefects.includes(
                       2,
                     )}
                     onChange={e => {
@@ -16321,7 +16573,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='3'
-                    defaultChecked={homeInspectionInfo?.bedroomWallPlasterDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomWallPlasterDefects.includes(
                       3,
                     )}
                     onChange={e => {
@@ -16339,7 +16591,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='4'
-                    defaultChecked={homeInspectionInfo?.bedroomWallPlasterDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomWallPlasterDefects.includes(
                       4,
                     )}
                     onChange={e => {
@@ -16357,7 +16609,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='5'
-                    defaultChecked={homeInspectionInfo?.bedroomWallPlasterDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomWallPlasterDefects.includes(
                       5,
                     )}
                     onChange={e => {
@@ -16375,7 +16627,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='6'
-                    defaultChecked={homeInspectionInfo?.bedroomWallPlasterDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomWallPlasterDefects.includes(
                       6,
                     )}
                     onChange={e => {
@@ -16393,7 +16645,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='7'
-                    defaultChecked={homeInspectionInfo?.bedroomWallPlasterDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomWallPlasterDefects.includes(
                       7,
                     )}
                     onChange={e => {
@@ -16411,7 +16663,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='8'
-                    defaultChecked={homeInspectionInfo?.bedroomWallPlasterDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomWallPlasterDefects.includes(
                       8,
                     )}
                     onChange={e => {
@@ -16429,7 +16681,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='9'
-                    defaultChecked={homeInspectionInfo?.bedroomWallPlasterDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomWallPlasterDefects.includes(
                       9,
                     )}
                     onChange={e => {
@@ -16447,7 +16699,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='10'
-                    defaultChecked={homeInspectionInfo?.bedroomWallPlasterDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomWallPlasterDefects.includes(
                       10,
                     )}
                     onChange={e => {
@@ -16465,7 +16717,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='11'
-                    defaultChecked={homeInspectionInfo?.bedroomWallPlasterDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomWallPlasterDefects.includes(
                       11,
                     )}
                     onChange={e => {
@@ -16483,7 +16735,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='12'
-                    defaultChecked={homeInspectionInfo?.bedroomWallPlasterDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomWallPlasterDefects.includes(
                       12,
                     )}
                     onChange={e => {
@@ -16501,7 +16753,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='13'
-                    defaultChecked={homeInspectionInfo?.bedroomWallPlasterDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomWallPlasterDefects.includes(
                       13,
                     )}
                     onChange={e => {
@@ -16519,7 +16771,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='14'
-                    defaultChecked={homeInspectionInfo?.bedroomWallPlasterDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomWallPlasterDefects.includes(
                       14,
                     )}
                     onChange={e => {
@@ -16537,7 +16789,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='15'
-                    defaultChecked={homeInspectionInfo?.bedroomWallPlasterDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomWallPlasterDefects.includes(
                       15,
                     )}
                     onChange={e => {
@@ -16555,7 +16807,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='16'
-                    defaultChecked={homeInspectionInfo?.bedroomWallPlasterDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomWallPlasterDefects.includes(
                       16,
                     )}
                     onChange={e => {
@@ -16573,7 +16825,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='17'
-                    defaultChecked={homeInspectionInfo?.bedroomWallPlasterDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomWallPlasterDefects.includes(
                       17,
                     )}
                     onChange={e => {
@@ -16591,7 +16843,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='18'
-                    defaultChecked={homeInspectionInfo?.bedroomWallPlasterDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomWallPlasterDefects.includes(
                       18,
                     )}
                     onChange={e => {
@@ -16609,7 +16861,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='19'
-                    defaultChecked={homeInspectionInfo?.bedroomWallPlasterDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomWallPlasterDefects.includes(
                       19,
                     )}
                     onChange={e => {
@@ -16627,7 +16879,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='20'
-                    defaultChecked={homeInspectionInfo?.bedroomWallPlasterDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomWallPlasterDefects.includes(
                       20,
                     )}
                     onChange={e => {
@@ -16645,7 +16897,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='21'
-                    defaultChecked={homeInspectionInfo?.bedroomWallPlasterDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomWallPlasterDefects.includes(
                       21,
                     )}
                     onChange={e => {
@@ -16801,7 +17053,9 @@ const HomeInspection = ({
             className='ml-2'
             name='bedroomWallTileCeramicType'
             value='1'
-            defaultChecked={homeInspectionInfo.bedroomWallTileCeramicType === '1'}
+            defaultChecked={
+              homeInspectionInfo.bedroomWallTileCeramicType === '1'
+            }
           />
           <label className='ml-2'>High Gloss</label>
 
@@ -16812,7 +17066,9 @@ const HomeInspection = ({
             name='bedroomWallTileCeramicType'
             value='2'
             onChange={e => {}}
-            defaultChecked={homeInspectionInfo.bedroomWallTileCeramicType === '2'}
+            defaultChecked={
+              homeInspectionInfo.bedroomWallTileCeramicType === '2'
+            }
           />
           <label className='ml-2'>Matt</label>
         </div>
@@ -16830,7 +17086,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='1'
-                    defaultChecked={homeInspectionInfo?.bedroomWallDefects?.includes(1)}
+                    defaultChecked={homeInspectionInfo.bedroomWallDefects.includes(
+                      1,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -16846,7 +17104,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='2'
-                    defaultChecked={homeInspectionInfo?.bedroomWallDefects?.includes(2)}
+                    defaultChecked={homeInspectionInfo.bedroomWallDefects.includes(
+                      2,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -16862,7 +17122,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='3'
-                    defaultChecked={homeInspectionInfo?.bedroomWallDefects?.includes(3)}
+                    defaultChecked={homeInspectionInfo.bedroomWallDefects.includes(
+                      3,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -16878,7 +17140,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='4'
-                    defaultChecked={homeInspectionInfo?.bedroomWallDefects?.includes(4)}
+                    defaultChecked={homeInspectionInfo.bedroomWallDefects.includes(
+                      4,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -16894,7 +17158,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='5'
-                    defaultChecked={homeInspectionInfo?.bedroomWallDefects?.includes(5)}
+                    defaultChecked={homeInspectionInfo.bedroomWallDefects.includes(
+                      5,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -16910,7 +17176,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='6'
-                    defaultChecked={homeInspectionInfo?.bedroomWallDefects?.includes(6)}
+                    defaultChecked={homeInspectionInfo.bedroomWallDefects.includes(
+                      6,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -16926,7 +17194,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='7'
-                    defaultChecked={homeInspectionInfo?.bedroomWallDefects?.includes(7)}
+                    defaultChecked={homeInspectionInfo.bedroomWallDefects.includes(
+                      7,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -16942,7 +17212,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='8'
-                    defaultChecked={homeInspectionInfo?.bedroomWallDefects?.includes(8)}
+                    defaultChecked={homeInspectionInfo.bedroomWallDefects.includes(
+                      8,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -16958,7 +17230,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='9'
-                    defaultChecked={homeInspectionInfo?.bedroomWallDefects?.includes(9)}
+                    defaultChecked={homeInspectionInfo.bedroomWallDefects.includes(
+                      9,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -16974,7 +17248,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='10'
-                    defaultChecked={homeInspectionInfo?.bedroomWallDefects?.includes(10)}
+                    defaultChecked={homeInspectionInfo.bedroomWallDefects.includes(
+                      10,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -16990,7 +17266,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='11'
-                    defaultChecked={homeInspectionInfo?.bedroomWallDefects?.includes(11)}
+                    defaultChecked={homeInspectionInfo.bedroomWallDefects.includes(
+                      11,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -17006,7 +17284,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='12'
-                    defaultChecked={homeInspectionInfo?.bedroomWallDefects?.includes(12)}
+                    defaultChecked={homeInspectionInfo.bedroomWallDefects.includes(
+                      12,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -17022,7 +17302,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='13'
-                    defaultChecked={homeInspectionInfo?.bedroomWallDefects?.includes(13)}
+                    defaultChecked={homeInspectionInfo.bedroomWallDefects.includes(
+                      13,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -17038,7 +17320,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='14'
-                    defaultChecked={homeInspectionInfo?.bedroomWallDefects?.includes(14)}
+                    defaultChecked={homeInspectionInfo.bedroomWallDefects.includes(
+                      14,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -17054,7 +17338,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='15'
-                    defaultChecked={homeInspectionInfo?.bedroomWallDefects?.includes(15)}
+                    defaultChecked={homeInspectionInfo.bedroomWallDefects.includes(
+                      15,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -17201,7 +17487,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='1'
-                    defaultChecked={homeInspectionInfo?.bedroomCeilingDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomCeilingDefects.includes(
                       1,
                     )}
                     onChange={e => {
@@ -17219,7 +17505,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='2'
-                    defaultChecked={homeInspectionInfo?.bedroomCeilingDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomCeilingDefects.includes(
                       2,
                     )}
                     onChange={e => {
@@ -17237,7 +17523,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='3'
-                    defaultChecked={homeInspectionInfo?.bedroomCeilingDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomCeilingDefects.includes(
                       3,
                     )}
                     onChange={e => {
@@ -17255,7 +17541,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='4'
-                    defaultChecked={homeInspectionInfo?.bedroomCeilingDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomCeilingDefects.includes(
                       4,
                     )}
                     onChange={e => {
@@ -17273,7 +17559,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='5'
-                    defaultChecked={homeInspectionInfo?.bedroomCeilingDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomCeilingDefects.includes(
                       5,
                     )}
                     onChange={e => {
@@ -17291,7 +17577,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='6'
-                    defaultChecked={homeInspectionInfo?.bedroomCeilingDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomCeilingDefects.includes(
                       6,
                     )}
                     onChange={e => {
@@ -17309,7 +17595,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='7'
-                    defaultChecked={homeInspectionInfo?.bedroomCeilingDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomCeilingDefects.includes(
                       7,
                     )}
                     onChange={e => {
@@ -17327,7 +17613,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='8'
-                    defaultChecked={homeInspectionInfo?.bedroomCeilingDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomCeilingDefects.includes(
                       8,
                     )}
                     onChange={e => {
@@ -17345,7 +17631,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='9'
-                    defaultChecked={homeInspectionInfo?.bedroomCeilingDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomCeilingDefects.includes(
                       9,
                     )}
                     onChange={e => {
@@ -17363,7 +17649,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='10'
-                    defaultChecked={homeInspectionInfo?.bedroomCeilingDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomCeilingDefects.includes(
                       10,
                     )}
                     onChange={e => {
@@ -17381,7 +17667,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='11'
-                    defaultChecked={homeInspectionInfo?.bedroomCeilingDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomCeilingDefects.includes(
                       11,
                     )}
                     onChange={e => {
@@ -17399,7 +17685,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='12'
-                    defaultChecked={homeInspectionInfo?.bedroomCeilingDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomCeilingDefects.includes(
                       12,
                     )}
                     onChange={e => {
@@ -17417,7 +17703,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='13'
-                    defaultChecked={homeInspectionInfo?.bedroomCeilingDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomCeilingDefects.includes(
                       13,
                     )}
                     onChange={e => {
@@ -17435,7 +17721,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='14'
-                    defaultChecked={homeInspectionInfo?.bedroomCeilingDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomCeilingDefects.includes(
                       14,
                     )}
                     onChange={e => {
@@ -17526,7 +17812,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='1'
-                    defaultChecked={homeInspectionInfo?.bedroomDoorFrameDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomDoorFrameDefects.includes(
                       1,
                     )}
                     onChange={e => {
@@ -17544,7 +17830,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='2'
-                    defaultChecked={homeInspectionInfo?.bedroomDoorFrameDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomDoorFrameDefects.includes(
                       2,
                     )}
                     onChange={e => {
@@ -17562,7 +17848,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='3'
-                    defaultChecked={homeInspectionInfo?.bedroomDoorFrameDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomDoorFrameDefects.includes(
                       3,
                     )}
                     onChange={e => {
@@ -17580,7 +17866,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='4'
-                    defaultChecked={homeInspectionInfo?.bedroomDoorFrameDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomDoorFrameDefects.includes(
                       4,
                     )}
                     onChange={e => {
@@ -17598,7 +17884,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='5'
-                    defaultChecked={homeInspectionInfo?.bedroomDoorFrameDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomDoorFrameDefects.includes(
                       5,
                     )}
                     onChange={e => {
@@ -17616,7 +17902,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='6'
-                    defaultChecked={homeInspectionInfo?.bedroomDoorFrameDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomDoorFrameDefects.includes(
                       6,
                     )}
                     onChange={e => {
@@ -17634,7 +17920,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='7'
-                    defaultChecked={homeInspectionInfo?.bedroomDoorFrameDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomDoorFrameDefects.includes(
                       7,
                     )}
                     onChange={e => {
@@ -17652,7 +17938,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='8'
-                    defaultChecked={homeInspectionInfo?.bedroomDoorFrameDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomDoorFrameDefects.includes(
                       8,
                     )}
                     onChange={e => {
@@ -17670,7 +17956,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='9'
-                    defaultChecked={homeInspectionInfo?.bedroomDoorFrameDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomDoorFrameDefects.includes(
                       9,
                     )}
                     onChange={e => {
@@ -17688,7 +17974,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='10'
-                    defaultChecked={homeInspectionInfo?.bedroomDoorFrameDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomDoorFrameDefects.includes(
                       10,
                     )}
                     onChange={e => {
@@ -17707,7 +17993,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='11'
-                    defaultChecked={homeInspectionInfo?.bedroomDoorFrameDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomDoorFrameDefects.includes(
                       11,
                     )}
                     onChange={e => {
@@ -17759,7 +18045,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='1'
-                    defaultChecked={homeInspectionInfo?.bedroomDoorDefects?.includes(1)}
+                    defaultChecked={homeInspectionInfo.bedroomDoorDefects.includes(
+                      1,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -17775,7 +18063,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='2'
-                    defaultChecked={homeInspectionInfo?.bedroomDoorDefects?.includes(2)}
+                    defaultChecked={homeInspectionInfo.bedroomDoorDefects.includes(
+                      2,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -17791,7 +18081,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='3'
-                    defaultChecked={homeInspectionInfo?.bedroomDoorDefects?.includes(3)}
+                    defaultChecked={homeInspectionInfo.bedroomDoorDefects.includes(
+                      3,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -17807,7 +18099,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='4'
-                    defaultChecked={homeInspectionInfo?.bedroomDoorDefects?.includes(4)}
+                    defaultChecked={homeInspectionInfo.bedroomDoorDefects.includes(
+                      4,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -17823,7 +18117,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='5'
-                    defaultChecked={homeInspectionInfo?.bedroomDoorDefects?.includes(5)}
+                    defaultChecked={homeInspectionInfo.bedroomDoorDefects.includes(
+                      5,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -17839,7 +18135,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='6'
-                    defaultChecked={homeInspectionInfo?.bedroomDoorDefects?.includes(6)}
+                    defaultChecked={homeInspectionInfo.bedroomDoorDefects.includes(
+                      6,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -17855,7 +18153,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='7'
-                    defaultChecked={homeInspectionInfo?.bedroomDoorDefects?.includes(7)}
+                    defaultChecked={homeInspectionInfo.bedroomDoorDefects.includes(
+                      7,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -17872,7 +18172,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='8'
-                    defaultChecked={homeInspectionInfo?.bedroomDoorDefects?.includes(8)}
+                    defaultChecked={homeInspectionInfo.bedroomDoorDefects.includes(
+                      8,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -17954,7 +18256,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='1'
-                    defaultChecked={homeInspectionInfo?.bedroomDoorHardwareDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomDoorHardwareDefects.includes(
                       1,
                     )}
                     onChange={e => {
@@ -17972,7 +18274,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='2'
-                    defaultChecked={homeInspectionInfo?.bedroomDoorHardwareDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomDoorHardwareDefects.includes(
                       2,
                     )}
                     onChange={e => {
@@ -17990,7 +18292,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='3'
-                    defaultChecked={homeInspectionInfo?.bedroomDoorHardwareDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomDoorHardwareDefects.includes(
                       3,
                     )}
                     onChange={e => {
@@ -18008,7 +18310,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='4'
-                    defaultChecked={homeInspectionInfo?.bedroomDoorHardwareDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomDoorHardwareDefects.includes(
                       4,
                     )}
                     onChange={e => {
@@ -18026,7 +18328,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='5'
-                    defaultChecked={homeInspectionInfo?.bedroomDoorHardwareDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomDoorHardwareDefects.includes(
                       5,
                     )}
                     onChange={e => {
@@ -18044,7 +18346,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='6'
-                    defaultChecked={homeInspectionInfo?.bedroomDoorHardwareDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomDoorHardwareDefects.includes(
                       6,
                     )}
                     onChange={e => {
@@ -18136,7 +18438,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='1'
-                    defaultChecked={homeInspectionInfo?.bedroomWindowFrameDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomWindowFrameDefects.includes(
                       1,
                     )}
                     onChange={e => {
@@ -18154,7 +18456,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='2'
-                    defaultChecked={homeInspectionInfo?.bedroomWindowFrameDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomWindowFrameDefects.includes(
                       2,
                     )}
                     onChange={e => {
@@ -18172,7 +18474,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='3'
-                    defaultChecked={homeInspectionInfo?.bedroomWindowFrameDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomWindowFrameDefects.includes(
                       3,
                     )}
                     onChange={e => {
@@ -18190,7 +18492,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='4'
-                    defaultChecked={homeInspectionInfo?.bedroomWindowFrameDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomWindowFrameDefects.includes(
                       4,
                     )}
                     onChange={e => {
@@ -18208,7 +18510,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='5'
-                    defaultChecked={homeInspectionInfo?.bedroomWindowFrameDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomWindowFrameDefects.includes(
                       5,
                     )}
                     onChange={e => {
@@ -18226,7 +18528,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='6'
-                    defaultChecked={homeInspectionInfo?.bedroomWindowFrameDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomWindowFrameDefects.includes(
                       6,
                     )}
                     onChange={e => {
@@ -18244,7 +18546,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='7'
-                    defaultChecked={homeInspectionInfo?.bedroomWindowFrameDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomWindowFrameDefects.includes(
                       7,
                     )}
                     onChange={e => {
@@ -18262,7 +18564,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='8'
-                    defaultChecked={homeInspectionInfo?.bedroomWindowFrameDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomWindowFrameDefects.includes(
                       8,
                     )}
                     onChange={e => {
@@ -18280,7 +18582,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='9'
-                    defaultChecked={homeInspectionInfo?.bedroomWindowFrameDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomWindowFrameDefects.includes(
                       9,
                     )}
                     onChange={e => {
@@ -18298,7 +18600,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='10'
-                    defaultChecked={homeInspectionInfo?.bedroomWindowFrameDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomWindowFrameDefects.includes(
                       10,
                     )}
                     onChange={e => {
@@ -18317,7 +18619,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='11'
-                    defaultChecked={homeInspectionInfo?.bedroomWindowFrameDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomWindowFrameDefects.includes(
                       11,
                     )}
                     onChange={e => {
@@ -18401,7 +18703,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='1'
-                    defaultChecked={homeInspectionInfo?.bedroomWindowHardwareDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomWindowHardwareDefects.includes(
                       1,
                     )}
                     onChange={e => {
@@ -18419,7 +18721,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='2'
-                    defaultChecked={homeInspectionInfo?.bedroomWindowHardwareDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomWindowHardwareDefects.includes(
                       2,
                     )}
                     onChange={e => {
@@ -18437,7 +18739,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='3'
-                    defaultChecked={homeInspectionInfo?.bedroomWindowHardwareDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomWindowHardwareDefects.includes(
                       3,
                     )}
                     onChange={e => {
@@ -18455,7 +18757,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='4'
-                    defaultChecked={homeInspectionInfo?.bedroomWindowHardwareDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomWindowHardwareDefects.includes(
                       4,
                     )}
                     onChange={e => {
@@ -18473,7 +18775,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='5'
-                    defaultChecked={homeInspectionInfo?.bedroomWindowHardwareDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomWindowHardwareDefects.includes(
                       5,
                     )}
                     onChange={e => {
@@ -18491,7 +18793,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='6'
-                    defaultChecked={homeInspectionInfo?.bedroomWindowHardwareDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomWindowHardwareDefects.includes(
                       6,
                     )}
                     onChange={e => {
@@ -18562,7 +18864,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='1'
-                    defaultChecked={homeInspectionInfo?.bedroomWindowShutterDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomWindowShutterDefects.includes(
                       1,
                     )}
                     onChange={e => {
@@ -18580,7 +18882,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='2'
-                    defaultChecked={homeInspectionInfo?.bedroomWindowShutterDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomWindowShutterDefects.includes(
                       2,
                     )}
                     onChange={e => {
@@ -18598,7 +18900,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='3'
-                    defaultChecked={homeInspectionInfo?.bedroomWindowShutterDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomWindowShutterDefects.includes(
                       3,
                     )}
                     onChange={e => {
@@ -18616,7 +18918,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='4'
-                    defaultChecked={homeInspectionInfo?.bedroomWindowShutterDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomWindowShutterDefects.includes(
                       4,
                     )}
                     onChange={e => {
@@ -18634,7 +18936,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='5'
-                    defaultChecked={homeInspectionInfo?.bedroomWindowShutterDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomWindowShutterDefects.includes(
                       5,
                     )}
                     onChange={e => {
@@ -18652,7 +18954,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='6'
-                    defaultChecked={homeInspectionInfo?.bedroomWindowShutterDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomWindowShutterDefects.includes(
                       6,
                     )}
                     onChange={e => {
@@ -18670,7 +18972,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='7'
-                    defaultChecked={homeInspectionInfo?.bedroomWindowShutterDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomWindowShutterDefects.includes(
                       7,
                     )}
                     onChange={e => {
@@ -18688,7 +18990,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='8'
-                    defaultChecked={homeInspectionInfo?.bedroomWindowShutterDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomWindowShutterDefects.includes(
                       8,
                     )}
                     onChange={e => {
@@ -18740,7 +19042,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='1'
-                    defaultChecked={homeInspectionInfo?.bedroomWallPanelDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomWallPanelDefects.includes(
                       1,
                     )}
                     onChange={e => {
@@ -18758,7 +19060,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='2'
-                    defaultChecked={homeInspectionInfo?.bedroomWallPanelDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomWallPanelDefects.includes(
                       2,
                     )}
                     onChange={e => {
@@ -18776,7 +19078,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='3'
-                    defaultChecked={homeInspectionInfo?.bedroomWallPanelDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomWallPanelDefects.includes(
                       3,
                     )}
                     onChange={e => {
@@ -18794,7 +19096,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='4'
-                    defaultChecked={homeInspectionInfo?.bedroomWallPanelDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomWallPanelDefects.includes(
                       4,
                     )}
                     onChange={e => {
@@ -18812,7 +19114,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='5'
-                    defaultChecked={homeInspectionInfo?.bedroomWallPanelDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomWallPanelDefects.includes(
                       5,
                     )}
                     onChange={e => {
@@ -18904,7 +19206,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='1'
-                    defaultChecked={homeInspectionInfo?.bedroomElectricalWiringDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomElectricalWiringDefects.includes(
                       1,
                     )}
                     onChange={e => {
@@ -18922,7 +19224,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='2'
-                    defaultChecked={homeInspectionInfo?.bedroomElectricalWiringDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomElectricalWiringDefects.includes(
                       2,
                     )}
                     onChange={e => {
@@ -18940,7 +19242,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='3'
-                    defaultChecked={homeInspectionInfo?.bedroomElectricalWiringDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomElectricalWiringDefects.includes(
                       3,
                     )}
                     onChange={e => {
@@ -18958,7 +19260,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='4'
-                    defaultChecked={homeInspectionInfo?.bedroomElectricalWiringDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomElectricalWiringDefects.includes(
                       4,
                     )}
                     onChange={e => {
@@ -18976,7 +19278,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='5'
-                    defaultChecked={homeInspectionInfo?.bedroomElectricalWiringDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomElectricalWiringDefects.includes(
                       5,
                     )}
                     onChange={e => {
@@ -18994,7 +19296,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='6'
-                    defaultChecked={homeInspectionInfo?.bedroomElectricalWiringDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomElectricalWiringDefects.includes(
                       6,
                     )}
                     onChange={e => {
@@ -19012,7 +19314,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='7'
-                    defaultChecked={homeInspectionInfo?.bedroomElectricalWiringDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomElectricalWiringDefects.includes(
                       7,
                     )}
                     onChange={e => {
@@ -19030,7 +19332,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='8'
-                    defaultChecked={homeInspectionInfo?.bedroomElectricalWiringDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomElectricalWiringDefects.includes(
                       8,
                     )}
                     onChange={e => {
@@ -19048,7 +19350,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='9'
-                    defaultChecked={homeInspectionInfo?.bedroomElectricalWiringDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomElectricalWiringDefects.includes(
                       9,
                     )}
                     onChange={e => {
@@ -19140,7 +19442,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='1'
-                    defaultChecked={homeInspectionInfo?.bedroomElectricalPointsDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomElectricalPointsDefects.includes(
                       1,
                     )}
                     onChange={e => {
@@ -19158,7 +19460,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='2'
-                    defaultChecked={homeInspectionInfo?.bedroomElectricalPointsDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomElectricalPointsDefects.includes(
                       2,
                     )}
                     onChange={e => {
@@ -19176,7 +19478,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='3'
-                    defaultChecked={homeInspectionInfo?.bedroomElectricalPointsDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomElectricalPointsDefects.includes(
                       3,
                     )}
                     onChange={e => {
@@ -19266,7 +19568,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='1'
-                    defaultChecked={homeInspectionInfo?.bedroomCeilingLightDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomCeilingLightDefects.includes(
                       1,
                     )}
                     onChange={e => {
@@ -19284,7 +19586,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='2'
-                    defaultChecked={homeInspectionInfo?.bedroomCeilingLightDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomCeilingLightDefects.includes(
                       2,
                     )}
                     onChange={e => {
@@ -19302,7 +19604,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='3'
-                    defaultChecked={homeInspectionInfo?.bedroomCeilingLightDefects?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomCeilingLightDefects.includes(
                       3,
                     )}
                     onChange={e => {
@@ -19392,7 +19694,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='1'
-                    defaultChecked={homeInspectionInfo?.bedroomFanDefects?.includes(1)}
+                    defaultChecked={homeInspectionInfo.bedroomFanDefects.includes(
+                      1,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -19408,7 +19712,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='2'
-                    defaultChecked={homeInspectionInfo?.bedroomFanDefects?.includes(2)}
+                    defaultChecked={homeInspectionInfo.bedroomFanDefects.includes(
+                      2,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -19424,7 +19730,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='3'
-                    defaultChecked={homeInspectionInfo?.bedroomFanDefects?.includes(3)}
+                    defaultChecked={homeInspectionInfo.bedroomFanDefects.includes(
+                      3,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -19520,7 +19828,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='1'
-                    defaultChecked={homeInspectionInfo?.bedroomAcDefects?.includes(1)}
+                    defaultChecked={homeInspectionInfo.bedroomAcDefects.includes(
+                      1,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -19536,7 +19846,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='2'
-                    defaultChecked={homeInspectionInfo?.bedroomAcDefects?.includes(2)}
+                    defaultChecked={homeInspectionInfo.bedroomAcDefects.includes(
+                      2,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -19552,7 +19864,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='3'
-                    defaultChecked={homeInspectionInfo?.bedroomAcDefects?.includes(3)}
+                    defaultChecked={homeInspectionInfo.bedroomAcDefects.includes(
+                      3,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -19568,7 +19882,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='4'
-                    defaultChecked={homeInspectionInfo?.bedroomAcDefects?.includes(4)}
+                    defaultChecked={homeInspectionInfo.bedroomAcDefects.includes(
+                      4,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -19584,7 +19900,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='5'
-                    defaultChecked={homeInspectionInfo?.bedroomAcDefects?.includes(5)}
+                    defaultChecked={homeInspectionInfo.bedroomAcDefects.includes(
+                      5,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -19600,7 +19918,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='6'
-                    defaultChecked={homeInspectionInfo?.bedroomAcDefects?.includes(6)}
+                    defaultChecked={homeInspectionInfo.bedroomAcDefects.includes(
+                      6,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -19616,7 +19936,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='7'
-                    defaultChecked={homeInspectionInfo?.bedroomAcDefects?.includes(7)}
+                    defaultChecked={homeInspectionInfo.bedroomAcDefects.includes(
+                      7,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -19632,7 +19954,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='8'
-                    defaultChecked={homeInspectionInfo?.bedroomAcDefects?.includes(8)}
+                    defaultChecked={homeInspectionInfo.bedroomAcDefects.includes(
+                      8,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -19680,7 +20004,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='1'
-                    defaultChecked={homeInspectionInfo?.bedroomAlterations?.includes(1)}
+                    defaultChecked={homeInspectionInfo.bedroomAlterations.includes(
+                      1,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -19696,7 +20022,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='2'
-                    defaultChecked={homeInspectionInfo?.bedroomAlterations?.includes(2)}
+                    defaultChecked={homeInspectionInfo.bedroomAlterations.includes(
+                      2,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -19712,7 +20040,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='3'
-                    defaultChecked={homeInspectionInfo?.bedroomAlterations?.includes(3)}
+                    defaultChecked={homeInspectionInfo.bedroomAlterations.includes(
+                      3,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -19728,7 +20058,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='4'
-                    defaultChecked={homeInspectionInfo?.bedroomAlterations?.includes(4)}
+                    defaultChecked={homeInspectionInfo.bedroomAlterations.includes(
+                      4,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -19744,7 +20076,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='5'
-                    defaultChecked={homeInspectionInfo?.bedroomAlterations?.includes(5)}
+                    defaultChecked={homeInspectionInfo.bedroomAlterations.includes(
+                      5,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -19773,7 +20107,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='1'
-                    defaultChecked={homeInspectionInfo?.bedroomWallDemolition?.includes(1)}
+                    defaultChecked={homeInspectionInfo.bedroomWallDemolition.includes(
+                      1,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -19789,7 +20125,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='2'
-                    defaultChecked={homeInspectionInfo?.bedroomWallDemolition?.includes(2)}
+                    defaultChecked={homeInspectionInfo.bedroomWallDemolition.includes(
+                      2,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -19805,7 +20143,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='3'
-                    defaultChecked={homeInspectionInfo?.bedroomWallDemolition?.includes(3)}
+                    defaultChecked={homeInspectionInfo.bedroomWallDemolition.includes(
+                      3,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -19821,7 +20161,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='4'
-                    defaultChecked={homeInspectionInfo?.bedroomWallDemolition?.includes(4)}
+                    defaultChecked={homeInspectionInfo.bedroomWallDemolition.includes(
+                      4,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -19837,7 +20179,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='5'
-                    defaultChecked={homeInspectionInfo?.bedroomWallDemolition?.includes(5)}
+                    defaultChecked={homeInspectionInfo.bedroomWallDemolition.includes(
+                      5,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -19853,7 +20197,9 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='6'
-                    defaultChecked={homeInspectionInfo?.bedroomWallDemolition?.includes(6)}
+                    defaultChecked={homeInspectionInfo.bedroomWallDemolition.includes(
+                      6,
+                    )}
                     onChange={e => {
                       handleCheckboxChange(
                         e,
@@ -19882,9 +20228,15 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='1'
-                    defaultChecked={homeInspectionInfo?.bedroomWallBuilt?.includes(1)}
+                    defaultChecked={homeInspectionInfo.bedroomWallBuilt.includes(
+                      1,
+                    )}
                     onChange={e => {
-                      handleCheckboxChange(e, bedroomWallBuild, setbedroomWallBuild);
+                      handleCheckboxChange(
+                        e,
+                        bedroomWallBuild,
+                        setbedroomWallBuild,
+                      );
                     }}
                   />
                 }
@@ -19894,9 +20246,15 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='2'
-                    defaultChecked={homeInspectionInfo?.bedroomWallBuilt?.includes(2)}
+                    defaultChecked={homeInspectionInfo.bedroomWallBuilt.includes(
+                      2,
+                    )}
                     onChange={e => {
-                      handleCheckboxChange(e, bedroomWallBuild, setbedroomWallBuild);
+                      handleCheckboxChange(
+                        e,
+                        bedroomWallBuild,
+                        setbedroomWallBuild,
+                      );
                     }}
                   />
                 }
@@ -19906,9 +20264,15 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='3'
-                    defaultChecked={homeInspectionInfo?.bedroomWallBuilt?.includes(3)}
+                    defaultChecked={homeInspectionInfo.bedroomWallBuilt.includes(
+                      3,
+                    )}
                     onChange={e => {
-                      handleCheckboxChange(e, bedroomWallBuild, setbedroomWallBuild);
+                      handleCheckboxChange(
+                        e,
+                        bedroomWallBuild,
+                        setbedroomWallBuild,
+                      );
                     }}
                   />
                 }
@@ -19918,9 +20282,15 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='4'
-                    defaultChecked={homeInspectionInfo?.bedroomWallBuilt?.includes(4)}
+                    defaultChecked={homeInspectionInfo.bedroomWallBuilt.includes(
+                      4,
+                    )}
                     onChange={e => {
-                      handleCheckboxChange(e, bedroomWallBuild, setbedroomWallBuild);
+                      handleCheckboxChange(
+                        e,
+                        bedroomWallBuild,
+                        setbedroomWallBuild,
+                      );
                     }}
                   />
                 }
@@ -19930,9 +20300,15 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='5'
-                    defaultChecked={homeInspectionInfo?.bedroomWallBuilt?.includes(5)}
+                    defaultChecked={homeInspectionInfo.bedroomWallBuilt.includes(
+                      5,
+                    )}
                     onChange={e => {
-                      handleCheckboxChange(e, bedroomWallBuild, setbedroomWallBuild);
+                      handleCheckboxChange(
+                        e,
+                        bedroomWallBuild,
+                        setbedroomWallBuild,
+                      );
                     }}
                   />
                 }
@@ -19942,9 +20318,15 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='6'
-                    defaultChecked={homeInspectionInfo?.bedroomWallBuilt?.includes(6)}
+                    defaultChecked={homeInspectionInfo.bedroomWallBuilt.includes(
+                      6,
+                    )}
                     onChange={e => {
-                      handleCheckboxChange(e, bedroomWallBuild, setbedroomWallBuild);
+                      handleCheckboxChange(
+                        e,
+                        bedroomWallBuild,
+                        setbedroomWallBuild,
+                      );
                     }}
                   />
                 }
@@ -19969,7 +20351,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='1'
-                    defaultChecked={homeInspectionInfo?.bedroomBalconyFloorExtended?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomBalconyFloorExtended.includes(
                       1,
                     )}
                     onChange={e => {
@@ -19987,7 +20369,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='2'
-                    defaultChecked={homeInspectionInfo?.bedroomBalconyFloorExtended?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomBalconyFloorExtended.includes(
                       2,
                     )}
                     onChange={e => {
@@ -20005,7 +20387,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='3'
-                    defaultChecked={homeInspectionInfo?.bedroomBalconyFloorExtended?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomBalconyFloorExtended.includes(
                       3,
                     )}
                     onChange={e => {
@@ -20038,7 +20420,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='1'
-                    defaultChecked={homeInspectionInfo?.bedroomBoxWindowSpaceUtilized?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomBoxWindowSpaceUtilized.includes(
                       1,
                     )}
                     onChange={e => {
@@ -20056,7 +20438,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='2'
-                    defaultChecked={homeInspectionInfo?.bedroomBoxWindowSpaceUtilized?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomBoxWindowSpaceUtilized.includes(
                       2,
                     )}
                     onChange={e => {
@@ -20074,7 +20456,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='3'
-                    defaultChecked={homeInspectionInfo?.bedroomBoxWindowSpaceUtilized?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomBoxWindowSpaceUtilized.includes(
                       3,
                     )}
                     onChange={e => {
@@ -20092,7 +20474,7 @@ const HomeInspection = ({
                 control={
                   <Checkbox
                     value='4'
-                    defaultChecked={homeInspectionInfo?.bedroomBoxWindowSpaceUtilized?.includes(
+                    defaultChecked={homeInspectionInfo.bedroomBoxWindowSpaceUtilized.includes(
                       4,
                     )}
                     onChange={e => {
@@ -20109,6 +20491,7 @@ const HomeInspection = ({
           </FormControl>
         </div>
       )}
+      {check && <p className='text-red-500'>Required Question </p>}
     </div>
   );
 };

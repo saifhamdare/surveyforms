@@ -4,6 +4,7 @@ import {
   FormControlLabel,
   FormGroup,
   Input,
+  TextField,
 } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 
@@ -11,6 +12,8 @@ const KnowYourSociety = ({
   questionCount,
   setKnowYourSocietyInfo,
   KnowYourSocietyInfo,
+  
+  check
 }) => {
   const [commercialEntities, setCommercialEntities] = useState('');
   const [parkingType, setParkingtype] = useState('');
@@ -25,8 +28,7 @@ const KnowYourSociety = ({
   const [funcs, setFuncs] = useState('');
   const [meeting, setMeeting] = useState('');
   const [members, setMembers] = useState('');
-
-  const [management, setManagement] = useState('');
+  
 
   const handleCheckboxChange = (event, state, setState) => {
     console.log(+event.target.value);
@@ -34,7 +36,6 @@ const KnowYourSociety = ({
       ? state?.filter(name => name !== +event.target.value)
       : [...(state ?? []), +event.target.value];
     setState(newNames);
-    console.log(state);
   };
 
   useEffect(() => {
@@ -106,7 +107,9 @@ const KnowYourSociety = ({
     }));
   }, [members]);
   useEffect(() => {
-    setKnowYourSocietyInfo(prevState => ({ ...prevState, Celebration: funcs }));
+    setKnowYourSocietyInfo(prevState => ({ 
+      ...prevState, Celebration: funcs ,
+    }));
   }, [funcs]);
   useEffect(() => {
     setKnowYourSocietyInfo(prevState => ({
@@ -116,8 +119,8 @@ const KnowYourSociety = ({
   }, [meeting]);
 
   return (
-    <div className='	'>
-      {questionCount === 1 && (
+    <div className=''>
+       { questionCount === 1 && (
         <div className='question'>
           <div className='flex mb-10 font-semibold text-xl text-sky-700'>
             <h1 className='mr-2 '>{questionCount}.</h1>
@@ -127,16 +130,21 @@ const KnowYourSociety = ({
           </div>
 
           <Input
-            placeholder='Flats Available in number'
-            value={KnowYourSocietyInfo.FlatsAvailable}
-            onChange={e =>
-              setKnowYourSocietyInfo({
-                ...KnowYourSocietyInfo,
-                FlatsAvailable: e.target.value,
-              })
-            }
-            fullWidth
-            type='number'
+          variant="standard"
+          placeholder='Flats Available in number'
+          value={KnowYourSocietyInfo.FlatsAvailable}
+          onChange={e =>{
+          
+            setKnowYourSocietyInfo({
+              ...KnowYourSocietyInfo,
+              FlatsAvailable: e.target.value,
+            }) 
+         
+           
+
+          }}
+          fullWidth
+          type='number'
           />
         </div>
       )}
@@ -174,12 +182,10 @@ const KnowYourSociety = ({
           <Input
             placeholder=''
             value={KnowYourSocietyInfo.Landmarks}
-            onChange={e =>
-              setKnowYourSocietyInfo({
-                ...KnowYourSocietyInfo,
-                Landmarks: e.target.value,
-              })
-            }
+            onChange={e =>{
+              setKnowYourSocietyInfo({...KnowYourSocietyInfo,Landmarks: e.target.value,})
+
+            }}
             required
             fullWidth
           />
@@ -308,12 +314,7 @@ const KnowYourSociety = ({
               />
             </FormGroup>
           </FormControl>
-          {/* <input type="checkbox" className="ml-2" name="subtype" value="1" onChange={(e) => {console.log(e.target.value)}} />
-    
-          <label className="ml-2">Podium Parking</label>
-          <br />
-          <input type="checkbox" className="ml-2" name="subtype" value="2" onChange={(e) => {handleCheckboxChange(e)}} />
-          <label className="ml-2">Basement</label> */}
+ 
         </div>
       )}
       {questionCount === 6 && (
@@ -581,14 +582,7 @@ const KnowYourSociety = ({
       {questionCount === 9 && (
         <div
           className='question '
-          // value={KnowYourSocietyInfo.lift}
-          // onChange={e =>
-          //   setKnowYourSocietyInfo({
-          //     ...KnowYourSocietyInfo,
-          //     lift: e.target.value,
-          //   })
-          // }
-          // required
+
         >
           <div className='flex mb-10 font-semibold text-xl text-sky-700'>
             <h1 className='mr-2 '>{questionCount}.</h1>
@@ -1340,7 +1334,7 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='1'
-                    defaultChecked={KnowYourSocietyInfo.SwimmigPoolType.includes(
+                    defaultChecked={KnowYourSocietyInfo.SwimmingPoolType.includes(
                       1,
                     )}
                     onChange={e => {
@@ -1354,7 +1348,7 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='2'
-                    defaultChecked={KnowYourSocietyInfo.SwimmigPoolType.includes(
+                    defaultChecked={KnowYourSocietyInfo.SwimmingPoolType.includes(
                       2,
                     )}
                     onChange={e => {
@@ -1368,7 +1362,7 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='3'
-                    defaultChecked={KnowYourSocietyInfo.SwimmigPoolType.includes(
+                    defaultChecked={KnowYourSocietyInfo.SwimmingPoolType.includes(
                       3,
                     )}
                     onChange={e => {
@@ -2157,321 +2151,7 @@ const KnowYourSociety = ({
           />
         </div>
       )}
-      {/* {questionCount === 42 && (
-        <div className="question">
-          <div className="flex mb-10 font-semibold text-xl text-sky-700">
-            <h1 className="mr-2 ">{questionCount}.</h1>
-            <h4 className="font-semibold text-lg">Photo upload of lift</h4>
-          </div>
-
-          <Input
-            type="file"
-            accept="image/*"
-            onChange={(e) =>
-              setKnowYourSocietyInfo({
-                ...KnowYourSocietyInfo,
-                liftphoto: e.target.files[0],
-              })
-            }
-            placeholder="no."
-            fullWidth
-          />
-        </div>
-      )}
-      {questionCount === 43 && (
-        <div className="question">
-          <div className="flex mb-10 font-semibold text-xl text-sky-700">
-            <h1 className="mr-2 ">{questionCount}.</h1>
-            <h4 className="font-semibold text-lg">
-              {" "}
-              Photo upload of lift Lobby
-            </h4>
-          </div>
-
-          <Input
-            type="file"
-            accept="image/*"
-            onChange={(e) =>
-              setKnowYourSocietyInfo({
-                ...KnowYourSocietyInfo,
-                liftlobbyphoto: e.target.files[0],
-              })
-            }
-            placeholder="no."
-            fullWidth
-          />
-        </div>
-      )}
-      {questionCount === 44 && (
-        <div className="question">
-          <div className="flex mb-10 font-semibold text-xl text-sky-700">
-            <h1 className="mr-2 ">{questionCount}.</h1>
-            <h4 className="font-semibold text-lg">Photo upload of staircase</h4>
-          </div>
-
-          <Input
-            type="file"
-            accept="image/*"
-            onChange={(e) =>
-              setKnowYourSocietyInfo({
-                ...KnowYourSocietyInfo,
-                staircasephoto: e.target.files[0],
-              })
-            }
-            placeholder="no."
-            fullWidth
-          />
-        </div>
-      )}
-      {questionCount === 45 && (
-        <div className="question">
-          <div className="flex mb-10 font-semibold text-xl text-sky-700">
-            <h1 className="mr-2 ">{questionCount}.</h1>
-            <h4 className="font-semibold text-lg">
-              Photo upload of entrance Lobby
-            </h4>
-          </div>
-
-          <Input
-            type="file"
-            accept="image/*"
-            onChange={(e) =>
-              setKnowYourSocietyInfo({
-                ...KnowYourSocietyInfo,
-                entrancelobbyephoto: e.target.files[0],
-              })
-            }
-            placeholder="no."
-            fullWidth
-          />
-        </div>
-      )}
-      {questionCount === 46 && (
-        <div className="question">
-          <div className="flex mb-10 font-semibold text-xl text-sky-700">
-            <h1 className="mr-2 ">{questionCount}.</h1>
-            <h4 className="font-semibold text-lg">
-              Photo upload of Society Meeting room
-            </h4>
-          </div>
-
-          <Input
-            type="file"
-            accept="image/*"
-            onChange={(e) =>
-              setKnowYourSocietyInfo({
-                ...KnowYourSocietyInfo,
-                MeetingRoomphoto: e.target.files[0],
-              })
-            }
-            placeholder="no."
-            fullWidth
-          />
-        </div>
-      )}
-      {questionCount === 47 && (
-        <div className="question">
-          <div className="flex mb-10 font-semibold text-xl text-sky-700">
-            <h1 className="mr-2 ">{questionCount}.</h1>
-            <h4 className="font-semibold text-lg">
-              Photo upload of ClubHouse(Gym)
-            </h4>
-          </div>
-
-          <Input
-            type="file"
-            accept="image/*"
-            onChange={(e) =>
-              setKnowYourSocietyInfo({
-                ...KnowYourSocietyInfo,
-                ClubHousephoto: e.target.files[0],
-              })
-            }
-            placeholder="no."
-            fullWidth
-          />
-        </div>
-      )}
-      {questionCount === 48 && (
-        <div className="question">
-          <div className="flex mb-10 font-semibold text-xl text-sky-700">
-            <h1 className="mr-2 ">{questionCount}.</h1>
-            <h4 className="font-semibold text-lg">
-              Photo upload of PlayGround
-            </h4>
-          </div>
-          <Input
-            type="file"
-            accept="image/*"
-            onChange={(e) =>
-              setKnowYourSocietyInfo({
-                ...KnowYourSocietyInfo,
-                PlayGroundphoto: e.target.files[0],
-              })
-            }
-            placeholder="no."
-            fullWidth
-          />
-        </div>
-      )}
-      {questionCount === 49 && (
-        <div className="question">
-          <div className="flex mb-10 font-semibold text-xl text-sky-700">
-            <h1 className="mr-2 ">{questionCount}.</h1>
-            <h4 className="font-semibold text-lg">
-              Photo upload of Swimming Pool
-            </h4>
-          </div>
-
-          <Input
-            type="file"
-            accept="image/*"
-            onChange={(e) =>
-              setKnowYourSocietyInfo({
-                ...KnowYourSocietyInfo,
-                SwimmingPoolphoto: e.target.files[0],
-              })
-            }
-            placeholder="no."
-            fullWidth
-          />
-        </div>
-      )}
-      {questionCount === 50 && (
-        <div className="question">
-          <div className="flex mb-10 font-semibold text-xl text-sky-700">
-            <h1 className="mr-2 ">{questionCount}.</h1>
-            <h4 className="font-semibold text-lg">
-              Photo upload of Jogging Track
-            </h4>
-          </div>
-
-          <Input
-            type="file"
-            accept="image/*"
-            onChange={(e) =>
-              setKnowYourSocietyInfo({
-                ...KnowYourSocietyInfo,
-                JoggingTrackphoto: e.target.files[0],
-              })
-            }
-            placeholder="no."
-            fullWidth
-          />
-        </div>
-      )}
-      {questionCount === 51 && (
-        <div className="question">
-          <div className="flex mb-10 font-semibold text-xl text-sky-700">
-            <h1 className="mr-2 ">{questionCount}.</h1>
-            <h4 className="font-semibold text-lg">
-              Photo upload of running walking track
-            </h4>
-          </div>
-
-          <Input
-            type="file"
-            accept="image/*"
-            onChange={(e) =>
-              setKnowYourSocietyInfo({
-                ...KnowYourSocietyInfo,
-                Reflexologyphoto: e.target.files[0],
-              })
-            }
-            placeholder="no."
-            fullWidth
-          />
-        </div>
-      )}
-      {questionCount === 52 && (
-        <div className="question">
-          <div className="flex mb-10 font-semibold text-xl text-sky-700">
-            <h1 className="mr-2 ">{questionCount}.</h1>
-            <h4 className="font-semibold text-lg">Photo upload of Greenary</h4>
-          </div>
-          <Input
-            type="file"
-            accept="image/*"
-            onChange={(e) =>
-              setKnowYourSocietyInfo({
-                ...KnowYourSocietyInfo,
-                Greenaryphoto: e.target.files[0],
-              })
-            }
-            placeholder="no."
-            fullWidth
-          />
-        </div>
-      )}
-      {questionCount === 53 && (
-        <div className="question">
-          <div className="flex mb-10 font-semibold text-xl text-sky-700">
-            <h1 className="mr-2 ">{questionCount}.</h1>
-            <h4 className="font-semibold text-lg">
-              Photo upload of Cycle Track
-            </h4>
-          </div>
-          <Input
-            type="file"
-            accept="image/*"
-            onChange={(e) =>
-              setKnowYourSocietyInfo({
-                ...KnowYourSocietyInfo,
-                cyclingTrackPhoto: e.target.files[0],
-              })
-            }
-            placeholder="no."
-            fullWidth
-          />
-        </div>
-      )}
-      {questionCount === 54 && (
-        <div className="question">
-          <div className="flex mb-10 font-semibold text-xl text-sky-700">
-            <h1 className="mr-2 ">{questionCount}.</h1>
-            <h4 className="font-semibold text-lg">
-              Photo upload of Public Area Lighting
-            </h4>
-          </div>
-
-          <Input
-            type="file"
-            accept="image/*"
-            onChange={(e) =>
-              setKnowYourSocietyInfo({
-                ...KnowYourSocietyInfo,
-                PublicAreaLightingphoto: e.target.files[0],
-              })
-            }
-            placeholder="no."
-            fullWidth
-          />
-        </div>
-      )}
-      {questionCount === 55 && (
-        <div className="question">
-          <div className="flex mb-10 font-semibold text-xl text-sky-700">
-            <h1 className="mr-2 ">{questionCount}.</h1>
-            <h4 className="font-semibold text-lg">
-              Photo upload of Other Amenities
-            </h4>
-          </div>
-
-          <Input
-            type="file"
-            accept="image/*"
-            onChange={(e) =>
-              setKnowYourSocietyInfo({
-                ...KnowYourSocietyInfo,
-                otherAmenitiesphoto: e.target.files[0],
-              })
-            }
-            placeholder="no."
-            fullWidth
-          />
-        </div>
-      )} */}
-
+      
       {questionCount === 43 && (
         <div
           className='question '
@@ -2522,26 +2202,7 @@ const KnowYourSociety = ({
         </div>
       )}
 
-      {/* {questionCount === 54 && <div
-            className="question "
-                  value={KnowYourSocietyInfo.WaterStorage}
-              onChange={(e) =>
-                setKnowYourSocietyInfo({
-                  ...KnowYourSocietyInfo,
-                  WaterStorage: e.target.value,
-                })
-              }
-          >
-            <h4 className="font-semibold text-lg"> Water Storage Facility Kis type ki hein</h4>
-            <input type="radio" className="ml-2" name="WaterStorage" value="1" />
-            <label className="ml-2" >UNDERGROUND TANK</label> <br />
-            <input type="radio" className="ml-2" name="WaterStorage" value="2" />
-            <label className="ml-2" >OVERHEAD TANK</label>
-            <br />
-            <input type="radio" className="ml-2" name="WaterStorage" value="3" />
-            <label className="ml-2" >NA</label>
-          
-          </div>} */}
+      
       {questionCount === 44 && (
         <div
           className='question '
@@ -3081,7 +2742,7 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='1'
-                    defaultChecked={KnowYourSocietyInfo.MajoriyAgeGroup.includes(
+                    defaultChecked={KnowYourSocietyInfo.MajorityAgeGroup.includes(
                       1,
                     )}
                     onChange={e => {
@@ -3095,7 +2756,7 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='2'
-                    defaultChecked={KnowYourSocietyInfo.MajoriyAgeGroup.includes(
+                    defaultChecked={KnowYourSocietyInfo.MajorityAgeGroup.includes(
                       2,
                     )}
                     onChange={e => {
@@ -3109,7 +2770,7 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='3'
-                    defaultChecked={KnowYourSocietyInfo.MajoriyAgeGroup.includes(
+                    defaultChecked={KnowYourSocietyInfo.MajorityAgeGroup.includes(
                       3,
                     )}
                     onChange={e => {
@@ -3123,7 +2784,7 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='4'
-                    defaultChecked={KnowYourSocietyInfo.MajoriyAgeGroup.includes(
+                    defaultChecked={KnowYourSocietyInfo.MajorityAgeGroup.includes(
                       4,
                     )}
                     onChange={e => {
@@ -3137,7 +2798,7 @@ const KnowYourSociety = ({
                 control={
                   <Checkbox
                     value='5'
-                    defaultChecked={KnowYourSocietyInfo.MajoriyAgeGroup.includes(
+                    defaultChecked={KnowYourSocietyInfo.MajorityAgeGroup.includes(
                       5,
                     )}
                     onChange={e => {
@@ -4214,6 +3875,7 @@ const KnowYourSociety = ({
           <label className='ml-2'>Not Approved</label>
         </div>
       )}
+      { check && <p className='text-red-500'>Required Question </p>}
     </div>
   );
 };
