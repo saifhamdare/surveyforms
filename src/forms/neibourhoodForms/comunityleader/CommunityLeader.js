@@ -149,7 +149,7 @@ const CommunityLeader = ({
           </div>
 
           <Input
-            placeholder="eg. rameshk@gmail.com"
+            placeholder=""
             value={communityLeaderInfo.address}
             onChange={(e) =>
               setCommunityLeaderInfo({
@@ -170,7 +170,7 @@ const CommunityLeader = ({
           </div>
 
           <Input
-            placeholder="eg. rameshk@gmail.com"
+            placeholder="eg.  PXXXXXXXXXXX"
             value={communityLeaderInfo.reraNumber}
             onChange={(e) =>
               setCommunityLeaderInfo({
